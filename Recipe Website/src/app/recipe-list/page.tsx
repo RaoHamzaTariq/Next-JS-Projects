@@ -14,7 +14,7 @@ const fetchRecipesData = async () => {
         return data
         
     } catch (error) {
-        throw new Error(error.message)
+        console.log(error)
     }
 }
 
