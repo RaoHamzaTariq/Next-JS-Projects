@@ -10,8 +10,15 @@ import { RiDashboard2Line } from "react-icons/ri";
 import { MdInsights } from "react-icons/md";
 import FAQs from "@/components/FAQs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { IconType } from "react-icons/lib";
 
-export const whyChooseMe = [
+interface WhyChooseMe {
+  icon:JSX.Element
+  title:string
+  desc:string
+}
+
+export const whyChooseMe : WhyChooseMe[] = [
       {
           icon: <MdInsights className="h-8 w-8 text-primary"/>,
           title: "Insightful Data Analysis",
@@ -51,7 +58,7 @@ export default function Home() {
 <main>
 <section className="grid grid-cols-1 md:grid-cols-2 lg:gap-80 overflow-hidden    items-center justify-between lg:pt-16 sm:pt-40 pt-40  overflow-x-hidden h-screen">
   <div className=" max-w-lg ml-20 flex flex-col gap-5">
-    <h3>I'm Hamza</h3>
+    <h3>I&apos;m Hamza</h3>
     <h1>Data Analyst and Web Developer</h1>
     <p>I am a skilled Data Analyst, Web Developer, and Power BI Developer, specializing in transforming data into insights and building user-friendly web solutions to help you achieve your goals.</p>
     <div>
@@ -75,13 +82,12 @@ export default function Home() {
 
                 </p>
               </div>
-              <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3">
+              <ul className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3">
                 
-                {whyChooseMe.map((quality)=>(
+                {whyChooseMe.map((quality:WhyChooseMe)=>(
 
                 <div key={quality.title} className="grid gap-4">
                   <div className="flex items-center gap-4">
-                    {/* <MdInsights className="h-8 w-8 text-primary" /> */}
                     {quality.icon}
                     <h3 className="text-xl font-bold">{quality.title}</h3>
                   </div>
@@ -89,7 +95,7 @@ export default function Home() {
                 </div>
 
                 ))}
-          </div>
+          </ul>
           </div>
           </div>
         </section>
@@ -100,7 +106,7 @@ export default function Home() {
 <section className="my-32 space-y-28">
   <div className="flex flex-col gap-5 justify-center text-center items-center">
     <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl  ">Choose Your Services Plan</h1>
-    <p className="max-w-[900px] text-gray-700 dark:text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">Select the perfect plan tailored to your needs, whether you're looking for expert data analysis, cutting-edge data science solutions, or innovative web development services.</p>
+    <p className="max-w-[900px] text-gray-700 dark:text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">Select the perfect plan tailored to your needs, whether you&apos;re looking for expert data analysis, cutting-edge data science solutions, or innovative web development services.</p>
   </div>
   <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center gap-10 items-center container mx-auto">
     <div>

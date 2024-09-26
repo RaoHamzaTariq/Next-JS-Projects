@@ -17,7 +17,7 @@ const Footer = () => {
 </div>
 <div className='flex flex-col gap-2 justify-center '>
   <p className='font-bold'>Get 15% off your first order!</p>
-  <p className='text-sm max-w-lg'>Sign up to our mailing list below to get 15% off your first order. Don't worry, we hate spam too.</p>
+  <p className='text-sm max-w-lg'>Sign up to our mailing list below to get 15% off your first order. Don&apos;t worry, we hate spam too.</p>
 </div>
 <div className='flex lg:min-w-96 gap-10 items-center pt-4 px-2'>
   <Input placeholder='Enter your email'/>
@@ -53,12 +53,12 @@ const Footer = () => {
       </div>
       <div>
         <div className='flex justify-between px-10 py-3 border border-t-gray-300'>
-          <p className='text-sm'>This is my portfolio website created by <span className='text-destructive'>Rao Hamza Tariq</span></p>
+          <p className='text-sm'>This is my portfolio website created by <span className='text-destructive dark:text-red-500'>Rao Hamza Tariq</span></p>
           <div className='flex gap-2 text-xl'>
             <FaLinkedin href={"https://www.linkedin.com/in/rao-hamza-tariq/?originalSubdomain=pk"}/>
             <FaXTwitter href='https://twitter.com/rao_hamza_tariq'/>
           </div>
-        </div>
+        </div>  
       </div>
 
       </div>

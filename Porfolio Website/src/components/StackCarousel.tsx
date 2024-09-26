@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/carousel";
 
 // Array of icon components
-const StackLogo = [RiNextjsFill, FaReact,FaPython,SiPowerbi,SiScikitlearn,,SiMysql,SiTailwindcss,SiTypescript];
+const StackLogo : undefined[] | any = [RiNextjsFill, FaReact,FaPython,SiPowerbi,SiScikitlearn,,SiMysql,SiTailwindcss,SiTypescript];
 
 export function StackCarousal() {
 
@@ -35,13 +35,13 @@ export function StackCarousal() {
             ]}
       >
         <CarouselContent className="-ml-1 flex gap-10">
-          {StackLogo.map((Icons, index) => (
+          {StackLogo.map((Icons:any, index: React.Key | null | undefined) => (
             <CarouselItem
-              key={index} // Add unique key for each item
+              key={index}
               className="pl-1 md:basis-1/2 lg:basis-1/4 flex justify-center items-center"
             >
-              <div className="p-1 text-8xl text-primary"> {/* Adjust icon size here */}
-                <Icons /> {/* Render the component correctly */}
+              <div className="p-1 text-8xl text-primary">
+                <Icons />
               </div>
             </CarouselItem>
           ))}

@@ -160,12 +160,10 @@ const Navbar = () => {
     <NavigationMenuTrigger>Portfolio</NavigationMenuTrigger>
     <NavigationMenuContent>
       <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-        {components.map((component,index) => (
-          <Link href={`/Portfolio/${component.title.replace(/\s+/g,"")}`}>
+        {components.map((component) => (
+          <Link href={`/Portfolio/${component.title.replace(/\s+/g,"")}`} key={component.title}>
           <ListItem
-            key={index}
             title={component.title}
-            // href={`/Portfolio/${component.title.replace(/\s+/g,"")}`}
           >
             {component.description}
           </ListItem>

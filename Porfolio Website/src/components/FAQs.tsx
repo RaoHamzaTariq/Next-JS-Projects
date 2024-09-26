@@ -13,7 +13,7 @@ const FAQs = () => {
           <Accordion className="w-full mt-4" type="multiple">
             {
              faqs.map((ele:{question:string,answer:string},index:number)=>(
-                <AccordionItem value={`item ${index}`}>
+                <AccordionItem value={`item ${index}`} key={ele.question}>
                 <AccordionTrigger  className="hover:underline-none">
                   {ele.question}
                 </AccordionTrigger>
