@@ -22,13 +22,11 @@ export const useCart = () => {
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartProducts[]>([]);
 
-  // Log cart when it updates
   useEffect(() => {
     console.log("Cart updated:", cart);
   }, [cart]);
 
   const addToCart = (item: CartProducts) => {
-    // Debugging: Log the item before adding it to the cart
     console.log("Item to be added:", item);
 
     if (!item || !item.id || !item.title || !item.price) {
@@ -36,10 +34,8 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
       return;
     }
 
-    // Add the item to the cart
     setCart((prevCart) => [...prevCart, item]);
 
-    // Check if cart was updated correctly
     console.log("Cart after addition:", [...cart, item]);
   };
 

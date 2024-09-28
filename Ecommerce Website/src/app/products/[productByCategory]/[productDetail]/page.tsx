@@ -75,6 +75,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
       quantity: quantity,
       category: product.category,
       brand: product.brand,
+      subTotal: parseFloat((product.price*quantity).toFixed(2))
     });
     console.log(cart);
     console.log(cart.length);

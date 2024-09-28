@@ -49,7 +49,8 @@ export interface CartProducts {
   title: string;
   thumbnail: string;
   category: string;
-  brand:string
+  brand:string,
+  subTotal:number
 }
 
 
