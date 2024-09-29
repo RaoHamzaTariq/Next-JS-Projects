@@ -2,10 +2,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import React from "react";
-import Image from "next/image";
 import { useCart } from "@/components/ContextForCart";
-import { CartProducts } from "../data";
-import shoppingFestival from "../../../public/shopping-festival.png";
 import { Input } from "@/components/ui/input";
 
 const Cart = () => {

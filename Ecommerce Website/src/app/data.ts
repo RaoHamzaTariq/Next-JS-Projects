@@ -53,6 +53,11 @@ export interface CartProducts {
   subTotal:number
 }
 
+export interface ProductCategory {
+  name:string,
+  slug:string,
+  url:string
+}
 
 export const faqsArray : FAQS_ARRAY[]= [
     { id: 1, ques: "How can I track my order?", ans: "You can track your order by logging into your account and checking the order status." },

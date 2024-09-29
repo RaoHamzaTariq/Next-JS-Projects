@@ -1,8 +1,6 @@
 "use client"; // Ensure this is present if you are using client-side data fetching
 
-import { ReactNode, useEffect, useState } from "react";
-import Image from "next/image";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
+import { useEffect, useState } from "react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -10,12 +8,7 @@ import { motion } from "framer-motion";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Faqs from "@/components/Faqs";
-import groceryPic from "../../public/Product Display/groceries.jpg"
-import makeupPic from "../../public/Product Display/Makeup.png"
-import mobileaccessoriesPic from "../../public/Product Display/mobileaccessories.jpg"
-import skincarePic from "../../public/Product Display/skincare.png"
 
 
 type Product = {
@@ -121,7 +114,7 @@ export default function Home() {
                   {products
                     .filter((e:Product) => e.rating > 4)
                     .map((product) => (
-                      <CarouselItem className="sm:basis-1 md:basis-1/2 lg:basis-1/3">
+                      <CarouselItem key={product.id} className="sm:basis-1 md:basis-1/2 lg:basis-1/3">
                         <Card className="w-full sm:w-72 md:w-80 lg:w-96  max-h-fit">
                           <CardHeader className="pt-0">
                             <CardTitle className="text-base md:text-lg lg:text-xl">

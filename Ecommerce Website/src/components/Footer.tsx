@@ -3,17 +3,18 @@ import React from 'react'
 import { FaLinkedinIn,FaXTwitter,FaGoogle ,FaInstagram ,FaYoutube,FaGithub }from "react-icons/fa6";
 import { Input } from './ui/input';
 import { Button } from './ui/button';
+import { ProductCategory } from '@/app/data';
 
 
 const Footer = async () => {
 
-  async function FetchProductCategories(): Promise<string[]> {
+  async function FetchProductCategories(): Promise<ProductCategory[]> {
     try {
         const apiResponse = await fetch('https://dummyjson.com/products/categories');
         if (!apiResponse.ok) {
             throw new Error('Network response was not ok');
         }
-        const data: string[] = await apiResponse.json();
+        const data: ProductCategory[] = await apiResponse.json();
         return data;
     } catch (error) {
         console.error('Error fetching categories:', error);
@@ -21,7 +22,7 @@ const Footer = async () => {
     }
 }
 
-const productCategories: string[] = await FetchProductCategories();
+const productCategories: ProductCategory[] = await FetchProductCategories();
 
   return (
     <div>
@@ -39,8 +40,8 @@ const productCategories: string[] = await FetchProductCategories();
             <div className='flex flex-col'>
               <h3 className='text-lg pb-2 '>Shop By Category</h3>
                 <Link className='dark:text-white/80 text-gray-700 no-underline' href={`/products/all`}>All</Link>
-                {productCategories.slice(10,13).map((category:any,index:number)=>(
-                  <Link key={index} className='dark:text-white/80 text-gray-700 no-underline' href={`/products/${category.slug}`}>{category.name}</Link>
+                {productCategories.slice(10,13).map((category:ProductCategory)=>(
+                  <Link key={category.name} className='dark:text-white/80 text-gray-700 no-underline' href={`/products/${category.slug}`}>{category.name}</Link>
                 ))}
             </div>
             <div className='flex flex-col'>

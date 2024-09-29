@@ -13,8 +13,8 @@ export default function Faqs() {
         <CardContent className="p-6">
           <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
           <Accordion className="w-full mt-4" type="multiple">
-           {faqsArray.map((faq:FAQS_ARRAY,index:number)=>(
-             <AccordionItem className="border-b-0" value={`item ${faq.id}`} key={index} >
+           {faqsArray.map((faq:FAQS_ARRAY)=>(
+             <AccordionItem className="border-b-0" value={`item ${faq.id}`} key={faq.id} >
              <AccordionTrigger className="hover:underline-none">
                {faq.ques}
              </AccordionTrigger>

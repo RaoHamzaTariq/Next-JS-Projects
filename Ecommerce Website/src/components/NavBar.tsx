@@ -27,9 +27,10 @@ import { ModeToggle } from "./ui/ModeToogle";
 import { Input } from "./ui/input";
 import Link from "next/link";
 import { MdOutlineShoppingBag } from "react-icons/md";
+import { ProductCategory } from "@/app/data";
 
 
-async function FetchProductCategories(): Promise<string[]> {
+async function FetchProductCategories(): Promise<ProductCategory[]> {
   try {
     const apiResponse = await fetch(
       "https://dummyjson.com/products/categories"
@@ -37,7 +38,7 @@ async function FetchProductCategories(): Promise<string[]> {
     if (!apiResponse.ok) {
       throw new Error("Network response was not ok");
     }
-    const data: string[] = await apiResponse.json();
+    const data: ProductCategory[] = await apiResponse.json();
     return data;
   } catch (error) {
     console.error("Error fetching categories:", error);
@@ -46,7 +47,9 @@ async function FetchProductCategories(): Promise<string[]> {
 }
 
 const NavBar = async () => {
-  const productCategories: string[] = await FetchProductCategories();
+
+
+  const productCategories: ProductCategory[] = await FetchProductCategories();
 
   return (
     <main className="z-10 border-b-2 dark:border  bg-transparent backdrop-blur-md w-screen fixed mt-0">
@@ -81,19 +84,17 @@ const NavBar = async () => {
                       </li>
                     </Link>
 
-                    {productCategories.length > 0 ? (
-                      productCategories.map((category: any) => (
+                    {productCategories.length > 0 && (
+                      productCategories.map((category: ProductCategory) => (
                         <Link
                           href={`/products/${category.slug}`}
+                          key={category.name}
                           className="dark:text-white text-black no-underline"
                         >
-                          <li className="list-none " key={category.name}>
-                            {category.name}
+                          <li className="list-none ">{category.name}
                           </li>
                         </Link>
                       ))
-                    ) : (
-                      <li>No categories available</li>
                     )}
                   </ul>
                 </NavigationMenuContent>
@@ -185,19 +186,18 @@ const NavBar = async () => {
                       </li>
                     </Link>
 
-                    {productCategories.length > 0 ? (
-                      productCategories.map((category: any) => (
+                    {productCategories.length > 0 && (
+                      productCategories.map((category: ProductCategory) => (
                         <Link
                           href={`/products/${category.slug}`}
+                          key={category.name}
                           className="dark:text-white text-black no-underline"
                         >
-                          <li className="list-none " key={category.name}>
+                          <li className="list-none " >
                             {category.name}
                           </li>
                         </Link>
                       ))
-                    ) : (
-                      <li>No categories available</li>
                     )}
                   </ul>
                 </NavigationMenuContent>

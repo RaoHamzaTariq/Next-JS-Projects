@@ -4,12 +4,11 @@ import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { ToastAction } from "@/components/ui/toast";
 import React, { useEffect, useState } from "react";
-import {CartProducts, Product } from "@/app/data";
 import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
 import { useCart } from "@/components/ContextForCart";
+import { Product } from "@/app/data";
 
-// StarIcon component
 export function StarIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -241,7 +240,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
               {productData.images?.map((pic: string, index: number) => (
                 <button
                   onClick={ImageClick}
-                  key={index}
+                  key={pic}
                   className="border hover:border-primary rounded-lg overflow-hidden transition-colors"
                 >
                   <img
@@ -294,7 +293,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
               <h2 className="pt-3">Reviews</h2>
               <div className="flex flex-col justify-center gap-5 mt-5">
                 {productData.reviews.map((review: any) => (
-                  <div className="flex flex-col justify-center gap-3">
+                  <div key={review.comment} className="flex flex-col justify-center gap-3">
                     <div className="flex justify-between items-baseline">
                       <p>{renderStars(review.rating)}</p>
                       <p>{review.date}</p>
@@ -349,7 +348,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-7">
                 {relatedProducts.length > 0 &&
                   relatedProducts.map((product: Product) => (
-                    <ProductCard product={product} />
+                    <ProductCard key={product.id} product={product} />
                   ))}
               </div>
             </div>
