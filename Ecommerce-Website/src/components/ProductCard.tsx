@@ -3,7 +3,7 @@ import { Card } from './ui/card'
 import { Button } from './ui/button'
 import Link from 'next/link'
 import { Product } from '@/app/data'
-import { renderStars } from '@/app/products/[productByCategory]/[productDetail]/page'
+// import { renderStars } from '@/app/products/[productByCategory]/[productDetail]/page'
 
 const ProductCard = (props:{product:Product}) => {
 
@@ -27,7 +27,7 @@ const ProductCard = (props:{product:Product}) => {
       <h3 className="text-lg font-semibold mb-2 no-underline">
         {product.title}
       </h3>
-      <p className=" text-sm mb-4">{renderStars(product.rating)}</p>
+      <p className=" text-sm mb-4">{product.rating}</p>
       <div className="flex items-center justify-between">
         <span className="">${product.price}</span>
         <Link href={`/products/${product.category}/${product.id}`}>

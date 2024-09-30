@@ -10,49 +10,50 @@ import { useCart } from "@/components/ContextForCart";
 import { Product } from "@/app/data";
 
 
-export const StarIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-    </svg>
-  );
-};
+// export const StarIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => {
+//   return (
+//     <svg
+//       {...props}
+//       xmlns="http://www.w3.org/2000/svg"
+//       width="24"
+//       height="24"
+//       viewBox="0 0 24 24"
+//       fill="none"
+//       stroke="currentColor"
+//       strokeWidth="2"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//     >
+//       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+//     </svg>
+//   );
+// };
 
 
 
-export const renderStars = (rating: number) => {
-  const totalStars = 5;
-  const filledStars = Math.floor(rating);
-  const emptyStars = totalStars - filledStars;
+// export const renderStars = (rating: number) => {
+//   // const totalStars = 5;
+//   // const filledStars = Math.floor(rating);
+//   // const emptyStars = totalStars - filledStars;
 
-  return (
-    <div className="flex items-center gap-0.5">
-      {Array.from({ length: filledStars }).map((_, i) => (
-        <StarIcon
-          key={`filled-${i}`}
-          className="w-5 h-5 fill-primary border-none"
-        />
-      ))}
-      {Array.from({ length: emptyStars }).map((_, i) => (
-        <StarIcon
-          key={`empty-${i}`}
-          className="w-5 h-5 fill-muted border-none stroke-muted-foreground"
-        />
-      ))}
-    </div>
-  );
-};
+//   return (
+//     <div className="flex items-center gap-0.5">
+//       {/* {Array.from({ length: filledStars }).map((_, i) => (
+//         <StarIcon
+//           key={`filled-${i}`}
+//           className="w-5 h-5 fill-primary border-none"
+//         />
+//       ))}
+//       {Array.from({ length: emptyStars }).map((_, i) => (
+//         <StarIcon
+//           key={`empty-${i}`}
+//           className="w-5 h-5 fill-muted border-none stroke-muted-foreground"
+//         />
+//       ))} */}
+//       <p>Rating: {rating}</p>
+//     </div>
+//   );
+// };
 
 const ProductDetails = ({ params }: { params: { productDetail: number } },{product}:{product:any}) => {
   const { toast } = useToast();
@@ -164,7 +165,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
                   <p className="w-fit">{productData.description}</p>
                 </div>
                 <div className="flex items-center gap-4 mt-3">
-                  {renderStars(productData.rating)}
+                  {productData.rating}
                   <h4 className="text-gray-500">
                     ({productData.reviews?.length || 0}) Ratings
                   </h4>
@@ -297,7 +298,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
                 {productData.reviews.map((review: any) => (
                   <div key={review.comment} className="flex flex-col justify-center gap-3">
                     <div className="flex justify-between items-baseline">
-                      <p>{renderStars(review.rating)}</p>
+                      <p>{review.rating}</p>
                       <p>{review.date}</p>
                     </div>
                     <div className="flex flex-col justify-center gap-3">
