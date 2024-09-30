@@ -11,6 +11,7 @@ import { MdInsights } from "react-icons/md";
 import FAQs from "@/components/FAQs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { IconType } from "react-icons/lib";
+import React from "react";
 
 interface WhyChooseMe {
   icon:JSX.Element
