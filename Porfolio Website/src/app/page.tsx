@@ -4,49 +4,49 @@ import { StackCarousal } from "@/components/StackCarousel";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import {FaRobot,FaCode,FaComments,FaCheckSquare } from "react-icons/fa";
+// import {FaRobot,FaCode,FaComments,FaCheckSquare } from "react-icons/fa";
 import FAQS from "../../public/images/FAQS.svg"
-import { RiDashboard2Line } from "react-icons/ri";
-import { MdInsights } from "react-icons/md";
+// import { RiDashboard2Line } from "react-icons/ri";
+// import { MdInsights } from "react-icons/md";
 import FAQs from "@/components/FAQs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { IconType } from "react-icons/lib";
+// import { IconType } from "react-icons/lib";
 import React from "react";
 
 interface WhyChooseMe {
-  icon:JSX.Element
+  // icon:JSX.Element
   title:string
   desc:string
 }
 
 export const whyChooseMe : WhyChooseMe[] = [
       {
-          icon: <MdInsights className="h-8 w-8 text-primary"/>,
+          // icon: <MdInsights className="h-8 w-8 text-primary"/>,
           title: "Insightful Data Analysis",
           desc: "With my data analysis expertise, I can uncover valuable insights from your data, helping you understand trends, customer behavior, and operational efficiency for informed decision-making."
       },
       {
-          icon: <FaRobot className="h-8 w-8 text-primary"/>,
+          // icon: <FaRobot className="h-8 w-8 text-primary"/>,
           title: "Machine Learning Expertise",
           desc: "I specialize in developing machine learning models that predict outcomes and optimize processes, creating tailored solutions for forecasting sales or improving customer experiences."
       },
       {
-          icon: <RiDashboard2Line className="h-8 w-8 text-primary"/>,
+          // icon: <RiDashboard2Line className="h-8 w-8 text-primary"/>,
           title: "Engaging Data Visualization",
           desc: "I create clear and interactive visualizations that make complex data easy to understand, using tools like Power BI to help you track key metrics and tell a compelling data story."
       },
       {
-          icon: <FaCode className="h-8 w-8 text-primary"/>,
+          // icon: <FaCode className="h-8 w-8 text-primary"/>,
           title: "Custom Web Development",
           desc: "I build websites that are visually appealing, functional, and user-friendly, whether you need a simple site or a complex web application tailored to your needs."
       },
       {
-          icon: <FaComments className="h-8 w-8 text-primary"/>,
+          // icon: <FaComments className="h-8 w-8 text-primary"/>,
           title: "Strong Communication",
           desc: "I prioritize open communication throughout our collaboration, ensuring you are always updated on project progress and available to answer any questions."
       },
       {
-          icon: <FaCheckSquare className="h-8 w-8 text-primary"/>,
+          // icon: <FaCheckSquare className="h-8 w-8 text-primary"/>,
           title: "Commitment to Quality",
           desc: "I am dedicated to delivering high-quality results, putting in the effort needed to ensure your project meets the highest standards."
       }
@@ -89,7 +89,7 @@ export default function Home() {
 
                 <div key={quality.title} className="grid gap-4">
                   <div className="flex items-center gap-4">
-                    {quality.icon}
+                    {/* {quality.icon} */}
                     <h3 className="text-xl font-bold">{quality.title}</h3>
                   </div>
                   <p className="text-muted-foreground">{quality.desc}</p>

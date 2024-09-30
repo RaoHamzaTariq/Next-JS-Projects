@@ -3,6 +3,7 @@
 import { PortfolioData, PortfolioKeys } from '../../data';
 import PortfolioComponent from '@/components/PortfolioComponent';
 import { useParams } from 'next/navigation';
+import React from 'react';
 
 const Slug = () => {
   const params = useParams();

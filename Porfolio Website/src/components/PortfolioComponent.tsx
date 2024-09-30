@@ -1,12 +1,12 @@
 import { PortfolioData, PortfolioKeys } from '@/app/data';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { AspectRatio } from './ui/aspect-ratio';
 
-const PortfolioComponent = (props: { title: string; image: string; desc: string }) => {
+const PortfolioComponent = (props: { title: string; image: string | StaticImageData; desc: string }) => {
   
   const findCategoryByTitle = (title: string): PortfolioKeys | undefined => {
     for (const category in PortfolioData) {

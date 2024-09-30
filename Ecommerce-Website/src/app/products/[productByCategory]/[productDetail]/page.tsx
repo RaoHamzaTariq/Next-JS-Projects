@@ -66,26 +66,6 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
 
   const { addToCart, cart } = useCart();
 
-  const handleAddToCart = (product:Product) => {
-    console.log("Product to add:", product)
-
-    addToCart({
-      id: product.id,
-      title: product.title,
-      price: product.price,
-      thumbnail: product.thumbnail,
-      quantity: quantity,
-      category: product.category,
-      brand: product.brand,
-      subTotal: parseFloat((product.price*quantity).toFixed(2))
-    });
-    console.log(cart);
-    console.log(cart.length);
-    
-    
-  };
-
-
 
   useEffect(() => {
     async function fetchData(id: number) {
@@ -130,6 +110,28 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
   if (!productData) {
     return <div>Loading...</div>;
   }
+
+  const handleAddToCart = (product:Product) => {
+    console.log("Product to add:", product)
+
+    addToCart({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      thumbnail: product.thumbnail,
+      quantity: quantity,
+      category: product.category,
+      brand: product.brand,
+      subTotal: parseFloat((product.price*quantity).toFixed(2))
+    });
+    console.log(cart);
+    console.log(cart.length);
+    
+    
+  };
+
+
+
 
   const ImageClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.target as HTMLImageElement;
