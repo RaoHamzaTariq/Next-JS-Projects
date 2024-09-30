@@ -11,7 +11,7 @@ const Home = () => {
       >
         <div className="absolute inset-0 bg-black opacity-60"></div>
         <div className="relative z-10 flex flex-col justify-center items-center gap-5" >
-          <h1 className='text-white'>Welcome to Recipe App</h1>
+          <h1 className='text-white text-center'>Welcome to Recipe App</h1>
           <Link href="/recipe-list">
             <Button variant="secondary">Explore Recipes</Button>
           </Link>
