@@ -1,5 +1,4 @@
 import React from "react";
-import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -9,7 +8,6 @@ import {
   NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Label } from "@/components/ui/label";
 import { CiMenuBurger } from "react-icons/ci";
 import {
   Sheet,

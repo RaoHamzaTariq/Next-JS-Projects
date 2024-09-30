@@ -1,16 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import { Card } from "@/components/ui/card";
-import { renderStars } from "./[productDetail]/page";
 import { Product } from "@/app/data";
-import heroPic from "../../../../public/hero.png";
 import Image from "next/image";
 import productPagePic from "../../../../public/shopping-festival.png";
-import useSWR from "swr";
 import {
   Select,
   SelectContent,

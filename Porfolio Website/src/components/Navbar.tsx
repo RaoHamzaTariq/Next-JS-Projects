@@ -136,22 +136,22 @@ const Navbar = () => {
                       height={250}
                       width={250} alt={""} />
               <div className="mb-2 mt-4 text-lg font-medium">
-                Rao Hamza Tariq
+                {`Rao Hamza Tariq`}
               </div>
               <p className="text-sm leading-tight text-muted-foreground">
-                Data Analyst | Junior Data Scientist | Full Stack Web Developer
+                {`Data Analyst | Junior Data Scientist | Full Stack Web Developer`}
               </p>
             </a>
           </NavigationMenuLink>
         </li>
           <ListItem href="/docs" title="Data Analyst">
-             Transforming your data into useful insights using Python, Power BI and SQL.
+             {`Transforming your data into useful insights using Python, Power BI and SQL.`}
           </ListItem>
           <ListItem href="/docs/installation" title="Data Scientist">
-              Make your own predictive model using Machine Learning.
+              {`Make your own predictive model using Machine Learning.`}
           </ListItem>
           <ListItem href="/docs/primitives/typography" title="Web Developer">
-              Build your modern website using Next JS, Tailwind CSS and Shadcn UI.
+            {`Build your modern website using Next JS, Tailwind CSS and Shadcn UI.`}
           </ListItem>
       </ul>
     </NavigationMenuContent>
@@ -161,9 +161,8 @@ const Navbar = () => {
     <NavigationMenuContent>
       <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
         {components.map((component,index) => (
-          <Link href={`/Portfolio/${component.title.replace(/\s+/g,"")}`}>
-          <ListItem
-            key={index}
+          <Link href={`/Portfolio/${component.title.replace(/\s+/g,"")}`}  key={component.title}>
+          <ListItem 
             title={component.title}
             // href={`/Portfolio/${component.title.replace(/\s+/g,"")}`}
           >

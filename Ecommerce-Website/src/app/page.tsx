@@ -1,5 +1,4 @@
-"use client"; // Ensure this is present if you are using client-side data fetching
-
+'use client';
 import { useEffect, useState } from "react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Button } from "@/components/ui/button";
@@ -9,6 +8,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import Autoplay from "embla-carousel-autoplay"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Faqs from "@/components/Faqs";
+import React from "react";
 
 
 type Product = {

@@ -97,7 +97,7 @@ const Cart = () => {
               </div>
               <div className="flex flex-col">
                 <p className="-mb-5 text-lg text-right">${OrderSummary.subTotals}</p>
-                <p className="-mb-5 text-lg text-right">-{OrderSummary.discount}</p>
+                <p className="-mb-5 text-lg text-right">-${OrderSummary.discount}</p>
                 <p className="-mb-5 text-lg text-right">${OrderSummary.deliveryFee}</p>
                 <p className="font-semibold text-lg text-right">${OrderSummary.grandTotal}</p>
               </div>

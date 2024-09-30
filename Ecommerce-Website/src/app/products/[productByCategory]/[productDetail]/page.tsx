@@ -3,13 +3,14 @@
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { ToastAction } from "@/components/ui/toast";
-import React, { useEffect, useState } from "react";
+import React, { SVGProps, useEffect, useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
 import { useCart } from "@/components/ContextForCart";
 import { Product } from "@/app/data";
 
-export function StarIcon(props: React.SVGProps<SVGSVGElement>) {
+
+export const StarIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       {...props}
@@ -26,7 +27,8 @@ export function StarIcon(props: React.SVGProps<SVGSVGElement>) {
       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
     </svg>
   );
-}
+};
+
 
 
 export const renderStars = (rating: number) => {
