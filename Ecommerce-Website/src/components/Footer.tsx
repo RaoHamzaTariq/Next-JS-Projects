@@ -104,6 +104,7 @@ const productCategories: ProductCategory[] = await FetchProductCategories();
           </div>
         </div>
       </section>
+      
     </div>
   );
 }

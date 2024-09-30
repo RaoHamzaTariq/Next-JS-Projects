@@ -9,6 +9,7 @@ import Autoplay from "embla-carousel-autoplay"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Faqs from "@/components/Faqs";
 import React from "react";
+import WebsiteUnderProcess from "@/components/WebsiteUnderProcess";
 
 
 type Product = {
@@ -177,7 +178,9 @@ export default function Home() {
         <section>
           <Faqs />
         </section>
+      
       </main>
+      
     </>
   );
 }
