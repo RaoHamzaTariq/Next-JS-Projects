@@ -1,4 +1,5 @@
 'use client';
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Button } from "@/components/ui/button";
@@ -129,9 +130,11 @@ export default function Home() {
                               </p>
                             </div>
                             <div className="w-full h-64 sm:h-48 md:h-56 lg:h-64">
-                              <img
+                              <Image
                                 src={product.thumbnail}
                                 alt={product.title}
+                                width={500}
+                                height={500}
                                 className="rounded-md object-fill w-full h-full "
                               />
                             </div>
@@ -158,12 +161,12 @@ export default function Home() {
           <Card className="container flex px-5 py-7 mx-10 my-5 w-screen justify-center items-center bg-blue-100 dark:border-none dark:bg-blue-950">
             <div className="flex flex-col">
               <h2 className="border-none">
-                Let's explore some amazing products
+                {`Let's explore some amazing products`}
               </h2>
               <p className="w-10/12 dark:text-white/80">
-                Meet your needs by purchasing our products. We're here to assist
+                {`Meet your needs by purchasing our products. We're here to assist
                 you with exceptional customer service and a seamless shopping
-                experience.
+                experience.`}
               </p>
             </div>
             <div className="">

@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { useCart } from "@/components/ContextForCart";
@@ -42,9 +43,11 @@ const Cart = () => {
                   <div key={item.id} className="flex justify-between">
                 <div className="flex my-5 gap-2">
                   <div>
-                    <img
+                    <Image
                       src={item.thumbnail}
                       alt={item.title}
+                      width={500}
+                      height={500}
                       className="w-32 h-auto aspect-square"
                     />
                   </div>

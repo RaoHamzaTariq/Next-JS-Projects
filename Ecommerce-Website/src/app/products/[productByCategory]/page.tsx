@@ -39,7 +39,7 @@ export default function ProductByCategory() {
       }
     }
     fetchingData(productCategory);
-  }, [router.productByCategory]);
+  }, [productCategory]);
 
 
   const handleSort = (option: string) => {

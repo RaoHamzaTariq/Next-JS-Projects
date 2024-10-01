@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card } from './ui/card'
 import { Button } from './ui/button'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Product } from '@/app/data'
 // import { renderStars } from '@/app/products/[productByCategory]/[productDetail]/page'
@@ -15,7 +16,7 @@ const ProductCard = (props:{product:Product}) => {
                 
     className="rounded-lg shadow-lg overflow-hidden"
   >
-    <img
+    <Image
       src={product.thumbnail}
       alt="Product 1"
       width={400}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useToast } from "@/hooks/use-toast";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ToastAction } from "@/components/ui/toast";
 import React, { SVGProps, useEffect, useState } from "react";
@@ -234,7 +235,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
             </div>
           </div>
           <div className="grid gap-3 items-start">
-            <img
+            <Image
               src={thumbnail}
               alt="Product Image"
               width={600}
@@ -248,7 +249,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
                   key={pic}
                   className="border hover:border-primary rounded-lg overflow-hidden transition-colors"
                 >
-                  <img
+                  <Image
                     src={pic}
                     alt={`Preview thumbnail ${index + 1}`}
                     width={100}

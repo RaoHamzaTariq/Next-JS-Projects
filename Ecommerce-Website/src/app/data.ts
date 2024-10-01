@@ -1,9 +1,3 @@
-import groceryPic from "../../public/Product Display/groceries.jpg"
-import makeupPic from "../../public/Product Display/Makeup.png"
-import mobileaccessoriesPic from "../../public/Product Display/mobileaccessories.jpg"
-import skincarePic from "../../public/Product Display/skincare.png"
-
-
 
 export interface FAQS_ARRAY {
     id:number
@@ -67,22 +61,3 @@ export const faqsArray : FAQS_ARRAY[]= [
     { id: 5, ques: "Do you ship internationally?", ans: "Yes, we offer international shipping. Shipping fees may apply depending on the destination." }
   ];
   
-export const cards = [
-  {
-    title: "Skin Care",
-    image: skincarePic
-  },
-  {
-    title: "Groceries",
-    image: groceryPic
-  },
-  {
-    title: "Make Up",
-    image: makeupPic
-  },
-  {
-    title: "Mobile Accessories",
-    image: mobileaccessoriesPic
-  },
-  
-]
