@@ -1,8 +1,8 @@
-import Link from 'next/link';
+'use client'
 import React from 'react';
 import { useParams } from 'next/navigation';
 
-const page = () => {
+const ProductDetail = () => {
   const params = useParams()
   const id = params.productDetail
   console.log(id);
@@ -14,4 +14,4 @@ const page = () => {
   );
 }
 
-export default page;
+export default ProductDetail;
