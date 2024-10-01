@@ -1,10 +1,3 @@
-import groceryPic from "../../public/Product Display/groceries.jpg"
-import makeupPic from "../../public/Product Display/Makeup.png"
-import mobileaccessoriesPic from "../../public/Product Display/mobileaccessories.jpg"
-import skincarePic from "../../public/Product Display/skincare.png"
-
-
-
 export interface FAQS_ARRAY {
     id:number
     ques:string
