@@ -12,8 +12,8 @@ const FAQs = () => {
           <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
           <Accordion className="w-full mt-4" type="multiple">
             {
-             faqs.map((ele:{question:string,answer:string},index:number)=>(
-                <AccordionItem value={`item ${index}`} key={ele.question}>
+             faqs.map((ele:{id:number,question:string,answer:string},index:number)=>(
+                <AccordionItem value={`item ${index}`} key={ele.id}>
                 <AccordionTrigger  className="hover:underline-none">
                   {ele.question}
                 </AccordionTrigger>

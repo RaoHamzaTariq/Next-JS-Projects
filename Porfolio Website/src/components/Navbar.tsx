@@ -91,7 +91,7 @@ const Navbar = () => {
 <CommandGroup className="mt-5">
 <Link href={"/"}><CommandItem className="mt-3">Home</CommandItem></Link>
 <Link href={"/Services"}><CommandItem className="mt-3">Services</CommandItem></Link>
-<Link href={"/Portfolio"}><CommandItem className="mt-3">Portfolio</CommandItem></Link>
+<Link href={"/Portfolio/All"}><CommandItem className="mt-3">Portfolio</CommandItem></Link>
 <Link href={"/Contact"}><CommandItem className="mt-3">Contact</CommandItem></Link>
 <Link href={"/About"}><CommandItem className="mt-3">About</CommandItem></Link>
 </CommandGroup>

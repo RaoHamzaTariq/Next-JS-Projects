@@ -10,7 +10,6 @@ import { RiDashboard2Line } from "react-icons/ri";
 import { MdInsights } from "react-icons/md";
 import FAQs from "@/components/FAQs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { IconType } from "react-icons/lib";
 import React from "react";
 
 

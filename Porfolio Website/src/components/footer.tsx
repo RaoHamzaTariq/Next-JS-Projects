@@ -16,8 +16,8 @@ const Footer = () => {
   <h2>LOGO</h2>
 </div>
 <div className='flex flex-col gap-2 justify-center '>
-  <p className='font-bold'>Get 15% off your first order!</p>
-  <p className='text-sm max-w-lg'>Sign up to our mailing list below to get 15% off your first order. Don&apos;t worry, we hate spam too.</p>
+  <p className='font-bold'>{`Get 15% off your first order!`}</p>
+  <p className='text-sm max-w-lg'>{`Sign up to our mailing list below to get 15% off your first order. Don't worry, we hate spam too.`}</p>
 </div>
 <div className='flex lg:min-w-96 gap-10 items-center pt-4 px-2'>
   <Input placeholder='Enter your email'/>

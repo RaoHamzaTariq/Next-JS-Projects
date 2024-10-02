@@ -26,9 +26,9 @@ export default function About() {
       <section className="grid grid-cols-1 md:grid-cols-2 lg:gap-80   items-center justify-between lg:pt-16 sm:pt-40 pt-40  overflow-x-hidden h-screen">
   <div className=" max-w-lg ml-20 flex flex-col gap-5">
     <h1>About Me</h1>
-    <p>I am passionate data analyst, data scientist and developers, dedicated to crafting exceptional digital
+    <p>{`I am passionate data analyst, data scientist and developers, dedicated to crafting exceptional digital
                   experiences. Our mission is to help businesses and individuals achieve their goals through innovative
-                  and user-centric solutions.</p>
+                  and user-centric solutions.`}</p>
   </div>
   <Image className="object-contain mr-20 pb-10" src={"/images/2.png"} height={400} width={400} alt={""}/>
 </section>
@@ -94,7 +94,7 @@ export default function About() {
             <div className="space-y-2 flex flex-col items-center pb-10">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Our Values</h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl text-center">
-                We uphold a set of core values that guide our work and shape our culture.
+                {`We uphold a set of core values that guide our work and shape our culture.`}
               </p>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
@@ -102,21 +102,21 @@ export default function About() {
                 <RocketIcon className="h-10 w-10 text-primary" />
                 <h3 className="text-lg font-semibold">Innovation</h3>
                 <p className="text-center text-muted-foreground">
-                  We embrace new ideas and technologies to push the boundaries of what&apos;s possible.
+                  {`We embrace new ideas and technologies to push the boundaries of what's possible.`}
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-4 rounded-lg bg-background p-6 shadow-sm">
                 <HeartIcon className="h-10 w-10 text-primary" />
                 <h3 className="text-lg font-semibold">Passion</h3>
                 <p className="text-center text-muted-foreground">
-                  We pour our hearts into every project, driven by a genuine love for our craft.
+                  {`We pour our hearts into every project, driven by a genuine love for our craft.`}
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-4 rounded-lg bg-background p-6 shadow-sm">
                 <UsersIcon className="h-10 w-10 text-primary" />
                 <h3 className="text-lg font-semibold">Collaboration</h3>
                 <p className="text-center text-muted-foreground">
-                  We believe in the power of teamwork, fostering a culture of open communication and mutual support.
+                  {`We believe in the power of teamwork, fostering a culture of open communication and mutual support.`}
                 </p>
               </div>
             </div>
@@ -129,8 +129,8 @@ export default function About() {
             <div className="space-y-2 flex flex-col items-center pb-10 text-center">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Our Achievements</h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                We are proud of the milestones we have reached and the impact we have made on our clients and the
-                industry.
+                {`We are proud of the milestones we have reached and the impact we have made on our clients and the
+                industry.`}
               </p>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
@@ -138,23 +138,23 @@ export default function About() {
                 <AwardIcon className="h-10 w-10 text-primary" />
                 <h3 className="text-lg font-semibold">Industry Awards</h3>
                 <p className="text-center text-muted-foreground">
-                  Our work has been recognized with prestigious industry awards, showcasing our commitment to
-                  excellence.
+                  {`Our work has been recognized with prestigious industry awards, showcasing our commitment to
+                  excellence.`}
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-4 rounded-lg bg-background p-6 shadow-sm">
                 <BriefcaseIcon className="h-10 w-10 text-primary" />
                 <h3 className="text-lg font-semibold">Satisfied Clients</h3>
                 <p className="text-center text-muted-foreground">
-                  We have a proven track record of delivering exceptional results and building long-lasting
-                  relationships with our clients.
+                  {`We have a proven track record of delivering exceptional results and building long-lasting
+                  relationships with our clients.`}
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-4 rounded-lg bg-background p-6 shadow-sm">
                 <ScalingIcon className="h-10 w-10 text-primary" />
                 <h3 className="text-lg font-semibold">Continuous Growth</h3>
                 <p className="text-center text-muted-foreground">
-                  Our agency has experienced steady growth, allowing us to expand our services and reach new heights.
+                  {`Our agency has experienced steady growth, allowing us to expand our services and reach new heights.`}
                 </p>
               </div>
             </div>
