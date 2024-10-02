@@ -14,7 +14,7 @@ export default function Component() {
         <CardContent>
           <div className="space-y-8">
             <div className="space-y-2">
-              <h2 className="text-3xl font-semibold mt-5">Contact Us</h2>
+              <h2 className="text-3xl font-semibold mt-5 text-red-600">Contact Us</h2>
               <p className="text-zinc-500 dark:text-zinc-400">
                 {"Fill out the form below and we'll get back to you as soon as possible."}
               </p>
