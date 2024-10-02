@@ -63,7 +63,7 @@ export default function Component() {
         </CardContent>
       </Card>
       <div>
-        <Image className="max-w-[600px] h-auto" src={contactusPic} alt={""} width={600} height={600}/>
+        <Image className=" w-fit max-w-[600px] h-auto" src={contactusPic} alt={""} width={600} height={600}/>
       </div>
     </div>
   )
