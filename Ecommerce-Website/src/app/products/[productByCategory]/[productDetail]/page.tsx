@@ -68,7 +68,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
   const { addToCart, cart } = useCart();
 
 
-  useEffect(() => {
+  // useEffect(() => {
     async function fetchData(id: number) {
       try {
         const response = await fetch(`https://dummyjson.com/products/${id}`);
@@ -81,9 +81,9 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
     }
 
     fetchData(params.productDetail);
-  }, [params.productDetail]);
+  // }, [params.productDetail]);
 
-  useEffect(() => {
+  // useEffect(() => {
     async function fetchRelatedProducts(category: string) {
       try {
         const response = await fetch(
@@ -106,7 +106,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
         .join("-");
       fetchRelatedProducts(formattedCategory);
     }
-  }, [productData]);
+  // }, [productData]);
 
   if (!productData) {
     return <div>Loading...</div>;
