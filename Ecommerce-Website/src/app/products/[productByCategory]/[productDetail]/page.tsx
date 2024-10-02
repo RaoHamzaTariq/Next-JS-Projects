@@ -235,7 +235,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
             </div>
           </div>
           <div className="grid gap-3 items-start">
-            <Image
+            <img
               src={thumbnail}
               alt="Product Image"
               width={600}
@@ -249,7 +249,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
                   key={pic}
                   className="border hover:border-primary rounded-lg overflow-hidden transition-colors"
                 >
-                  <Image
+                  <img
                     src={pic}
                     alt={`Preview thumbnail ${index + 1}`}
                     width={100}
