@@ -102,7 +102,7 @@ export default function About() {
                 <RocketIcon className="h-10 w-10 text-primary" />
                 <h3 className="text-lg font-semibold">Innovation</h3>
                 <p className="text-center text-muted-foreground">
-                  {`We embrace new ideas and technologies to push the boundaries of what's possible.`}
+                  {"We embrace new ideas and technologies to push the boundaries of what's possible."}
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-4 rounded-lg bg-background p-6 shadow-sm">

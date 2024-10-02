@@ -7,7 +7,7 @@ const FAQs = () => {
   return (
     <div>
           <div className="flex justify-center items-center min-h-screen">
-      <Card className="shadow-lg w-[550px]">
+      <Card className="shadow-lg lg:w-[550px]">
         <CardContent className="p-6">
           <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
           <Accordion className="w-full mt-4" type="multiple">
