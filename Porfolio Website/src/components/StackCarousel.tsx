@@ -46,7 +46,6 @@ export function StackCarousal() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        
       <CarouselPrevious className="bg-gray-200 rounded-full cursor-pointer hover:bg-gray-300" />
         <CarouselNext className="bg-gray-200 rounded-full cursor-pointer hover:bg-gray-300" />
       </Carousel>
