@@ -32,8 +32,7 @@ const ProductCard = (props:{product:Product}) => {
       <div className="flex items-center justify-between">
         <span className="">${product.price}</span>
         <Link href={`/products/${product.category}/${product.id}`}>
-          {" "}
-          <Button size="sm">Add to Cart</Button>{" "}
+          <Button size="sm">Add to Cart</Button>
         </Link>
       </div>
     </div>

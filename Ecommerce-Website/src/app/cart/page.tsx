@@ -15,34 +15,36 @@ const Cart = () => {
   const discountPercentage : number = 5
 
   const OrderSummary = {
-    subTotals: subTotals,
+    subTotals: subTotals.toFixed(2),
     discount : (subTotals * (discountPercentage/100)).toFixed(2),
     deliveryFee : 3,
     grandTotal : ((subTotals - (subTotals*(discountPercentage/100))) + 3).toFixed(2)
   }
 
   return (
-    <main className="pt-32 py-10 container mx-auto">
+    <main className="pt-32 py-10 mx-5 sm:mx-20">
       <div>
+        <div>
         <h1 className="text-4xl">My Cart</h1>
-        <div className="flex flex-row gap-48">
+        </div>
+        <div className="flex flex-col gap-20 lg:flex-row lg:gap-48">
           <div className="basis-[60%]">
             <div className="flex justify-between items-baseline border-b my-5 ">
-              <div className="basis-[60%]">
-                <h3 className="text-lg">Product Name</h3>
+              <div className="basis-[50%]">
+                <h3 className="sm:text-lg text-base">Product Name</h3>
               </div>
-              <div className="flex basis-[40%] gap-7 justify-between items-baseline">
-                <h3 className="text-lg">Price</h3>
-                <h3 className="text-lg">Quantity</h3>
-                <h3 className="text-lg">Subtotal</h3>
+              <div className="flex basis-[50%] gap-2 sm:gap-7 justify-between items-baseline">
+                <h3 className="sm:text-lg text-base">Price</h3>
+                <h3 className="sm:text-lg text-base">Quantity</h3>
+                <h3 className="sm:text-lg text-base">Subtotal</h3>
               </div>
             </div>
             <div>
               {
                 cart.map((item)=>(
                   <div key={item.id} className="flex justify-between">
-                <div className="flex my-5 gap-2">
-                  <div>
+                <div className="flex my-5 sm:gap-2">
+                  <div className="hidden sm:block">
                     <Image
                       src={item.thumbnail}
                       alt={item.title}
@@ -55,17 +57,17 @@ const Cart = () => {
                     <p className="text-xl font-semibold -mb-4">
                       {item.title}
                     </p>
-                    <p className="text-lg -mb-4 text-gray-700">{item.category}</p>
-                    <p className="text-gray-700 text-lg">Qty-{item.quantity}</p>
+                    <p className="text-lg -mb-4 text-gray-700 dark:text-gray-400">{item.category}</p>
+                    <p className="text-gray-700 text-lg dark:text-gray-400">Qty-{item.quantity}</p>
                   </div>
                 </div>
                 <div className="ml-20">
-                  <div className="flex gap-20 items-baseline py-3 text-lg">
+                  <div className="flex gap-5 sm:gap-20 items-baseline py-3 text-lg ">
                     <p>${item.price}</p>
                     <p>{item.quantity}</p>
                     <p>${item.subTotal}</p>
                   </div>
-                  <div className="mt-5 flex gap-7">
+                  <div className="mt-5 flex flex-col sm:flex-row sm:gap-7">
                     <Button
                       className="underline hover:no-underline font-semibold text-blue-950"
                       variant={"link"}
@@ -89,9 +91,9 @@ const Cart = () => {
               
             </div>
           </div>
-          <div className="basis-[40%]">
+          <div className="basis-[40%] lg:mt-20">
             <h2 className="text-2xl">Order Summary</h2>
-            <div className="grid grid-cols-2 gap-28 mt-8">
+            <div className="grid grid-cols-2  sm:gap-28 mt-8">
               <div className="flex flex-col">
                 <p className="-mb-5 text-lg">Subtotal</p>
                 <p className="-mb-5 text-lg">Discount</p>
@@ -105,12 +107,12 @@ const Cart = () => {
                 <p className="font-semibold text-lg text-right">${OrderSummary.grandTotal}</p>
               </div>
             </div>
-            <div className="mt-7 flex gap-20">
+            <div className="mt-7 flex gap-5 sm:gap-20">
               <Link href={""}>
-                <Button className="w-40">Place Order</Button>
+                <Button className="sm:w-40 w-fit  ">Place Order</Button>
               </Link>
               <Link href={"/products/all"}>
-                <Button className="w-40" variant={"outline"}>
+                <Button className="sm:w-40 w-fit " variant={"outline"}>
                   Continue Shopping
                 </Button>
               </Link>

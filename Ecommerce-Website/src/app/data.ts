@@ -28,10 +28,10 @@ export interface Product {
   brand:string
 };
 
-interface Reviews {
+export interface Reviews {
   rating:number
   comment:string
-  date:Date
+  date:string
   reviewerName:string
   reviewerEmail:string
 }

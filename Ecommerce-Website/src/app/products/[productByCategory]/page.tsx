@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "next/navigation";
 import { Product } from "@/app/data";
 import Image from "next/image";
@@ -23,7 +23,7 @@ import ProductCard from "@/components/ProductCard";
 export default function ProductByCategory() {
   const router = useParams();
   const productCategory = router.productByCategory as string;
-  let [product, setProduct] = useState<Product[]>([]);
+  const [product, setProduct] = useState<Product[]>([]);
   const [sortOption, setSortOption] = useState("");
 
   // useEffect(() => {
@@ -57,6 +57,8 @@ export default function ProductByCategory() {
     }
 
     setProduct(sortedProducts);
+    console.log(sortOption);
+    
   };
   return (
     <div>

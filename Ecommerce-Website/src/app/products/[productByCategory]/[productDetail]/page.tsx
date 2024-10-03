@@ -1,15 +1,14 @@
 "use client";
 
 import { useToast } from "@/hooks/use-toast";
-import Image from "next/image";
+// import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ToastAction } from "@/components/ui/toast";
-import React, { SVGProps, useEffect, useState } from "react";
+import React, { useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
 import { useCart } from "@/components/ContextForCart";
-import { Product } from "@/app/data";
-
+import { Product, Reviews } from "@/app/data";
 
 // export const StarIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => {
 //   return (
@@ -29,8 +28,6 @@ import { Product } from "@/app/data";
 //     </svg>
 //   );
 // };
-
-
 
 // export const renderStars = (rating: number) => {
 //   // const totalStars = 5;
@@ -56,7 +53,7 @@ import { Product } from "@/app/data";
 //   );
 // };
 
-const ProductDetails = ({ params }: { params: { productDetail: number } },{product}:{product:any}) => {
+const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
   const { toast } = useToast();
 
   const [productData, setProductData] = useState<Product | null>(null);
@@ -67,53 +64,52 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
 
   const { addToCart, cart } = useCart();
 
-
   // useEffect(() => {
-    async function fetchData(id: number) {
-      try {
-        const response = await fetch(`https://dummyjson.com/products/${id}`);
-        const data = await response.json();
-        setProductData(data);
-        setThumbnail(data.thumbnail);
-      } catch (error) {
-        console.error("Error fetching product data:", error);
-      }
+  async function fetchData(id: number) {
+    try {
+      const response = await fetch(`https://dummyjson.com/products/${id}`);
+      const data = await response.json();
+      setProductData(data);
+      setThumbnail(data.thumbnail);
+    } catch (error) {
+      console.error("Error fetching product data:", error);
     }
+  }
 
-    fetchData(params.productDetail);
+  fetchData(params.productDetail);
   // }, [params.productDetail]);
 
   // useEffect(() => {
-    async function fetchRelatedProducts(category: string) {
-      try {
-        const response = await fetch(
-          `https://dummyjson.com/products/category/${category}`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch related products");
-        }
-        const data = await response.json();
-        setRelatedProducts(data.products);
-      } catch (error) {
-        console.error("Error fetching related products:", error);
+  async function fetchRelatedProducts(category: string) {
+    try {
+      const response = await fetch(
+        `https://dummyjson.com/products/category/${category}`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch related products");
       }
+      const data = await response.json();
+      setRelatedProducts(data.products);
+    } catch (error) {
+      console.error("Error fetching related products:", error);
     }
+  }
 
-    if (productData) {
-      const formattedCategory = productData.category
-        .toLowerCase()
-        .split(" ")
-        .join("-");
-      fetchRelatedProducts(formattedCategory);
-    }
+  if (productData) {
+    const formattedCategory = productData.category
+      .toLowerCase()
+      .split(" ")
+      .join("-");
+    fetchRelatedProducts(formattedCategory);
+  }
   // }, [productData]);
 
   if (!productData) {
     return <div>Loading...</div>;
   }
 
-  const handleAddToCart = (product:Product) => {
-    console.log("Product to add:", product)
+  const handleAddToCart = (product: Product) => {
+    console.log("Product to add:", product);
 
     addToCart({
       id: product.id,
@@ -123,16 +119,11 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
       quantity: quantity,
       category: product.category,
       brand: product.brand,
-      subTotal: parseFloat((product.price*quantity).toFixed(2))
+      subTotal: parseFloat((product.price * quantity).toFixed(0)),
     });
     console.log(cart);
     console.log(cart.length);
-    
-    
   };
-
-
-
 
   const ImageClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const target = e.target as HTMLImageElement;
@@ -142,8 +133,6 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
   const handleActiveButton = (buttonName: string) => {
     setActiveButton(buttonName);
   };
-
-
 
   return (
     <div>
@@ -157,7 +146,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
                     {productData.title}
                   </h1>
                   {productData.brand ? (
-                    <h2 className="sm:text-lg lg:text-xl text-gray-700 border-none">
+                    <h2 className="sm:text-lg lg:text-xl text-gray-700 border-none dark:text-gray-200">
                       {productData.brand}
                     </h2>
                   ) : (
@@ -197,7 +186,9 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
                   <Button
                     variant={quantity > 1 ? "default" : "outline"}
                     onClick={() => {
-                      quantity > 1 && setQuantity((quantity) => quantity - 1);
+                      if (quantity > 1) {
+                        setQuantity((prevQuantity) => prevQuantity - 1);
+                      }
                     }}
                     className=""
                   >
@@ -227,7 +218,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
                       </ToastAction>
                     ),
                   });
-                  handleAddToCart(productData)
+                  handleAddToCart(productData);
                 }}
               >
                 Add to Cart
@@ -263,9 +254,9 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
           </div>
         </div>
         <div>
-          <div className="mt-10 bg-gray-100 rounded-md flex items-center p-2 gap-5">
+          <div className="mt-10 bg-gray-100 dark:bg-gray-800 rounded-md flex sm:flex-row flex-col items-center p-2 gap-2 sm:gap-5">
             <Button
-              className="text-gray-700"
+              className="text-gray-700 dark:text-gray-200 w-fit"
               variant={activeButton === "Reviews" ? "outline" : "link"}
               onClick={() => {
                 handleActiveButton("Reviews");
@@ -274,7 +265,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
               Reviews
             </Button>
             <Button
-              className="text-gray-700"
+              className="text-gray-700 dark:text-gray-200 w-fit"
               variant={activeButton === "More Information" ? "outline" : "link"}
               onClick={() => {
                 handleActiveButton("More Information");
@@ -283,7 +274,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
               More Information
             </Button>
             <Button
-              className="text-gray-700"
+              className="text-gray-700 dark:text-gray-200 w-fit"
               variant={activeButton === "Related Products" ? "outline" : "link"}
               onClick={() => {
                 handleActiveButton("Related Products");
@@ -298,8 +289,11 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
             >
               <h2 className="pt-3">Reviews</h2>
               <div className="flex flex-col justify-center gap-5 mt-5">
-                {productData.reviews.map((review: any) => (
-                  <div key={review.comment} className="flex flex-col justify-center gap-3">
+                {productData.reviews.map((review: Reviews) => (
+                  <div
+                    key={review.comment}
+                    className="flex flex-col justify-center gap-3"
+                  >
                     <div className="flex justify-between items-baseline">
                       <p>{review.rating}</p>
                       <p>{review.date}</p>
@@ -320,7 +314,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
               }`}
             >
               <h2 className="pt-3">More Information</h2>
-              <ul className="flex flex-col justify-center gap-2 mt-5 text-gray-700">
+              <ul className="flex flex-col justify-center gap-2 mt-5 text-gray-700 dark:text-gray-200">
                 <li className="text-lg">
                   Warranty Detail: {productData.warrantyInformation}
                 </li>
@@ -332,7 +326,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } },{produ
                 </li>
                 <li className="text-lg">Weight: {productData.weight}</li>
               </ul>
-              <ul className="flex flex-col justify-center mt-3 text-gray-700">
+              <ul className="flex flex-col justify-center mt-3 text-gray-700 dark:text-gray-200">
                 <li className="text-xl font-bold list-none pb-3">Dimensions</li>
                 <li className="text-lg">
                   Width {productData.dimensions.height}:

@@ -11,10 +11,7 @@ import {
 import { CiMenuBurger } from "react-icons/ci";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,

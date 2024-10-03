@@ -1,9 +1,5 @@
 import type { Config } from "tailwindcss";
 
-const {
-	default: flattenColorPalette,
-  } = require("tailwindcss/lib/util/flattenColorPalette");
-
 const config: Config = {
     darkMode: ["class"],
     content: [
@@ -13,15 +9,6 @@ const config: Config = {
   ],
   theme: {
   	extend: {
-  		backgroundImage: {
-  			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-  			'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))'
-  		},
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -62,8 +49,12 @@ const config: Config = {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			},
-		
+  			}
+  		},
+  		borderRadius: {
+  			lg: 'var(--radius)',
+  			md: 'calc(var(--radius) - 2px)',
+  			sm: 'calc(var(--radius) - 4px)'
   		},
   		keyframes: {
   			'accordion-down': {
@@ -81,35 +72,14 @@ const config: Config = {
   				to: {
   					height: '0'
   				}
-  			},
-			  aurora: {
-				from: {
-				  backgroundPosition: "50% 50%, 50% 50%",
-				},
-				to: {
-				  backgroundPosition: "350% 50%, 350% 50%",
-				},
-			  },
+  			}
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out',
-			  aurora: "aurora 60s linear infinite",
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		}
   	}
   },
-  plugins: [addVariablesForColors],
+  plugins: [require("tailwindcss-animate")],
 };
 export default config;
-
-
-function addVariablesForColors({ addBase, theme }: any) {
-	let allColors = flattenColorPalette(theme("colors"));
-	let newVars = Object.fromEntries(
-	  Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-	);
-   
-	addBase({
-	  ":root": newVars,
-	});
-  }
