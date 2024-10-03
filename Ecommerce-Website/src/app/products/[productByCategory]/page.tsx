@@ -26,7 +26,7 @@ export default function ProductByCategory() {
   const [product, setProduct] = useState<Product[]>([]);
   const [sortOption, setSortOption] = useState("");
 
-  // useEffect(() => {
+  useEffect(() => {
     async function fetchingData(id: string) {
       if (productCategory === "all") {
         const allData = await fetch(`https://dummyjson.com/products`);
@@ -39,7 +39,7 @@ export default function ProductByCategory() {
       }
     }
     fetchingData(productCategory);
-  // }, [productCategory]);
+  }, [productCategory]);
 
 
   const handleSort = (option: string) => {
