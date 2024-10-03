@@ -14,7 +14,7 @@ export default function Component() {
         <CardContent>
           <div className="space-y-8">
             <div className="space-y-2">
-              <h2 className="text-3xl font-semibold mt-5">Contact Us</h2>
+              <h2 className="text-3xl font-semibold mt-5 text-red-600">Contact Us</h2>
               <p className="text-zinc-500 dark:text-zinc-400">
                 {"Fill out the form below and we'll get back to you as soon as possible."}
               </p>
@@ -62,8 +62,8 @@ export default function Component() {
           </div>
         </CardContent>
       </Card>
-      <div>
-        <Image className="max-w-[600px] h-auto" src={contactusPic} alt={""} width={600} height={600}/>
+      <div className="w-screen container mx-auto">
+        <Image className=" w-fit h-auto" src={contactusPic} alt={""} width={400} height={400}/>
       </div>
     </div>
   )
