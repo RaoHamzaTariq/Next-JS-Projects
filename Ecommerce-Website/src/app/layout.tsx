@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/components/ContextForCart";
+import WebsiteUnderProcess from "@/components/WebsiteUnderProcess"; // Correct component name
 
 const dm_Sans = DM_Sans({ subsets: ["latin"] });
 
@@ -28,11 +29,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <CartProvider> {/* Wrap the app with CartProvider */}
+          <CartProvider> 
             <NavBar />
             <main>{children}</main>
             <Footer />
             <Toaster />
+            <WebsiteUnderProcess />
           </CartProvider>
         </ThemeProvider>
       </body>
