@@ -279,7 +279,7 @@ export default function Home() {
 
     {/* Additional sections remain unchanged but ensure they follow similar responsive practices */}
     <section>
-      <Card className="container flex px-5 py-7 mx-auto my-5 w-full justify-center items-center bg-blue-100 dark:border-none dark:bg-blue-950">
+      <Card className="container flex flex-col sm:flex-row px-5 py-7 mx-auto my-5 w-full justify-center items-center bg-blue-100 dark:border-none dark:bg-blue-950">
         <div className="flex flex-col text-center"> {/* Center text for better mobile view */}
           <h2>{`Let's explore some amazing products`}</h2>
           <p className="w-full md:w-10/12 dark:text-white/80">
