@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-const UnderProcessBanner: React.FC = () => {
+const WebsiteUnderProcess: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
 
   const handleClose = () => {
@@ -24,4 +24,4 @@ const UnderProcessBanner: React.FC = () => {
   );
 };
 
-export default UnderProcessBanner;
+export default WebsiteUnderProcess;
