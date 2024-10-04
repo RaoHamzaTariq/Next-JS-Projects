@@ -57,8 +57,8 @@ export default function ProductByCategory() {
 
   return (
     <div className="overflow-x-hidden">
-      <div className="pt-32">
-        <div className="flex flex-col md:flex-row lg:gap-10 justify-around items-center bg-gradient-to-b from-gray-100 to-gray-200 dark:bg-gradient-to-b dark:from-black dark:to-gray-900 rounded-xl mb-5 mx-5 sm:mx-10">
+      <div className="pt-24">
+        <div className="flex flex-col md:flex-row lg:gap-10 justify-around items-center bg-gradient-to-b from-gray-100 to-gray-200 dark:bg-gradient-to-b dark:from-black dark:to-gray-900  mb-5">
           <Image
             className="object-cover"
             src={productPagePic}

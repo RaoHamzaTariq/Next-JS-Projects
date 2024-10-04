@@ -7,8 +7,10 @@ import { ToastAction } from "@/components/ui/toast";
 import React, { useEffect, useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
+import { IoBagOutline } from "react-icons/io5";
 import { useCart } from "@/components/ContextForCart";
 import { Product, Reviews } from "@/app/data";
+import { CiHeart } from "react-icons/ci";
 
 // export const StarIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => {
 //   return (
@@ -180,7 +182,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
               </div>
             </div>
             <div className="grid gap-4 md:gap-10">
-              <div className="flex items-baseline  gap-8 ">
+              <div className="flex items-baseline  gap-8 mx-5 sm:mx-0">
                 <h3>Quantity:</h3>
                 <div className="flex gap-5 justify-center items-center">
                   <Button
@@ -205,8 +207,10 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
                   </Button>
                 </div>
               </div>
-              
+              <div className="flex gap-5 mt-5 sm:mx-0  mx-3">
+
               <Button
+                className="w-full"
                 onClick={() => {
                   toast({
                     title: "Successful",
@@ -222,8 +226,11 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
                   handleAddToCart(productData);
                 }}
               >
-                Add to Cart
+                <IoBagOutline className="text-lg font-semibold mr-1 sm:mr-3"/>Add to Cart
               </Button>
+              <Button variant={"outline"} className="w-full"><CiHeart className="text-lg font-semibold mr-1 sm:mr-3"/>Add to Favourite</Button>
+              </div>
+              
             </div>
           </div>
           <div className="grid gap-3 items-start">
@@ -232,7 +239,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
               alt="Product Image"
               width={600}
               height={600}
-              className="aspect-square object-cover border w-full rounded-lg overflow-hidden"
+              className="aspect-square object-cover border  w-fit sm:w-full rounded-lg overflow-hidden"
             />
             <div className="hidden md:flex gap-4 items-start">
               {productData.images?.map((pic: string, index: number) => (
