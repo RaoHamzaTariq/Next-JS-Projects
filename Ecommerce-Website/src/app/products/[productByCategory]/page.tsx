@@ -72,10 +72,10 @@ export default function ProductByCategory() {
             alt="Product Page Pic"
           />
           <div className="pb-10 px-5 lg:p-2">
-            <h3 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold">
+            <h3 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-center">
               UPTO 70% OFF
             </h3>
-            <h3 className="text-3xl sm:text-5xl lg:text-7xl">
+            <h3 className="text-3xl sm:text-5xl lg:text-7xl text-center">
               SHOPPING FESTIVAL
             </h3>
           </div>
@@ -83,7 +83,7 @@ export default function ProductByCategory() {
       </div>
 
       <section className="container box-border sm:mx-auto px-4 md:px-6 py-10">
-        <div className="w-screen flex justify-evenly mb-6 items-center">
+        <div className="w-fit flex mb-6 items-baseline sm:gap-10">
           
           <div className="flex items-baseline gap-2">
             <h3 className="text-xl font-semibold">Results:</h3>
@@ -93,7 +93,7 @@ export default function ProductByCategory() {
           <div className="flex gap-2 items-center">
             <h4 className="text-xl font-semibold">Sort By:</h4>
             <Select onValueChange={handleSort}>
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger className="w-fit">
                 <SelectValue placeholder="Select a properties" />
               </SelectTrigger>
               <SelectContent>

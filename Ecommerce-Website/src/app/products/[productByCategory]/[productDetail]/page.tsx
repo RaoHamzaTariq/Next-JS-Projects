@@ -135,7 +135,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
   };
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <section className="container mx-auto px-4 md:px-6 py-36 box-border">
         <div className="grid md:grid-cols-2 gap-6 items-start max-w-6xl md:gap-52 md:mx-20">
           <div className="grid gap-4 md:gap-10 items-start">
@@ -205,6 +205,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
                   </Button>
                 </div>
               </div>
+              <div className="flex gap-5 md:gap-10">
               <Button
                 onClick={() => {
                   toast({
@@ -223,6 +224,9 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
               >
                 Add to Cart
               </Button>
+              <Button variant={"outline"}>Add to Favourite</Button>
+              </div>
+              
             </div>
           </div>
           <div className="grid gap-3 items-start">
