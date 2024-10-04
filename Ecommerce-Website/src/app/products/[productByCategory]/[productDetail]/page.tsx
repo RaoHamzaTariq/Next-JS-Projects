@@ -4,7 +4,7 @@ import { useToast } from "@/hooks/use-toast";
 // import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ToastAction } from "@/components/ui/toast";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
 import { useCart } from "@/components/ContextForCart";
