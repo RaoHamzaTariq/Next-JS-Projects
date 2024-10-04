@@ -137,7 +137,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
   return (
     <div>
       <section className="container mx-auto px-4 md:px-6 py-36 box-border">
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-start max-w-6xl">
+        <div className="grid md:grid-cols-2 gap-6 items-start max-w-6xl md:gap-52 md:mx-20">
           <div className="grid gap-4 md:gap-10 items-start">
             <div className="space-y-3">
               <div className="grid gap-4">
