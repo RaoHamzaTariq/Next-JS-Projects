@@ -6,7 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/components/ContextForCart";
-import WebsiteUnderProcess from "@/components/WebsiteUnderProcess"; // Correct component name
+import WebsiteUnderProcess from "@/components/WebsiteUnderProcess";
 
 const dm_Sans = DM_Sans({ subsets: ["latin"] });
 
