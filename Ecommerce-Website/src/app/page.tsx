@@ -1,16 +1,17 @@
 'use client';
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Faqs from "@/components/Faqs";
 import React from "react";
-
+import Sunglasses from "../../public/HandPickedItem/Sunglasses.png"
+import Handbags from "../../public/HandPickedItem/Handbags.png"
+import Wristwactches from "../../public/HandPickedItem/Wristwatches.png"
+import Perfumes from "../../public/HandPickedItem/Perfumes.png"
 
 type Product = {
   rating: number;
@@ -50,153 +51,9 @@ export default function Home() {
   
 
   return (
-    // <>
-    //   <main className="z-100 ">
-    //     <AuroraBackground>
-    //       <motion.div
-    //         initial={{ opacity: 0.0, y: 40 }}
-    //         whileInView={{ opacity: 1, y: 0 }}
-    //         transition={{
-    //           delay: 0.3,
-    //           duration: 0.8,
-    //           ease: "easeInOut",
-    //         }}
-    //         className=" w-screen"
-    //       >
-    //         <section className="flex justify-center items-center h-screen">
-    //           <div className="gap-10 flex flex-col">
-    //             <div className="flex flex-wrap justify-center">
-    //               <h1 className="text-3xl text-center md:text-5xl lg:text-6xl dark:bg-gradient-to-b dark:from-white dark:to-blue-300">
-    //                 Sustainable Shopping for a Greener Future.
-    //               </h1>
-    //               <div className="w-3/4 mt-5">
-    //                 <p className="text-center dark:text-white/80">
-    //                   Your one-stop shop for the latest products, exclusive
-    //                   deals, and seamless online shopping.
-    //                 </p>
-    //               </div>
-    //             </div>
-    //             <div className="flex justify-center items-center gap-10">
-    //               <Button
-    //                 variant={"outline"}
-    //                 className="w-32 h-10 text-black dark:text-white"
-    //               >
-    //                 Sign Up
-    //               </Button>
-    //               <Button className="w-32 h-10 text-white">Explore Products</Button>
-    //             </div>
-    //           </div>
-    //         </section>
-    //       </motion.div>
-    //     </AuroraBackground>
-    //     <section>
-    //       <div className="mx-20 my-10 flex flex-col items-center">
-    //         <div className="flex flex-col items-center py-10">
-    //           <h1 className="">Featured Products</h1>
-    //           {error && <p className="text-red-500">{error}</p>}
-    //           <p className="dark:text-white/80 ">
-    //             Explore the feature products and purchase it in reasonable
-    //             price.
-    //           </p>
-    //         </div>
-    //         <div className="w-screen mt-10 ">
-    //           <Carousel
-    //             opts={{
-    //               align: "start",
-    //             }}
-    //             plugins={[
-    //               Autoplay({
-    //                 delay: 2000,
-    //               }),
-    //             ]}
-    //             className="w-[85%] relative ml-24"
-    //           >
-    //             <CarouselContent>
-    //               {products
-    //                 .filter((e:Product) => e.rating > 4)
-    //                 .map((product) => (
-    //                   <CarouselItem key={product.id} className="sm:basis-1 md:basis-1/2 lg:basis-1/3">
-    //                     <Card className="w-full sm:w-72 md:w-80 lg:w-96  max-h-fit">
-    //                       <CardHeader className="pt-0">
-    //                         <CardTitle className="text-base md:text-lg lg:text-xl">
-    //                           {product.title}
-    //                         </CardTitle>
-    //                       </CardHeader>
-    //                       <CardContent>
-    //                         <div className="pb-4 -mt-4">
-    //                           <p>
-    //                             {product.category.charAt(0).toUpperCase() +
-    //                               product.category.slice(1).toLowerCase()}
-    //                           </p>
-    //                         </div>
-    //                         <div className="w-full h-64 sm:h-48 md:h-56 lg:h-64">
-    //                           <Image
-    //                             src={product.thumbnail}
-    //                             alt={product.title}
-    //                             width={500}
-    //                             height={500}
-    //                             className="rounded-md object-fill w-full h-full "
-    //                           />
-    //                         </div>
-    //                         <div className="flex justify-between items-center mt-4">
-    //                           <p className="text-sm md:text-base lg:text-lg">
-    //                             Rating: {product.rating}
-    //                           </p>
-    //                           <p className="text-sm md:text-base lg:text-lg font-semibold">
-    //                             ${product.price}
-    //                           </p>
-    //                         </div>
-    //                       </CardContent>
-    //                     </Card>
-    //                   </CarouselItem>
-    //                 ))}
-    //             </CarouselContent>
-    //             <CarouselPrevious />
-    //             <CarouselNext />
-    //           </Carousel>
-    //         </div>
-    //       </div>
-    //     </section>
-    //     <section>
-    //       <Card className="container flex px-5 py-7 mx-10 my-5 w-screen justify-center items-center bg-blue-100 dark:border-none dark:bg-blue-950">
-    //         <div className="flex flex-col">
-    //           <h2 className="border-none">
-    //             {`Let's explore some amazing products`}
-    //           </h2>
-    //           <p className="w-10/12 dark:text-white/80">
-    //             {`Meet your needs by purchasing our products. We're here to assist
-    //             you with exceptional customer service and a seamless shopping
-    //             experience.`}
-    //           </p>
-    //         </div>
-    //         <div className="">
-    //           <Link href={"/products/all"}>
-    //             {" "}
-    //             <Button className="text-white">Explore Products </Button>{" "}
-    //           </Link>
-    //         </div>
-    //       </Card>
-    //     </section>
-    //     <section>
-    //       <Faqs />
-    //     </section>
-      
-    //   </main>
-      
-    // </>
     <>
   <main className="z-100">
-    <AuroraBackground>
-      <motion.div
-        initial={{ opacity: 0.0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.3,
-          duration: 0.8,
-          ease: "easeInOut",
-        }}
-        className="w-full" // Changed to w-full for better responsiveness
-      >
+    
         <section className="flex justify-center items-center h-screen">
           <div className="gap-10 flex flex-col items-center"> {/* Center items on smaller screens */}
             <h1 className="text-3xl text-center md:text-5xl lg:text-6xl dark:bg-gradient-to-b dark:from-white dark:to-blue-300">
@@ -215,19 +72,18 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </motion.div>
-    </AuroraBackground>
+      
 
     <section>
-      <div className="mx-4 my-10 flex flex-col items-center"> {/* Adjusted margins for smaller screens */}
+      <div className="mx-4 my-10 flex flex-col items-center">
         <div className="flex flex-col items-center py-10">
           <h1>Featured Products</h1>
           {error && <p className="text-red-500">{error}</p>}
-          <p className="dark:text-white/80 ">
+          <p className="dark:text-white/80 text-center">
             Explore the featured products and purchase them at reasonable prices.
           </p>
         </div>
-        <div className="w-full mt-10 flex justify-center"> {/* Center carousel on all devices */}
+        <div className="w-full mt-10 flex justify-center">
           <Carousel
             opts={{
               align: "start",
@@ -237,12 +93,12 @@ export default function Home() {
                 delay: 2000,
               }),
             ]}
-            className="relative w-[90%] md:w-[85%]" // Responsive width
+            className="relative w-[90%] md:w-[85%]"
           >
             <CarouselContent>
               {products.filter((e) => e.rating > 4).map((product) => (
-                <CarouselItem key={product.id} className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 p-2"> {/* Adjusted basis for better responsiveness */}
-                  <Card className="w-full max-w-xs mx-auto"> {/* Center card with max width */}
+                <CarouselItem key={product.id} className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 p-2">
+                  <Card className="w-full max-w-xs mx-auto">
                     <CardHeader className="pt-0">
                       <CardTitle className="text-base md:text-lg lg:text-xl">
                         {product.title}
@@ -258,7 +114,7 @@ export default function Home() {
                           alt={product.title}
                           width={500}
                           height={500}
-                          className="rounded-md object-cover w-full h-full" // Changed to object-cover for better image fit
+                          className="rounded-md object-cover w-full h-full" 
                         />
                       </div>
                       <div className="flex justify-between items-center mt-4">
@@ -277,10 +133,9 @@ export default function Home() {
       </div>
     </section>
 
-    {/* Additional sections remain unchanged but ensure they follow similar responsive practices */}
     <section>
       <Card className="container flex flex-col sm:flex-row px-5 py-7 mx-auto my-5 w-full justify-center items-center bg-blue-100 dark:border-none dark:bg-blue-950">
-        <div className="flex flex-col text-center"> {/* Center text for better mobile view */}
+        <div className="flex flex-col text-center"> 
           <h2>{`Let's explore some amazing products`}</h2>
           <p className="w-full md:w-10/12 dark:text-white/80">
             {`Meet your needs by purchasing our products. We're here to assist you with exceptional customer service and a seamless shopping experience.`}
@@ -292,7 +147,38 @@ export default function Home() {
       </Card>
     </section>
 
-    {/* FAQs section remains unchanged */}
+    <section className="bg-[#1B4B66] p-5 sm:p-10 flex flex-col gap-10 mt-10">
+      <div>
+        <h1 className="text-center text-white">Handpicked Collections</h1>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 sm:gap-8 md:gap-10">
+      <Link href={"/products/"}>
+      <div className="relative rounded-xl ">
+        <Image src={Handbags} alt="" width={500} height={500} className="rounded-xl"/>
+        <h1 className="absolute text-black bottom-3 left-5 text-3xl text-bold">Handbags</h1>
+      </div>
+      </Link>
+      <Link href={"/products/sun-glasses"}>
+      <div className="relative rounded-xl ">
+        <Image src={Sunglasses} alt="" width={500} height={500} className="rounded-xl"/>
+        <h1 className="absolute text-black bottom-3 left-5 text-3xl text-bold">Sun Glasses</h1>
+      </div>
+      </Link>
+      <Link href={"/products/perfumes"}>
+      <div className="relative rounded-xl ">
+        <Image src={Perfumes} alt="" width={500} height={500} className="rounded-xl"/>
+        <h1 className="absolute text-black bottom-3 left-5 text-3xl text-bold">Perfumes</h1>
+      </div>
+      </Link>
+      <Link href={"/products/men-watches"}>
+      <div className="relative rounded-xl ">
+        <Image src={Wristwactches} alt="" width={500} height={500} className="rounded-xl"/>
+        <h1 className="absolute text-black bottom-3 left-5 text-3xl text-bold">Wrist Watches</h1>
+      </div>
+      </Link>
+      </div>
+    </section>
+
     <section><Faqs /></section>
 
   </main>

@@ -26,11 +26,11 @@ const productCategories: ProductCategory[] = await FetchProductCategories();
 
   return (
     <div>
-      <section className='border-t-2 bg-blue-100 dark:bg-blue-950 sm:px-10 px-4'>
+      <section className='border-t-2 bg-[#1B4B66] dark:bg-blue-950 sm:px-10 px-4'>
         <div className='w-screen container sm:px-10 md:px-0 md:mx-auto flex flex-col lg:flex-row justify-between py-10 '>
           <div className='flex flex-col gap-4'>
-            <h2 className='border-none'>LOGO</h2>
-            <h4 className='text-gray-700 dark:text-white/80'>The Best Product Anytime, Anywhere</h4>
+            <h2 className='border-none text-white'>LOGO</h2>
+            <h4 className='text-gray-300 dark:text-white/80'>The Best Product Anytime, Anywhere</h4>
             <div className='flex gap-3'>
             <Input  type='text' placeholder='Search' />
             <Button>Subscribe</Button>
@@ -38,25 +38,25 @@ const productCategories: ProductCategory[] = await FetchProductCategories();
           </div>
           <div className='grid grid-cols-1 md:grid-cols-3 sm:gap-5 lg:gap-16 mx-auto md:mx-0 justify-center items-center'>
             <div className='flex flex-col'>
-              <h3 className='text-lg pb-2 '>Shop By Category</h3>
-                <Link className='dark:text-white/80 text-gray-700 no-underline' href={`/products/all`}>All</Link>
+              <h3 className='text-lg pb-2 text-white'>Shop By Category</h3>
+                <Link className='dark:text-white/80 text-gray-300 no-underline' href={`/products/all`}>All</Link>
                 {productCategories.slice(10,13).map((category:ProductCategory)=>(
-                  <Link key={category.name} className='dark:text-white/80 text-gray-700 no-underline' href={`/products/${category.slug}`}>{category.name}</Link>
+                  <Link key={category.name} className='dark:text-white/80 text-gray-300 no-underline' href={`/products/${category.slug}`}>{category.name}</Link>
                 ))}
             </div>
             <div className='flex flex-col'>
-              <h3  className='text-lg pb-2'>About</h3>
-              <Link href={''} className='dark:text-white/80 text-gray-700 no-underline'>Contact Us</Link>
-              <Link href={''} className='dark:text-white/80 text-gray-700 no-underline'>About Us</Link>
-              <Link href={''} className='dark:text-white/80 text-gray-700 no-underline'>Career</Link>
-              <Link href={''} className='dark:text-white/80 text-gray-700 no-underline'>Press</Link>
+              <h3  className='text-lg pb-2 text-white'>About</h3>
+              <Link href={''} className='dark:text-white/80 text-gray-300 no-underline'>Contact Us</Link>
+              <Link href={''} className='dark:text-white/80 text-gray-300 no-underline'>About Us</Link>
+              <Link href={''} className='dark:text-white/80 text-gray-300 no-underline'>Career</Link>
+              <Link href={''} className='dark:text-white/80 text-gray-300 no-underline'>Press</Link>
             </div>
             <div className='flex flex-col'>
-              <h3 className='text-lg pb-2'>Policy</h3>
-              <Link href={''} className='dark:text-white/80 text-gray-700 no-underline'>Terms of Use</Link>
-              <Link href={''} className='dark:text-white/80 text-gray-700 no-underline'>Privacy Policy</Link>
-              <Link href={''} className='dark:text-white/80 text-gray-700 no-underline'>Return Policy</Link>
-              <Link href={''} className='dark:text-white/80 text-gray-700 no-underline'>Security</Link>
+              <h3 className='text-lg pb-2 text-white'>Policy</h3>
+              <Link href={''} className='dark:text-white/80 text-gray-300 no-underline'>Terms of Use</Link>
+              <Link href={''} className='dark:text-white/80 text-gray-300 no-underline'>Privacy Policy</Link>
+              <Link href={''} className='dark:text-white/80 text-gray-300 no-underline'>Return Policy</Link>
+              <Link href={''} className='dark:text-white/80 text-gray-300 no-underline'>Security</Link>
             </div>
           </div>
         </div>
