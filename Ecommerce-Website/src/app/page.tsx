@@ -152,25 +152,25 @@ export default function Home() {
         <h1 className="text-center text-white">Handpicked Collections</h1>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 sm:gap-8 md:gap-10">
-      <Link href={"/products/"}>
+      <Link href={"/products/womens-bags"}>
       <div className="relative rounded-xl ">
         <Image src={Handbags} alt="" width={500} height={500} className="rounded-xl"/>
         <h1 className="absolute text-black bottom-3 left-5 text-3xl text-bold">Handbags</h1>
       </div>
       </Link>
-      <Link href={"/products/sun-glasses"}>
+      <Link href={"/products/sunglasses"}>
       <div className="relative rounded-xl ">
         <Image src={Sunglasses} alt="" width={500} height={500} className="rounded-xl"/>
         <h1 className="absolute text-black bottom-3 left-5 text-3xl text-bold">Sun Glasses</h1>
       </div>
       </Link>
-      <Link href={"/products/perfumes"}>
+      <Link href={"/products/fragrances"}>
       <div className="relative rounded-xl ">
         <Image src={Perfumes} alt="" width={500} height={500} className="rounded-xl"/>
         <h1 className="absolute text-black bottom-3 left-5 text-3xl text-bold">Perfumes</h1>
       </div>
       </Link>
-      <Link href={"/products/men-watches"}>
+      <Link href={"/products/mens-watches"}>
       <div className="relative rounded-xl ">
         <Image src={Wristwactches} alt="" width={500} height={500} className="rounded-xl"/>
         <h1 className="absolute text-black bottom-3 left-5 text-3xl text-bold">Wrist Watches</h1>
