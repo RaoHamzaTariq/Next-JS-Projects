@@ -18,7 +18,7 @@ export default function Home() {
   return (
   <>
 <main>
-<section className="grid grid-cols-1 md:grid-cols-2 lg:gap-80 overflow-hidden items-center justify-between lg:pt-16 sm:pt-40 pt-40  overflow-x-hidden">
+<section className="grid grid-cols-1 md:grid-cols-2 lg:gap-80 overflow-hidden items-center justify-between lg:pt-20 sm:pt-24 pt-40 pb-20  overflow-x-hidden">
   <div className=" max-w-lg ml-20 flex flex-col gap-5">
     <h3>{`I'm Hamza`}</h3>
     <h1>Data Analyst and Web Developer</h1>
