@@ -19,15 +19,15 @@ export default function Home() {
   <>
 <main>
 <section className="grid grid-cols-1 md:grid-cols-2 lg:gap-80 overflow-hidden items-center justify-between lg:pt-20 sm:pt-24 pt-40 pb-20  overflow-x-hidden">
-  <div className=" max-w-lg ml-20 flex flex-col gap-5">
+  <div className=" max-w-lg mx-5 sm:ml-20 flex flex-col gap-5">
     <h3>{`I'm Hamza`}</h3>
-    <h1>Data Analyst and Web Developer</h1>
-    <p>{`I am a skilled Data Analyst, Web Developer, and Power BI Developer, specializing in transforming data into insights and building user-friendly web solutions to help you achieve your goals.`}</p>
+    <h1 className="text-6xl">Data Analyst & Web Developer</h1>
+    <p className="w-fit">{`I am a skilled Data Analyst, Web Developer, and Power BI Developer, specializing in transforming data into insights and building user-friendly web solutions to help you achieve your goals.`}</p>
     <div>
       <Link href={"/Portfolio/All"}><Button>View my Projects</Button></Link>  
     </div>
   </div>
-  <Image className="object-contain mr-20 pb-10" src={"/images/2.png"} height={400} width={400} alt={""}/>
+  <Image className="object-contain sm:mr-20 pb-10 lg:w-[450px]" src={"/images/2.png"} height={400} width={400} alt={""}/>
 </section>
 <section className="my-16">
   <FeatureProjectsCarousal/>
@@ -106,9 +106,9 @@ export default function Home() {
 <StackCarousal/>
 </section>
 
-<section className="my-32 space-y-28">
+<section className=" my-20 mx-5 sm:my-32 space-y-28">
   <div className="flex flex-col gap-5 justify-center text-center items-center">
-    <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl  ">Choose Your Services Plan</h1>
+    <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl lg:text-7xl ">Choose Your Services Plan</h1>
     <p className="max-w-[900px] text-gray-700 dark:text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">{`Select the perfect plan tailored to your needs, whether you're looking for expert data analysis, cutting-edge data science solutions, or innovative web development services.`}</p>
   </div>
   <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center gap-10 items-center container mx-auto">
