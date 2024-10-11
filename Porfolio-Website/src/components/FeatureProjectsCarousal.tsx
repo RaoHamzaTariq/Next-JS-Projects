@@ -23,7 +23,7 @@ export function FeatureProjectsCarousal() {
   return (
     <section className="px-4 md:px-8 lg:px-12 xl:px-16">
       <div className="overflow-hidden my-20 flex justify-center items-center flex-col text-center space-y-3">
-        <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl">Feature Projects</h2>
+        <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-7xl">Feature Projects</h2>
         <p className="max-w-[900px] text-gray-700 dark:text-muted-foreground text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl/relaxed">
           Explore my recent projects that transform insights into impact through innovative data analysis, cutting-edge data science solutions, and dynamic web development.
         </p>
