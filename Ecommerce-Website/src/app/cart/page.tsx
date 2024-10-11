@@ -108,7 +108,7 @@ const Cart = () => {
               </div>
             </div>
             <div className="mt-7 flex gap-5 sm:gap-20">
-              <Link href={""}>
+              <Link href={"/checkout"}>
                 <Button className="sm:w-40 w-fit  ">Place Order</Button>
               </Link>
               <Link href={"/products/all"}>

@@ -14,7 +14,7 @@ const ProductCard = (props:{product:Product}) => {
     <div>
         <Card
                 
-    className="rounded-lg shadow-lg overflow-hidden"
+    className="rounded-lg shadow-lg overflow-hidden hover:scale-105 hover:transition"
   >
     <Image
       src={product.thumbnail}
