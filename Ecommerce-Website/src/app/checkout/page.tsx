@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 "use client";
 import {
   Accordion,
@@ -14,6 +15,46 @@ import { Input } from "@/components/ui/input";
 
 const CheckOut = () => {
   const { cart } = useCart();
+=======
+import { useCart } from "@/components/ContextForCart";
+import React from 'react'
+import Image from "next/image";
+
+const CheckOut = () => {
+  const { cart, removeFromCart } = useCart()
+  return (
+    <div className='py-52'>
+      <div>
+        <h1>Checkout</h1>
+        <div className='flex flex-col sm:flex-row lg:gap-48'>
+          <div className='basis-[60%]'></div>
+          <div className='basis-[40%]'>
+            <div>
+              <h1>Order Summary</h1>
+              <div>
+                {
+                  cart.map((item)=>(
+                    <div key={item.id} className="flex">
+                      <div>
+                        <Image src={""} alt={""} width={50} height={50}/>
+                      </div>
+                      <div className="flex flex-col">
+                        <p>Title</p>
+                        <p>Category</p>
+                        <p>Quantity</p>
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+>>>>>>> Stashed changes
 
   return (
     <div className="py-52 mx-10">

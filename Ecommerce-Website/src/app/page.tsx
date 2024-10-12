@@ -147,7 +147,7 @@ export default function Home() {
       </Card>
     </section>
 
-    <section className="bg-[#1B4B66] p-5 sm:p-10 flex flex-col gap-10 mt-10">
+    <section className="bg-[#1B4B66] dark:bg-blue-950 p-5 sm:p-10 flex flex-col gap-10 mt-10">
       <div>
         <h1 className="text-center text-white">Handpicked Collections</h1>
       </div>
