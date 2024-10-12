@@ -12,6 +12,7 @@ import Sunglasses from "../../public/HandPickedItem/Sunglasses.png"
 import Handbags from "../../public/HandPickedItem/Handbags.png"
 import Wristwactches from "../../public/HandPickedItem/Wristwatches.png"
 import Perfumes from "../../public/HandPickedItem/Perfumes.png"
+import { useSession, signIn, signOut } from "next-auth/react";
 
 type Product = {
   rating: number;
@@ -26,6 +27,7 @@ type Product = {
 };
 
 export default function Home() {
+  const { data: session } = useSession();
   const [products, setProducts] = useState<Product[]>([]);
   const [error, setError] = useState<string | null>(null);
 
@@ -47,7 +49,8 @@ export default function Home() {
     fetchProductData();
   }, []);
 
-  
+
+
   
 
   return (
@@ -64,11 +67,23 @@ export default function Home() {
                 Your one-stop shop for the latest products, exclusive deals, and seamless online shopping.
               </p>
             </div>
-            <div className="flex justify-center items-center gap-5 flex-wrap"> {/* Added flex-wrap for better spacing on smaller screens */}
-              <Button variant={"outline"} className="w-32 h-10 text-black dark:text-white">
+            <div className="">
+              {/* <Button variant={"outline"} className="w-32 h-10 text-black dark:text-white">
                 Sign Up
-              </Button>
-              <Button className="w-32 h-10 text-white">Explore Products</Button>
+              </Button> */}
+              {
+                session ? (
+                  <Button className="w-32 h-10 text-white">Explore Products</Button>
+                 ) : (
+                  <div className="flex justify-center items-center gap-5 flex-wrap">
+                    <Button className="w-32 h-10 text-black dark:text-white" variant={"outline"} onClick={() => signIn()}>Sign Up</Button>
+                    <Button className="w-32 h-10 text-white">Explore Products</Button>
+                    </div>
+                    
+                )
+              }
+
+              
             </div>
           </div>
         </section>

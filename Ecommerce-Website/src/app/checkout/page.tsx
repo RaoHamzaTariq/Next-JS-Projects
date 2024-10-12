@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 "use client";
 import {
   Accordion,
@@ -15,46 +14,6 @@ import { Input } from "@/components/ui/input";
 
 const CheckOut = () => {
   const { cart } = useCart();
-=======
-import { useCart } from "@/components/ContextForCart";
-import React from 'react'
-import Image from "next/image";
-
-const CheckOut = () => {
-  const { cart, removeFromCart } = useCart()
-  return (
-    <div className='py-52'>
-      <div>
-        <h1>Checkout</h1>
-        <div className='flex flex-col sm:flex-row lg:gap-48'>
-          <div className='basis-[60%]'></div>
-          <div className='basis-[40%]'>
-            <div>
-              <h1>Order Summary</h1>
-              <div>
-                {
-                  cart.map((item)=>(
-                    <div key={item.id} className="flex">
-                      <div>
-                        <Image src={""} alt={""} width={50} height={50}/>
-                      </div>
-                      <div className="flex flex-col">
-                        <p>Title</p>
-                        <p>Category</p>
-                        <p>Quantity</p>
-                      </div>
-                    </div>
-                  ))
-                }
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
->>>>>>> Stashed changes
 
   return (
     <div className="py-52 mx-10">
@@ -93,37 +52,6 @@ const CheckOut = () => {
                   </div>
                 </AccordionContent>
               </AccordionItem>
-              {/* <AccordionItem value="item-1">
-                <AccordionTrigger>Add New Address</AccordionTrigger>
-                <AccordionContent>
-                  <div className="grid grid-cols-2 gap-5 ">
-                    <div className="">
-                      <Label htmlFor="fullname">Full Name</Label>
-                      <Input type="text" placeholder="Enter Name" />
-                    </div>
-                    <div>
-                      <Label htmlFor="number">Mobile Number</Label>
-                      <Input type="number" placeholder="Enter Number" />
-                    </div>
-                    <div>
-                      <Label htmlFor="streetaddress">Street Address</Label>
-                      <Input type="text" placeholder="Enter Address" />
-                    </div>
-                    <div>
-                      <Label htmlFor="state">State</Label>
-                      <Input type="text" placeholder="Enter State" />
-                    </div>
-                    <div>
-                      <Label htmlFor="city">City</Label>
-                      <Input type="text" placeholder="Enter City" />
-                    </div>
-                    <div>
-                      <Label htmlFor="pincode">Pin Code</Label>
-                      <Input type="number" placeholder="Enter Pin Code" />
-                    </div>
-                  </div>
-                </AccordionContent>
-              </AccordionItem> */}
             </Accordion>
         </div>
         <div className="basis-[40%]">
