@@ -12,7 +12,7 @@ import Sunglasses from "../../public/HandPickedItem/Sunglasses.png"
 import Handbags from "../../public/HandPickedItem/Handbags.png"
 import Wristwactches from "../../public/HandPickedItem/Wristwatches.png"
 import Perfumes from "../../public/HandPickedItem/Perfumes.png"
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn} from "next-auth/react";
 
 type Product = {
   rating: number;

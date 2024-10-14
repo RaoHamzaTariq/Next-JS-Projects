@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { useCart } from "../../components/ContextForCart";
 import { Label } from "@/components/ui/label";
@@ -59,7 +59,7 @@ const CheckOut = () => {
           <div>
             {cart &&
               cart.map((item) => (
-                <div className="flex">
+                <div className="flex" key={item.id}>
                   <div>
                     <Image src={item.thumbnail} alt="" width={50} height={50} />
                   </div>

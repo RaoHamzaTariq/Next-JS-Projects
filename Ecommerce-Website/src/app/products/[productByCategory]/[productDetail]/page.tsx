@@ -7,10 +7,13 @@ import { ToastAction } from "@/components/ui/toast";
 import React, { useEffect, useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
-import { IoBagOutline } from "react-icons/io5";
+// import { IoBagOutline } from "react-icons/io5";
 import { useCart } from "@/components/ContextForCart";
 import { Product, Reviews } from "@/app/data";
+import Image from "next/image";
 import { CiHeart } from "react-icons/ci";
+import { MdOutlineShoppingCart } from "react-icons/md";
+
 
 // export const StarIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => {
 //   return (
@@ -226,7 +229,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
                   handleAddToCart(productData);
                 }}
               >
-                <IoBagOutline className="text-lg font-semibold mr-1 sm:mr-3"/>Add to Cart
+                <MdOutlineShoppingCart className="text-lg font-semibold mr-1 sm:mr-3"/>Add to Cart
               </Button>
               <Button variant={"outline"} className="w-full"><CiHeart className="text-lg font-semibold mr-1 sm:mr-3"/>Add to Favourite</Button>
               </div>
@@ -234,7 +237,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
             </div>
           </div>
           <div className="grid gap-3 items-start">
-            <img
+            <Image
               src={thumbnail}
               alt="Product Image"
               width={600}
@@ -248,7 +251,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
                   key={pic}
                   className="border hover:border-primary rounded-lg overflow-hidden transition-colors"
                 >
-                  <img
+                  <Image
                     src={pic}
                     alt={`Preview thumbnail ${index + 1}`}
                     width={100}
