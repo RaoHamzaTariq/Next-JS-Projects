@@ -56,37 +56,40 @@ export default function Home() {
   return (
     <>
   <main className="z-100">
+    <section className="relative flex justify-center items-center h-screen overflow-hidden">
+  <video
+    autoPlay
+    loop
+    muted
+    className="absolute top-0 left-0 w-full h-full object-cover z-0"
+  >
+    <source src="/Videos/Homepage.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
     
-        <section className="flex justify-center items-center h-screen">
-          <div className="gap-10 flex flex-col items-center"> {/* Center items on smaller screens */}
-            <h1 className="text-3xl text-center md:text-5xl lg:text-6xl dark:bg-gradient-to-b dark:from-white dark:to-blue-300">
-              Sustainable Shopping for a Greener Future.
-            </h1>
-            <div className="w-3/4 mt-5">
-              <p className="text-center dark:text-white/80">
-                Your one-stop shop for the latest products, exclusive deals, and seamless online shopping.
-              </p>
-            </div>
-            <div className="">
-              {/* <Button variant={"outline"} className="w-32 h-10 text-black dark:text-white">
-                Sign Up
-              </Button> */}
-              {
-                session ? (
-                  <Button className="w-32 h-10 text-white">Explore Products</Button>
-                 ) : (
-                  <div className="flex justify-center items-center gap-5 flex-wrap">
-                    <Button className="w-32 h-10 text-black dark:text-white" variant={"outline"} onClick={() => signIn()}>Sign Up</Button>
-                    <Button className="w-32 h-10 text-white">Explore Products</Button>
-                    </div>
-                    
-                )
-              }
-
-              
-            </div>
+  <div className="relative z-10 gap-10 flex flex-col items-center">
+    <h1 className="text-3xl text-center md:text-5xl lg:text-6xl dark:bg-gradient-to-b dark:from-white dark:to-blue-300">
+      Sustainable Shopping for a Greener Future.
+    </h1>
+    <div className="w-3/4 mt-5">
+      <p className="text-center dark:text-white/80">
+        Your one-stop shop for the latest products, exclusive deals, and seamless online shopping.
+      </p>
+    </div>
+    <div>
+      {
+        session ? (
+          <Button className="w-32 h-10 text-white">Explore Products</Button>
+        ) : (
+          <div className="flex justify-center items-center gap-5 flex-wrap">
+            <Button className="w-32 h-10 text-black dark:text-white" variant={"outline"} onClick={() => signIn()}>Sign Up</Button>
+            <Button className="w-32 h-10 text-white">Explore Products</Button>
           </div>
-        </section>
+        )
+      }
+    </div>
+  </div>
+</section>
       
 
     <section>
