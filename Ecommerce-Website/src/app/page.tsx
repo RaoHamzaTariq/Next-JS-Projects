@@ -69,11 +69,11 @@ export default function Home() {
   <div className="absolute top-20 left-0 w-full h-full bg-black opacity-60"></div>
 
   <div className="relative  gap-10 flex flex-col items-center">
-    <h1 className="text-3xl text-center text-white md:text-5xl lg:text-6xl dark:bg-gradient-to-b dark:from-white dark:to-blue-300">
+    <h1 className="text-3xl text-center text-white md:text-5xl lg:text-6xl ">
       Sustainable Shopping for a Greener Future.
     </h1>
     <div className="w-3/4 mt-5">
-      <p className="text-center text-white dark:text-white/80">
+      <p className="text-center text-white">
         Your one-stop shop for the latest products, exclusive deals, and seamless online shopping.
       </p>
     </div>
