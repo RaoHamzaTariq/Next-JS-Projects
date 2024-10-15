@@ -172,25 +172,25 @@ export default function Home() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 sm:gap-8 md:gap-10">
       <Link href={"/products/womens-bags"}>
-      <div className="relative rounded-xl ">
+      <div className="relative rounded-xl transition-transform transform hover:scale-105 hover:shadow-lg">
         <Image src={Handbags} alt="" width={500} height={500} className="rounded-xl"/>
         <h1 className="absolute text-black bottom-3 left-5 text-3xl text-bold">Handbags</h1>
       </div>
       </Link>
       <Link href={"/products/sunglasses"}>
-      <div className="relative rounded-xl ">
+      <div className="relative rounded-xl transition-transform transform hover:scale-105 hover:shadow-lg">
         <Image src={Sunglasses} alt="" width={500} height={500} className="rounded-xl"/>
         <h1 className="absolute text-black bottom-3 left-5 text-3xl text-bold">Sun Glasses</h1>
       </div>
       </Link>
       <Link href={"/products/fragrances"}>
-      <div className="relative rounded-xl ">
+      <div className="relative rounded-xl transition-transform transform hover:scale-105 hover:shadow-lg">
         <Image src={Perfumes} alt="" width={500} height={500} className="rounded-xl"/>
         <h1 className="absolute text-black bottom-3 left-5 text-3xl text-bold">Perfumes</h1>
       </div>
       </Link>
       <Link href={"/products/mens-watches"}>
-      <div className="relative rounded-xl ">
+      <div className="relative rounded-xl transition-transform transform hover:scale-105 hover:shadow-lg">
         <Image src={Wristwactches} alt="" width={500} height={500} className="rounded-xl"/>
         <h1 className="absolute text-black bottom-3 left-5 text-3xl text-bold">Wrist Watches</h1>
       </div>

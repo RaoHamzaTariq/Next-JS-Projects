@@ -19,7 +19,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-
+import Image from "next/image";
 import { Button } from "./ui/button";
 import { ModeToggle } from "./ui/ModeToogle";
 import { Input } from "./ui/input";
@@ -65,7 +65,9 @@ const NavBar = () => {
     <main className="z-10 border-b-2 dark:border bg-transparent backdrop-blur-md w-screen fixed mt-0">
       <div className="w-screen px-10 flex justify-between items-center min-h-16 max-h-20">
         <div>
-          <h3 className="text-4xl pb-5">LOGO</h3>
+          {/* <h3 className="text-4xl pb-5">LOGO</h3> */}
+          <Image src={"/BI Structure Images/BI Structure.png"} width={125} height={125} alt="" className="dark:hidden"/>
+          <Image src={"/BI Structure Images/BI Structure white.png"} width={125} height={125} alt="" className="hidden dark:block"/>
         </div>
         <div className="md:block hidden">
           <NavigationMenu className="mt-0 md:">
