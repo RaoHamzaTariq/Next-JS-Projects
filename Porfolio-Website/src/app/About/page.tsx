@@ -6,26 +6,10 @@ import { Button } from "@/components/ui/button"
 export default function About() {
   return (
     <div className="flex flex-col w-screen">
-      {/* <section className=" py-12 md:py-24 lg:py-32 ">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-6 grid-cols-1 lg:grid-cols-2">
-            <div className="flex flex-col justify-center space-y-4">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">About Me</h1>
-                <p className="max-w-[600px]  md:text-xl">
-                  I am passionate data analyst, data scientist and developers, dedicated to crafting exceptional digital
-                  experiences. Our mission is to help businesses and individuals achieve their goals through innovative
-                  and user-centric solutions.
-                </p>
-              </div>
-            </div>
-            <Image className="mx-auto aspect-video overflow-hidden tighter rounded-xl object-cover sm:w-3/4 lg:order-last lg:aspect-square " src={"/images/2.png"} height={400} width={400} alt={""}/>
-          </div>
-        </div>
-      </section> */}
+      
       <section className="grid grid-cols-1 md:grid-cols-2 lg:gap-80   items-center justify-between lg:pt-16 sm:pt-40 pt-40  overflow-x-hidden h-screen">
   <div className=" max-w-lg ml-20 flex flex-col gap-5">
-    <h1>About Me</h1>
+    <h1 className="text-5xl">About Me</h1>
     <p>{`I am passionate data analyst, data scientist and developers, dedicated to crafting exceptional digital
                   experiences. Our mission is to help businesses and individuals achieve their goals through innovative
                   and user-centric solutions.`}</p>
@@ -33,66 +17,11 @@ export default function About() {
   <Image className="object-contain mr-20 pb-10" src={"/images/2.png"} height={400} width={400} alt={""}/>
 </section>
 
-      {/* <section className="w-full py-12 md:py-24 lg:py-32">
-        <div className="container px-4 md:px-6">
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Meet Our Team</h2>
-              <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                Our team is composed of talented individuals with diverse backgrounds and expertise, working together to
-                deliver exceptional results.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              <div className="flex flex-col items-center space-y-4">
-                <Avatar>
-                  <AvatarImage src="/placeholder-user.jpg" />
-                  <AvatarFallback>JD</AvatarFallback>
-                </Avatar>
-                <div className="text-center">
-                  <h3 className="text-lg font-semibold">John Doe</h3>
-                  <p className="text-muted-foreground">Co-Founder, Designer</p>
-                </div>
-              </div>
-              <div className="flex flex-col items-center space-y-4">
-                <Avatar>
-                  <AvatarImage src="/placeholder-user.jpg" />
-                  <AvatarFallback>JA</AvatarFallback>
-                </Avatar>
-                <div className="text-center">
-                  <h3 className="text-lg font-semibold">Jane Appleseed</h3>
-                  <p className="text-muted-foreground">Co-Founder, Developer</p>
-                </div>
-              </div>
-              <div className="flex flex-col items-center space-y-4">
-                <Avatar>
-                  <AvatarImage src="/placeholder-user.jpg" />
-                  <AvatarFallback>SM</AvatarFallback>
-                </Avatar>
-                <div className="text-center">
-                  <h3 className="text-lg font-semibold">Sarah Musk</h3>
-                  <p className="text-muted-foreground">Lead Designer</p>
-                </div>
-              </div>
-              <div className="flex flex-col items-center space-y-4">
-                <Avatar>
-                  <AvatarImage src="/placeholder-user.jpg" />
-                  <AvatarFallback>JB</AvatarFallback>
-                </Avatar>
-                <div className="text-center">
-                  <h3 className="text-lg font-semibold">John Bravo</h3>
-                  <p className="text-muted-foreground">Senior Developer</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
       <section className="w-screen py-12 md:py-24 lg:py-32 bg-muted">
         <div className="container px-4 md:px-6">
           <div className="space-y-6">
             <div className="space-y-2 flex flex-col items-center pb-10">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Our Values</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">Our Values</h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl text-center">
                 {`We uphold a set of core values that guide our work and shape our culture.`}
               </p>
@@ -127,7 +56,7 @@ export default function About() {
         <div className="container px-4 md:px-6">
           <div className="space-y-6">
             <div className="space-y-2 flex flex-col items-center pb-10 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Our Achievements</h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl lg:text-6xl">Our Achievements</h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
                 {`We are proud of the milestones we have reached and the impact we have made on our clients and the
                 industry.`}

@@ -36,7 +36,7 @@ export default function Home() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-8 text-center">
               <div className="space-y-4">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl lg:text-7xl">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
                 Why Choose Me for Your Projects
                 </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -108,7 +108,7 @@ export default function Home() {
 
 <section className=" my-20 mx-5 sm:my-32 space-y-28">
   <div className="flex flex-col gap-5 justify-center text-center items-center">
-    <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl lg:text-7xl ">Choose Your Services Plan</h1>
+    <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl lg:text-6xl ">Choose Your Services Plan</h1>
     <p className="max-w-[900px] text-gray-700 dark:text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">{`Select the perfect plan tailored to your needs, whether you're looking for expert data analysis, cutting-edge data science solutions, or innovative web development services.`}</p>
   </div>
   <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center gap-10 items-center container mx-auto">

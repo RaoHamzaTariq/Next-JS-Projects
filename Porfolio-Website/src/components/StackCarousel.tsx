@@ -22,7 +22,7 @@ export function StackCarousal() {
   return (
     <section className="my-32">
 <div className="overflow-hidden my-20 flex flex-col text-center justify-center items-center space-y-3  ">
-  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl lg:text-7xl">Stacks and Technologies</h2>
+  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">Stacks and Technologies</h2>
   <p className="max-w-[900px] text-gray-700 dark:text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">Leveraging a powerful combination of tools and technologies to drive data-driven solutions and seamless web experiences.</p>
 </div>
     <div className="max-w-1/2 flex items-center justify-center min-h-72 overflow-hidden">
