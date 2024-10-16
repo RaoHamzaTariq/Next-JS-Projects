@@ -50,9 +50,6 @@ export default function Home() {
   }, []);
 
 
-
-  
-
   return (
     <>
   <main className="z-100">
@@ -197,6 +194,32 @@ export default function Home() {
       </Link>
       </div>
     </section>
+    <section className="py-10 my-10">
+  <div className="container mx-auto px-4 flex flex-col gap-20">
+  <h1 className="text-center text-black">Famous Brand</h1>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 justify-center items-center">
+      {/* Example Brand Logos */}
+      <div className="m-4 flex justify-center items-center">
+        <Image src="/BrandLogos/apple.png" width={200} height={200} alt="Brand 1" className="h-32 w-auto object-contain transition-transform duration-300 hover:scale-105" />
+      </div>
+      <div className="m-4 flex justify-center items-center">
+        <Image src="/BrandLogos/annibale_colombo.png" width={200} height={200} alt="Brand 2" className="h-32 w-auto object-contain transition-transform duration-300 hover:scale-105" />
+      </div>
+      <div className="m-4 flex justify-center items-center">
+        <Image src="/BrandLogos/knoll.png" width={200} height={200} alt="Brand 3" className="h-32 w-auto object-contain transition-transform duration-300 hover:scale-105" />
+      </div>
+      <div className="m-4 flex justify-center items-center">
+        <Image src="/BrandLogos/longines.png" width={200} height={200} alt="Brand 4" className="h-32 w-auto object-contain transition-transform duration-300 hover:scale-105" />
+      </div>
+      <div className="m-4 flex justify-center items-center">
+        <Image src="/BrandLogos/vivo.png" width={200} height={200} alt="Brand 5" className="h-32 w-auto object-contain transition-transform duration-300 hover:scale-105" />
+      </div>
+      <div className="m-4 flex justify-center items-center">
+        <Image src="/BrandLogos/dodge.png" width={200} height={200} alt="Brand 5" className="h-32 w-auto object-contain transition-transform duration-300 hover:scale-105" />
+      </div>
+    </div>
+  </div>
+</section>
 
     <section><Faqs /></section>
 
