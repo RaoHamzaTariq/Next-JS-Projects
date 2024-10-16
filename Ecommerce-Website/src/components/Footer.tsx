@@ -26,7 +26,7 @@ const productCategories: ProductCategory[] = await FetchProductCategories();
 
   return (
     <div>
-      <section className='border-t-2 bg-[#1B4B66] dark:bg-blue-950 sm:px-10 px-4'>
+      <section className='border-t-2 bg-[#19445D] dark:bg-blue-950 sm:px-10 px-4'>
         <div className='w-screen container sm:px-10 md:px-0 md:mx-auto flex flex-col lg:flex-row justify-between py-10 '>
           <div className='flex flex-col gap-4'>
             <h2 className='border-none text-white'>LOGO</h2>
@@ -61,7 +61,7 @@ const productCategories: ProductCategory[] = await FetchProductCategories();
           </div>
         </div>
       </section>
-      <section className="p-1  border-y-2 sm:px-10">
+      <section className="p-1  border-y-2 sm:px-10  ">
         <div className="justify-between items-center  flex flex-col md:flex-row px-10 md:px-0">
           <div className=''>
             <p className="text-center dark:text-white/80">
