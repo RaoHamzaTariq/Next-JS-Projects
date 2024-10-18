@@ -8,6 +8,13 @@ import Footer from "@/components/Footer";
 import { CartProvider } from "@/components/ContextForCart";
 import WebsiteUnderProcess from "@/components/WebsiteUnderProcess";
 import SessionWrapper from "@/components/SessionWrapper";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 
 const dm_Sans = DM_Sans({ subsets: ["latin"] });
 
@@ -22,6 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body className={dm_Sans.className}>
         <SessionWrapper>
@@ -42,5 +50,6 @@ export default function RootLayout({
         </SessionWrapper>
       </body>
     </html>
+    </ClerkProvider>
   );
 }

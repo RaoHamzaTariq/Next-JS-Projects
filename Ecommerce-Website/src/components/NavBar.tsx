@@ -1,7 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useSession, signIn, signOut } from "next-auth/react";
-
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -26,7 +24,7 @@ import { Input } from "./ui/input";
 import Link from "next/link";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { ProductCategory } from "@/app/data";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 // Function to fetch product categories
 const FetchProductCategories = async (): Promise<ProductCategory[]> => {
@@ -46,11 +44,9 @@ const FetchProductCategories = async (): Promise<ProductCategory[]> => {
 };
 
 const NavBar = () => {
-  const { data: session } = useSession();
   const [productCategories, setProductCategories] = useState<ProductCategory[]>(
     []
   );
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Fetch product categories when the component mounts
   useEffect(() => {
@@ -136,24 +132,15 @@ const NavBar = () => {
             <div className="w-16">
               <ModeToggle />
             </div>
-            {session ? (
-              <div>
-                <Avatar onClick={()=>setIsMenuOpen(true)}>
-                  <AvatarImage
-                    src={session?.user?.image || "Nothing"}
-                    alt="@shadcn"
-                  />
-                  <AvatarFallback>CN</AvatarFallback>
-                </Avatar>
-                <Button variant={"outline"} onClick={() => signOut()} className={isMenuOpen === false ? "hidden" : "block"}>
-                  Sign Out
-                </Button>
-              </div>
-            ) : (
-              <Button variant={"outline"} onClick={() => signIn()}>
-                Sign Up
-              </Button>
-            )}
+            <Button variant={"ghost"}>
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            </Button>
+            
             <Link href={"/cart"}>
               <MdOutlineShoppingBag className="text-2xl text-gray-700 dark:text-white/85" />
             </Link>
