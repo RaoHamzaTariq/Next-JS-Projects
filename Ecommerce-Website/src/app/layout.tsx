@@ -10,10 +10,6 @@ import WebsiteUnderProcess from "@/components/WebsiteUnderProcess";
 import SessionWrapper from "@/components/SessionWrapper";
 import {
   ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton
 } from '@clerk/nextjs'
 
 const dm_Sans = DM_Sans({ subsets: ["latin"] });
