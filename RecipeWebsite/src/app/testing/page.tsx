@@ -1,4 +1,3 @@
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 import React from 'react'
 
 const Testing = async () => {
@@ -24,12 +23,7 @@ const Testing = async () => {
 
   return (<>
     <div>
-    <SignedOut>
-    <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>   
+   
     </div>
     <div className='w-screen text-center text-5xl font-bold flex justify-center items-center'>Testing Data</div>
     <p>{data.name}</p>

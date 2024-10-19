@@ -147,7 +147,15 @@ const NavBar = () => {
           </div>
         </div>
 
-        <div className="block md:hidden">
+        <div className="block md:hidden gap-3">
+        <Button variant={"ghost"}>
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            </Button>
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="outline">
