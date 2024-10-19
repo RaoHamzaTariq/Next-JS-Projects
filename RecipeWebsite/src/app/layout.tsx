@@ -30,12 +30,8 @@ export default function RootLayout({
     <html lang="en">
       
       <body className={inter.className}>
-      <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
+      
+            
       <ThemeProvider
             attribute="class"
             defaultTheme="system"
