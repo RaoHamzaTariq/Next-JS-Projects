@@ -147,8 +147,8 @@ const NavBar = () => {
           </div>
         </div>
 
-        <div className="block md:hidden gap-3">
-        <Button variant={"ghost"}>
+        <div className="flex md:hidden gap-3 items-center">
+        <Button variant={"ghost"} className="p-0">
             <SignedOut>
               <SignInButton />
             </SignedOut>
@@ -158,7 +158,7 @@ const NavBar = () => {
             </Button>
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="outline">
+              <Button variant="outline" className="p-3">
                 <CiMenuBurger />
               </Button>
             </SheetTrigger>

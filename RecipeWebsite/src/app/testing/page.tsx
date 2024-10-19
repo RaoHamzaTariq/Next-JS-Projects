@@ -5,7 +5,7 @@ const Testing = async () => {
         try {
             const apiResponse = await fetch("http://localhost:3000/api/testing");
             if(!apiResponse){
-                throw new Error("Network was not working")
+                throw new Error("Network was not working...")
             }
             const data = await apiResponse.json();
             return data
