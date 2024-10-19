@@ -4,6 +4,13 @@ import "./globals.css";
 import { Suspense } from "react";
 import Loading from "../app/loading";
 import { ThemeProvider } from "@/components/theme-provider"
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,8 +26,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
     <html lang="en">
+      
       <body className={inter.className}>
+      <SignedOut>
+            <SignInButton />
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
       <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -33,6 +48,8 @@ export default function RootLayout({
           </ThemeProvider>
         
         </body>
+        
     </html>
+    </ClerkProvider>
   );
 }
