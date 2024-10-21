@@ -4,14 +4,13 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="bg-gradient-to-br from-blue-950 to-red-900">
-      <div className="mt-28 flex flex-col justify-center items-center">
-      <h1>Welcome to Figma Cloning Website</h1>
-      <p>In this website you will find multiple cloning projects</p>
-      <button>Let's Explore</button>
+    <main className="">
+      <div className="mt-40 flex flex-col justify-center items-center">
+      <h1 className="text-5xl text-bold">Welcome to Figma Cloning Website</h1>
+      <p className="text-xl text-gray-500">In this website you will find multiple cloning projects</p>
       </div>
       <section className="flex justify-center items-center mt-12 font-bold">
-        <Link href={"iphone-cyber-website"}><button>iPhone Cyber Website</button></Link>
+        <Link href={"iphone-cyber-website"}><button className="border-2 border-black hover:border-0 p-5 text-xl hover:shadow-lg hover:transition-all ">iPhone Cyber Website</button></Link>
       </section>
     </main>
   );
