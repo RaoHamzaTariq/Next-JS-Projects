@@ -32,14 +32,14 @@ const iPhoneCyber = () => {
             </div>
         </nav>
         {/* This is th landing page section */}
-        <section className="px-40">
-            <div>
-                <div>
-                <p className='text-2xl font-semibold'>Pro.Beyond.</p>
-                <h1 className='text-8xl'>iPhone 14 <span>Pro</span></h1>
+        <section className="px-40 bg-gradient-to-r from-[#211C24] to-[#211C24]">
+            <div className='flex flex-col gap-6'>
+                <div className='flex flex-col gap-6'>
+                <p className='text-2xl font-semibold opacity-40 text-white'>Pro.Beyond.</p>
+                <h1 className='text-8xl text-white font-thin'>iPhone 14 <span className='font-semibold font-sans'>Pro</span></h1>
                 </div>
-                <p className='text'>Created to change everything for the better. For everyone</p>
-                <button className=''>Shop Now</button>
+                <p className=' text-[#909090]'>Created to change everything for the better. For everyone</p>
+                <button className=' text-white'>Shop Now</button>
             </div>
             <div></div>
         </section>
