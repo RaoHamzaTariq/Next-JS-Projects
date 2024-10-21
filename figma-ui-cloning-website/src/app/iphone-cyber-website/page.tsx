@@ -217,8 +217,8 @@ const iPhoneCyber = () => {
                     <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4">
-                            <h3 className="text-center  text-base">Apple iPhone 14 Pro Max 128GB Deep Purple </h3>
-                            <p className="text-center font-semibold text-2xl">$900</p>
+                            <h3 className="text-center  text-base">Samsung Galaxy Watch6 Classic 47mm Black</h3>
+                            <p className="text-center font-semibold text-2xl">$369</p>
                         </div>
                         <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
@@ -233,8 +233,8 @@ const iPhoneCyber = () => {
                     <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4">
-                            <h3 className="text-center  text-base">Apple iPhone 14 Pro Max 128GB Deep Purple </h3>
-                            <p className="text-center font-semibold text-2xl">$900</p>
+                            <h3 className="text-center  text-base">Galaxy Z Fold5 Unlocked | 256GB | Phantom Black</h3>
+                            <p className="text-center font-semibold text-2xl">$1799</p>
                         </div>
                         <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
@@ -249,8 +249,8 @@ const iPhoneCyber = () => {
                     <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4">
-                            <h3 className="text-center  text-base">Apple iPhone 14 Pro Max 128GB Deep Purple </h3>
-                            <p className="text-center font-semibold text-2xl">$900</p>
+                            <h3 className="text-center  text-base">Galaxy Buds FE Graphite</h3>
+                            <p className="text-center font-semibold text-2xl">$99.99</p>
                         </div>
                         <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
@@ -265,8 +265,8 @@ const iPhoneCyber = () => {
                     <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4">
-                            <h3 className="text-center  text-base">Apple iPhone 14 Pro Max 128GB Deep Purple </h3>
-                            <p className="text-center font-semibold text-2xl">$900</p>
+                            <h3 className="text-center  text-base">Apple iPad 9 10.2" 64GB Wi-Fi Silver (MK2L3) 2021</h3>
+                            <p className="text-center font-semibold text-2xl">$398</p>
                         </div>
                         <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
