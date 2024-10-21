@@ -39,9 +39,11 @@ const iPhoneCyber = () => {
                 <h1 className='text-8xl text-white font-thin'>iPhone 14 <span className='font-semibold font-sans'>Pro</span></h1>
                 </div>
                 <p className=' text-[#909090]'>Created to change everything for the better. For everyone</p>
-                <button className=' text-white'>Shop Now</button>
+                <button className=' text-white font-medium text-base py-4 px-14'>Shop Now</button>
             </div>
-            <div></div>
+            <div>
+                <Image src={'/Cyber iPhone Store/iPhone Image.png'} alt={'iPhone Image'} width={406} height={632}/>
+            </div>
         </section>
     </main>
   )
