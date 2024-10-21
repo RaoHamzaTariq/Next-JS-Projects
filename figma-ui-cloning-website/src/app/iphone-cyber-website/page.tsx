@@ -214,7 +214,7 @@ const iPhoneCyber = () => {
                 <div className="flex justify-end w-full">
                 <CiHeart className="text-3xl"/>
                 </div>
-                    <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
+                    <Image className="" src={"/Cyber iPhone Store/samsung watch.png"} width={160} height={160} alt=""/>
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4">
                             <h3 className="text-center  text-base">Samsung Galaxy Watch6 Classic 47mm Black</h3>
