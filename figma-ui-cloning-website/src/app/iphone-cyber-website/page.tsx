@@ -197,7 +197,7 @@ const iPhoneCyber = () => {
                 <div className="flex justify-end w-full">
                 <CiHeart className="text-3xl"/>
                 </div>
-                    <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
+                    <Image className="" src={"/Cyber iPhone Store/headphones 1.png"} width={160} height={160} alt=""/>
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4">
                             <h3 className="text-center  text-base">AirPods Max Silver
@@ -230,7 +230,7 @@ const iPhoneCyber = () => {
                 <div className="flex justify-end w-full">
                 <CiHeart className="text-3xl"/>
                 </div>
-                    <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
+                    <Image className="" src={"/Cyber iPhone Store/samsung 1.png"} width={160} height={160} alt=""/>
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4">
                             <h3 className="text-center  text-base">Galaxy Z Fold5 Unlocked | 256GB | Phantom Black</h3>
@@ -262,7 +262,7 @@ const iPhoneCyber = () => {
                 <div className="flex justify-end w-full">
                 <CiHeart className="text-3xl"/>
                 </div>
-                    <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
+                    <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 4.png"} width={160} height={160} alt="Iphone 14 pro 4"/>
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4">
                             <h3 className="text-center  text-base">Apple iPad 9 10.2" 64GB Wi-Fi Silver (MK2L3) 2021</h3>
