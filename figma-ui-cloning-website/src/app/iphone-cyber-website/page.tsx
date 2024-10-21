@@ -20,9 +20,9 @@ const iPhoneCyber = () => {
             <div>
                 <ul className='flex  gap-12'>
                     <li className='text-base'>Home</li>
-                    <li className='text-[#2E2E2E] text-base'>About</li>
-                    <li className='text-[#2E2E2E] text-base'>Contact Us</li>
-                    <li className='text-[#2E2E2E] text-base'>Blog</li>
+                    <li className='text-[#989898] text-base'>About</li>
+                    <li className='text-[#989898] text-base'>Contact Us</li>
+                    <li className='text-[#989898] text-base'>Blog</li>
                 </ul>
             </div>
             <div className='flex gap-6'>
@@ -31,6 +31,18 @@ const iPhoneCyber = () => {
                 <FiUser className='text-2xl'/>
             </div>
         </nav>
+        {/* This is th landing page section */}
+        <section className="px-40">
+            <div>
+                <div>
+                <p className='text-2xl font-semibold'>Pro.Beyond.</p>
+                <h1 className='text-8xl'>iPhone 14 <span>Pro</span></h1>
+                </div>
+                <p className='text'>Created to change everything for the better. For everyone</p>
+                <button className=''>Shop Now</button>
+            </div>
+            <div></div>
+        </section>
     </main>
   )
 }
