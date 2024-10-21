@@ -4,9 +4,11 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 
-import { CiHeart, CiMobile4 } from "react-icons/ci";
+import { CiCamera, CiHeart, CiMobile4 } from "react-icons/ci";
 import { FiUser } from "react-icons/fi";
 import { CiSearch } from "react-icons/ci";
+import { PiHeadphones } from "react-icons/pi";
+import { HiOutlineDesktopComputer } from "react-icons/hi";
 
 const iPhoneCyber = () => {
   return (
@@ -82,7 +84,7 @@ const iPhoneCyber = () => {
             </div>
             <div className="flex flex-col gap-3 w-40 h-[120px]">
                 <h3 className="text-3xl font-light text-black ">Apple AirPods <span className="font-bold">Max</span></h3>
-                <p className="text-[#909090] text-sm">Computational audio. Listen, it's powerful</p>
+                <p className="text-[#909090] text-sm">{"Computational audio. Listen, it's powerful"}</p>
             </div>
             </div>
             <div className="basis-1/2 bg-[#353535] flex items-center pr-12 gap-7">
@@ -91,7 +93,7 @@ const iPhoneCyber = () => {
             </div>
             <div className="flex flex-col gap-3 w-40 h-[120px]">
                 <h3 className="text-3xl font-light text-white ">Apple AirPods <span className="font-bold">Max</span></h3>
-                <p className="text-[#909090] text-sm">Computational audio. Listen, it's powerful</p>
+                <p className="text-[#909090] text-sm">{"Computational audio. Listen, it's powerful"}</p>
             </div>
             </div>
             </div>
@@ -124,25 +126,44 @@ const iPhoneCyber = () => {
                 <p className="text-base text-center">Phones</p>
             </div>
             <div className="px-[52px] py-6 flex flex-col gap-2 justify-center w-40 h-32 bg-[#EDEDED] rounded-2xl">
-                <CiMobile4 className={"w-12 h-12 "}/>
+                <Image className={"w-12 h-12 "} alt="" src={"/Cyber iPhone Store/Smart Watches.png"} width={48} height={48}/>
                 <p className="text-base text-center">Smart Watches</p>
             </div>
             <div className="px-[52px] py-6 flex flex-col gap-2 justify-center w-40 h-32 bg-[#EDEDED] rounded-2xl">
-                <CiMobile4 className={"w-12 h-12 "}/>
+                <CiCamera  className={"w-12 h-12 "}/>
                 <p className="text-base text-center">Cameras</p>
             </div>
             <div className="px-[52px] py-6 flex flex-col gap-2 justify-center w-40 h-32 bg-[#EDEDED] rounded-2xl">
-                <CiMobile4 className={"w-12 h-12 "}/>
+                <PiHeadphones  className={"w-12 h-12 "}/>
                 <p className="text-base text-center">Headphones</p>
             </div>
             <div className="px-[52px] py-6 flex flex-col gap-2 justify-center w-40 h-32 bg-[#EDEDED] rounded-2xl">
-                <CiMobile4 className={"w-12 h-12 "}/>
+                <HiOutlineDesktopComputer  className={"w-12 h-12 "}/>
                 <p className="text-base text-center">Computers</p>
             </div>
             <div className="px-[52px] py-6 flex flex-col gap-2 justify-center w-40 h-32 bg-[#EDEDED] rounded-2xl">
-                <CiMobile4 className={"w-12 h-12 "}/>
+            <Image className={"w-12 h-12 "} alt="" src={"/Cyber iPhone Store/Gaming.png"} width={48} height={48}/>
                 <p className="text-base text-center">Gaming</p>
             </div>
+        </div>
+      </section>
+      <section className="px-40 py-14 flex flex-col gap-8">
+        <div className="flex gap-8">
+            <p className="text-lg border-b-2 border-black">New Arrival</p>
+            <p className="text-lg text-[#8B8B8B]">Bestsellers</p>
+            <p className="text-lg text-[#8B8B8B]">Featured Products</p>
+        </div>
+        <div className="grid grid-cols-4">
+            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] justify-center flex-col flex">
+                <div className="flex justify-end w-full">
+                <CiHeart className="text-3xl "/>
+                </div>
+                <div>
+                    <Image src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
+                </div>
+                
+            </div>
+            
         </div>
       </section>
     </main>
