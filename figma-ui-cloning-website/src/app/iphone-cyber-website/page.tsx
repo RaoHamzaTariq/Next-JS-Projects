@@ -154,13 +154,124 @@ const iPhoneCyber = () => {
             <p className="text-lg text-[#8B8B8B]">Featured Products</p>
         </div>
         <div className="grid grid-cols-4">
-            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] justify-center flex-col flex">
+            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
                 <div className="flex justify-end w-full">
-                <CiHeart className="text-3xl "/>
+                <CiHeart className="text-3xl"/>
                 </div>
-                <div>
-                    <Image src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
+                    <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
+                    <div className="flex flex-col gap-6">
+                        <div className="flex flex-col gap-4">
+                            <h3 className="text-center  text-base">Apple iPhone 14 Pro Max 128GB Deep Purple </h3>
+                            <p className="text-center font-semibold text-2xl">$900</p>
+                        </div>
+                        <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
+                    </div>
+            </div>
+            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+                <div className="flex justify-end w-full">
+                <CiHeart className="text-3xl"/>
                 </div>
+                    <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
+                    <div className="flex flex-col gap-6">
+                        <div className="flex flex-col gap-4">
+                            <h3 className="text-center  text-base">Blackmagic Pocket Cinema Camera 6k</h3>
+                            <p className="text-center font-semibold text-2xl">$2535</p>
+                        </div>
+                        <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
+                    </div>
+            </div>
+            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+                <div className="flex justify-end w-full">
+                <CiHeart className="text-3xl"/>
+                </div>
+                    <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
+                    <div className="flex flex-col gap-6">
+                        <div className="flex flex-col gap-4">
+                            <h3 className="text-center  text-base">Apple Watch Series 9 GPS 41mm Starlight Aluminium </h3>
+                            <p className="text-center font-semibold text-2xl">$399</p>
+                        </div>
+                        <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
+                    </div>
+            </div>
+            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+                <div className="flex justify-end w-full">
+                <CiHeart className="text-3xl"/>
+                </div>
+                    <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
+                    <div className="flex flex-col gap-6">
+                        <div className="flex flex-col gap-4">
+                            <h3 className="text-center  text-base">AirPods Max Silver
+                            Starlight Aluminium </h3>
+                            <p className="text-center font-semibold text-2xl">$549</p>
+                        </div>
+                        <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
+                    </div>
+
+                
+                
+            </div>
+            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+                <div className="flex justify-end w-full">
+                <CiHeart className="text-3xl"/>
+                </div>
+                    <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
+                    <div className="flex flex-col gap-6">
+                        <div className="flex flex-col gap-4">
+                            <h3 className="text-center  text-base">Apple iPhone 14 Pro Max 128GB Deep Purple </h3>
+                            <p className="text-center font-semibold text-2xl">$900</p>
+                        </div>
+                        <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
+                    </div>
+
+                
+                
+            </div>
+            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+                <div className="flex justify-end w-full">
+                <CiHeart className="text-3xl"/>
+                </div>
+                    <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
+                    <div className="flex flex-col gap-6">
+                        <div className="flex flex-col gap-4">
+                            <h3 className="text-center  text-base">Apple iPhone 14 Pro Max 128GB Deep Purple </h3>
+                            <p className="text-center font-semibold text-2xl">$900</p>
+                        </div>
+                        <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
+                    </div>
+
+                
+                
+            </div>
+            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+                <div className="flex justify-end w-full">
+                <CiHeart className="text-3xl"/>
+                </div>
+                    <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
+                    <div className="flex flex-col gap-6">
+                        <div className="flex flex-col gap-4">
+                            <h3 className="text-center  text-base">Apple iPhone 14 Pro Max 128GB Deep Purple </h3>
+                            <p className="text-center font-semibold text-2xl">$900</p>
+                        </div>
+                        <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
+                    </div>
+
+                
+                
+            </div>
+            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+                <div className="flex justify-end w-full">
+                <CiHeart className="text-3xl"/>
+                </div>
+                    <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
+                    <div className="flex flex-col gap-6">
+                        <div className="flex flex-col gap-4">
+                            <h3 className="text-center  text-base">Apple iPhone 14 Pro Max 128GB Deep Purple </h3>
+                            <p className="text-center font-semibold text-2xl">$900</p>
+                        </div>
+                        <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
+                    </div>
+
+                
                 
             </div>
             
