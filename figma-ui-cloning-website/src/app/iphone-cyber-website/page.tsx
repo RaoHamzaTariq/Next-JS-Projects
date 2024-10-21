@@ -68,17 +68,17 @@ const iPhoneCyber = () => {
         </div>
       </section>
       <section className="flex max-h-[600px] max-w-[1440]">
-        <div className="basis-1/2 flex flex-col">
-          <div className="basis-1/2 pr-12 flex items-center ">
-          <div>
-            <Image src={"/Cyber iPhone Store/PlayStation.png"} alt={"Play Station"} width={360} height={343}/></div>
+        <div className="basis-1/2 flex flex-col min-h-[600px]">
+          <div className="basis-1/2 pr-12 flex items-center min-h-[328px]">
+          <div className="flex items-center">
+            <Image src={"/Cyber iPhone Store/PlayStation.png"} alt={"Play Station"} className="h-[328px]" width={400} height={328}/></div>
             <div className="flex flex-col gap-4">
                 <h2 className="text-5xl ">Playstation 5</h2>
                 <p className="text-sm text-[#909090]">Incredibly powerful CPUs, GPUs, and an SSD with integrated I/O will redefine your PlayStation experience.</p>
             </div>
             </div>
-          <div className="flex basis-1/2">
-            <div className="basis-1/2 bg-[#EDEDED] flex items-center pr-12 gap-7">
+          <div className="flex basis-1/2 min-h-[272px]">
+            <div className="basis-1/2 bg-[#EDEDED] flex items-center pr-12 gap-7 w-ful">
             <div>
             <Image src={"/Cyber iPhone Store/headphones.png"} alt={"HeadPhones"} width={104} height={272}/>
             </div>
@@ -99,15 +99,15 @@ const iPhoneCyber = () => {
             </div>
             <div className="basis-1/2"></div>
           </div>
-        <div className="basis-1/2 flex py-11 pl-14 items-center bg-[#EDEDED]">
+        <div className="basis-1/2 flex py-11 pl-14 items-center bg-[#EDEDED] justify-between max-h-[600px]">
         <div className="w-[360px] h-[272px] flex flex-col gap-4">
             <div className="flex flex-col gap-4">
             <h2 className="text-[64px] leading-[56px]">Macbook <span className="font-bold">Air</span></h2>
             <p className="text-[#909090] text-sm">The new 15‑inch MacBook Air makes room for more of what you love with a spacious Liquid Retina display.</p>
             </div>
-            <button className="px-14 py-4 rounded-md border-2 border-black">Shop Now</button>
+            <button className="px-14 py-4 rounded-md border-2 w-[191px] border-black">Shop Now</button>
         </div>
-        <div>
+        <div className="items-end flex">
             <Image src={"/Cyber iPhone Store/MacBook Pro 14.png"} alt={"MacBook Pro 14"} width={292} height={502}/>
         </div>
         </div>
