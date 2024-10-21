@@ -7,8 +7,9 @@ import { IoIosArrowBack } from "react-icons/io";
 import { CiCamera, CiHeart, CiMobile4 } from "react-icons/ci";
 import { FiUser } from "react-icons/fi";
 import { CiSearch } from "react-icons/ci";
-import { PiHeadphones } from "react-icons/pi";
+import { PiHeadphones, PiInstagramLogoFill } from "react-icons/pi";
 import { HiOutlineDesktopComputer } from "react-icons/hi";
+import { FaFacebookF, FaTiktok, FaTwitter } from "react-icons/fa";
 
 const iPhoneCyber = () => {
   return (
@@ -67,7 +68,7 @@ const iPhoneCyber = () => {
           />
         </div>
       </section>
-      <section className="flex max-h-[600px] max-w-[1440]">
+      <section className="flex min-h-[600px] max-w-[1440]">
         <div className="basis-1/2 flex flex-col min-h-[600px]">
           <div className="basis-1/2 pr-12 flex items-center min-h-[328px]">
           <div className="flex items-center">
@@ -279,7 +280,7 @@ const iPhoneCyber = () => {
         </div>
       </section>
       <section className="h-[640px] flex">
-        <div className="max-w-[360px] basis-[25%] flex flex-col px-9 pb-14 ">
+        <div className="min-w-[360px] basis-[25%] flex flex-col px-9 pb-14 ">
           <div className="min-w-[360px] min-h-[360px]">
             <Image src={"/Cyber iPhone Store/watch-earbuds.png"} className="" width={360} height={360} alt="watch-earbuds"/>
           </div>
@@ -289,7 +290,7 @@ const iPhoneCyber = () => {
             <button className="px-14 py-4 rounded-md w-[191px] border-black border-2">Shop Now</button>
           </div>
         </div>
-        <div className="max-w-[360px] basis-[25%] flex flex-col px-9 pb-14 bg-[#F9F9F9]">
+        <div className="min-w-[360px] basis-[25%] flex flex-col px-9 pb-14 bg-[#F9F9F9]">
           <div className="min-w-[360px] min-h-[360px]">
             <Image src={"/Cyber iPhone Store/iPads.png"} className="w-fit" width={360} height={360} alt="iPhone"/>
           </div>
@@ -299,7 +300,7 @@ const iPhoneCyber = () => {
             <button className="px-14 py-4 rounded-md w-[191px] border-black border-2">Shop Now</button>
           </div>
         </div>
-        <div className="max-w-[360px] basis-[25%] flex flex-col px-9 pb-14 gap-6 bg-[#EAEAEA]">
+        <div className="min-w-[360px] basis-[25%] flex flex-col px-9 pb-14 gap-6 bg-[#EAEAEA]">
           <div className="min-[w-360px] min-w-[360px]">
             <Image src={"/Cyber iPhone Store/Samsung.png"} className="w-fit" width={360} height={360} alt="iPhone"/>
           </div>
@@ -309,7 +310,7 @@ const iPhoneCyber = () => {
             <button className="px-14 py-4 rounded-md w-[191px] border-black border-2">Shop Now</button>
           </div>
         </div>
-        <div className="max-w-[360px] basis-[25%] flex flex-col px-9 pb-14 gap-6 bg-[#2C2C2C] text-white">
+        <div className="min-w-[360px] basis-[25%] flex flex-col px-9 pb-14 gap-6 bg-[#2C2C2C] text-white">
           <div className="min-w-[360px] min-h-[360px]">
             <Image src={"/Cyber iPhone Store/Macbook 1.png"} className="w-fit" width={360} height={360} alt="iPhone"/>
           </div>
@@ -320,7 +321,7 @@ const iPhoneCyber = () => {
           </div>
         </div>
       </section>
-      <section className="min-h-[656px] px-40 py-20 flex flex-col gap-8">
+      <section className="min-h-[656px] px-40 py-20 flex flex-col gap-8 container mx-auto">
           <h3 className="text-2xl">Discounts up to -50%</h3>
           <div className="grid grid-cols-4 w-[1120px]">
           <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
@@ -378,11 +379,47 @@ const iPhoneCyber = () => {
             </div>
             </div>
       </section>
-      <section className="min-h-[448px] min-w-[1440px] container mx-auto">
-        <Image src={"/Cyber iPhone Store/Banner 2.png"} className="min-h-[448px] min-w-[1440px]" alt={""} width={500} height={500}/>
+      <section className="min-h-[448px] min-w-[1440px]">
+        <Image src={"/Cyber iPhone Store/Banner 2.png"} className="w-full" alt={""} width={500} height={500}/>
       </section>
-      <footer>
-        
+      <footer className="py-[104px] px-40 bg-black min-w-[1440px] min-h-[504px] flex flex-col justify-between text-white">
+        <div className="flex justify-between">
+        <div className="flex flex-col gap-6">
+          <Image src={"/Cyber iPhone Store/Logo.png"} alt={""} width={65} height={23}/>
+          <p className="text-white text-sm w-[384px]">We are a residential interior design firm located in Portland. Our boutique-studio offers more than</p>
+        </div>
+        <div className="flex justify-between w-[623px]">
+          <div>
+            <ul className="text-[#CFCFCF] flex flex-col gap-3 text-sm">
+              <li className="text-base text-white font-semibold">Services</li>
+              <li>Bonus program</li>
+              <li>Gift cards</li>
+              <li>Credit and payment</li>
+              <li>Service contracts</li>
+              <li>Non-cash account</li>
+              <li>Payment</li>
+            </ul>
+            </div>
+            
+          <div>
+            <ul className="text-[#CFCFCF] flex flex-col gap-3 text-sm">
+              <li className="text-base text-white font-semibold">Assistance to the buyer</li>
+              <li>Find an order</li>
+              <li>Terms of delivery</li>
+              <li>Exchange and return of goods</li>
+              <li>Guarantee</li>
+              <li>Frequently asked questions</li>
+              <li>Terms of use of the site</li>
+            </ul>
+            </div>
+        </div>
+        </div>
+        <div className="w-[173px] flex justify-between text-white">
+          <FaTwitter />
+          <FaFacebookF />
+          <FaTiktok />
+          <PiInstagramLogoFill />
+        </div>
       </footer>
     </main>
   );
