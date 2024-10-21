@@ -267,7 +267,7 @@ const iPhoneCyber = () => {
                     <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 4.png"} width={160} height={160} alt="Iphone 14 pro 4"/>
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4">
-                            <h3 className="text-center  text-base">Apple iPad 9 10.2" 64GB Wi-Fi Silver (MK2L3) 2021</h3>
+                            <h3 className="text-center  text-base">{`Apple iPad 9 10.2" 64GB Wi-Fi Silver (MK2L3) 2021`}</h3>
                             <p className="text-center font-semibold text-2xl">$398</p>
                         </div>
                         <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
