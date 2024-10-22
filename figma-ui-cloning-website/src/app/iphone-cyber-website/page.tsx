@@ -61,7 +61,7 @@ const iPhoneCyber = () => {
         </div>
         <div>
           <Image
-            src={"/Cyber iPhone Store/iPhone Image.png"}
+            src={"/Cyber iPhone Store/IPhone Image.png"}
             alt={"iPhone Image"}
             width={406}
             height={632}
