@@ -301,7 +301,7 @@ Graphite`}</h3>
             
         </div>
       </section>
-      <section className="h-[640px] flex">
+      <section className="sm:h-[640px] flex flex-col sm:flex-row">
         <div className="min-w-[360px] basis-[25%] flex flex-col px-9 pb-14 ">
           <div className="min-w-[360px] min-h-[360px]">
             <Image src={"/Cyber iPhone Store/watch-earbuds.png"} className="" width={360} height={360} alt="watch-earbuds"/>
@@ -343,60 +343,60 @@ Graphite`}</h3>
           </div>
         </div>
       </section>
-      <section className="min-h-[656px] px-40 py-20 flex flex-col gap-8 container mx-auto">
+      <section className="lg:min-h-[656px] py-14 px-4 md:px-40 md:py-20 flex flex-col  gap-8">
           <h3 className="text-2xl">Discounts up to -50%</h3>
-          <div className="grid grid-cols-4 w-[1120px]">
-          <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 xl:w-[1120px]">
+          <div className="px-3 sm:px-4 rounded-lg py-6 w-[163px] h-auto  sm:w-[268px] sm:h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-2 sm:gap-4">
                 <div className="flex justify-end w-full">
                 <CiHeart className="text-3xl"/>
                 </div>
-                    <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 7.png"} width={160} height={160} alt=""/>
-                    <div className="flex flex-col gap-6">
-                        <div className="flex flex-col gap-4">
-                            <h3 className="text-center  text-base">Apple iPhone 14 Pro 512GB Gold (MQ233)</h3>
+                    <Image className="w-[104px] h-[104px] md:w-40 md:h-40" src={"/Cyber iPhone Store/Iphone 14 pro 7.png"} width={160} height={160} alt="Iphone 14 pro 4"/>
+                    <div className="flex flex-col gap-4 sm:gap-6 items-center">
+                        <div className="flex flex-col gap-4 w-[140px] h-[88px] sm:w-[236px] sm:h-auto">
+                            <h3 className="text-center  text-base w-fit">{`Apple iPhone 14 Pro 512GB Gold (MQ233)`}</h3>
                             <p className="text-center font-semibold text-2xl">$1437</p>
                         </div>
-                        <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
+                        <button className="text-base py-3 px-16 h-12 w-[140px] sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
             </div>
-            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+            <div className="px-3 sm:px-4 rounded-lg py-6 w-[163px] h-auto  sm:w-[268px] sm:h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-2 sm:gap-4">
                 <div className="flex justify-end w-full">
                 <CiHeart className="text-3xl"/>
                 </div>
-                    <Image className="" src={"/Cyber iPhone Store/headphones 1.png"} width={160} height={160} alt=""/>
-                    <div className="flex flex-col gap-6">
-                        <div className="flex flex-col gap-4">
-                            <h3 className="text-center  text-base">AirPods Max Silver
-                            Starlight Aluminium </h3>
+                    <Image className="w-[104px] h-[104px] md:w-40 md:h-40" src={"/Cyber iPhone Store/headphones 1.png"} width={160} height={160} alt="Iphone 14 pro 4"/>
+                    <div className="flex flex-col gap-4 sm:gap-6 items-center">
+                        <div className="flex flex-col gap-4 w-[140px] h-[88px] sm:w-[236px] sm:h-auto">
+                            <h3 className="text-center  text-base w-fit">{`AirPods Max Silver
+Starlight Aluminium `}</h3>
                             <p className="text-center font-semibold text-2xl">$549</p>
                         </div>
-                        <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
+                        <button className="text-base py-3 px-16 h-12 w-[140px] sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
             </div>
-            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+            <div className="px-3 sm:px-4 rounded-lg py-6 w-[163px] h-auto  sm:w-[268px] sm:h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-2 sm:gap-4">
                 <div className="flex justify-end w-full">
                 <CiHeart className="text-3xl"/>
                 </div>
-                    <Image className="" src={"/Cyber iPhone Store/watch.png"} width={160} height={160} alt=""/>
-                    <div className="flex flex-col gap-6">
-                        <div className="flex flex-col gap-4">
-                            <h3 className="text-center  text-base">Apple Watch Series 9 GPS 41mm Starlight Aluminium </h3>
+                    <Image className="w-[104px] h-[104px] md:w-40 md:h-40" src={"/Cyber iPhone Store/watch.png"} width={160} height={160} alt="Iphone 14 pro 4"/>
+                    <div className="flex flex-col gap-4 sm:gap-6 items-center">
+                        <div className="flex flex-col gap-4 w-[140px] h-[88px] sm:w-[236px] sm:h-auto">
+                            <h3 className="text-center  text-base w-fit">{`Apple Watch Series 9 GPS 41mm Starlight Aluminium `}</h3>
                             <p className="text-center font-semibold text-2xl">$399</p>
                         </div>
-                        <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
+                        <button className="text-base py-3 px-16 h-12 w-[140px] sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
             </div>
-            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+            <div className="px-3 sm:px-4 rounded-lg py-6 w-[163px] h-auto  sm:w-[268px] sm:h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-2 sm:gap-4">
                 <div className="flex justify-end w-full">
                 <CiHeart className="text-3xl"/>
                 </div>
-                    <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 6.png"} width={160} height={160} alt=""/>
-                    <div className="flex flex-col gap-6">
-                        <div className="flex flex-col gap-4">
-                            <h3 className="text-center  text-base">Apple iPhone 14 Pro 1TB Gold (MQ2V3)</h3>
+                    <Image className="w-[104px] h-[104px] md:w-40 md:h-40" src={"/Cyber iPhone Store/Iphone 14 pro 6.png"} width={160} height={160} alt="Iphone 14 pro 4"/>
+                    <div className="flex flex-col gap-4 sm:gap-6 items-center">
+                        <div className="flex flex-col gap-4 w-[140px] h-[88px] sm:w-[236px] sm:h-auto">
+                            <h3 className="text-center  text-base w-fit">{`Apple iPhone 14 Pro 1TB Gold (MQ2V3)`}</h3>
                             <p className="text-center font-semibold text-2xl">$1499</p>
                         </div>
-                        <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
+                        <button className="text-base py-3 px-16 h-12 w-[140px] sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
             </div>
             </div>
@@ -405,15 +405,15 @@ Graphite`}</h3>
         <Image src={"/Cyber iPhone Store/Banner 2.png"} className="sm:w-full hidden sm:block" alt={""} width={500} height={500}/>
         <Image src={"/Cyber iPhone Store/Banner mobile.png"} className="w-full sm:hidden block" alt={""} width={500} height={500}/>
       </section>
-      <footer className="py-[104px] px-40 bg-black min-w-[1440px] min-h-[504px] flex flex-col justify-between text-white">
-        <div className="flex justify-between">
-        <div className="flex flex-col gap-6">
+      <footer className="py-12 px-8 lg:py-[104px] lg:px-40 bg-black gap-8 sm:gap-6 flex flex-col justify-between items-center sm:items-start text-white">
+        <div className="flex flex-col gap-8 sm:gap-0 sm:flex-row justify-between items-center sm:items-start">
+        <div className="flex basis-1/2 flex-col gap-6 justify-center items-center sm:items-start sm:justify-start ">
           <Image src={"/Cyber iPhone Store/Logo.png"} alt={""} width={65} height={23}/>
-          <p className="text-white text-sm w-[384px]">We are a residential interior design firm located in Portland. Our boutique-studio offers more than</p>
+          <p className="text-white text-center sm:text-start text-sm w-[311px] lg:w-[384px]">We are a residential interior design firm located in Portland. Our boutique-studio offers more than</p>
         </div>
-        <div className="flex justify-between w-[623px]">
+        <div className="flex basis-1/2 flex-col items-center gap-8 sm:gap-0 lg:flex-row justify-between w-[623px]">
           <div>
-            <ul className="text-[#CFCFCF] flex flex-col gap-3 text-sm">
+            <ul className="text-[#CFCFCF] flex flex-col gap-3 text-sm sm:text-start text-center">
               <li className="text-base text-white font-semibold">Services</li>
               <li>Bonus program</li>
               <li>Gift cards</li>
@@ -425,7 +425,7 @@ Graphite`}</h3>
             </div>
             
           <div>
-            <ul className="text-[#CFCFCF] flex flex-col gap-3 text-sm">
+            <ul className="text-[#CFCFCF] flex flex-col gap-3 text-sm sm:text-start text-center">
               <li className="text-base text-white font-semibold">Assistance to the buyer</li>
               <li>Find an order</li>
               <li>Terms of delivery</li>
