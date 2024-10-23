@@ -14,7 +14,7 @@ import { FaFacebookF, FaTiktok, FaTwitter } from "react-icons/fa";
 const iPhoneCyber = () => {
   return (
     <main>
-      <nav className="flex items-center justify-between py-4 px-40">
+      <nav className="flex items-center justify-between  py-6 sm:py-4 px-4 sm:px-12 md:px-24 lg:px-40">
         <div>
           <Image
             src={"/Cyber iPhone Store/Logo Vector.png"}
@@ -23,11 +23,11 @@ const iPhoneCyber = () => {
             height={23}
           />
         </div>
-        <div className="flex items-center w-[372px] h-14 p-4 gap-2 bg-[#F5F5F5]">
+        <div className="hidden sm:flex items-center sm:w-[372px] sm:h-14 sm:p-4 sm:gap-2 sm:bg-[#F5F5F5]">
           <CiSearch className="text-[#656565]" />
           <p className="text-[#989898]">Search</p>
         </div>
-        <div>
+        <div className="hidden sm:block">
           <ul className="flex  gap-12">
             <li className="text-base">Home</li>
             <li className="text-[#989898] text-base">About</li>
@@ -35,7 +35,7 @@ const iPhoneCyber = () => {
             <li className="text-[#989898] text-base">Blog</li>
           </ul>
         </div>
-        <div className="flex gap-6">
+        <div className="hidden sm:flex sm:gap-6">
           <CiHeart className="text-2xl" />
           <MdOutlineShoppingCart className="text-2xl" />
           <FiUser className="text-2xl" />
