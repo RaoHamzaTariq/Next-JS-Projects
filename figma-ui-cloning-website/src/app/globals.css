@@ -5,3 +5,8 @@
 *{
   @apply font-sans box-border m-0 p-0
 }
+
+
+body {
+  @apply min-h-[100vh] w-[100vw] overflow-x-hidden;
+}
