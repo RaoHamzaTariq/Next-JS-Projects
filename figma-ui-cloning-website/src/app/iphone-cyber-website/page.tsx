@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowForward, IoMdMenu } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 
 import { CiCamera, CiHeart, CiMobile4 } from "react-icons/ci";
@@ -40,15 +40,18 @@ const iPhoneCyber = () => {
           <MdOutlineShoppingCart className="text-2xl" />
           <FiUser className="text-2xl" />
         </div>
+        <div className="block sm:hidden">
+          <IoMdMenu className="text-3xl"/>
+        </div>
       </nav>
       {/* This is th landing page section */}
-      <section className="px-40 bg-gradient-to-r from-[#211C24] to-[#211C24] flex items-center gap-16">
+      <section className="sm:px-40 px-4 pt-[88px] gap-12 bg-[#211C24] flex-col sm:flex-row  flex sm:items-center sm:h-[632px] h-auto sm:gap-24">
         <div className="flex flex-col gap-6 items-start">
           <div className="flex flex-col gap-6">
             <p className="text-2xl font-semibold opacity-40 text-white">
               Pro.Beyond.
             </p>
-            <h1 className="text-8xl text-white font-thin">
+            <h1 className="sm:text-8xl text-7xl text-white font-thin">
               iPhone 14 <span className="font-semibold font-sans">Pro</span>
             </h1>
           </div>
@@ -61,10 +64,18 @@ const iPhoneCyber = () => {
         </div>
         <div>
           <Image
-            src={"/Cyber iPhone Store/Iphone Image.png"}
+            className="hidden sm:block "
+            src={"/Cyber iPhone Store/iPhone Image.png"}
             alt={"iPhone Image"}
             width={406}
             height={632}
+          />
+          <Image
+            className="sm:hidden block h-fit"
+            src={"/Cyber iPhone Store/iPhone Image Mobile.png"}
+            alt={"iPhone Image"}
+            width={321}
+            height={286}
           />
         </div>
       </section>
@@ -113,7 +124,7 @@ const iPhoneCyber = () => {
         </div>
         </div>
       </section>
-      <section className="px-40 py-20 flex flex-col gap-8">
+      <section className="sm:px-40 px-4 sm:py-20 py-16 flex flex-col gap-8">
         <div className="flex justify-between">
             <h4 className="text-2xl font-semibold">Browse By Category</h4>
             <div className="flex gap-5">
@@ -121,7 +132,7 @@ const iPhoneCyber = () => {
                 <IoIosArrowForward className="text-4xl font-extralight"/>
             </div>
         </div>
-        <div className="grid grid-cols-6 gap-8">
+        <div className="grid sm:grid-cols-6 grid-cols-2 gap-4 sm:gap-8">
             <div className="px-[52px] py-6 flex flex-col gap-2 justify-center w-40 h-32 bg-[#EDEDED] rounded-2xl">
                 <CiMobile4 className={"w-12 h-12 "}/>
                 <p className="text-base text-center">Phones</p>
@@ -148,13 +159,13 @@ const iPhoneCyber = () => {
             </div>
         </div>
       </section>
-      <section className="px-40 py-14 flex flex-col gap-8">
+      <section className="sm:px-40 py-14 px-4 flex flex-col gap-8">
         <div className="flex gap-8">
             <p className="text-lg border-b-2 border-black">New Arrival</p>
             <p className="text-lg text-[#8B8B8B]">Bestsellers</p>
             <p className="text-lg text-[#8B8B8B]">Featured Products</p>
         </div>
-        <div className="grid grid-cols-4">
+        <div className="grid sm:grid-cols-4">
             <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
                 <div className="flex justify-end w-full">
                 <CiHeart className="text-3xl"/>
