@@ -165,12 +165,12 @@ const iPhoneCyber = () => {
             <p className="text-lg text-[#8B8B8B]">Bestsellers</p>
             <p className="text-lg text-[#8B8B8B]">Featured Products</p>
         </div>
-        <div className="grid sm:grid-cols-4">
-            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+        <div className="grid sm:grid-cols-4 grid-cols-2">
+            <div className="sm:px-4 px-3 h-[352px] w-[163px] gap-2 py-6 sm:w-[268px] sm:h-[432px] bg-[#F6F6F6] items-center flex-col flex sm:gap-4">
                 <div className="flex justify-end w-full">
                 <CiHeart className="text-3xl"/>
                 </div>
-                    <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt=""/>
+                    <Image className="w-[104px] h-[104]px" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={104} height={104} alt=""/>
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4">
                             <h3 className="text-center  text-base">Apple iPhone 14 Pro Max 128GB Deep Purple </h3>
@@ -179,11 +179,11 @@ const iPhoneCyber = () => {
                         <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
             </div>
-            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+            <div className="sm:px-4 px-3 h-[352px] w-[163px] gap-2 py-6 sm:w-[268px] sm:h-[432px] bg-[#F6F6F6] items-center flex-col flex sm:gap-4">
                 <div className="flex justify-end w-full">
                 <CiHeart className="text-3xl"/>
                 </div>
-                    <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 2.png"} width={160} height={160} alt=""/>
+                    <Image className="w-[104px] h-[104]px" src={"/Cyber iPhone Store/Iphone 14 pro 2.png"} width={104} height={104} alt=""/>
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4">
                             <h3 className="text-center  text-base">Blackmagic Pocket Cinema Camera 6k</h3>
@@ -192,11 +192,11 @@ const iPhoneCyber = () => {
                         <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
             </div>
-            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+            <div className="sm:px-4 px-3 h-[352px] w-[163px] gap-2 py-6 sm:w-[268px] sm:h-[432px] bg-[#F6F6F6] items-center flex-col flex sm:gap-4">
                 <div className="flex justify-end w-full">
                 <CiHeart className="text-3xl"/>
                 </div>
-                    <Image className="" src={"/Cyber iPhone Store/watch.png"} width={160} height={160} alt=""/>
+                    <Image className="w-[104px] h-[104]px" src={"/Cyber iPhone Store/watch.png"} width={104} height={104} alt=""/>
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4">
                             <h3 className="text-center  text-base">Apple Watch Series 9 GPS 41mm Starlight Aluminium </h3>
@@ -205,11 +205,11 @@ const iPhoneCyber = () => {
                         <button className="text-base py-3 px-16 bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
             </div>
-            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+            <div className="sm:px-4 px-3 h-[352px] w-[163px] gap-2 py-6 sm:w-[268px] sm:h-[432px] bg-[#F6F6F6] items-center flex-col flex sm:gap-4">
                 <div className="flex justify-end w-full">
                 <CiHeart className="text-3xl"/>
                 </div>
-                    <Image className="" src={"/Cyber iPhone Store/headphones 1.png"} width={160} height={160} alt=""/>
+                    <Image className="w-[104px] h-[104]px" src={"/Cyber iPhone Store/headphones 1.png"} width={104} height={104} alt=""/>
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4">
                             <h3 className="text-center  text-base">AirPods Max Silver
@@ -222,11 +222,11 @@ const iPhoneCyber = () => {
                 
                 
             </div>
-            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+            <div className="sm:px-4 px-3 h-[352px] w-[163px] gap-2 py-6 sm:w-[268px] sm:h-[432px] bg-[#F6F6F6] items-center flex-col flex sm:gap-4">
                 <div className="flex justify-end w-full">
                 <CiHeart className="text-3xl"/>
                 </div>
-                    <Image className="" src={"/Cyber iPhone Store/samsung watch.png"} width={160} height={160} alt=""/>
+                    <Image className="w-[104px] h-[104]px" src={"/Cyber iPhone Store/samsung watch.png"} width={104} height={104} alt=""/>
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4">
                             <h3 className="text-center  text-base">Samsung Galaxy Watch6 Classic 47mm Black</h3>
@@ -238,11 +238,11 @@ const iPhoneCyber = () => {
                 
                 
             </div>
-            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+            <div className="sm:px-4 px-3 h-[352px] w-[163px] gap-2 py-6 sm:w-[268px] sm:h-[432px] bg-[#F6F6F6] items-center flex-col flex sm:gap-4">
                 <div className="flex justify-end w-full">
                 <CiHeart className="text-3xl"/>
                 </div>
-                    <Image className="" src={"/Cyber iPhone Store/samsung 1.png"} width={160} height={160} alt=""/>
+                    <Image className="w-[104px] h-[104]px" src={"/Cyber iPhone Store/samsung 1.png"} width={104} height={104} alt=""/>
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4">
                             <h3 className="text-center  text-base">Galaxy Z Fold5 Unlocked | 256GB | Phantom Black</h3>
@@ -254,11 +254,11 @@ const iPhoneCyber = () => {
                 
                 
             </div>
-            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+            <div className="sm:px-4 px-3 h-[352px] w-[163px] gap-2 py-6 sm:w-[268px] sm:h-[432px] bg-[#F6F6F6] items-center flex-col flex sm:gap-4">
                 <div className="flex justify-end w-full">
                 <CiHeart className="text-3xl"/>
                 </div>
-                    <Image className="" src={"/Cyber iPhone Store/earbuds.png"} width={160} height={160} alt=""/>
+                    <Image className="w-[104px] h-[104]px" src={"/Cyber iPhone Store/earbuds.png"} width={104} height={104} alt=""/>
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4 justify-center">
                             <h3 className="flex pl-5 w-[150px] text-center text-base">Galaxy Buds FE
@@ -271,11 +271,11 @@ const iPhoneCyber = () => {
                 
                 
             </div>
-            <div className="px-4 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
+            <div className="sm:px-4 px-3 py-6 w-[268px] h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-4">
                 <div className="flex justify-end w-full">
                 <CiHeart className="text-3xl"/>
                 </div>
-                    <Image className="" src={"/Cyber iPhone Store/Iphone 14 pro 4.png"} width={160} height={160} alt="Iphone 14 pro 4"/>
+                    <Image className="w-[104px] h-[104]px" src={"/Cyber iPhone Store/Iphone 14 pro 4.png"} width={104} height={104} alt="Iphone 14 pro 4"/>
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col gap-4">
                             <h3 className="text-center  text-base">{`Apple iPad 9 10.2" 64GB Wi-Fi Silver (MK2L3) 2021`}</h3>
@@ -436,4 +436,5 @@ const iPhoneCyber = () => {
   );
 };
 
-export default iPhoneCyber;
+export deh-[352px] w-[163px] gap-2 faultsm: iPhoneCybsm:er;
+sm4
