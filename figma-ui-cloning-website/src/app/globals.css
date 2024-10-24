@@ -7,6 +7,6 @@
 }
 
 
-/* body {
+body {
   @apply min-h-[100vh] w-[100vw] overflow-x-hidden;
-} */
+}

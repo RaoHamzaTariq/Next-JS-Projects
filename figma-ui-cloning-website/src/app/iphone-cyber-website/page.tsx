@@ -83,23 +83,23 @@ const iPhoneCyber = () => {
       </section>
       <section className="flex xl:min-h-[600px] flex-col lg:flex-row ">
         <div className="sm:basis-1/2 flex flex-col min-h-[600px] w-screen">
-          <div className="sm:basis-1/2 sm:pr-12 flex gap-6 w-[357px] h-auto sm:gap-0 px-4 sm:px-0 py-10 flex-col sm:flex-row sm:items-center sm:max-h-[328px]">
+            <div className="sm:basis-1/2 sm:pr-12 flex gap-6 sm:gap-0 px-4 sm:px-0 py-10 flex-col sm:flex-row sm:items-center sm:min-h-[328px]">
           <div className="flex items-center  sm:justify-start justify-center">
             <Image src={"/Cyber iPhone Store/PlayStation.png"} alt={"Play Station"} className="w-[200px] h-[200px] sm:w-auto sm:h-[328px]" width={400} height={328}/></div>
             <div className="flex flex-col gap-4 sm:items-start items-center">
                 <h2 className="sm:text-5xl text-4xl sm:items-start text-center">Playstation 5</h2>
-                <p className="text-sm text-[#909090]  sm:items-start text-center">Incredibly powerful CPUs, GPUs, and an SSD with integrated I/O will redefine your PlayStation experience.</p>
+                <p className="text-sm text-[#909090] sm:text-start  sm:items-start text-center">Incredibly powerful CPUs, GPUs, and an SSD with integrated I/O will redefine your PlayStation experience.</p>
             </div>
             </div>
-          <div className="flex sm:basis-1/2 flex-col sm:flex-row sm:max-h-[272px]">
+          <div className="flex sm:basis-1/2 flex-col sm:flex-row sm:min-h-[272px]">
             <div className="sm:basis-1/2 bg-[#EDEDED] px-4 py-10 sm:py-0 sm:px-0 flex sm:flex-row flex-col items-center md:pr-12 gap-7 w-ful">
             <div>
             <Image className="sm:hidden block" src={"/Cyber iPhone Store/headphones 1.png"} alt={"HeadPhones"} width={192} height={200}/>
             <Image className="hidden sm:block" src={"/Cyber iPhone Store/headphones.png"} alt={"HeadPhones"} width={104} height={272}/>
             </div>
             <div className="flex flex-col gap-3 sm:w-40 sm:min-h-[120px]">
-                <h3 className="text-3xl font-light text-black ">Apple AirPods <span className="font-bold">Max</span></h3>
-                <p className="text-[#909090] text-sm">{"Computational audio. Listen, it's powerful"}</p>
+                <h3 className="text-3xl font-light sm:text-start text-center text-black ">Apple AirPods <span className="font-bold">Max</span></h3>
+                <p className="text-[#909090] sm:text-start text-center text-sm">{"Computational audio. Listen, it's powerful"}</p>
             </div>
             </div>
             <div className="sm:basis-1/2 bg-[#353535] px-4 py-10 sm:py-0 sm:px-0 flex sm:flex-row flex-col items-center md:pr-12 gap-6">
@@ -108,8 +108,8 @@ const iPhoneCyber = () => {
             <Image className="hidden sm:block" src={"/Cyber iPhone Store/vr.png"} alt={"VR"} width={136} height={190}/>
             </div>
             <div className="flex flex-col gap-3 sm:w-40 sm:min-h-[120px]">
-                <h3 className="text-[34px] sm:text-[29px] font-light text-white ">Apple Vision <span className="font-bold">Pro</span></h3>
-                <p className="text-[#909090] text-sm">{"An immersive way to experience entertainment"}</p>
+                <h3 className="text-[34px] sm:text-start text-center sm:text-[29px] font-light text-white ">Apple Vision <span className="font-bold">Pro</span></h3>
+                <p className="text-[#909090] sm:text-start text-center text-sm">{"An immersive way to experience entertainment"}</p>
             </div>
             </div>
             </div>
@@ -118,7 +118,7 @@ const iPhoneCyber = () => {
         <div className="items-center flex sm:hidden">
             <Image src={"/Cyber iPhone Store/Macbook 1.png"} alt={"MacBook Pro 14"} width={330} height={200}/>
         </div>
-        <div className="sm:w-[360px] w-[343px] h-[200px] sm:h-[272px] flex flex-col items-center gap-6 sm:gap-4">
+        <div className="sm:w-[360px] w-[343px] flex flex-col items-center gap-6 sm:gap-4">
             <div className="flex flex-col gap-4">
             <h2 className="text-[34px] sm:text-start text-center sm:text-[64px] leading-[56px]">Macbook <span className="font-bold">Air</span></h2>
             <p className="text-[#909090] sm:text-start text-center w-fit text-base sm:text-sm">The new 15‑inch MacBook Air makes room for more of what you love with a spacious Liquid Retina display.</p>
