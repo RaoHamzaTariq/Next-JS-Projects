@@ -114,7 +114,7 @@ const iPhoneCyber = () => {
             </div>
             </div>
           </div>
-        <div className="basis-1/2 flex flex-col sm:flex-row px-4 py-10 sm:py-11 sm:pl-14 items-center bg-[#EDEDED] justify-between max-h-[600px]">
+        <div className="basis-1/2 flex flex-col sm:flex-row px-4 py-10 sm:py-11 sm:pl-14 items-center bg-[#EDEDED] sm:justify-between max-h-[600px]">
         <div className="items-center flex sm:hidden">
             <Image src={"/Cyber iPhone Store/MacBook 1.png"} alt={"MacBook Pro 14"} width={292} height={502}/>
         </div>
@@ -130,7 +130,7 @@ const iPhoneCyber = () => {
         </div>
         </div>
       </section>
-      <section className="px-4 sm:px-40 py-16 sm:py-20 flex flex-col gap-12 sm:gap-8">
+      <section className="px-4 sm:px-10 md:px-20 lg:px-40 py-16 sm:py-20 flex flex-col gap-12 sm:gap-8">
         <div className="flex justify-between">
             <h4 className="text-2xl font-semibold">Browse By Category</h4>
             <div className="flex gap-5">
@@ -179,10 +179,11 @@ const iPhoneCyber = () => {
                     <Image className="w-[104px] h-[104px] md:w-40 md:h-40" src={"/Cyber iPhone Store/Iphone 14 pro 1.png"} width={160} height={160} alt="Iphone 14 pro 4"/>
                     <div className="flex flex-col gap-4 sm:gap-6 items-center">
                         <div className="flex flex-col gap-4 w-[140px] h-[88px] sm:w-[236px] sm:h-auto">
-                            <h3 className="text-center  text-base w-fit">{`Apple iPhone 14 Pro Max 128GB Deep Purple `}</h3>
+                            <h3 className="text-center hidden sm:block text-base w-fit">{`Apple iPhone 14 Pro Max 128GB Deep Purple `}</h3>
+                            <h3 className="text-center block sm:hidden text-base w-fit">{`Apple iPhone 14 Pro Max 128GB...`}</h3>
                             <p className="text-center font-semibold text-2xl">$900</p>
                         </div>
-                        <button className="text-base py-3 px-16 h-12 w-[140px] sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
+                        <button className="text-sm py-3 w-fit px-10 h-12  sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
 
                 
@@ -198,7 +199,7 @@ const iPhoneCyber = () => {
                             <h3 className="text-center  text-base w-fit">{`Blackmagic Pocket Cinema Camera 6k`}</h3>
                             <p className="text-center font-semibold text-2xl">$2535</p>
                         </div>
-                        <button className="text-base py-3 px-16 h-12 w-[140px] sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
+                        <button className="text-sm py-3 w-fit px-10 h-12  sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
 
                 
@@ -211,10 +212,11 @@ const iPhoneCyber = () => {
                     <Image className="w-[104px] h-[104px] md:w-40 md:h-40" src={"/Cyber iPhone Store/watch.png"} width={160} height={160} alt="Iphone 14 pro 4"/>
                     <div className="flex flex-col gap-4 sm:gap-6 items-center">
                         <div className="flex flex-col gap-4 w-[140px] h-[88px] sm:w-[236px] sm:h-auto">
-                            <h3 className="text-center  text-base w-fit">{`Apple Watch Series 9 GPS 41mm Starlight Aluminium `}</h3>
+                            <h3 className="text-center block sm:hidden text-base w-fit">{`Apple Watch Series 9 GPS 41...`}</h3>
+                            <h3 className="text-center sm:block hidden text-base w-fit">{`Apple Watch Series 9 GPS 41m Starlight Aluminium `}</h3>
                             <p className="text-center font-semibold text-2xl">$399</p>
                         </div>
-                        <button className="text-base py-3 px-16 h-12 w-[140px] sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
+                        <button className="text-sm py-3 w-fit px-10 h-12  sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
 
                 
@@ -227,11 +229,11 @@ const iPhoneCyber = () => {
                     <Image className="w-[104px] h-[104px] md:w-40 md:h-40" src={"/Cyber iPhone Store/headphones 1.png"} width={160} height={160} alt="Iphone 14 pro 4"/>
                     <div className="flex flex-col gap-4 sm:gap-6 items-center">
                         <div className="flex flex-col gap-4 w-[140px] h-[88px] sm:w-[236px] sm:h-auto">
-                            <h3 className="text-center  text-base w-fit">{`AirPods Max SilverAirPods Max Silver
-Starlight Aluminium `}</h3>
+                            <h3 className="text-center hidden sm:block  text-base w-fit">{`AirPods Max Silver Starlight Aluminium `}</h3>
+                            <h3 className="text-center sm:hidden block text-base w-fit">{`AirPods Max Silver`}</h3>
                             <p className="text-center font-semibold text-2xl">$549</p>
                         </div>
-                        <button className="text-base py-3 px-16 h-12 w-[140px] sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
+                        <button className="text-sm py-3 w-fit px-10 h-12  sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
 
                 
@@ -244,10 +246,11 @@ Starlight Aluminium `}</h3>
                     <Image className="w-[104px] h-[104px] md:w-40 md:h-40" src={"/Cyber iPhone Store/samsung watch.png"} width={160} height={160} alt="Iphone 14 pro 4"/>
                     <div className="flex flex-col gap-4 sm:gap-6 items-center">
                         <div className="flex flex-col gap-4 w-[140px] h-[88px] sm:w-[236px] sm:h-auto">
-                            <h3 className="text-center  text-base w-fit">{`Samsung Galaxy Watch6 Classic 47mm Black`}</h3>
+                            <h3 className="text-center hidden sm:block  text-base w-fit">{`Samsung Galaxy Watch6 Classic 47mm Black`}</h3>
+                            <h3 className="text-center sm:hidden block text-base w-fit">{`Samsung Galaxy Watch6 Classic...`}</h3>
                             <p className="text-center font-semibold text-2xl">$369</p>
                         </div>
-                        <button className="text-base py-3 px-16 h-12 w-[140px] sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
+                        <button className="text-sm py-3 w-fit px-10 h-12  sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
 
                 
@@ -260,10 +263,11 @@ Starlight Aluminium `}</h3>
                     <Image className="w-[104px] h-[104px] md:w-40 md:h-40" src={"/Cyber iPhone Store/samsung 1.png"} width={160} height={160} alt="Iphone 14 pro 4"/>
                     <div className="flex flex-col gap-4 sm:gap-6 items-center">
                         <div className="flex flex-col gap-4 w-[140px] h-[88px] sm:w-[236px] sm:h-auto">
-                            <h3 className="text-center  text-base w-fit">{`Galaxy Z Fold5 Unlocked | 256GB | Phantom Black`}</h3>
+                            <h3 className="text-center sm:block hidden text-base w-fit">{`Galaxy Z Fold5 Unlocked | 256GB | Phantom Black`}</h3>
+                            <h3 className="text-center block sm:hidden text-base w-fit">{`Galaxy Z Fold5 Unlocked | 256GB...`}</h3>
                             <p className="text-center font-semibold text-2xl">$1799</p>
                         </div>
-                        <button className="text-base py-3 px-16 h-12 w-[140px] sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
+                        <button className="text-sm py-3 w-fit px-10 h-12  sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
 
                 
@@ -276,11 +280,10 @@ Starlight Aluminium `}</h3>
                     <Image className="w-[104px] h-[104px] md:w-40 md:h-40" src={"/Cyber iPhone Store/earbuds.png"} width={160} height={160} alt="Iphone 14 pro 4"/>
                     <div className="flex flex-col gap-4 sm:gap-6 items-center">
                         <div className="flex flex-col gap-4 w-[140px] h-[88px] sm:w-[236px] sm:h-auto">
-                            <h3 className="text-center  text-base w-fit">{`Galaxy Buds FE
-Graphite`}</h3>
+                            <h3 className="text-center  text-base w-fit">{`Galaxy Buds FE Graphite`}</h3>
                             <p className="text-center font-semibold text-2xl">$99.99</p>
                         </div>
-                        <button className="text-base py-3 px-16 h-12 w-[140px] sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
+                        <button className="text-sm py-3 w-fit px-10 h-12  sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
 
                 
@@ -293,10 +296,11 @@ Graphite`}</h3>
                     <Image className="w-[104px] h-[104px] md:w-40 md:h-40" src={"/Cyber iPhone Store/Iphone 14 pro 4.png"} width={160} height={160} alt="Iphone 14 pro 4"/>
                     <div className="flex flex-col gap-4 sm:gap-6 items-center">
                         <div className="flex flex-col gap-4 w-[140px] h-[88px] sm:w-[236px] sm:h-auto">
-                            <h3 className="text-center  text-base w-fit">{`Apple iPad 9 10.2" 64GB Wi-Fi Silver (MK2L3) 2021`}</h3>
+                            <h3 className="text-center hidden sm:block text-base w-fit">{`Apple iPad 9 10.2" 64GB Wi-Fi Silver (MK2L3) 2021`}</h3>
+                            <h3 className="text-center block sm:hidden  text-base w-fit">{`Apple iPad 9 10.2" 64GB Wi-Fi Silver`}</h3>
                             <p className="text-center font-semibold text-2xl">$398</p>
                         </div>
-                        <button className="text-base py-3 px-16 h-12 w-[140px] sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
+                        <button className="text-sm py-3 w-fit px-10 h-12  sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
 
                 
@@ -348,9 +352,9 @@ Graphite`}</h3>
         </div>
 
       </section>
-      <section className="lg:min-h-[656px] py-14 px-4 md:px-40 md:py-20 flex flex-col  gap-8">
+      <section className="lg:min-h-[656px] py-14 px-4 sm:px-10 md:px-20 lg:px-40 md:py-20 flex flex-col  gap-8">
           <h3 className="text-2xl">Discounts up to -50%</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-4 xl:w-[1120px]">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 xl:w-[1120px]">
           <div className="px-3 sm:px-4 rounded-lg py-6 w-[163px] h-auto  sm:w-[268px] sm:h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-2 sm:gap-4">
                 <div className="flex justify-end w-full">
                 <CiHeart className="text-3xl"/>
@@ -358,10 +362,11 @@ Graphite`}</h3>
                     <Image className="w-[104px] h-[104px] md:w-40 md:h-40" src={"/Cyber iPhone Store/Iphone 14 pro 7.png"} width={160} height={160} alt="Iphone 14 pro 4"/>
                     <div className="flex flex-col gap-4 sm:gap-6 items-center">
                         <div className="flex flex-col gap-4 w-[140px] h-[88px] sm:w-[236px] sm:h-auto">
-                            <h3 className="text-center  text-base w-fit">{`Apple iPhone 14 Pro 512GB Gold (MQ233)`}</h3>
+                            <h3 className="text-center sm:block hidden text-base w-fit">{`Apple iPhone 14 Pro 512GB Gold (MQ233)`}</h3>
+                            <h3 className="text-center sm:hidden block text-base w-fit">{`Apple iPhone 14 Pro 512GB Gold...`}</h3>
                             <p className="text-center font-semibold text-2xl">$1437</p>
                         </div>
-                        <button className="text-base py-3 px-16 h-12 w-[140px] sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
+                        <button className="text-sm py-3 px-10 h-12 sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
             </div>
             <div className="px-3 sm:px-4 rounded-lg py-6 w-[163px] h-auto  sm:w-[268px] sm:h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-2 sm:gap-4">
@@ -371,11 +376,11 @@ Graphite`}</h3>
                     <Image className="w-[104px] h-[104px] md:w-40 md:h-40" src={"/Cyber iPhone Store/headphones 1.png"} width={160} height={160} alt="Iphone 14 pro 4"/>
                     <div className="flex flex-col gap-4 sm:gap-6 items-center">
                         <div className="flex flex-col gap-4 w-[140px] h-[88px] sm:w-[236px] sm:h-auto">
-                            <h3 className="text-center  text-base w-fit">{`AirPods Max Silver
-Starlight Aluminium `}</h3>
+                            <h3 className="text-center sm:block hidden text-base w-fit">{`AirPods Max Silver Starlight Aluminium `}</h3>
+                            <h3 className="text-center sm:hidden block text-base w-fit">{`AirPods Max Silver...`}</h3>
                             <p className="text-center font-semibold text-2xl">$549</p>
                         </div>
-                        <button className="text-base py-3 px-16 h-12 w-[140px] sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
+                        <button className="text-sm py-3 px-10 h-12 sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
             </div>
             <div className="px-3 sm:px-4 rounded-lg py-6 w-[163px] h-auto  sm:w-[268px] sm:h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-2 sm:gap-4">
@@ -385,10 +390,12 @@ Starlight Aluminium `}</h3>
                     <Image className="w-[104px] h-[104px] md:w-40 md:h-40" src={"/Cyber iPhone Store/watch.png"} width={160} height={160} alt="Iphone 14 pro 4"/>
                     <div className="flex flex-col gap-4 sm:gap-6 items-center">
                         <div className="flex flex-col gap-4 w-[140px] h-[88px] sm:w-[236px] sm:h-auto">
-                            <h3 className="text-center  text-base w-fit">{`Apple Watch Series 9 GPS 41mm Starlight Aluminium `}</h3>
+                            <h3 className="text-center sm:block hidden text-base w-fit">{`Apple Watch Series 9 GPS 41mm Starlight Aluminium `}</h3>
+                            <h3 className="text-center sm:hidden block text-base w-fit">{`Apple Watch Series 9 GPS 41...`}</h3>
                             <p className="text-center font-semibold text-2xl">$399</p>
                         </div>
-                        <button className="text-base py-3 px-16 h-12 w-[140px] sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
+                        <button className="text-sm py-3 px-10 h-12 sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
+
                     </div>
             </div>
             <div className="px-3 sm:px-4 rounded-lg py-6 w-[163px] h-auto  sm:w-[268px] sm:h-[432px] bg-[#F6F6F6] items-center flex-col flex gap-2 sm:gap-4">
@@ -398,10 +405,11 @@ Starlight Aluminium `}</h3>
                     <Image className="w-[104px] h-[104px] md:w-40 md:h-40" src={"/Cyber iPhone Store/Iphone 14 pro 6.png"} width={160} height={160} alt="Iphone 14 pro 4"/>
                     <div className="flex flex-col gap-4 sm:gap-6 items-center">
                         <div className="flex flex-col gap-4 w-[140px] h-[88px] sm:w-[236px] sm:h-auto">
-                            <h3 className="text-center  text-base w-fit">{`Apple iPhone 14 Pro 1TB Gold (MQ2V3)`}</h3>
+                            <h3 className="text-center sm:block hidden  text-base w-fit">{`Apple iPhone 14 Pro 1TB Gold (MQ2V3)`}</h3>
+                            <h3 className="text-center  block sm:hidden text-base w-fit">{`Apple iPhone 14 Pro 1TB Gold (M...`}</h3>
                             <p className="text-center font-semibold text-2xl">$1499</p>
                         </div>
-                        <button className="text-base py-3 px-16 h-12 w-[140px] sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
+                        <button className="text-sm py-3 px-10 h-12 sm:w-auto  sm:h-auto  bg-black text-white rounded-lg text-center">Buy Now</button>
                     </div>
             </div>
             </div>
