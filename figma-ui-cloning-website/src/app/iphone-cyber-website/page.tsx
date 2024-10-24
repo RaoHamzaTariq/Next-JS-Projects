@@ -83,7 +83,7 @@ const iPhoneCyber = () => {
       </section>
       <section className="flex xl:min-h-[600px] flex-col lg:flex-row ">
         <div className="sm:basis-1/2 flex flex-col min-h-[600px] w-screen">
-          <div className="sm:basis-1/2 sm:pr-12 flex gap-6 sm:gap-0 px-4 sm:px-0 py-10 flex-col sm:flex-row sm:items-center sm:max-h-[328px]">
+          <div className="sm:basis-1/2 sm:pr-12 flex gap-6 w-[357px] h-auto sm:gap-0 px-4 sm:px-0 py-10 flex-col sm:flex-row sm:items-center sm:max-h-[328px]">
           <div className="flex items-center  sm:justify-start justify-center">
             <Image src={"/Cyber iPhone Store/PlayStation.png"} alt={"Play Station"} className="w-[200px] h-[200px] sm:w-auto sm:h-[328px]" width={400} height={328}/></div>
             <div className="flex flex-col gap-4 sm:items-start items-center">
@@ -114,14 +114,14 @@ const iPhoneCyber = () => {
             </div>
             </div>
           </div>
-        <div className="basis-1/2 flex flex-col sm:flex-row px-4 py-10 sm:py-11 sm:pl-14 items-center bg-[#EDEDED] sm:justify-between max-h-[600px]">
+        <div className="basis-1/2 flex flex-col sm:flex-row px-4 py-10 sm:py-11 sm:pl-14 items-center bg-[#EDEDED] sm:justify-between sm:max-h-[600px]">
         <div className="items-center flex sm:hidden">
-            <Image src={"/Cyber iPhone Store/MacBook 1.png"} alt={"MacBook Pro 14"} width={292} height={502}/>
+            <Image src={"/Cyber iPhone Store/Macbook 1.png"} alt={"MacBook Pro 14"} width={330} height={200}/>
         </div>
         <div className="sm:w-[360px] w-[343px] h-[200px] sm:h-[272px] flex flex-col items-center gap-6 sm:gap-4">
             <div className="flex flex-col gap-4">
-            <h2 className="text-4xl sm:text-start text-center sm:text-[64px] leading-[56px]">Macbook <span className="font-bold">Air</span></h2>
-            <p className="text-[#909090] sm:text-start text-center text-base sm:text-sm">The new 15‑inch MacBook Air makes room for more of what you love with a spacious Liquid Retina display.</p>
+            <h2 className="text-[34px] sm:text-start text-center sm:text-[64px] leading-[56px]">Macbook <span className="font-bold">Air</span></h2>
+            <p className="text-[#909090] sm:text-start text-center w-fit text-base sm:text-sm">The new 15‑inch MacBook Air makes room for more of what you love with a spacious Liquid Retina display.</p>
             </div>
             <button className="px-14 py-4 rounded-md border-2 w-[191px] border-black">Shop Now</button>
         </div>
