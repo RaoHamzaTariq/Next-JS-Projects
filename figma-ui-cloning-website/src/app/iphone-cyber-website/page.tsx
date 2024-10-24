@@ -81,9 +81,9 @@ const iPhoneCyber = () => {
           />
         </div>
       </section>
-      <section className="flex xl:min-h-[600px] flex-col md:flex-row xl:max-w-[1440]">
+      <section className="flex xl:min-h-[600px] flex-col lg:flex-row ">
         <div className="sm:basis-1/2 flex flex-col min-h-[600px] w-screen">
-          <div className="sm:basis-1/2 sm:pr-12 flex gap-6 sm:gap-0 px-4 sm:px-0 py-10 flex-col sm:flex-row sm:items-center sm:min-h-[328px]">
+          <div className="sm:basis-1/2 sm:pr-12 flex gap-6 sm:gap-0 px-4 sm:px-0 py-10 flex-col sm:flex-row sm:items-center sm:max-h-[328px]">
           <div className="flex items-center  sm:justify-start justify-center">
             <Image src={"/Cyber iPhone Store/PlayStation.png"} alt={"Play Station"} className="w-[200px] h-[200px] sm:w-auto sm:h-[328px]" width={400} height={328}/></div>
             <div className="flex flex-col gap-4 sm:items-start items-center">
@@ -91,36 +91,41 @@ const iPhoneCyber = () => {
                 <p className="text-sm text-[#909090]  sm:items-start text-center">Incredibly powerful CPUs, GPUs, and an SSD with integrated I/O will redefine your PlayStation experience.</p>
             </div>
             </div>
-          <div className="flex sm:basis-1/2 flex-col sm:flex-row min-h-[272px]">
-            <div className="sm:basis-1/2 bg-[#EDEDED] px-4 py-10 sm:py-0  flex sm:flex-row flex-col items-center md:pr-12 gap-7 w-ful">
+          <div className="flex sm:basis-1/2 flex-col sm:flex-row sm:max-h-[272px]">
+            <div className="sm:basis-1/2 bg-[#EDEDED] px-4 py-10 sm:py-0 sm:px-0 flex sm:flex-row flex-col items-center md:pr-12 gap-7 w-ful">
             <div>
-            <Image src={"/Cyber iPhone Store/headphones.png"} alt={"HeadPhones"} width={104} height={272}/>
+            <Image className="sm:hidden block" src={"/Cyber iPhone Store/headphones 1.png"} alt={"HeadPhones"} width={192} height={200}/>
+            <Image className="hidden sm:block" src={"/Cyber iPhone Store/headphones.png"} alt={"HeadPhones"} width={104} height={272}/>
             </div>
-            <div className="flex flex-col gap-3 w-40 min-h-[120px]">
+            <div className="flex flex-col gap-3 sm:w-40 sm:min-h-[120px]">
                 <h3 className="text-3xl font-light text-black ">Apple AirPods <span className="font-bold">Max</span></h3>
                 <p className="text-[#909090] text-sm">{"Computational audio. Listen, it's powerful"}</p>
             </div>
             </div>
-            <div className="sm:basis-1/2 bg-[#353535] px-4 py-10 sm:py-0 flex sm:flex-row flex-col items-center md:pr-12 gap-7">
+            <div className="sm:basis-1/2 bg-[#353535] px-4 py-10 sm:py-0 sm:px-0 flex sm:flex-row flex-col items-center md:pr-12 gap-6">
             <div>
-            <Image src={"/Cyber iPhone Store/vr.png"} alt={"VR"} width={136} height={190}/>
+            <Image className="block sm:hidden" src={"/Cyber iPhone Store/vr mobile.png"} alt={"VR"} width={325} height={192}/>
+            <Image className="hidden sm:block" src={"/Cyber iPhone Store/vr.png"} alt={"VR"} width={136} height={190}/>
             </div>
-            <div className="flex flex-col gap-3 w-40 min-h-[120px]">
-                <h3 className="text-3xl font-light text-white ">Apple Vision <span className="font-bold">Pro</span></h3>
+            <div className="flex flex-col gap-3 sm:w-40 sm:min-h-[120px]">
+                <h3 className="text-[34px] sm:text-[29px] font-light text-white ">Apple Vision <span className="font-bold">Pro</span></h3>
                 <p className="text-[#909090] text-sm">{"An immersive way to experience entertainment"}</p>
             </div>
             </div>
             </div>
           </div>
-        <div className="basis-1/2 flex py-11 pl-14 items-center bg-[#EDEDED] justify-between max-h-[600px]">
-        <div className="w-[360px] h-[272px] flex flex-col gap-4">
+        <div className="basis-1/2 flex flex-col sm:flex-row px-4 py-10 sm:py-11 sm:pl-14 items-center bg-[#EDEDED] justify-between max-h-[600px]">
+        <div className="items-center flex sm:hidden">
+            <Image src={"/Cyber iPhone Store/MacBook 1.png"} alt={"MacBook Pro 14"} width={292} height={502}/>
+        </div>
+        <div className="sm:w-[360px] w-[343px] h-[200px] sm:h-[272px] flex flex-col items-center gap-6 sm:gap-4">
             <div className="flex flex-col gap-4">
-            <h2 className="text-[64px] leading-[56px]">Macbook <span className="font-bold">Air</span></h2>
-            <p className="text-[#909090] text-sm">The new 15‑inch MacBook Air makes room for more of what you love with a spacious Liquid Retina display.</p>
+            <h2 className="text-4xl sm:text-start text-center sm:text-[64px] leading-[56px]">Macbook <span className="font-bold">Air</span></h2>
+            <p className="text-[#909090] sm:text-start text-center text-base sm:text-sm">The new 15‑inch MacBook Air makes room for more of what you love with a spacious Liquid Retina display.</p>
             </div>
             <button className="px-14 py-4 rounded-md border-2 w-[191px] border-black">Shop Now</button>
         </div>
-        <div className="items-end flex">
+        <div className="items-end sm:flex hidden">
             <Image src={"/Cyber iPhone Store/MacBook Pro 14.png"} alt={"MacBook Pro 14"} width={292} height={502}/>
         </div>
         </div>
@@ -311,7 +316,7 @@ Graphite`}</h3>
             <button className="px-14 py-4 rounded-md w-[191px] border-black border-2">Shop Now</button>
           </div>
         </div>
-        <div className="min-w-[360px] basis-[25%] flex flex-col px-9 pb-14 ">
+        <div className="bg-[#F9F9F9] min-w-[360px] basis-[25%] flex flex-col px-9 pb-14 ">
           <div className="w-[321px] h-[321px] xl:w-[360px] xl:h-[360px] lg:w-[300px] lg:h-[300px] md:w-[300] md:h-[300px] sm:w-[250px] sm:h-[250px]">
             <Image src={"/Cyber iPhone Store/iPads.png"} className="" width={360} height={360} alt="iPad Pro"/>
           </div>
@@ -321,7 +326,7 @@ Graphite`}</h3>
             <button className="px-14 py-4 rounded-md w-[191px] border-black border-2">Shop Now</button>
           </div>
         </div>
-        <div className="min-w-[360px] basis-[25%] flex flex-col px-9 pb-14 ">
+        <div className="bg-[#EAEAEA] min-w-[360px] basis-[25%] flex flex-col px-9 pb-14 ">
           <div className="w-[321px] h-[321px] xl:w-[360px] xl:h-[360px] lg:w-[300px] lg:h-[300px] md:w-[300] md:h-[300px] sm:w-[250px] sm:h-[250px]">
             <Image src={"/Cyber iPhone Store/Samsung.png"} className="" width={360} height={360} alt="watch-earbuds"/>
           </div>
@@ -331,14 +336,14 @@ Graphite`}</h3>
             <button className="px-14 py-4 rounded-md w-[191px] border-black border-2">Shop Now</button>
           </div>
         </div>
-        <div className="min-w-[360px] basis-[25%] flex flex-col px-9 pb-14 ">
+        <div className="bg-[#2C2C2C] min-w-[360px] basis-[25%] flex flex-col px-9 pb-14 text-white">
           <div className="w-[321px] h-[321px] xl:w-[360px] xl:h-[360px] lg:w-[300px] lg:h-[300px] md:w-[300] md:h-[300px] sm:w-[250px] sm:h-[250px]">
             <Image src={"/Cyber iPhone Store/Macbook 1.png"} className="" width={360} height={360} alt="watch-earbuds"/>
           </div>
           <div className="flex flex-col gap-4 items-center sm:items-start">
             <h2 className="text-center sm:text-start text-[49px] sm:text-[33px]">Macbook Pro</h2>
             <p className="text-center sm:text-start text-base text-[#909090]">iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.</p>
-            <button className="px-14 py-4 rounded-md w-[191px] border-black border-2">Shop Now</button>
+            <button className="px-14 py-4 rounded-md w-[191px] border-white border-2">Shop Now</button>
           </div>
         </div>
 
