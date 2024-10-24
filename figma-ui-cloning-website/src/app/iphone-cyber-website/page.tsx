@@ -114,7 +114,7 @@ const iPhoneCyber = () => {
             </div>
             </div>
           </div>
-        <div className="basis-1/2 flex flex-col sm:flex-row px-4 py-10 sm:py-11 sm:pl-14 items-center bg-[#EDEDED] sm:justify-between sm:max-h-[600px]">
+        <div className="basis-1/2 flex flex-col sm:flex-row px-4 py-10 sm:py-11 sm:pl-14 items-center bg-[#EDEDED] sm:justify-between ">
         <div className="items-center flex sm:hidden">
             <Image src={"/Cyber iPhone Store/Macbook 1.png"} alt={"MacBook Pro 14"} width={330} height={200}/>
         </div>
