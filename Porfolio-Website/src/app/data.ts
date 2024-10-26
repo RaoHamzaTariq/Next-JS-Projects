@@ -90,7 +90,7 @@ export const PortfolioData = {
             "id": 3,
             "image": chatbots,
             "longDesc": "",
-            "githubUrl": "",
+            "githubUrl": "https://www.kaggle.com/code/raohamzatariq/chatbots",
             "liveDemo": "",
             "stacks": ["Python","Numpy","OpenAI","Hugging Face","Scikit-Learn"]
         },
