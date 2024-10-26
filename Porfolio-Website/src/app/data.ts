@@ -81,7 +81,7 @@ export const PortfolioData = {
             "image": heartDisease,
             "longDesc": "",
             "githubUrl": "https://github.com/RaoHamzaTariq/Heart-Disease-Predictor-Explorer",
-            "liveDemo": "",
+            "liveDemo": "https://cardio-ml-model.streamlit.app/",
             "stacks": ["Streamlit","Scikit-Learn","Numpy","Pandas","Python"]
         },
         {
@@ -114,16 +114,7 @@ export const PortfolioData = {
             "liveDemo": "",
             "stacks": ["Python","Numpy","Pandas","Scikit-Learn"]
         },
-        {
-            "title": "Binary Prediction of Smoker Status using Bio-Signal",
-            "desc": "Implemented a binary classification model to predict smoker status using bio-signal data, focusing on key physiological indicators. The project aimed to enhance health diagnostics by identifying smokers through machine learning algorithms.",
-            "id": 6,
-            "image": "",
-            "longDesc": "",
-            "githubUrl": "",
-            "liveDemo": "",
-            "stacks": ["Python","Numpy","Pandas","Scikit-Learn"]
-        },
+        
         {
             "title": "Spaceship Classification Model",
             "desc": "A deep learning project that classifies images into different categories using Convolutional Neural Networks (CNN). The project involves training a CNN model to recognize patterns and objects in images for tasks like digit recognition or animal classification.",
