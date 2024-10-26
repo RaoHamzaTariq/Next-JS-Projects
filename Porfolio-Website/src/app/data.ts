@@ -10,6 +10,7 @@ import steelDefect from "../../public/images/Data Science/Steel Plate Defect Pre
 import heartDisease from "../../public/images/Data Science/Heart Disease Predictive Model.png"
 import porfolioWebsite from "../../public/images/Web Development/portfolio-website.png"
 import ecommerceWebsite from "../../public/images/Web Development/ecommerce-website.png"
+import recipeWebsite from "../../public/images/Web Development/recipe-website.png"
 
 
 export const PortfolioData = {
@@ -164,9 +165,9 @@ export const PortfolioData = {
             "title": "Recipe Website",
             "desc": "A blogging platform where users can create, read, update, and delete blog posts. Includes features like comments, categories, and user authentication. Developed using a full-stack framework like MERN (MongoDB, Express, React, Node.js).",
             "id": 3,
-            "image": "",
+            "image": recipeWebsite,
             "longDesc": "",
-            "githubUrl": "",
+            "githubUrl": "https://github.com/RaoHamzaTariq/Next-JS-Projects/tree/master/RecipeWebsite",
             "liveDemo": "https://recipe-website-indol.vercel.app/",
             "stacks": ["React JS","Next JS","Tailwind CSS","Shadcn UI","TypeScript"]
         },
