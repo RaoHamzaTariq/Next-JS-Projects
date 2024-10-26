@@ -11,6 +11,7 @@ import heartDisease from "../../public/images/Data Science/Heart Disease Predict
 import porfolioWebsite from "../../public/images/Web Development/portfolio-website.png"
 import ecommerceWebsite from "../../public/images/Web Development/ecommerce-website.png"
 import recipeWebsite from "../../public/images/Web Development/recipe-website.png"
+import resumeBuilder from "../../public/images/Web Development/resume-builder.png"
 
 
 export const PortfolioData = {
@@ -175,7 +176,7 @@ export const PortfolioData = {
             "title": "Resume Builder Application",
             "desc": "A web application that allows users to search for restaurants based on location, cuisine, and ratings. Integrated with APIs like Google Maps and Yelp. Built with front-end technologies like Angular or Vue.js.",
             "id": 4,
-            "image": "",
+            "image": resumeBuilder,
             "longDesc": "",
             "githubUrl": "https://github.com/RaoHamzaTariq/Hackathon---Resume-Builder-Website/tree/main/Milestone5",
             "liveDemo": "https://hackathon-dynamic-resume-builder-website.vercel.app/",
