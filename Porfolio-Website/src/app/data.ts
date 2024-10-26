@@ -8,6 +8,8 @@ import diabetesclf from "../../public/images/Data Science/Diabetes Classificatio
 import housePrice from "../../public/images/Data Science/House Prices Advanced Regression Model.png"
 import steelDefect from "../../public/images/Data Science/Steel Plate Defect Prediction.png"
 import heartDisease from "../../public/images/Data Science/Heart Disease Predictive Model.png"
+import porfolioWebsite from "../../public/images/Web Development/portfolio-website.png"
+import ecommerceWebsite from "../../public/images/Web Development/ecommerce-website.png"
 
 
 export const PortfolioData = {
@@ -142,20 +144,20 @@ export const PortfolioData = {
             "title": "E-Commerce Website",
             "desc": "A fully functional e-commerce website with features like product listings, shopping cart, payment integration, and user authentication. Built using technologies such as HTML, CSS, JavaScript, and a backend framework like Django or Node.js.",
             "id": 1,
-            "image": "",
+            "image": ecommerceWebsite,
             "longDesc": "",
-            "githubUrl": "",
-            "liveDemo": "",
+            "githubUrl": "https://github.com/RaoHamzaTariq/Next-JS-Projects/tree/master/Ecommerce-Website",
+            "liveDemo": "https://ecommerce-website-rao-hamza-tariq.vercel.app/",
             "stacks": ["Fast API","PostgreSQL","React JS","Next JS","Tailwind CSS","Shadcn UI","TypeScript","Python","Aceternity UI"]
         },
         {
             "title": "Portfolio Website",
             "desc": "A personal portfolio website to showcase projects, skills, and experience. Includes responsive design, smooth navigation, and sections like About, Projects, and Contact. Technologies used include React.js, Bootstrap, and custom CSS.",
             "id": 2,
-            "image": "",
+            "image": porfolioWebsite,
             "longDesc": "",
-            "githubUrl": "",
-            "liveDemo": "",
+            "githubUrl": "https://github.com/RaoHamzaTariq/Next-JS-Projects/tree/master/Porfolio-Website",
+            "liveDemo": "https://rao-hamza-tariq.vercel.app/",
             "stacks": ["Fast API","PostgreSQL","React JS","Next JS","Tailwind CSS","Shadcn UI","TypeScript","Python","Aceternity UI"]
         },
         {
