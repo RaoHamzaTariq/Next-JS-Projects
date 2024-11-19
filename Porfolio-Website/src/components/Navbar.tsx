@@ -144,13 +144,13 @@ const Navbar = () => {
             </a>
           </NavigationMenuLink>
         </li>
-          <ListItem href="/docs" title="Data Analyst">
+          <ListItem href="/services/DataAnalsyt" title="Data Analyst">
              Transforming your data into useful insights using Python, Power BI and SQL.
           </ListItem>
-          <ListItem href="/docs/installation" title="Data Scientist">
+          <ListItem href="/services/DataScientist" title="Data Scientist">
               Make your own predictive model using Machine Learning.
           </ListItem>
-          <ListItem href="/docs/primitives/typography" title="Web Developer">
+          <ListItem href="/services/WebDeveloper" title="Web Developer">
               Build your modern website using Next JS, Tailwind CSS and Shadcn UI.
           </ListItem>
       </ul>

@@ -1,7 +1,5 @@
 import Image from "next/image"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
 
 export default function About() {
   return (

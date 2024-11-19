@@ -20,8 +20,8 @@ export default function Home() {
 <main>
 <section className="grid grid-cols-1 md:grid-cols-2 lg:gap-80 overflow-hidden items-center justify-between lg:pt-16 sm:pt-24 pt-40 pb-20  overflow-x-hidden">
   <div className=" max-w-lg mx-5 sm:ml-20 flex flex-col gap-5">
-    <h3>{`I'm Hamza`}</h3>
-    <h1 className="text-5xl">Data Analyst & Web Developer</h1>
+    <h3>{`I'm Rao Hamza Tariq`}</h3>
+    <h1 className="text-6xl">Data Analyst & Web Developer</h1>
     <p className="w-fit">{`I am a skilled Data Analyst, Web Developer, and Power BI Developer, specializing in transforming data into insights and building user-friendly web solutions to help you achieve your goals.`}</p>
     <div>
       <Link href={"/Portfolio/All"}><Button>View my Projects</Button></Link>  
