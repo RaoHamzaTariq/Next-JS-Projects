@@ -114,71 +114,81 @@ export default function Home() {
   <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-center gap-10 items-center container mx-auto">
     <div>
       <Card className="p-5  ">
+        
         <CardHeader>
-          <CardTitle>
+          <CardTitle className="text-4xl">
             Data Analysis
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="space-y-2">
-            <h4>Starts from <span className="text-4xl">$14.99</span></h4>
+          <p>Transforming your data into useful insights using Python, Power BI and SQL.</p>
+          <div className="space-y-2 mt-5">
+            <h4>Starts from </h4>
+            <span className="mt-5 text-5xl font-bold">$14.99</span>
           </div>
-          <div>
+          <div className="mt-7">
             <h4>Services includes</h4>
-            <ul className="list-inside list-disc">
-              <li>Data Cleaning</li>
-              <li>Data Featuring</li>
-              <li>Exploratory Data Analysis</li>
-              <li>Data Modeling</li>
-              <li>Data Visualization</li>
+            <ul className="list-inside list-none mt-4 space-y-2">
+              <li>✔ Data Cleaning</li>
+              <li>✔ Data Featuring</li>
+              <li>✔ Exploratory Data Analysis</li>
+              <li>✔ Data Modeling</li>
+              <li>✔ Data Visualization</li>
             </ul>
           </div>
         </CardContent>
       </Card>
     </div>
-    <div>
-      <Card className="py-12 bg-primary text-white">
+    <div className="bg-purple-700 rounded-xl p-[3px]">
+      <div className="flex justify-center">
+        <span className="py-3 text-white">MOST POPULAR 🔥</span>
+      </div>
+      <Card className="p-5">
         <CardHeader>
-          <CardTitle>
-            Data Analysis
+          <CardTitle className="text-4xl">
+            Data Science
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div>
-            <h4>Starts from <span className="text-4xl">$14.99</span></h4>
+          <p>Make your own predictive model using Machine Learning.</p>
+          <div className="space-y-2 mt-5">
+            <h4>Starts from </h4>
+            <span className="mt-5 text-5xl font-bold">$24.99</span>
           </div>
-          <div>
+          <div className="mt-7">
             <h4>Services includes</h4>
-            <ul className="list-inside list-disc">
-              <li>Data Cleaning</li>
-              <li>Data Featuring</li>
-              <li>Exploratory Data Analysis</li>
-              <li>Data Modeling</li>
-              <li>Data Visualization</li>
+            <ul className="list-inside list-none mt-4 space-y-2">
+              <li>✔ Data Cleaning</li>
+              <li>✔ Data Modelling</li>
+              <li>✔ Machine Learning Model</li>
+              <li>✔ Database Integration</li>
+              <li>✔ Model Deployment</li>
             </ul>
           </div>
-        </CardContent>
+          </CardContent>
       </Card>
     </div>
     <div>
       <Card className="p-5  ">
         <CardHeader>
-          <CardTitle>
-            Data Analysis
+          <CardTitle className="text-4xl">
+            Web Development
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div>
-            <h4>Starts from <span className="text-4xl">$14.99</span></h4>
+          <p> Build your modern website using Next JS, Tailwind CSS and Shadcn UI.</p>
+          <div className="space-y-2 mt-5">
+            <h4>Starts from </h4>
+            <span className="mt-5 text-5xl font-bold">$24.99</span>
           </div>
-          <div>
+          <div className="mt-7">
             <h4>Services includes</h4>
-            <ul className="list-inside list-disc">
-              <li>Data Cleaning</li>
-              <li>Data Featuring</li>
-              <li>Exploratory Data Analysis</li>
-              <li>Data Modeling</li>
-              <li>Data Visualization</li>
+            <ul className="list-inside list-none mt-4 space-y-2">
+              <li>✔ Responsive Design</li>
+              <li>✔ Fully Functional</li>
+              <li>✔ SEO Optimization</li>
+              <li>✔ Database Integration</li>
+              <li>✔ Multiple Rendering Techniques</li>
             </ul>
           </div>
         </CardContent>
