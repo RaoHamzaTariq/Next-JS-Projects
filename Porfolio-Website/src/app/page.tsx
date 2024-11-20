@@ -116,13 +116,13 @@ export default function Home() {
       <Card className="p-5  ">
         
         <CardHeader>
-          <CardTitle className="text-4xl">
+          <CardTitle className="text-4xl text-center md:text-left">
             Data Analysis
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p>Transforming your data into useful insights using Python, Power BI and SQL.</p>
-          <div className="space-y-2 mt-5">
+          <p className="text-center md:text-left">Transforming your data into useful insights using Python, Power BI and SQL.</p>
+          <div className="space-y-2 mt-5 text-center md:text-left">
             <h4>Starts from </h4>
             <span className="mt-5 text-5xl font-bold">$14.99</span>
           </div>
@@ -146,13 +146,13 @@ export default function Home() {
       </div>
       <Card className="p-5">
         <CardHeader>
-          <CardTitle className="text-4xl">
+          <CardTitle className="text-4xl text-center md:text-left">
             Data Science
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p>Make your own predictive model using Machine Learning.</p>
-          <div className="space-y-2 mt-5">
+          <p className="text-center md:text-left">Make your own predictive model using Machine Learning.</p>
+          <div className="space-y-2 mt-5 text-center md:text-left">
             <h4>Starts from </h4>
             <span className="mt-5 text-5xl font-bold">$19.99</span>
           </div>
@@ -173,13 +173,13 @@ export default function Home() {
     <div>
       <Card className="p-5  ">
         <CardHeader>
-          <CardTitle className="text-4xl">
+          <CardTitle className="text-4xl text-center md:text-left">
             Web Development
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p> Build your modern website using Next JS, Tailwind CSS and Shadcn UI.</p>
-          <div className="space-y-2 mt-5">
+          <p className="text-center md:text-left"> Build your modern website using Next JS, Tailwind CSS and Shadcn UI.</p>
+          <div className="space-y-2 mt-5 text-center md:text-left">
             <h4>Starts from </h4>
             <span className="mt-5 text-5xl font-bold">$24.99</span>
           </div>
