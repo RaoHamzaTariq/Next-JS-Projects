@@ -126,6 +126,7 @@ export default function Home() {
             <h4>Starts from </h4>
             <span className="mt-5 text-5xl font-bold">$14.99</span>
           </div>
+          <Button className="w-full mt-6 py-6 text-lg">Get Started</Button>
           <div className="mt-7">
             <h4>Services includes</h4>
             <ul className="list-inside list-none mt-4 space-y-2">
@@ -141,7 +142,7 @@ export default function Home() {
     </div>
     <div className="bg-purple-700 rounded-xl p-[3px]">
       <div className="flex justify-center">
-        <span className="py-3 text-white">MOST POPULAR 🔥</span>
+        <span className="py-4 text-white tracking-[3px]">MOST POPULAR 🔥</span>
       </div>
       <Card className="p-5">
         <CardHeader>
@@ -153,8 +154,9 @@ export default function Home() {
           <p>Make your own predictive model using Machine Learning.</p>
           <div className="space-y-2 mt-5">
             <h4>Starts from </h4>
-            <span className="mt-5 text-5xl font-bold">$24.99</span>
+            <span className="mt-5 text-5xl font-bold">$19.99</span>
           </div>
+          <Button className="w-full mt-6 py-6 text-lg">Get Started</Button>
           <div className="mt-7">
             <h4>Services includes</h4>
             <ul className="list-inside list-none mt-4 space-y-2">
@@ -181,6 +183,7 @@ export default function Home() {
             <h4>Starts from </h4>
             <span className="mt-5 text-5xl font-bold">$24.99</span>
           </div>
+          <Button className="w-full mt-6 py-6 text-lg">Get Started</Button>
           <div className="mt-7">
             <h4>Services includes</h4>
             <ul className="list-inside list-none mt-4 space-y-2">
