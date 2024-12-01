@@ -9,12 +9,12 @@ import contactusPic from "../../../public/images/contact-us.png"
 
 export default function Component() {
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center py-32 gap-11">
+    <div className="flex flex-col lg:flex-row items-center justify-center py-32 gap-11 container mx-auto">
       <Card>
         <CardContent>
           <div className="space-y-8">
             <div className="space-y-2">
-              <h2 className="text-3xl font-semibold mt-5 text-red-600">Contact Us</h2>
+              <h2 className="text-3xl font-semibold mt-5 text-primary">Contact Us</h2>
               <p className="text-zinc-500 dark:text-zinc-400">
                 {"Fill out the form below and we'll get back to you as soon as possible."}
               </p>
@@ -62,7 +62,7 @@ export default function Component() {
           </div>
         </CardContent>
       </Card>
-      <div className="w-screen container mx-auto">
+      <div className="">
         <Image className=" w-fit h-auto" src={contactusPic} alt={""} width={400} height={400}/>
       </div>
     </div>

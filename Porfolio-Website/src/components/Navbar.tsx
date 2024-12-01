@@ -144,7 +144,7 @@ const Navbar = () => {
             </a>
           </NavigationMenuLink>
         </li>
-          <ListItem href="/services/DataAnalsyt" title="Data Analyst">
+          <ListItem href="/services/DataAnalyst" title="Data Analyst">
              Transforming your data into useful insights using Python, Power BI and SQL.
           </ListItem>
           <ListItem href="/services/DataScientist" title="Data Scientist">

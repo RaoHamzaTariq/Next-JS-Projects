@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent } from './ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
-import { faqs } from '@/app/data';
+import { faqs } from '@/data/data';
 
 const FAQs = () => {
   return (

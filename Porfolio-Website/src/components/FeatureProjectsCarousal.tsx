@@ -10,7 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { PortfolioData } from "@/app/data";
+import { PortfolioData } from "@/data/data";
 import Image from "next/image";
 import { AspectRatio } from "./ui/aspect-ratio";
 import { Button } from "./ui/button";

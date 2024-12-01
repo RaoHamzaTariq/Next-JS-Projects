@@ -1,6 +1,6 @@
 "use client"; // Add this line at the very top
 
-import { PortfolioData } from '@/app/data';
+import { PortfolioData } from '@/data/data';
 import { useParams } from 'next/navigation';
 import React from 'react';
 import Image from 'next/image';

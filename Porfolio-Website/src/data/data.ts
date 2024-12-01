@@ -1,4 +1,3 @@
-import { title } from "process"
 import trafficDashboard from "../../public/images/Data Analysis/Traffic Dashboard.jpg"
 import marketingDashboard from "../../public/images/Data Analysis/Marketing Dashboard.jpg"
 import envirDashboard from "../../public/images/Data Analysis/Enivornmental Dashboard.jpg"

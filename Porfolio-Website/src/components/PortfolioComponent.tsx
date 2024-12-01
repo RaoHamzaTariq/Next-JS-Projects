@@ -1,4 +1,4 @@
-import { PortfolioData, PortfolioKeys } from '@/app/data';
+import { PortfolioData, PortfolioKeys } from '@/data/data';
 import Image, { StaticImageData } from 'next/image';
 import Link from 'next/link';
 import React from 'react';
