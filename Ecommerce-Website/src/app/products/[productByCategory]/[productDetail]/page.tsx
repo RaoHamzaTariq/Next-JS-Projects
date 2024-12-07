@@ -244,7 +244,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
               height={600}
               className="aspect-square object-cover border  w-fit sm:w-full rounded-lg overflow-hidden"
             />
-            <div className="hidden md:flex gap-4 items-start">
+            <div className="hidden md:!flex gap-4 items-start">
               {productData.images?.map((pic: string, index: number) => (
                 <button
                   onClick={ImageClick}
