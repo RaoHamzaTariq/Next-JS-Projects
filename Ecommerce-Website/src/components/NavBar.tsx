@@ -63,7 +63,7 @@ const NavBar = () => {
         <div>
           {/* <h3 className="text-4xl pb-5">LOGO</h3> */}
           <Image src={"/BI Structure Images/BI Structure.png"} width={125} height={125} alt="" className="dark:hidden"/>
-          <Image src={"/BI Structure Images/BI Structure white.png"} width={125} height={125} alt="" className="hidden dark:block"/>
+          <Image src={"/BI Structure Images/BI Structure white.png"} width={125} height={125} alt="" className="hidden dark:!block"/>
         </div>
         <div className="md:!block hidden">
           <NavigationMenu className="mt-0 md:">
@@ -126,7 +126,7 @@ const NavBar = () => {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-        <div className="md:block hidden">
+        <div className="md:!block hidden">
           <div className="flex items-center gap-3">
             <Input type="SearchBar" placeholder="Search" />
             <div className="w-16">
