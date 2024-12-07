@@ -65,7 +65,7 @@ const NavBar = () => {
           <Image src={"/BI Structure Images/BI Structure.png"} width={125} height={125} alt="" className="dark:hidden"/>
           <Image src={"/BI Structure Images/BI Structure white.png"} width={125} height={125} alt="" className="hidden dark:block"/>
         </div>
-        <div className="md:block hidden">
+        <div className="md:!block hidden">
           <NavigationMenu className="mt-0 md:">
             <NavigationMenuList>
               <NavigationMenuItem>
