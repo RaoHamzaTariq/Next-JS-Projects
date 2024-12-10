@@ -7,7 +7,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/components/ContextForCart";
 import WebsiteUnderProcess from "@/components/WebsiteUnderProcess";
-import SessionWrapper from "@/components/SessionWrapper";
 import {
   ClerkProvider,
 } from '@clerk/nextjs'
@@ -28,7 +27,7 @@ export default function RootLayout({
     <ClerkProvider>
     <html lang="en">
       <body className={dm_Sans.className}>
-        <SessionWrapper>
+        
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -43,7 +42,6 @@ export default function RootLayout({
               <WebsiteUnderProcess />
             </CartProvider>
           </ThemeProvider>
-        </SessionWrapper>
       </body>
     </html>
     </ClerkProvider>

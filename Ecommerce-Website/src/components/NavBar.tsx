@@ -1,3 +1,6 @@
+
+
+
 "use client";
 import React, { useEffect, useState } from "react";
 import {
@@ -22,9 +25,11 @@ import { Button } from "./ui/button";
 import { ModeToggle } from "./ui/ModeToogle";
 import { Input } from "./ui/input";
 import Link from "next/link";
-import { MdOutlineShoppingBag } from "react-icons/md";
+import { RiShoppingCart2Fill   } from "react-icons/ri";
 import { ProductCategory } from "@/app/data";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { useCart } from "./ContextForCart";
+import { useRouter } from "next/navigation";
 
 // Function to fetch product categories
 const FetchProductCategories = async (): Promise<ProductCategory[]> => {
@@ -48,6 +53,10 @@ const NavBar = () => {
     []
   );
 
+  const {cart} = useCart();
+  const router = useRouter()
+  
+
   // Fetch product categories when the component mounts
   useEffect(() => {
     const fetchCategories = async () => {
@@ -59,26 +68,26 @@ const NavBar = () => {
 
   return (
     <main className="z-10 border-b-2 dark:border bg-transparent backdrop-blur-md w-screen fixed mt-0">
-      <div className="w-screen px-10 flex justify-between items-center min-h-16 max-h-20">
-        <div>
+      <div className="w-screen px-10 flex justify-between items-center max-h-16">
+        <div onClick={()=>router.push("/")}>
           {/* <h3 className="text-4xl pb-5">LOGO</h3> */}
           <Image src={"/BI Structure Images/BI Structure.png"} width={125} height={125} alt="" className="dark:hidden"/>
           <Image src={"/BI Structure Images/BI Structure white.png"} width={125} height={125} alt="" className="hidden dark:!block"/>
         </div>
         <div className="md:!block hidden">
-          <NavigationMenu className="mt-0 md:">
+          <NavigationMenu className="mt-0 ">
             <NavigationMenuList>
               <NavigationMenuItem>
                 <Link href="/" legacyBehavior passHref className="">
                   <NavigationMenuLink
-                    className={`${navigationMenuTriggerStyle()} no-underline text-black dark:text-white bg-transparent`}
+                    className={`${navigationMenuTriggerStyle()}  hover:text-primary no-underline text-black dark:text-white bg-transparent`}
                   >
                     Home
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent">
+                <NavigationMenuTrigger className="hover:text-primary bg-transparent">
                   Products
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -108,7 +117,7 @@ const NavBar = () => {
               <NavigationMenuItem>
                 <Link href="/profile" legacyBehavior passHref className="">
                   <NavigationMenuLink
-                    className={`${navigationMenuTriggerStyle()} no-underline text-black dark:text-white bg-transparent`}
+                    className={`${navigationMenuTriggerStyle()} hover:text-primary no-underline text-black dark:text-white bg-transparent`}
                   >
                     Profile
                   </NavigationMenuLink>
@@ -117,7 +126,7 @@ const NavBar = () => {
               <NavigationMenuItem>
                 <Link href="/about" legacyBehavior passHref className="">
                   <NavigationMenuLink
-                    className={`${navigationMenuTriggerStyle()} no-underline text-black dark:text-white bg-transparent`}
+                    className={`${navigationMenuTriggerStyle()} hover:text-primary no-underline text-black dark:text-white bg-transparent`}
                   >
                     About
                   </NavigationMenuLink>
@@ -128,11 +137,21 @@ const NavBar = () => {
         </div>
         <div className="md:!block hidden">
           <div className="flex items-center gap-3">
-            <Input type="SearchBar" placeholder="Search" />
+            <Input type="SearchBar" className="bg-[#f5f5f5]" placeholder="Search..." />
             <div className="w-16">
               <ModeToggle />
             </div>
-            <Button variant={"ghost"}>
+            
+            <Link href={"/cart"} className="relative">
+              <RiShoppingCart2Fill  className="text-3xl text-gray-700 dark:text-white/85" />
+              {
+                cart.length>0 && <span className="absolute top-0 right-0 w-4 h-4 bg-red-500 text-white text-xs font-semibold rounded-full flex items-center justify-center">
+                {cart.length}
+              </span>
+              }
+              
+            </Link>
+            <Button className="text-white">
             <SignedOut>
               <SignInButton />
             </SignedOut>
@@ -140,10 +159,6 @@ const NavBar = () => {
               <UserButton />
             </SignedIn>
             </Button>
-            
-            <Link href={"/cart"}>
-              <MdOutlineShoppingBag className="text-2xl text-gray-700 dark:text-white/85" />
-            </Link>
           </div>
         </div>
 
@@ -237,7 +252,7 @@ const NavBar = () => {
                   <ModeToggle />
                   <Button variant={"outline"}>Register</Button>
                   <Button>
-                    <MdOutlineShoppingBag />
+                    <RiShoppingCart2Fill  />
                   </Button>
                 </div>
               </div>

@@ -12,7 +12,7 @@ import Sunglasses from "../../public/HandPickedItem/Sunglasses.png"
 import Handbags from "../../public/HandPickedItem/Handbags.png"
 import Wristwactches from "../../public/HandPickedItem/Wristwatches.png"
 import Perfumes from "../../public/HandPickedItem/Perfumes.png"
-import { useSession, signIn} from "next-auth/react";
+import { SignedOut, SignInButton } from "@clerk/nextjs";
 
 type Product = {
   rating: number;
@@ -27,7 +27,6 @@ type Product = {
 };
 
 export default function Home() {
-  const { data: session } = useSession();
   const [products, setProducts] = useState<Product[]>([]);
   const [error, setError] = useState<string | null>(null);
 
@@ -52,7 +51,7 @@ export default function Home() {
 
   return (
     <>
-  <main className="z-100">
+  <main className="z-100 ">
     <section className="relative flex justify-center items-center h-screen overflow-hidden">
   <video
     autoPlay
@@ -75,16 +74,14 @@ export default function Home() {
       </p>
     </div>
     <div>
-      {
-        session ? (
-          <Button className="w-32 h-10 text-white">Explore Products</Button>
-        ) : (
+      
           <div className="flex justify-center items-center gap-5 flex-wrap">
-            <Button className="w-32 h-10 text-black dark:text-white" variant={"outline"} onClick={() => signIn()}>Sign Up</Button>
+            <Button className="w-32 h-10 text-black dark:text-white" variant={"outline"} ><SignedOut>
+              <SignInButton />
+            </SignedOut></Button>
             <Button className="w-32 h-10 text-white">Explore Products</Button>
           </div>
-        )
-      }
+    
     </div>
   </div>
 </section>

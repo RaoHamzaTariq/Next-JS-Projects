@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Luxury Fashion Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.core.min.css" rel="stylesheet"><link href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.theme.min.css" rel="stylesheet">
+<link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet"><script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+<script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#1B9AF5" data-border-radius='medium'></script>
+</head>
+<body class="bg-white text-gray-900 font-['Montserrat']">
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">  <nav class="max-w-8xl mx-auto px-6">
+    <div class="flex items-center justify-between h-20">
+      <div class="flex items-center">        <img src="https://ai-public.creatie.ai/gen_page/logo_placeholder.png" alt="Logo" class="h-10">
+      </div>
+      
+      <div class="hidden md:flex items-center space-x-8">        <a href="#" class="text-gray-600 hover:text-custom">Home</a>
+        <a href="#" class="text-gray-600 hover:text-custom">Shop</a>
+        <a href="#" class="text-gray-600 hover:text-custom">Collections</a>
+        <a href="#" class="text-gray-600 hover:text-custom">About</a>
+        <a href="#" class="text-gray-600 hover:text-custom">Contact</a>
+      </div>
+
+      <div class="flex items-center space-x-6">        <div class="relative">
+          <input type="text" placeholder="Search..." class="w-48 bg-gray-100 border-0 rounded-button pl-10 pr-4 py-2 text-sm text-gray-600 focus:ring-2 focus:ring-custom">          <i class="fas fa-search absolute left-3 top-2.5 text-gray-400"></i>
+        </div>
+        
+        <div class="relative">          <i class="fas fa-shopping-cart text-gray-600 text-xl hover:text-custom cursor-pointer"></i>
+          <span class="absolute -top-2 -right-2 bg-custom text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+        </div>
+        
+        <button class="!rounded-button bg-custom hover:bg-custom/90 text-white px-6 py-2">Sign In</button>      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="pt-20">
+  <!-- Rest of the content remains the same, just changing dark theme classes to light theme -->  <!-- For example: -->
+  <!-- bg-gray-900 -> bg-white -->
+  <!-- text-gray-100 -> text-gray-900 -->
+  <!-- bg-gray-800 -> bg-gray-100 -->  <!-- text-gray-300 -> text-gray-600 -->
+  <!-- border-gray-800 -> border-gray-200 -->
+  
+  <!-- The structure and content remain identical, only color classes are updated --></main>
+
+<footer class="bg-gray-100 border-t border-gray-200">
+  <!-- Footer content remains the same, just updating color classes --></footer>
+
+<script>
+new Glide('.glide', {
+  type: 'carousel',
+  startAt: 0,
+  perView: 3,
+  gap: 32,
+  autoplay: 3000,
+  breakpoints: {
+    1024: {
+      perView: 2
+    },
+    640: {
+      perView: 1
+    }
+  }
+}).mount();
+</script></body>
+</html>
