@@ -179,7 +179,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
                 <h3 className="text-4xl border-none line-through text-gray-400">
                   ${productData.price}
                 </h3>
-                <h3 className="text-2xl text-orange-500">
+                <h3 className="text-2xl text-primary">
                   {productData.discountPercentage}% OFF
                 </h3>
               </div>
