@@ -165,7 +165,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
                 <div className="flex items-center gap-4 mt-3">
                   {productData.rating}
                   <h4 className="text-gray-500">
-                    ({productData.reviews?.length || 0}) Ratings
+                    ({productData.reviews?.length ||   0}) Ratings
                   </h4>
                 </div>
               </div>
@@ -307,10 +307,10 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
                     className="flex flex-col justify-center gap-3"
                   >
                     <div className="flex justify-between items-baseline">
-                      <div className="mb-4">        {Array.from({ length: 5 }, (_, i) => (
+                      <div className="mb-4 flex gap-1">        {Array.from({ length: 5 }, (_, i) => (
     <FaStar
       key={i}
-      className={`text-sm ${i < product.rating ? 'text-yellow-500' : 'text-gray-400'}`}
+      className={`text-sm ${i < productData.rating ? 'text-yellow-500' : 'text-gray-400'}`}
     />
   ))}
 </div>
