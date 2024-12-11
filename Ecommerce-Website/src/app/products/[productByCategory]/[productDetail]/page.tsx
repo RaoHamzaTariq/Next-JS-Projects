@@ -10,6 +10,7 @@ import Link from "next/link";
 // import { IoBagOutline } from "react-icons/io5";
 import { useCart } from "@/components/ContextForCart";
 import { Product, Reviews } from "@/app/data";
+import { FaStar } from "react-icons/fa";
 import Image from "next/image";
 import { CiHeart } from "react-icons/ci";
 import { MdOutlineShoppingCart } from "react-icons/md";
@@ -306,7 +307,13 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
                     className="flex flex-col justify-center gap-3"
                   >
                     <div className="flex justify-between items-baseline">
-                      <p>{review.rating}</p>
+                      <div className="mb-4">        {Array.from({ length: 5 }, (_, i) => (
+    <FaStar
+      key={i}
+      className={`text-sm ${i < product.rating ? 'text-yellow-500' : 'text-gray-400'}`}
+    />
+  ))}
+</div>
                       <p>{review.date}</p>
                     </div>
                     <div className="flex flex-col justify-center gap-3">
