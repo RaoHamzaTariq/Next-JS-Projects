@@ -4,7 +4,7 @@ import { Button } from './ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Product } from '@/app/data'
-// import { renderStars } from '@/app/products/[productByCategory]/[productDetail]/page'
+import { FaStar } from "react-icons/fa";
 
 const ProductCard = (props:{product:Product}) => {
 
