@@ -20,7 +20,7 @@ const ProductCard = (props:{product:Product}) => {
       <p className='text-sm p-1 bg-black rounded-md  left-3 top-3 absolute text-white text-center'>-{product.discountPercentage}%</p>
     <Image
       src={product.thumbnail}
-      alt="Product 1"
+      alt={product.title}
       width={400}
       height={300}
       className="w-full h-64 object-cover"
@@ -31,7 +31,15 @@ const ProductCard = (props:{product:Product}) => {
       <h3 className="text-lg font-semibold mb-2 no-underline">
         {product.title}
       </h3>
-      <p className=" text-sm mb-4">{product.rating}</p>
+      
+        <div className="mb-4">        {Array.from({ length: 5 }, (_, i) => (
+    <FaStar
+      key={i}
+      className={`text-sm ${i < product.rating ? 'text-yellow-500' : 'text-gray-400'}`}
+    />
+  ))}
+</div>
+</div>
       <div className="flex items-center justify-between">
         <span className="font-bold text-xl">${product.price}</span>
         <Link href={`/products/${product.category}/${product.id}`}>
