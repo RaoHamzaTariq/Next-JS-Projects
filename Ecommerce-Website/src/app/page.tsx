@@ -13,6 +13,7 @@ import Handbags from "../../public/HandPickedItem/Handbags.png"
 import Wristwactches from "../../public/HandPickedItem/Wristwatches.png"
 import Perfumes from "../../public/HandPickedItem/Perfumes.png"
 import { SignedOut, SignInButton } from "@clerk/nextjs";
+import { FaStar } from "react-icons/fa6";
 
 type Product = {
   rating: number;
@@ -131,7 +132,13 @@ export default function Home() {
                         />
                       </div>
                       <div className="flex justify-between items-center mt-4">
-                        <p className="text-sm md:text-base lg:text-lg">Rating: {product.rating}</p>
+                      <div className=" flex gap-1">        {Array.from({ length: 5 }, (_, i) => (
+    <FaStar
+      key={i}
+      className={`text-sm ${i < product.rating ? 'text-yellow-500' : 'text-gray-400'}`}
+    />
+  ))}
+</div>
                         <p className="text-sm md:text-base lg:text-lg font-semibold">${product.price}</p>
                       </div>
                     </CardContent>

@@ -163,7 +163,13 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
                   <p className="w-fit">{productData.description}</p>
                 </div>
                 <div className="flex items-center gap-4 mt-3">
-                  {productData.rating}
+                <div className=" flex gap-1">        {Array.from({ length: 5 }, (_, i) => (
+    <FaStar
+      key={i}
+      className={`text-sm ${i < productData.rating ? 'text-yellow-500' : 'text-gray-400'}`}
+    />
+  ))}
+</div>
                   <h4 className="text-gray-500">
                     ({productData.reviews?.length ||   0}) Ratings
                   </h4>
