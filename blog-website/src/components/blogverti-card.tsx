@@ -2,9 +2,9 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
-import { BlogPost } from "@/app/api/fetchingblog/route";
+import { BlogCardProps } from "@/data/interfaces";
 
-const BlogVertiCard = (props: any) => {
+const BlogVertiCard:React.FC<BlogCardProps> = (props:BlogCardProps) => {
   return (
     <Link href={`/blogs/${props.slug}`}>
     <article className="dark:bg-gray-800  rounded-lg overflow-hidden">

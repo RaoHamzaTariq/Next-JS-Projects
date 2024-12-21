@@ -11,12 +11,7 @@ export interface Author {
       text: string;
     }>;
   }>;
-  image?: {
-    asset: {
-      _id: string;
-      url: string;
-    };
-  };
+  image?: SanityImageSource;
 }
 
 // Define an interface for the Main Image
@@ -27,7 +22,22 @@ export interface MainImage {
   };
   alt?: string; // Optional alt text for the image
 }
-
+interface PortableTextBlock {
+  _key: string; // Unique key for the block
+  _type: 'block'; // Type of the block
+  children: Array<{
+      _key: string; // Unique key for each child
+      _type: 'span'; // Type of the child, typically a span for text
+      marks: string[]; // Array of marks (e.g., bold, italic)
+      text: string; // The actual text content
+  }>;
+  markDefs?: Array<{
+      _key: string; // Unique key for the mark definition
+      _type: string; // Type of the mark (e.g., link)
+      href?: string; // URL if it's a link
+  }>;
+  style?: string; // Optional style (e.g., heading, normal)
+}
 // Define an interface for the Blog Post
 export interface BlogPost {
   _id: string;
@@ -38,15 +48,16 @@ export interface BlogPost {
   };
   publishedAt: string; // ISO date string
   mainImage?: MainImage; // Optional main image
-  body: any; // Use a specific type if you have a defined structure for Portable Text
+  body: PortableTextBlock; // Use a specific type if you have a defined structure for Portable Text
   author?: Author; // Optional author reference
 }
 
 // Example usage in your API endpoint
 import { client } from '@/sanity/lib/client';
-import { NextResponse, NextRequest } from 'next/server';
+import { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import { NextResponse } from 'next/server';
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const data = await client.fetch<BlogPost[]>(`*[_type == "post"]{
       _id,

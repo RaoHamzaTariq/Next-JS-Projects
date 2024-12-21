@@ -4,8 +4,10 @@ import React from 'react'
 import Image from 'next/image'
 import { urlFor } from '@/sanity/lib/image'
 import { Bookmark, Share2 } from 'lucide-react'
+import { BlogCardProps } from '@/data/interfaces'
 
-const BlogHoriCard = (props:any) => {
+
+const BlogHoriCard :React.FC<BlogCardProps> = (props: BlogCardProps) => {
   return (
     <Link href={`/blogs/${props.slug}`}>
     <article

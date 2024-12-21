@@ -1,6 +1,6 @@
-'use client'
-import { BlogPost } from '../api/fetchingblog/route';
+
 import BlogHoriCard from '@/components/bloghori-card';
+import { BlogPostCard } from '@/data/interfaces';
 
 
 export default async function Blogs() {
@@ -22,7 +22,7 @@ export default async function Blogs() {
     }
     
   }
-  const fetchData : BlogPost[] = await fetchingData()
+  const fetchData = await fetchingData()
 
   return (
     <div className=" font-[&#39;Inter&#39;]">
@@ -67,8 +67,9 @@ export default async function Blogs() {
     </aside>
     <div className="flex-1">
       <div className="grid gap-8">
-       {fetchData.length>0 ? fetchData.map((post:BlogPost)=>(
-        <BlogHoriCard  key={post.title} slug={post.slug?.current} title={post.title} shortDesc={post.shortDesc} mainImage={post.mainImage} author={post.author} publishedAt={post.publishedAt}/>
+       {fetchData.length>0 ? fetchData.map((post:BlogPostCard)=>(
+        <BlogHoriCard  key={post.title} slug={post.slug?.current} title={post.title} shortDesc={post.shortDesc} mainImage={post.mainImage || { asset: { _id: '', url: '' } }} // Default value
+        author={post.author} publishedAt={post.publishedAt}/>
        )): <p className='w-screen justify-center items-center my-20'>Blogs not found!</p>}
       </div>
     </div>

@@ -1,43 +1,44 @@
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
 import { Linkedin } from "lucide-react";
 import { BlogPost } from "@/app/api/fetchingblog/route";
+import { PortableTextReactComponents } from "@portabletext/react";
 
 
-const portableTextComponents = {
+const portableTextComponents: Partial<PortableTextReactComponents> = {
   block: {
-    normal: ({ children }: { children: React.ReactNode }) => (
+    normal: ({ children }) => (
       <p className="mb-6 text-base leading-relaxed">{children}</p>
     ),
-    h1: ({ children }: { children: React.ReactNode }) => (
+    h1: ({ children }) => (
       <h1 className="text-5xl font-bold mb-4">{children}</h1>
     ),
-    h2: ({ children }: { children: React.ReactNode }) => (
+    h2: ({ children }) => (
       <h2 className="text-3xl font-semibold mb-3">{children}</h2>
     ),
-    h3: ({ children }: { children: React.ReactNode }) => (
+    h3: ({ children }) => (
       <h3 className="text-2xl font-medium mb-2">{children}</h3>
     ),
-    h4: ({ children }: { children: React.ReactNode }) => (
-        <h3 className="text-xl font-normal mb-1">{children}</h3>
+    h4: ({ children }) => (
+      <h4 className="text-xl font-normal mb-1">{children}</h4>
     ),
   },
   list: {
-    bullet: ({ children }: { children: React.ReactNode }) => (
+    bullet: ({ children }) => (
       <ul className="list-disc list-inside mb-6">{children}</ul>
     ),
-    number: ({ children }: { children: React.ReactNode }) => (
+    number: ({ children }) => (
       <ol className="list-decimal list-inside mb-6">{children}</ol>
     ),
   },
   listItem: {
-    bullet: ({ children }: { children: React.ReactNode }) => (
+    bullet: ({ children }) => (
       <li className="mb-2 text-base">{children}</li>
     ),
-    number: ({ children }: { children: React.ReactNode }) => (
+    number: ({ children }) => (
       <li className="mb-2 text-base">{children}</li>
     ),
   },

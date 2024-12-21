@@ -187,7 +187,7 @@
 
 // </body></html>
 
-<div className="bg-gray-900 text-gray-100 font-[&#39;Inter&#39;]">
+{/* <div className="bg-gray-900 text-gray-100 font-[&#39;Inter&#39;]">
   <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 flex flex-col gap-8">
     <div className="text-center py-12">
       <h1 className="text-4xl font-bold mb-4">Welcome to Our Blog</h1>
@@ -324,4 +324,4 @@
       </div>
     </div>
   </div>
-</div>;
+</div>; */}

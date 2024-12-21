@@ -1,8 +1,8 @@
 import BlogVertiCard from "@/components/blogverti-card";
 import Image from "next/image";
 import Link from "next/link";
-import { BlogPost } from "./api/fetchingblog/route";
 import BlogHoriCard from "@/components/bloghori-card";
+import { BlogPostCard } from "@/data/interfaces";
 
 export default async function Home() {
 
@@ -23,7 +23,7 @@ export default async function Home() {
     }
     
   }
-  const fetchData : BlogPost[] = await fetchingData()
+  const fetchData : BlogPostCard[] = await fetchingData()
   
   return (
     <div className=" font-[&#39;Inter&#39;]">
@@ -93,8 +93,8 @@ export default async function Home() {
             image: "/Images/Home/hero.png",
           },
         ] */}
-        {fetchData.map((post:BlogPost) => (
-         <BlogVertiCard mainImage={post.mainImage} slug={post.slug?.current} shortDesc={post.shortDesc} key={post.title} title={post.title} author={post.author} publishedAt={post.publishedAt} _id={""} body={undefined} />
+        {fetchData.map((post:BlogPostCard) => (
+         <BlogVertiCard mainImage={post.mainImage} slug={post.slug?.current} shortDesc={post.shortDesc} key={post.title} title={post.title} author={post.author} publishedAt={post.publishedAt}  />
         ))}
       </div>
     </section>
@@ -114,8 +114,8 @@ export default async function Home() {
               </div>
             </div>
             <div className="grid gap-8">
-    {fetchData.map((post:BlogPost) => (
-      <BlogHoriCard _id={post.title} key={post.title} slug={post.slug?.current} title={post.title} shortDesc={post.shortDesc} mainImage={post.mainImage} author={post.author} publishedAt={post.publishedAt}/>
+    {fetchData.map((post:BlogPostCard) => (
+      <BlogHoriCard  key={post.title} slug={post.slug?.current} title={post.title} shortDesc={post.shortDesc} mainImage={post.mainImage} author={post.author} publishedAt={post.publishedAt}/>
     ))}
   </div>
             <section className="dark:bg-gray-800 rounded-xl p-8 my-12">
