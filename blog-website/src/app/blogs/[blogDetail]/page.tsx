@@ -49,7 +49,9 @@ const BlogDetail = async ({params}:{params:{blogDetail:string}}) => {
   const fetchingData = async () =>{
     try {
       const response = await fetch("http://localhost:3000/api/fetchingblog", {
-        cache: "no-store",
+        next:{
+          revalidate: 10,
+        }
       });
       if(!response){
         throw new Error("Failed to fetch data!")
