@@ -49,10 +49,10 @@ const BlogHoriCard :React.FC<BlogCardProps> = (props: BlogCardProps) => {
             </div>
             <div className="flex items-center space-x-4">
               <button className=" ">
-                <Bookmark className=""/>
+                <Bookmark className="dark:text-white"/>
               </button>
               <button className="">
-                <Share2 className=""/>
+                <Share2 className="dark:text-white"/>
               </button>
             </div>
           </div>
