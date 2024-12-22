@@ -48,14 +48,14 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="text-sm transition">Web Development</li>
 
-              <li className="text-sm  transition">UI Design</li>
+              <li className="text-sm  transition">Data Analytics</li>
 
               <li className=" text-sm hover:text-gray-200 transition">
-                JavaScript
+                Data Science
               </li>
 
               <li className=" text-sm hover:text-gray-200 transition">
-                Career
+                Agentic AI
               </li>
             </ul>
           </div>

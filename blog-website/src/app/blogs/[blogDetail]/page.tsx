@@ -48,25 +48,26 @@ const BlogDetail = async ({params}:{params:{blogDetail:string}}) => {
   const slug = params.blogDetail;
   const fetchingData = async () =>{
     try {
-      const response = await fetch("http://localhost:3000/api/fetchingblog", {
-        next:{
-          revalidate: 10,
-        }
-      });
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+const response = await fetch(`${API_URL}/api/fetchingblog`);
+
       if(!response){
         throw new Error("Failed to fetch data!")
       }
       const data = await response.json()
+      if (!data || !data.data || !Array.isArray(data.data)) {
+        throw new Error("Invalid data format");
+      }
       const filteredData = data.data.filter((project:BlogPost)=>project.slug?.current == slug)
       return filteredData
     } catch (error) {
       console.log(error)
 
-      return null; 
+      return []; 
     }
     
   }
-  const fetchData : BlogPost[] = await fetchingData()
+  const fetchData : BlogPost[] = await fetchingData() || []
 
   return (
     <>

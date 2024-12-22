@@ -5,6 +5,7 @@
  */
 
 import {visionTool} from '@sanity/vision'
+import { vercelDeployTool } from 'sanity-plugin-vercel-deploy'
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 
@@ -24,5 +25,6 @@ export default defineConfig({
     // Vision is for querying with GROQ from inside the Studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
+    vercelDeployTool(),
   ],
 })

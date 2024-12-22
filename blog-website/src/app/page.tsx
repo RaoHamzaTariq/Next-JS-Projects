@@ -8,24 +8,25 @@ export default async function Home() {
 
   const fetchingData = async () =>{
     try {
-      const response = await fetch("http://localhost:3000/api/fetchingblog", {
-        next:{
-          revalidate: 10
-        }
-      });
+      
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+const response = await fetch(`${API_URL}/api/fetchingblog`);
       if(!response){
         throw new Error("Failed to fetch data!")
       }
       const data = await response.json()
+      if (!data || !data.data || !Array.isArray(data.data)) {
+        throw new Error("Invalid data format");
+      }
       return data.data
     } catch (error) {
       console.log(error)
 
-      return null; 
+      return []; 
     }
     
   }
-  const fetchData : BlogPostCard[] = await fetchingData()
+  const fetchData : BlogPostCard[] = await fetchingData() || []
   
   return (
     <div className=" font-[&#39;Inter&#39;]">
@@ -60,44 +61,12 @@ export default async function Home() {
     <section>
       <h2 className="text-3xl font-bold mb-8">Trending Posts</h2>
       <div className="grid md:grid-cols-4 gap-8">
-        {/* {[
-          {
-            title: "10 Essential Tips for Modern Web Development",
-            description:
-              "Discover the latest trends and best practices in web development that will help you create better websites...",
-            author: "John Smith",
-            readTime: "5 min read",
-            date: "Mar 15, 2024",
-            image: "/Images/Home/hero.png",
-          },
-          {
-            title: "10 Essential Tips for Modern Web Development",
-            description:
-              "Discover the latest trends and best practices in web development that will help you create better websites...",
-            author: "John Smith",
-            date: "Mar 15, 2024",
-            image: "/Images/Home/hero.png",
-          },
-          {
-            title: "The Future of UI Design in 2024",
-            description:
-              "Explore upcoming UI design trends and how they'll shape the future of digital experiences...",
-            author: "Emma Wilson",
-            date: "Mar 14, 2024",
-            image: "/Images/Home/hero.png",
-          },
-          {
-            title: "Building Progressive Web Apps",
-            description:
-              "Learn how to create fast, reliable, and engaging web applications that work offline...",
-            author: "David Chen",
-            date: "Mar 13, 2024",
-            image: "/Images/Home/hero.png",
-          },
-        ] */}
-        {fetchData.map((post:BlogPostCard) => (
+        
+        {fetchData.length>0?(fetchData.map((post:BlogPostCard) => (
          <BlogVertiCard mainImage={post.mainImage} slug={post.slug?.current} shortDesc={post.shortDesc} key={post.title} title={post.title} author={post.author} publishedAt={post.publishedAt}  />
-        ))}
+        ))):(
+          <p className="w-screen justify-center items-center my-20">Blogs not found!</p>
+        )}
       </div>
     </section>
 
@@ -116,9 +85,11 @@ export default async function Home() {
               </div>
             </div>
             <div className="grid gap-8">
-    {fetchData.map((post:BlogPostCard) => (
-      <BlogHoriCard  key={post.title} slug={post.slug?.current} title={post.title} shortDesc={post.shortDesc} mainImage={post.mainImage} author={post.author} publishedAt={post.publishedAt}/>
-    ))}
+            {fetchData.length>0?(fetchData.map((post:BlogPostCard) => (
+         <BlogHoriCard mainImage={post.mainImage} slug={post.slug?.current} shortDesc={post.shortDesc} key={post.title} title={post.title} author={post.author} publishedAt={post.publishedAt}  />
+        ))):(
+          <p className="w-screen justify-center items-center my-20">Blogs not found!</p>
+        )}
   </div>
             <section className="dark:bg-gray-800 rounded-xl p-8 my-12">
               <h2 className="text-2xl font-bold mb-8 text-center">

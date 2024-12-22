@@ -7,24 +7,25 @@ export default async function Blogs() {
 
   const fetchingData = async () =>{
     try {
-      const response = await fetch("http://localhost:3000/api/fetchingblog", {
-        next:{
-          revalidate: 10
-        }
-      });
+      
+      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+const response = await fetch(`${API_URL}/api/fetchingblog`);
       if(!response){
         throw new Error("Failed to fetch data!")
       }
       const data = await response.json()
+      if (!data || !data.data || !Array.isArray(data.data)) {
+        throw new Error("Invalid data format");
+      }
       return data.data
     } catch (error) {
       console.log(error)
 
-      return null; 
+      return []; 
     }
     
   }
-  const fetchData = await fetchingData()
+  const fetchData = await fetchingData() || []  
 
   return (
     <div className=" font-[&#39;Inter&#39;]">
@@ -69,10 +70,22 @@ export default async function Blogs() {
     </aside>
     <div className="flex-1">
       <div className="grid gap-8">
-       {fetchData.length>0 ? fetchData.map((post:BlogPostCard)=>(
-        <BlogHoriCard  key={post.title} slug={post.slug?.current} title={post.title} shortDesc={post.shortDesc} mainImage={post.mainImage || { asset: { _id: '', url: '' } }} // Default value
-        author={post.author} publishedAt={post.publishedAt}/>
-       )): <p className='w-screen justify-center items-center my-20'>Blogs not found!</p>}
+      {fetchData.length > 0 ? (
+  fetchData.map((post: BlogPostCard) => (
+    <BlogHoriCard
+      key={post.title}
+      slug={post.slug?.current}
+      title={post.title}
+      shortDesc={post.shortDesc}
+      mainImage={post.mainImage} 
+      author={post.author}
+      publishedAt={post.publishedAt}
+    />
+  ))
+) : (
+  <p className="w-screen justify-center items-center my-20">Blogs not found!</p>
+)}
+
       </div>
     </div>
     </div>
