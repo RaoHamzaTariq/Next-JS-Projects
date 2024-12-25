@@ -3,10 +3,9 @@ import React from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
-import { Linkedin } from "lucide-react";
+import { Copy, Linkedin, LucideTwitter, Twitter } from "lucide-react";
 import { BlogPost } from "@/app/api/fetchingblog/route";
 import { PortableTextReactComponents } from "@portabletext/react";
-
 
 const portableTextComponents: Partial<PortableTextReactComponents> = {
   block: {
@@ -75,7 +74,7 @@ const response = await fetch(`${API_URL}/api/fetchingblog`);
         <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
           {fetchData.length > 0 &&
             fetchData.map((project) => (
-              <article key={project.title} className="rounded-lg dark:bg-[#1f2937] dark:text-gray-300 shadow-lg p-8">
+              <article key={project.title} className="rounded-lg dark:bg-[#1f2937] dark:text-gray-300 shadow-lg py-8 px-2 sm:p-8">
                 <div className="mb-8">
                   <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
                   <div className="flex items-center mb-6">
@@ -109,7 +108,6 @@ const response = await fetch(`${API_URL}/api/fetchingblog`);
                   />
                 </div>
                 <div className="prose prose-invert max-w-none">
-                    <p>{project.shortDesc}</p>
                   {project.body && (
                     <PortableText
                       value={project.body}
@@ -123,7 +121,7 @@ const response = await fetch(`${API_URL}/api/fetchingblog`);
                   </h3>
                   <div className="flex space-x-4">
                     <button className="flex items-center space-x-2  hover:text-blue-400">
-                      <i className="fab fa-twitter"></i>
+                      <LucideTwitter/>
                       <span>Twitter</span>
                     </button>
                     <button className="flex items-center space-x-2  hover:text-blue-400">
@@ -131,7 +129,7 @@ const response = await fetch(`${API_URL}/api/fetchingblog`);
                       <span>LinkedIn</span>
                     </button>
                     <button className="flex items-center space-x-2  hover:text-gray-400">
-                      <i className="far fa-copy"></i>
+                      <Copy/>
                       <span>Copy link</span>
                     </button>
                   </div>

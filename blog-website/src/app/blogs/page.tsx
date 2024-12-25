@@ -38,23 +38,23 @@ const response = await fetch(`${API_URL}/api/fetchingblog`);
       </p>
     </div>
     <div className='flex gap-8'>
-    <aside className="w-64 flex-shrink-0">
+    <aside className="w-64 flex-shrink-0 hidden sm:!block">
       <div className="dark:bg-gray-800 rounded-lg p-6 shadow-lg sticky top-24">
         <h3 className="text-xl font-bold mb-4">Categories</h3>
-        <div className="space-y-2">
-          <label className="flex items-center">
+        <div className="space-y-2 flex flex-col items-center">
+          <label className="flex justify-between  items-center">
             <input type="checkbox" className="form-checkbox text-custom" />
             <span className="ml-2 dark:text-gray-300">Web Development</span>
           </label>
-          <label className="flex items-center">
+          <label className="flex justify-between  items-center">
             <input type="checkbox" className="form-checkbox text-custom" />
             <span className="ml-2 dark:text-gray-300">JavaScript</span>
           </label>
-          <label className="flex items-center">
+          <label className="flex justify-between  items-center">
             <input type="checkbox" className="form-checkbox text-custom" />
             <span className="ml-2 dark:text-gray-300">React</span>
           </label>
-          <label className="flex items-center">
+          <label className="flex justify-between  items-center">
             <input type="checkbox" className="form-checkbox text-custom" />
             <span className="ml-2 dark:text-gray-300">UI/UX Design</span>
           </label>

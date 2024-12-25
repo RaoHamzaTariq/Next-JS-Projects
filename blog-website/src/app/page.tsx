@@ -1,3 +1,4 @@
+
 import BlogVertiCard from "@/components/blogverti-card";
 import Image from "next/image";
 import Link from "next/link";
@@ -71,136 +72,129 @@ const response = await fetch(`${API_URL}/api/fetchingblog`);
     </section>
 
         </section>
-        <div className="flex gap-8">
-          <div className="w-2/3">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-bold">Latest Articles</h2>
-              <div className="flex items-center space-x-4">
-                <button className="text-gray-400 hover:text-white">
-                  <i className="fas fa-th-large"></i>
-                </button>
-                <button className="text-gray-400 hover:text-white">
-                  <i className="fas fa-list"></i>
-                </button>
-              </div>
-            </div>
-            <div className="grid gap-8">
-            {fetchData.length>0?(fetchData.map((post:BlogPostCard) => (
-         <BlogHoriCard mainImage={post.mainImage} slug={post.slug?.current} shortDesc={post.shortDesc} key={post.title} title={post.title} author={post.author} publishedAt={post.publishedAt}  />
-        ))):(
-          <p className="w-screen justify-center items-center my-20">Blogs not found!</p>
-        )}
-  </div>
-            <section className="dark:bg-gray-800 rounded-xl p-8 my-12">
-              <h2 className="text-2xl font-bold mb-8 text-center">
-                What Our Readers Say
-              </h2>
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="text-center">
-                  <div className="mb-4">
-                  <Image
-                      src="/Images/Home/testimonial1.png"
-                      className="w-20 h-20 rounded-full mx-auto"
-                      alt="Testimonial author"
-                      width={80}
-                      height={80}
-                    />
-                  </div>
-                  <p className=" italic mb-4">
-                    &#34;This blog has become my go-to resource for staying
-                    updated with the latest web development trends.&#34;
-                  </p>
-                  <p className="font-semibold">Sarah Johnson</p>
-                  <p className="text-sm ">Frontend Developer</p>
-                </div>
-                <div className="text-center">
-                  <div className="mb-4">
-                  <Image
-                      src="/Images/Home/testimonial2.png"
-                      className="w-20 h-20 rounded-full mx-auto"
-                      alt="Testimonial author"
-                      width={80}
-                      height={80}
-                    />
-                  </div>
-                  <p className="italic mb-4">
-                    &#34;The quality of content and practical examples have
-                    helped me grow as a developer.&#34;
-                  </p>
-                  <p className="font-semibold">Mark Thompson</p>
-                  <p className="text-sm ">Full Stack Developer</p>
-                </div>
-                <div className="text-center">
-                  <div className="mb-4">
-                    <Image
-                      src="/Images/Home/testimonial3.png"
-                      className="w-20 h-20 rounded-full mx-auto"
-                      alt="Testimonial author"
-                      width={80}
-                      height={80}
-                    />
-                  </div>
-                  <p className=" italic mb-4">
-                    &#34;Exceptional insights into UI/UX design trends and best
-                    practices.&#34;
-                  </p>
-                  <p className="font-semibold">Lisa Chen</p>
-                  <p className="text-sm ">UI/UX Designer</p>
-                </div>
-              </div>
-            </section>
-          </div>
-          <aside className="w-full lg:w-1/3">
-  <div className="dark:bg-gradient-to-br from-gray-800 to-gray-900 shadow-xl rounded-lg p-6 sticky top-24">
-    {/* Popular Posts Section */}
-    <section>
-      <h3 className="text-2xl font-semibold mb-6 ">Popular Posts</h3>
-      <div className="space-y-6">
-        <article className="flex gap-4 items-center dark:hover:bg-gray-700 p-4 rounded-lg transition duration-300">
-          <Image
-            src="/Images/Home/newsletter.jpg"
-            alt="Popular post"
-            className="w-20 h-20 rounded-lg object-cover shadow-md"
-            width={80}
-            height={80}
+        <div className="flex flex-col lg:flex-row gap-8">
+  <div className="w-full lg:w-2/3">
+    <div className="flex items-center justify-between mb-8">
+      <h2 className="text-xl md:text-2xl font-bold">Latest Articles</h2>
+      <div className="flex items-center space-x-2 md:space-x-4">
+        <button className="text-gray-400 hover:text-white">
+          <i className="fas fa-th-large"></i>
+        </button>
+        <button className="text-gray-400 hover:text-white">
+          <i className="fas fa-list"></i>
+        </button>
+      </div>
+    </div>
+
+    <div className="grid gap-6 sm:gap-8">
+      {fetchData.length > 0 ? (
+        fetchData.map((post: BlogPostCard) => (
+          <BlogHoriCard
+            mainImage={post.mainImage}
+            slug={post.slug?.current}
+            shortDesc={post.shortDesc}
+            key={post.title}
+            title={post.title}
+            author={post.author}
+            publishedAt={post.publishedAt}
           />
-          <div>
-            <h4 className="text-lg font-medium mb-1 hover:text-custom transition duration-300">
-              Getting Started with TypeScript
-            </h4>
-            <p className="text-sm">
-              5 min read · 2.5k views
-            </p>
+        ))
+      ) : (
+        <p className="flex justify-center items-center my-20">Blogs not found!</p>
+      )}
+    </div>
+
+    <section className="dark:bg-gray-800 rounded-xl p-6 md:p-8 my-8">
+      <h2 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 text-center">
+        What Our Readers Say
+      </h2>
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Testimonials */}
+        {[
+          {
+            src: "/Images/Home/testimonial1.png",
+            text: "This blog has become my go-to resource for staying updated with the latest web development trends.",
+            name: "Sarah Johnson",
+            title: "Frontend Developer",
+          },
+          {
+            src: "/Images/Home/testimonial2.png",
+            text: "The quality of content and practical examples have helped me grow as a developer.",
+            name: "Mark Thompson",
+            title: "Full Stack Developer",
+          },
+          {
+            src: "/Images/Home/testimonial3.png",
+            text: "Exceptional insights into UI/UX design trends and best practices.",
+            name: "Lisa Chen",
+            title: "UI/UX Designer",
+          },
+        ].map((testimonial, index) => (
+          <div key={index} className="text-center">
+            <div className="mb-4">
+              <Image
+                src={testimonial.src}
+                className="w-16 h-16 md:w-20 md:h-20 rounded-full mx-auto"
+                alt="Testimonial author"
+                width={80}
+                height={80}
+              />
+            </div>
+            <p className="italic mb-4">“{testimonial.text}”</p>
+            <p className="font-semibold">{testimonial.name}</p>
+            <p className="text-sm">{testimonial.title}</p>
           </div>
-        </article>
-        {/* Add more posts as needed */}
+        ))}
       </div>
     </section>
-
-    {/* Newsletter Section */}
-    <section className="mt-10">
-      <h3 className="text-2xl font-semibold mb-6 ">Newsletter</h3>
-      <p className=" mb-4">
-        Get the latest articles and resources in your inbox weekly.
-      </p>
-      <form className="space-y-4">
-        <input
-          type="email"
-          placeholder="Your email address"
-          className="w-full dark:bg-gray-700 px-4 py-3 rounded-lg border border-gray-600 focus:ring-2 focus:ring-custom focus:outline-none placeholder-gray-400"
-        />
-        <button
-          type="submit"
-          className="w-full bg-custom text-white px-4 py-3 rounded-lg font-medium shadow-lg hover:from-custom-dark hover:to-custom hover:shadow-xl transition duration-300"
-        >
-          Subscribe
-        </button>
-      </form>
-    </section>
   </div>
-</aside>
 
+  <aside className="w-full lg:w-1/3">
+    <div className="dark:bg-gradient-to-br from-gray-800 to-gray-900 shadow-xl rounded-lg p-6 sticky top-24">
+      <section>
+        <h3 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6">Popular Posts</h3>
+        <div className="space-y-4">
+          <article className="flex gap-4 items-center dark:hover:bg-gray-700 p-4 rounded-lg transition duration-300">
+            <Image
+              src="/Images/Home/newsletter.jpg"
+              alt="Popular post"
+              className="w-16 h-16 md:w-20 md:h-20 rounded-lg object-cover shadow-md"
+              width={80}
+              height={80}
+            />
+            <div>
+              <h4 className="text-base md:text-lg font-medium mb-1 hover:text-custom transition duration-300">
+                Getting Started with TypeScript
+              </h4>
+              <p className="text-sm">5 min read · 2.5k views</p>
+            </div>
+          </article>
         </div>
+      </section>
+
+      <section className="mt-8 md:mt-10">
+        <h3 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6">Newsletter</h3>
+        <p className="mb-4">
+          Get the latest articles and resources in your inbox weekly.
+        </p>
+        <form className="space-y-4">
+          <input
+            type="email"
+            placeholder="Your email address"
+            className="w-full dark:bg-gray-700 px-4 py-3 rounded-lg border border-gray-600 focus:ring-2 focus:ring-custom focus:outline-none placeholder-gray-400"
+          />
+          <button
+            type="submit"
+            className="w-full bg-custom text-white px-4 py-3 rounded-lg font-medium shadow-lg hover:from-custom-dark hover:to-custom hover:shadow-xl transition duration-300"
+          >
+            Subscribe
+          </button>
+        </form>
+      </section>
+    </div>
+  </aside>
+</div>
+
       </main>
     </div>
   );
