@@ -35,3 +35,15 @@ export async function POST(req: NextRequest) {
     );
   }
 }
+
+
+export async function GET() {
+  try {
+    const data = await client.fetch(`*[_type == "comment"]`);
+    
+    return NextResponse.json({ data }, { status: 200 });
+  } catch (error) {
+    console.error('Error fetching posts:', error); // Log the error for debugging
+    return NextResponse.json({ error: 'Failed to fetch posts' }, { status: 500 }); // Return specific error message
+  }
+}
