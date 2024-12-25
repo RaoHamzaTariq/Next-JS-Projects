@@ -41,7 +41,8 @@ export async function POST(req: NextRequest) {
 
 export async function GET() {
   try {
-    const data = await client.fetch(`*[_type == "comment"]`);
+    const data = await client.fetch(`*[_type == "comment"]{email,name,comment
+        }`);
     
     return NextResponse.json({ data }, { status: 200 });
   } catch (error) {

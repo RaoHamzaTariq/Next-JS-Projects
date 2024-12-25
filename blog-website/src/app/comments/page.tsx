@@ -1,5 +1,11 @@
 import React from 'react'
 
+interface commenttype{
+    comment: string,
+    name: string,
+    email:string
+}
+
 const Comments = async () => {
 
     const fetchingData = async () =>{
@@ -27,11 +33,12 @@ const Comments = async () => {
         }
         
       }
-      const fetchData = await fetchingData() || []  
+      const fetchData:commenttype[] = await fetchingData() || []  
   return (
     <div className='my-14 mx-20'>
-        {fetchData.map((comment: { name: string | number | bigint | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | Iterable<React.ReactNode> | null | undefined; email: string | number | bigint | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | Iterable<React.ReactNode> | null | undefined; comment: string | number | bigint | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | Iterable<React.ReactNode> | null | undefined; })=>(
-            <div className='space-y-3'>
+        <h1 className='my-5'>COmments</h1>
+        {fetchData.map((comment: commenttype)=>(
+            <div key={comment.name} className='space-y-3'>
             <h1>{comment.name}</h1>
             <h2>{comment.email}</h2>
 
