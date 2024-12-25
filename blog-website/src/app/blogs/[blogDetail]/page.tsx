@@ -3,9 +3,10 @@ import React from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import { PortableText } from "@portabletext/react";
-import { Copy, Linkedin, LucideTwitter, Twitter } from "lucide-react";
+import { Copy, Linkedin, LucideTwitter,} from "lucide-react";
 import { BlogPost } from "@/app/api/fetchingblog/route";
 import { PortableTextReactComponents } from "@portabletext/react";
+import CommentForm from "@/components/commentsSection";
 
 const portableTextComponents: Partial<PortableTextReactComponents> = {
   block: {
@@ -48,7 +49,13 @@ const BlogDetail = async ({params}:{params:{blogDetail:string}}) => {
   const fetchingData = async () =>{
     try {
       const API_URL = process.env.NEXT_PUBLIC_API_URL;
-const response = await fetch(`${API_URL}/api/fetchingblog`);
+const response = await fetch(`${API_URL}/api/fetchingblog`,
+  {
+    next:{
+      revalidate:10
+    }
+  }
+);
 
       if(!response){
         throw new Error("Failed to fetch data!")
@@ -58,6 +65,8 @@ const response = await fetch(`${API_URL}/api/fetchingblog`);
         throw new Error("Invalid data format");
       }
       const filteredData = data.data.filter((project:BlogPost)=>project.slug?.current == slug)
+      
+      
       return filteredData
     } catch (error) {
       console.log(error)
@@ -136,6 +145,9 @@ const response = await fetch(`${API_URL}/api/fetchingblog`);
                 </div>
               </article>
             ))}
+            <div>
+              <CommentForm postId={fetchData[0]?._id}/>
+            </div>
         </div>
       </div>
     </>

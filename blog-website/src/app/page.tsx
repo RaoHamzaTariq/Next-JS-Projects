@@ -11,7 +11,12 @@ export default async function Home() {
     try {
       
       const API_URL = process.env.NEXT_PUBLIC_API_URL;
-const response = await fetch(`${API_URL}/api/fetchingblog`);
+const response = await fetch(`${API_URL}/api/fetchingblog`,
+  {
+    next:{
+      revalidate:10
+    }
+  });
       if(!response){
         throw new Error("Failed to fetch data!")
       }
