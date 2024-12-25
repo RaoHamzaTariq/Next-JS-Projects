@@ -7,9 +7,7 @@ export async function POST(req: NextRequest) {
 
   if (!name || !email || !comment || !postId) {
     return NextResponse.json(
-      {
-        message: "All fields are required",
-      },
+      { message: "All fields are required" },
       { status: 400 }
     );
   }
@@ -25,28 +23,15 @@ export async function POST(req: NextRequest) {
         _ref: postId,
       },
     });
-    console.log(data)
     return NextResponse.json(
-      { message: "Comment added successfully", commet: newComment },
+      { message: "Comment added successfully", comment: newComment }, // Fixed typo from 'commet' to 'comment'
       { status: 201 }
     );
   } catch (error) {
+    console.error('Error creating comment:', error); // Log the error for debugging
     return NextResponse.json(
-      { message: "Failed to create a comment", error },
+      { message: "Failed to create a comment", error }, // Return specific error message
       { status: 500 }
     );
-  }
-}
-
-
-export async function GET() {
-  try {
-    const data = await client.fetch(`*[_type == "comment"]{email,name,comment
-        }`);
-    
-    return NextResponse.json({ data }, { status: 200 });
-  } catch (error) {
-    console.error('Error fetching posts:', error);
-    return NextResponse.json({ error: 'Failed to fetch posts' }, { status: 500 });
   }
 }
