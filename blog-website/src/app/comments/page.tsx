@@ -42,7 +42,7 @@ const Comments = async () => {
         fetchData.map((comment) => (
           <div key={comment.email} className='space-y-3'>
             <h2 className='font-semibold'>{comment.name}</h2>
-            <h3 className='text-gray-500'>{comment.email}</h3>
+            {/* <h3 className='text-gray-500'>{comment.email}</h3> */}
             <p>{comment.comment}</p>
           </div>
         ))
