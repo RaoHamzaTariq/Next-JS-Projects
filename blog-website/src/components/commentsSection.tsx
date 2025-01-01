@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { Comment } from "@/data/interfaces";
 import { useForm } from "react-hook-form";
 
 const fetchComments = async () => {
@@ -27,13 +28,14 @@ const fetchComments = async () => {
 const AddComment = ({ postId }: { postId: string }) => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [comments, setComments] = useState<any[]>([]);
+  const [comments, setComments] = useState<Comment[]>([]);
   
   useEffect(() => {
     const loadComments = async () => {
       setLoading(true);
       const data = await fetchComments();
-      setComments(data);
+      const filteredData = data.filter((comment: { post: { _ref: string; }; }) => comment.post?._ref === postId);
+      setComments(filteredData);
       setLoading(false);
     };
     
@@ -138,10 +140,10 @@ const AddComment = ({ postId }: { postId: string }) => {
         <p>Loading comments...</p>
       ) : (
         <div>
-          {comments.map((comment) => (
-            <div key={comment.id} className="border-b mb-2 pb-2">
-              <strong>{comment.name}</strong>:<br />
-              <span className="">{comment.comment}</span>
+          {comments.map((comment:Comment) => (
+            <div key={comment._id} className="border-b mb-2 pb-2 space-y-2">
+              <h4>{comment.name}:</h4>
+              <p className="">{comment.comment}</p>
             </div>
           ))}
         </div>

@@ -20,3 +20,18 @@ export interface BlogPostCard {
   author: { name: string; image: SanityImageSource };
   mainImage: SanityImageSource;
 }
+
+export interface Comment {
+  _rev: string;                 
+  email: string;            
+  post: {
+    _ref: string;         
+    _type: string;         
+  };   
+  _createdAt: string;        
+  _type: string;    
+  name: string;             
+  comment: string;   
+  _id: string;                 
+  _updatedAt: string;       
+}
