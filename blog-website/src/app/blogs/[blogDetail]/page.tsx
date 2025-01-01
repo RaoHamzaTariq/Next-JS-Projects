@@ -146,10 +146,10 @@ const BlogDetail = async ({ params }: { params: { blogDetail: string } }) => {
             </article>
           ))
         ) : (
-          <p>No blog post found.</p> // Handle case where no posts are found
+          <p>No blog post found.</p> 
         )}
         {fetchData.length > 0 && (
-          <CommentForm postId={fetchData[0]._id} /> // Ensure postId is valid
+          <CommentForm postId={fetchData[0]._id} /> 
         )}
       </div>
     </div>

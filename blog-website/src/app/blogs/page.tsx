@@ -24,7 +24,7 @@ export default async function Blogs() {
       return data.data;
     } catch (error) {
       console.error(error);
-      return []; // Return an empty array on error
+      return []; 
     }
   };
 

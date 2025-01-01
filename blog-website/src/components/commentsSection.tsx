@@ -1,9 +1,45 @@
 "use client";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
+const fetchComments = async () => {
+  try {
+    const API_URL = process.env.NEXT_PUBLIC_API_URL;
+    const response = await fetch(`${API_URL}/api/comments`);
 
+    if (!response.ok) {
+      throw new Error("Failed to fetch data!");
+    }
 
-const AddComment = ({ postId }: {postId:string}) => {
+    const data = await response.json();
+
+    if (!data || !data.data || !Array.isArray(data.data)) {
+      throw new Error("Invalid data format");
+    }
+
+    return data.data;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}
+
+const AddComment = ({ postId }: { postId: string }) => {
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [comments, setComments] = useState<any[]>([]);
+  
+  useEffect(() => {
+    const loadComments = async () => {
+      setLoading(true);
+      const data = await fetchComments();
+      setComments(data);
+      setLoading(false);
+    };
+    
+    loadComments();
+  }, []);
+
   const {
     register,
     handleSubmit,
@@ -14,25 +50,27 @@ const AddComment = ({ postId }: {postId:string}) => {
   const onSubmit = async (data: { name: string; email: string; comment: string }) => {
     const { name, email, comment } = data;
 
-
     try {
-        const API_URL = process.env.NEXT_PUBLIC_API_URL
+      const API_URL = process.env.NEXT_PUBLIC_API_URL;
       const res = await fetch(`${API_URL}/api/comments`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json", // Ensure the correct content type
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ name, email, comment, postId }),
       });
 
       if (!res.ok) {
-        console.error("Failed to add comment");
-        return;
+        throw new Error("Failed to add comment");
       }
 
       reset(); // Reset the form after successful submission
+      // Optionally refetch comments or add the new comment to the state
+      const updatedComments = await fetchComments();
+      setComments(updatedComments);
     } catch (error) {
       console.error("An error occurred while adding the comment:", error);
+      setError("Failed to submit your comment. Please try again.");
     }
   };
 
@@ -41,9 +79,12 @@ const AddComment = ({ postId }: {postId:string}) => {
       <p>
         Leave a comment <span role="img" aria-label="speech bubble">💬</span>
       </p>
+      
+      {error && <p className="text-red-600">{error}</p>}
+      
       <form
         className="flex flex-col border dark:border-purple-950 shadow-sm rounded px-8 pt-6 pb-6 mb-10"
-        onSubmit={handleSubmit(onSubmit)} // Directly pass onSubmit to handleSubmit
+        onSubmit={handleSubmit(onSubmit)}
       >
         <label htmlFor="name">Name</label>
         <input
@@ -63,7 +104,7 @@ const AddComment = ({ postId }: {postId:string}) => {
           id="email"
           {...register("email", {
             required: true,
-            pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, // Updated regex for better email validation
+            pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
           })}
           className="mb-4 py-1 bg-amber-100 dark:bg-slate-900"
         />
@@ -92,6 +133,19 @@ const AddComment = ({ postId }: {postId:string}) => {
           type="submit"
         />
       </form>
+
+      {loading ? (
+        <p>Loading comments...</p>
+      ) : (
+        <div>
+          {comments.map((comment) => (
+            <div key={comment.id} className="border-b mb-2 pb-2">
+              <strong>{comment.name}</strong>:<br />
+              <span className="">{comment.comment}</span>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
