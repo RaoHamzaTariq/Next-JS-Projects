@@ -34,12 +34,12 @@ export default function Home() {
   useEffect(() => {
     const fetchProductData = async () => {
       try {
-        const apiResponse = await fetch("https://dummyjson.com/products");
+        const apiResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/product`);
         if (!apiResponse.ok) {
           throw new Error("Network response was not ok.");
         }
         const data = await apiResponse.json();
-        setProducts(data.products || []);
+        setProducts(data.data.products || []);
       } catch (error) {
         setError("Failed to fetch products.");
         console.error(error);

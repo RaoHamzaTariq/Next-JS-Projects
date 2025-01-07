@@ -1,13 +1,11 @@
 "use client";
 
 import { useToast } from "@/hooks/use-toast";
-// import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ToastAction } from "@/components/ui/toast";
 import React, { useEffect, useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
-// import { IoBagOutline } from "react-icons/io5";
 import { useCart } from "@/components/ContextForCart";
 import { Product, Reviews } from "@/app/data";
 import { FaStar } from "react-icons/fa";
@@ -16,67 +14,26 @@ import { CiHeart } from "react-icons/ci";
 import { MdOutlineShoppingCart } from "react-icons/md";
 
 
-// export const StarIcon: React.FC<SVGProps<SVGSVGElement>> = (props) => {
-//   return (
-//     <svg
-//       {...props}
-//       xmlns="http://www.w3.org/2000/svg"
-//       width="24"
-//       height="24"
-//       viewBox="0 0 24 24"
-//       fill="none"
-//       stroke="currentColor"
-//       strokeWidth="2"
-//       strokeLinecap="round"
-//       strokeLinejoin="round"
-//     >
-//       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-//     </svg>
-//   );
-// };
-
-// export const renderStars = (rating: number) => {
-//   // const totalStars = 5;
-//   // const filledStars = Math.floor(rating);
-//   // const emptyStars = totalStars - filledStars;
-
-//   return (
-//     <div className="flex items-center gap-0.5">
-//       {/* {Array.from({ length: filledStars }).map((_, i) => (
-//         <StarIcon
-//           key={`filled-${i}`}
-//           className="w-5 h-5 fill-primary border-none"
-//         />
-//       ))}
-//       {Array.from({ length: emptyStars }).map((_, i) => (
-//         <StarIcon
-//           key={`empty-${i}`}
-//           className="w-5 h-5 fill-muted border-none stroke-muted-foreground"
-//         />
-//       ))} */}
-//       <p>Rating: {rating}</p>
-//     </div>
-//   );
-// };
-
 const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
   const { toast } = useToast();
 
-  const [productData, setProductData] = useState<Product | null>(null);
-  const [thumbnail, setThumbnail] = useState<string>("");
+  const [productData, setProductData] = useState<Product | undefined>(undefined);
+  const [thumbnail, setThumbnail] = useState<string|undefined>(productData?.thumbnail);
   const [activeButton, setActiveButton] = useState<string>("Reviews");
   const [relatedProducts, setRelatedProducts] = useState<Product[]>([]);
   const [quantity, setQuantity] = useState<number>(1);
 
-  const { addToCart, cart } = useCart();
+  const { addToCart } = useCart();
 
   useEffect(() => {
   async function fetchData(id: number) {
     try {
-      const response = await fetch(`https://dummyjson.com/products/${id}`);
-      const data = await response.json();
-      setProductData(data);
-      setThumbnail(data.thumbnail);
+      const apiResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/product?id=${id}`);
+      const data = await apiResponse.json();
+      
+      setProductData(data.data);
+      setThumbnail(data.data.thumbnail);
+      console.log(data.data)
     } catch (error) {
       console.error("Error fetching product data:", error);
     }
@@ -84,6 +41,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
 
   fetchData(params.productDetail);
   }, [params.productDetail]);
+
 
   useEffect(() => {
   async function fetchRelatedProducts(category: string) {
@@ -96,16 +54,14 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
       }
       const data = await response.json();
       setRelatedProducts(data.products);
+      
     } catch (error) {
       console.error("Error fetching related products:", error);
     }
   }
 
-  if (productData) {
-    const formattedCategory = productData.category
-      .toLowerCase()
-      .split(" ")
-      .join("-");
+  if (productData && productData.category) {
+    const formattedCategory = productData.category.toLowerCase().split(" ").join("-");
     fetchRelatedProducts(formattedCategory);
   }
   }, [productData]);
@@ -115,7 +71,6 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
   }
 
   const handleAddToCart = (product: Product) => {
-    console.log("Product to add:", product);
 
     addToCart({
       id: product.id,
@@ -127,14 +82,11 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
       brand: product.brand,
       subTotal: parseFloat((product.price * quantity).toFixed(0)),
     });
-    console.log(cart);
-    console.log(cart.length);
   };
 
-  const ImageClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const target = e.target as HTMLImageElement;
-    setThumbnail(target.src);
-  };
+  const handleImageClick = (image:string) =>{
+    setThumbnail(image);
+  }
 
   const handleActiveButton = (buttonName: string) => {
     setActiveButton(buttonName);
@@ -245,7 +197,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
           </div>
           <div className="grid gap-3 items-start">
             <Image
-              src={thumbnail}
+              src={thumbnail || "/placeholder-image.png"}
               alt="Product Image"
               width={600}
               height={600}
@@ -254,7 +206,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
             <div className="hidden md:!flex gap-4 items-start">
               {productData.images?.map((pic: string, index: number) => (
                 <button
-                  onClick={ImageClick}
+                  onClick={()=>{handleImageClick(pic)}}
                   key={pic}
                   className="border hover:border-primary rounded-lg overflow-hidden transition-colors"
                 >
@@ -307,7 +259,7 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
             >
               <h2 className="pt-3">Reviews</h2>
               <div className="flex flex-col justify-center gap-5 mt-5">
-                {productData.reviews.map((review: Reviews) => (
+                {productData.reviews && productData?.reviews.map((review: Reviews) => (
                   <div
                     key={review.comment}
                     className="flex flex-col justify-center gap-3"
@@ -353,13 +305,13 @@ const ProductDetails = ({ params }: { params: { productDetail: number } }) => {
               <ul className="flex flex-col justify-center mt-3 text-gray-700 dark:text-gray-200">
                 <li className="text-xl font-bold list-none pb-3">Dimensions</li>
                 <li className="text-lg">
-                  Width {productData.dimensions.height}:
+                  Width {productData?.dimensions?.height}:
                 </li>
                 <li className="text-lg">
-                  Height: {productData.dimensions.width}
+                  Height: {productData?.dimensions?.width}
                 </li>
                 <li className="text-lg">
-                  Depth: {productData.dimensions.depth}
+                  Depth: {productData?.dimensions?.depth}
                 </li>
               </ul>
             </div>

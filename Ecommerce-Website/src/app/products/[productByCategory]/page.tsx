@@ -25,8 +25,8 @@ export default function ProductByCategory() {
   useEffect(() => {
     async function fetchingData(id: string) {
       if (productCategory === "all") {
-        const allData = await fetch(`https://dummyjson.com/products`);
-        setProduct(await (await allData.json()).products);
+        const allData = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/product`); 
+        setProduct(await (await allData.json()).data.products);
       } else {
         const data = await fetch(
           `https://dummyjson.com/products/category/${id}`
