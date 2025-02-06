@@ -64,7 +64,7 @@ export default function Testing() {
               <Badge key={tech} variant="secondary">{tech}</Badge>
             ))}
           </div>
-          <div className="flex gap-4 mb-8">
+          <div className="flex gap-5 mb-8">
             <Button asChild>
               <Link href={`${project.link}`} target="_blank" rel="noopener noreferrer">
                 {/* <Globe className="mr-2 h-4 w-4" />  */}
