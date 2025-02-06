@@ -54,7 +54,7 @@ const ChatInterface = () => {
 
   return (
     <div className='flex justify-center items-center py-20'>
-      <Card className='p-4 mx-4 sm:mx-10 w-full shadow-xl rounded-lg bg-white'>
+      <Card className='p-4 mx-4 sm:mx-10 w-full shadow-xl rounded-lg '>
         <div className='space-y-4'>
           <div className='relative'>
             <Input
@@ -72,7 +72,7 @@ const ChatInterface = () => {
               {isApiKeyVisible ? <EyeOff size={20} /> : <Eye size={20} />}
             </button>
           </div>
-          <div className='h-96 overflow-y-auto border border-gray-300 rounded-lg p-2 bg-gray-50 shadow-inner'>
+          <div className='h-96 overflow-y-auto border  rounded-lg p-2  shadow-inner'>
             {messages.map((msg, index) => (
               <div key={index} className={`my-2 ${msg.role === 'user' ? 'text-right' : 'text-left'}`}>
                 <span className={`inline-block p-2 rounded-lg ${msg.role === 'user' ? 'bg-blue-500 text-white shadow-md' : 'bg-gray-200 text-gray-800'}`}>

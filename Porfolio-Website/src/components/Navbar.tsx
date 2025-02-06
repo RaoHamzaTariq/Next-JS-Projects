@@ -79,7 +79,11 @@ const Navbar = () => {
 
 <div className="flex justify-between items-center">
 <h3 className="">BI Structure</h3>
-<div className="mr-5">
+<div className="mr-5 flex items-center gap-2">
+  <div className="flex sm:hidden">
+  <ModeToggle/>
+  </div>
+
     <Sheet>
 <SheetTrigger asChild>
   <Button variant="outline" className="p-2"><IoMenuSharp/></Button>
@@ -95,6 +99,7 @@ const Navbar = () => {
 <Link href={"/Contact"}><CommandItem className="mt-3">Contact</CommandItem></Link>
 <Link href={"/About"}><CommandItem className="mt-3">About</CommandItem></Link>
 <Link href={"/chatbot"}><CommandItem className="mt-3">Chatbot</CommandItem></Link>
+
 </CommandGroup>
 </CommandList>
 </Command>
