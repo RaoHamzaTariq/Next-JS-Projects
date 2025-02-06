@@ -72,7 +72,7 @@ const ChatInterface = () => {
               {isApiKeyVisible ? <EyeOff size={20} /> : <Eye size={20} />}
             </button>
           </div>
-          <div className='h-96 overflow-y-auto border  rounded-lg p-2  shadow-inner'>
+          <div className='h-96 overflow-y-auto border  rounded-lg p-3  shadow-inner'>
             {messages.map((msg, index) => (
               <div key={index} className={`my-2 ${msg.role === 'user' ? 'text-right' : 'text-left'}`}>
                 <span className={`inline-block p-2 rounded-lg ${msg.role === 'user' ? 'bg-blue-500 text-white shadow-md' : 'bg-gray-200 text-gray-800'}`}>
