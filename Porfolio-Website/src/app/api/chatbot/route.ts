@@ -6,7 +6,7 @@ export async function POST(req:NextRequest) {
     const { message, apiKey } = await req.json();
 
     try {
-        const response = await fetch('https://bi-structure-backend-fastapi.vercel.app/chat', { // Adjust URL if needed
+        const response = await fetch('https://raohamzatariq-chatbot-backend.hf.space/chat', { // Adjust URL if needed
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
