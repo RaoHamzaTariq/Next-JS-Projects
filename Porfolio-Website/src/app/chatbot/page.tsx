@@ -54,7 +54,7 @@ const ChatInterface = () => {
 
   return (
     <div className='flex justify-center items-center py-20'>
-      <Card className='p-4 mx-10 w-full shadow-xl rounded-lg bg-white'>
+      <Card className='p-4 mx-4 sm:mx-10 w-full shadow-xl rounded-lg bg-white'>
         <div className='space-y-4'>
           <div className='relative'>
             <Input

@@ -35,7 +35,6 @@ export default function Testing() {
         setProjects(filteredData);
         console.log(filteredData);
       } catch (error) {
-        setError(error);
         console.error('Error fetching projects:', error);
       }
     };
@@ -56,7 +55,7 @@ export default function Testing() {
 
       <main className="flex-grow container mx-auto px-4 py-8">
       {projects && projects.map((project:Project)=>(
-        <div className="grid md:grid-cols-2 gap-8">
+        <div key={project._id} className="grid md:grid-cols-2 gap-8">
         <div>
           <h1 className="text-3xl font-bold mb-4">{project.name}</h1>
           <p className="text-muted-foreground mb-6">{project.shortDescription}</p>
@@ -67,7 +66,7 @@ export default function Testing() {
           </div>
           <div className="flex gap-4 mb-8">
             <Button asChild>
-              <Link href={project.link} target="_blank" rel="noopener noreferrer">
+              <Link href={`${project.link}`} target="_blank" rel="noopener noreferrer">
                 {/* <Globe className="mr-2 h-4 w-4" />  */}
                 Live Demo
               </Link>

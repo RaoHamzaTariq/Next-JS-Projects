@@ -94,6 +94,7 @@ const Navbar = () => {
 <Link href={"/Portfolio/All"}><CommandItem className="mt-3">Portfolio</CommandItem></Link>
 <Link href={"/Contact"}><CommandItem className="mt-3">Contact</CommandItem></Link>
 <Link href={"/About"}><CommandItem className="mt-3">About</CommandItem></Link>
+<Link href={"/chatbot"}><CommandItem className="mt-3">Chatbot</CommandItem></Link>
 </CommandGroup>
 </CommandList>
 </Command>
@@ -183,6 +184,13 @@ const Navbar = () => {
     <Link href="/About" legacyBehavior passHref>
       <NavigationMenuLink className={navigationMenuTriggerStyle()}>
         About
+      </NavigationMenuLink>
+    </Link>
+  </NavigationMenuItem>
+  <NavigationMenuItem>
+    <Link href="/chatbot" legacyBehavior passHref>
+      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+        Chatbot
       </NavigationMenuLink>
     </Link>
   </NavigationMenuItem>
