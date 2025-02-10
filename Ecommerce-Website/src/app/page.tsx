@@ -12,8 +12,9 @@ import Sunglasses from "../../public/HandPickedItem/Sunglasses.png"
 import Handbags from "../../public/HandPickedItem/Handbags.png"
 import Wristwactches from "../../public/HandPickedItem/Wristwatches.png"
 import Perfumes from "../../public/HandPickedItem/Perfumes.png"
-import { SignedOut, SignInButton } from "@clerk/nextjs";
+// import { SignedOut, SignInButton, useAuth } from "@clerk/nextjs";
 import { FaStar } from "react-icons/fa6";
+import { useAuth } from "@/components/context/AuthContext";
 
 type Product = {
   rating: number;
@@ -30,6 +31,8 @@ type Product = {
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
   const [error, setError] = useState<string | null>(null);
+   const { user } = useAuth();
+  
 
   useEffect(() => {
     const fetchProductData = async () => {
@@ -45,7 +48,6 @@ export default function Home() {
         console.error(error);
       }
     };
-
     fetchProductData();
   }, []);
 
@@ -77,9 +79,12 @@ export default function Home() {
     <div>
       
           <div className="flex justify-center items-center gap-5 flex-wrap">
-            <Button className="w-32 h-10 text-black dark:text-white" variant={"outline"} ><SignedOut>
+            {/* <Button className="w-32 h-10 text-black dark:text-white" variant={"outline"} ><SignedOut>
               <SignInButton />
-            </SignedOut></Button>
+            </SignedOut></Button> */}
+            {
+              !user && <Link href={"/login"}><Button className="w-32 h-10 text-black dark:text-white" variant={"outline"} >Sign In</Button></Link>
+            }
             <Button className="w-32 h-10 text-white">Explore Products</Button>
           </div>
     

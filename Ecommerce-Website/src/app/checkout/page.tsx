@@ -8,7 +8,7 @@ import {
 
 import React from "react";
 import Image from "next/image";
-import { useCart } from "../../components/ContextForCart";
+import { useCart } from "../../components/context/ContextForCart";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 

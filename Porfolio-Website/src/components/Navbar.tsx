@@ -2,18 +2,13 @@ import { ModeToggle } from "./toogle";
 import { IoMenuSharp } from "react-icons/io5";
 import {
   Command,
-  CommandDialog,
-  CommandEmpty,
   CommandGroup,
-  CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
-  CommandShortcut,
 } from "@/components/ui/command"
 import Image from "next/image";
 import myImage from "../../public/images/Rao Hamza Tariq.png" 
-import React, { Component } from 'react';
+import React from 'react';
 
 import Link from "next/link"
  
@@ -29,16 +24,9 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { Card } from "./ui/card";
@@ -94,11 +82,11 @@ const Navbar = () => {
 <CommandList>
 <CommandGroup className="mt-5">
 <Link href={"/"}><CommandItem className="mt-3">Home</CommandItem></Link>
+<Link href={"/ai-agents"}><CommandItem className="mt-3">AI Agents</CommandItem></Link>
 <Link href={"/Services"}><CommandItem className="mt-3">Services</CommandItem></Link>
 <Link href={"/Portfolio/All"}><CommandItem className="mt-3">Portfolio</CommandItem></Link>
 <Link href={"/Contact"}><CommandItem className="mt-3">Contact</CommandItem></Link>
 <Link href={"/About"}><CommandItem className="mt-3">About</CommandItem></Link>
-<Link href={"/chatbot"}><CommandItem className="mt-3">Chatbot</CommandItem></Link>
 
 </CommandGroup>
 </CommandList>
@@ -115,7 +103,23 @@ const Navbar = () => {
     <div className='hidden sm:block mr-28 '>
 
 <div className=' flex justify-between items-center'>
-<h1 className="scroll-m-20 text-xl font-semibold tracking-tight flex ml-5">BI Structure</h1>
+{/* <h1 className="scroll-m-20 text-xl font-semibold tracking-tight flex ml-5">BI Structure</h1> */}
+<div className="flex items-center ml-5">
+  <Image
+    src="/images/BI Structure/BI Structure.png"
+    alt="BI Structure Logo"
+    width={80}
+    height={80}
+    className="dark:hidden"
+  />
+  <Image
+    src="/images/BI Structure/BI Structure white.png"
+    alt="BI Structure Logo"
+    width={80}
+    height={80}
+    className="hidden dark:block"
+  />
+</div>
 
 <NavigationMenu>
 <NavigationMenuList>
@@ -123,6 +127,13 @@ const Navbar = () => {
     <Link href="/" legacyBehavior passHref>
       <NavigationMenuLink className={navigationMenuTriggerStyle()}>
         Home
+      </NavigationMenuLink>
+    </Link>
+  </NavigationMenuItem>
+  <NavigationMenuItem>
+    <Link href="/ai-agents" legacyBehavior passHref>
+      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+        AI Agents
       </NavigationMenuLink>
     </Link>
   </NavigationMenuItem>
@@ -178,13 +189,13 @@ const Navbar = () => {
       </ul>
     </NavigationMenuContent>
   </NavigationMenuItem>
-  <NavigationMenuItem>
+  {/* <NavigationMenuItem>
     <Link href="/Contact" legacyBehavior passHref>
       <NavigationMenuLink className={navigationMenuTriggerStyle()}>
         Contact
       </NavigationMenuLink>
     </Link>
-  </NavigationMenuItem>
+  </NavigationMenuItem> */}
   <NavigationMenuItem>
     <Link href="/About" legacyBehavior passHref>
       <NavigationMenuLink className={navigationMenuTriggerStyle()}>
@@ -192,13 +203,7 @@ const Navbar = () => {
       </NavigationMenuLink>
     </Link>
   </NavigationMenuItem>
-  <NavigationMenuItem>
-    <Link href="/chatbot" legacyBehavior passHref>
-      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-        Chatbot
-      </NavigationMenuLink>
-    </Link>
-  </NavigationMenuItem>
+
 </NavigationMenuList>
 </NavigationMenu>
 <ModeToggle/>

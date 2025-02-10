@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { useCart } from "@/components/ContextForCart";
+import { useCart } from "@/components/context/ContextForCart";
 import { Input } from "@/components/ui/input";
 
 const Cart = () => {

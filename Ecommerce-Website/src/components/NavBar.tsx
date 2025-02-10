@@ -27,9 +27,10 @@ import { Input } from "./ui/input";
 import Link from "next/link";
 import { RiShoppingCart2Fill   } from "react-icons/ri";
 import { ProductCategory } from "@/app/data";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
-import { useCart } from "./ContextForCart";
+// import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { useCart } from "./context/ContextForCart";
 import { useRouter } from "next/navigation";
+import { useAuth } from "./context/AuthContext";
 
 // Function to fetch product categories
 const FetchProductCategories = async (): Promise<ProductCategory[]> => {
@@ -55,6 +56,8 @@ const NavBar = () => {
 
   const {cart} = useCart();
   const router = useRouter()
+  const { user, signOut } = useAuth();
+  
   
 
   // Fetch product categories when the component mounts
@@ -64,6 +67,7 @@ const NavBar = () => {
       setProductCategories(categories);
     };
     fetchCategories();
+
   }, []);
 
   return (
@@ -151,26 +155,32 @@ const NavBar = () => {
               }
               
             </Link>
-            <Button className="text-white">
+            {/* <Button className="text-white">
             <SignedOut>
               <SignInButton />
             </SignedOut>
             <SignedIn>
               <UserButton />
             </SignedIn>
-            </Button>
+            </Button> */}
+            {
+              !user ? <Link href={"/login"}><Button className="text-white">Sign in</Button></Link> : <Button onClick={signOut}>Sign Out</Button>
+            }
           </div>
         </div>
 
         <div className="flex md:hidden gap-3 items-center">
-        <Button variant={"ghost"} className="p-0">
+        {/* <Button variant={"ghost"} className="p-0">
             <SignedOut>
               <SignInButton />
             </SignedOut>
             <SignedIn>
               <UserButton />
             </SignedIn>
-            </Button>
+            </Button> */}
+             {
+              !user ? <Link href={"/login"}><Button className="text-white">Sign in</Button></Link> : <Button onClick={signOut}>Sign Out</Button>
+            }
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="outline" className="p-3">

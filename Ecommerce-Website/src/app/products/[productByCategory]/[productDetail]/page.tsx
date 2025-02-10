@@ -6,7 +6,7 @@ import { ToastAction } from "@/components/ui/toast";
 import React, { useEffect, useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
-import { useCart } from "@/components/ContextForCart";
+import { useCart } from "@/components/context/ContextForCart";
 import { Product, Reviews } from "@/app/data";
 import { FaStar } from "react-icons/fa";
 import Image from "next/image";

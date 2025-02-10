@@ -5,11 +5,9 @@ import NavBar from "@/components/NavBar";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/Footer";
-import { CartProvider } from "@/components/ContextForCart";
+import { CartProvider } from "@/components/context/ContextForCart";
 import WebsiteUnderProcess from "@/components/WebsiteUnderProcess";
-import {
-  ClerkProvider,
-} from '@clerk/nextjs'
+import { SupabaseProvider } from "@/components/context/AuthContext";
 
 const dm_Sans = DM_Sans({ subsets: ["latin"] });
 
@@ -24,7 +22,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
     <html lang="en">
       <body className={dm_Sans.className}>
         
@@ -34,6 +31,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <SupabaseProvider>
             <CartProvider>
               <NavBar />
               <main>{children}</main>
@@ -41,9 +39,9 @@ export default function RootLayout({
               <Toaster />
               <WebsiteUnderProcess />
             </CartProvider>
+            </SupabaseProvider>
           </ThemeProvider>
       </body>
     </html>
-    </ClerkProvider>
   );
 }
