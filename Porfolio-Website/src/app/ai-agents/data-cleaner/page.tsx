@@ -39,7 +39,7 @@ interface SummaryData {
   };
   missing_values: string;
   correlation_matrix: {
-    [key: string]: { [key: string]: number };
+    [key: string]: { [key: string]: number }
   };
   outlier_count: { [key: string]: number };
   feature_cardinality: { [key: string]: number };
@@ -74,7 +74,7 @@ export default function DataCleanerPage() {
   const analyzeData = async () => {
     if (!file || !apiKey) return;
     if (!file) setError("Please select a file");
-    if (!apiKey) setError('Please provide an API key');
+    if (!apiKey) setError('Please provide an Google Gemini API key');
 
     setIsLoading(true);
     setError(null);
