@@ -1,95 +1,109 @@
 'use client'
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { urlFor } from '@/sanity/lib/image';
-import { PortableText } from 'next-sanity';
-import { Button } from '@/components/ui/button';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { Badge } from '@/components/ui/badge';
+import { useState } from 'react';
+import { set } from 'sanity';
+import { json } from 'stream/consumers';
 
-// Interface for Project data
-interface Project {
-  _id?: string;
-  name: string;
-  shortDescription?: string;
-  image?: {
-    _ref?: string;
+export default function Home() {
+  const [file, setFile] = useState<File | null>(null);
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [apiKey, setApiKey] = useState('');
+  const [mode, setMode] = useState('machine learning');
+  const [cleanedFileUrl, setCleanedFileUrl] = useState<string | null>(null);
+  const [explain, setExplain] = useState(null)
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      setFile(event.target.files[0]);
+      setMessage('');
+      setCleanedFileUrl(null); // Reset the cleaned file URL when a new file is selected
+    }
   };
-  stacks?: string[];
-  content?: any;
-  link?: string;
-}
 
-export default function Testing() {
-  const router = useRouter();
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [error, setError] = useState<Error | null>(null);
+  const handleApiKeyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setApiKey(event.target.value);
+  };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('/api/project-api');
-        const data = await response.json();
-        const filteredData = data.data.filter((project: Project) => project.name === "Traffic Accidents Dashboard");
-        setProjects(filteredData);
-        console.log(filteredData);
-      } catch (error) {
-        console.error('Error fetching projects:', error);
-      }
-    };
+  const handleModeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setMode(event.target.value);
+  };
 
-    fetchData();
-  }, []);
+  const handleUpload = async () => {
+    setLoading(true);
+
+    try {
+      if (!file) throw new Error('Please select a file');
+      if (!apiKey) throw new Error('Please provide an API key');
+
+      // Send request to Next.js API route
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('mode', mode);
+      formData.append('api_key', apiKey);
+
+      const responseexplain = await fetch('/api/testing?query=analyze', {
+        method: 'POST',
+        body: formData,
+      });
+      const responsefile = await fetch('/api/testing?query=file', {
+        method: 'POST',
+        body: formData,
+      });
+      
+      const explainData = await responseexplain.json()
+
+      if (!responseexplain.ok) throw new Error(`HTTP error! status: ${responseexplain.status}`);
+      setExplain(explainData.text)
+      if (!responsefile.ok) throw new Error(`HTTP error! status: ${responsefile.status}`);
+
+      // Get the URL of the cleaned file
+      const blob = await responsefile.blob();
+      const url = window.URL.createObjectURL(blob);
+      setCleanedFileUrl(url);
+      setMessage('File uploaded and processed successfully!');
+    } catch (error) {
+      console.error('Error:', error); // Log the error for debugging
+      setMessage(`Error occurred while processing your request. Please check your input.`);
+    } finally {
+      setLoading(false);
+    }
+    console.log(explain)
+  };
+
+  const handleDownload = () => {
+    if (cleanedFileUrl) {
+      const a = document.createElement('a');
+      a.href = cleanedFileUrl;
+      a.download = `cleaned_${file?.name}`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(cleanedFileUrl);
+      setCleanedFileUrl(null); // Reset the cleaned file URL after download
+    }
+  };
 
   return (
-    <div className="flex flex-col min-h-screen pt-16">
-      <header className="border-b">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/Portfolio/All" className="flex items-center text-sm font-medium text-muted-foreground hover:text-primary">
-            {/* <ArrowLeft className="mr-2 h-4 w-4" /> */}
-            Back to Projects
-          </Link>
-        </div>
-      </header>
-
-      <main className="flex-grow container mx-auto px-4 py-8">
-      {projects && projects.map((project:Project)=>(
-        <div key={project._id} className="grid md:grid-cols-2 gap-8">
-        <div>
-          <h1 className="text-3xl font-bold mb-4">{project.name}</h1>
-          <p className="text-muted-foreground mb-6">{project.shortDescription}</p>
-          <div className="flex flex-wrap gap-2 mb-6">
-            {project.stacks?.map((tech) => (
-              <Badge key={tech} variant="secondary">{tech}</Badge>
-            ))}
-          </div>
-          <div className="flex gap-5 mb-8">
-            <Button asChild>
-              <Link href={`${project.link}`} target="_blank" rel="noopener noreferrer">
-                {/* <Globe className="mr-2 h-4 w-4" />  */}
-                Live Demo
-              </Link>
-            </Button>
-          </div>
-          <h2 className="text-2xl font-semibold mb-4">Project Details</h2>
-          <div className='my-3'>
-          <PortableText components={{}} value={project.content} />
-          </div>
-        </div>
-        <div>
-          <Image
-            src={project.image ? urlFor(project.image).url() : '/default-image.png'}
-            alt={project.name}
-            width={600}
-            height={400}
-            className="rounded-lg shadow-md"
-          />
-        </div>
-      </div>
-      ))}
-        
-      </main>
+    <div className='pt-40'>
+      <h1>Upload CSV or XLSX File</h1>
+      <form onSubmit={(e) => e.preventDefault()}>
+        <input type="file" onChange={handleFileChange} accept=".csv,.xlsx" />
+        <input type="text" placeholder="API Key" value={apiKey} onChange={handleApiKeyChange} required />
+        <select value={mode} onChange={handleModeChange}>
+          <option value="normal">Normal</option>
+          <option value="machine learning">Machine Learning</option>
+        </select>
+        <button type="button" onClick={handleUpload} disabled={loading}>
+          Upload & Process File {loading && <span>(Processing...)</span>}
+        </button>
+        {cleanedFileUrl && (
+          <button type="button" onClick={handleDownload}>
+            Download Cleaned File
+          </button>
+        )}
+      </form>
+      <p style={{ color: message.includes('Error') ? 'red' : 'green' }}>{message}</p>
+      <p>{explain && explain.result && explain.result.text}</p>
     </div>
   );
 }
