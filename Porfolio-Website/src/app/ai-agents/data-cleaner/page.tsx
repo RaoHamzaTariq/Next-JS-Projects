@@ -1,13 +1,11 @@
 'use client';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { Loader2, AlertCircle, Download, FileUp, Wand2, ClipboardList } from 'lucide-react';
+import { Loader2, AlertCircle, Download, FileUp, Wand2, ClipboardList, EyeOff, Eye } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { EyeOff, Eye } from 'lucide-react';
-
 import { Label } from '@/components/ui/label';
 
 interface SummaryData {
@@ -29,20 +27,20 @@ interface SummaryData {
       "75%": number;
       max: number;
     };
-  };
+  } | string;
   categorical_summary: {
     [key: string]: {
       unique_count: number;
       most_frequent_value: string;
       top_categories: { [key: string]: number };
-    };
+    } | string;
   };
   missing_values: string;
   correlation_matrix: {
     [key: string]: { [key: string]: number }
-  };
-  outlier_count: { [key: string]: number };
-  feature_cardinality: { [key: string]: number };
+  } | string;
+  outlier_count: { [key: string]: number } | string;
+  feature_cardinality: { [key: string]: number } | string;
 }
 
 interface AnalysisResult {
@@ -66,10 +64,7 @@ export default function DataCleanerPage() {
   const [cleanedFileUrl, setCleanedFileUrl] = useState<string | null>(null);
   const [isApiKeyVisible, setIsApiKeyVisible] = useState(false);
 
-
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-
 
   const analyzeData = async () => {
     if (!file || !apiKey) return;
@@ -196,7 +191,7 @@ export default function DataCleanerPage() {
   const renderNumericSummary = () => (
     <div className="space-y-4">
       <h3 className="font-semibold">Numeric Columns Summary</h3>
-      {analysisResult?.summary_data?.numeric_summary &&
+      {analysisResult?.summary_data?.numeric_summary && typeof  analysisResult?.summary_data?.numeric_summary === "object" ? (
         Object.entries(analysisResult.summary_data.numeric_summary).map(([col, stats]) => (
           <Card key={col} className="mb-4">
             <CardHeader>
@@ -205,39 +200,121 @@ export default function DataCleanerPage() {
             <CardContent className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               <StatCard title="Mean" value={stats.mean.toFixed(2)} />
               <StatCard title="Std Dev" value={stats.std.toFixed(2)} />
-              <StatCard title="Min/Max" value={`${stats.min} / ${stats.max}`} />
+              <StatCard title="Min/Max" value={`${stats.min.toFixed(2)} / ${stats.max.toFixed(2)}`} />
               <StatCard title="25%" value={stats['25%'].toFixed(2)} />
               <StatCard title="50%" value={stats['50%'].toFixed(2)} />
               <StatCard title="75%" value={stats['75%'].toFixed(2)} />
             </CardContent>
           </Card>
-        ))}
+        ))
+      ) : (
+        <p>No numeric columns found</p>
+      )}
     </div>
   );
 
   const renderCategoricalSummary = () => (
     <div className="space-y-4">
       <h3 className="font-semibold">Categorical Columns Summary</h3>
-      {analysisResult?.summary_data?.categorical_summary &&
+      {analysisResult?.summary_data?.categorical_summary && typeof analysisResult.summary_data.categorical_summary === 'object' ? (
         Object.entries(analysisResult.summary_data.categorical_summary).map(([col, stats]) => (
           <Card key={col} className="mb-4">
             <CardHeader>
               <CardTitle>{col}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
-              <p>Unique Values: {stats.unique_count}</p>
-              <p>Most Frequent: {stats.most_frequent_value}</p>
-              <p>Top Categories:</p>
-              <ul className="list-disc pl-6">
-                {Object.entries(stats.top_categories).map(([cat, count]) => (
-                  <li key={cat}>
-                    {cat}: {count}
-                  </li>
-                ))}
-              </ul>
+              {typeof stats === 'string' ? (
+                <p>{stats}</p>
+              ) : (
+                <>
+                  <p>Unique Values: {stats.unique_count}</p>
+                  <p>Most Frequent: {stats.most_frequent_value}</p>
+                  <p>Top Categories:</p>
+                  <ul className="list-disc pl-6">
+                    {Object.entries(stats.top_categories).map(([cat, count]) => (
+                      <li key={cat}>
+                        {cat}: {count}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
             </CardContent>
           </Card>
-        ))}
+        ))
+      ) : (
+        <p>No categorical columns found</p>
+      )}
+    </div>
+  );
+
+  const renderMissingValues = () => (
+    <div className="space-y-4">
+      <h3 className="font-semibold">Missing Values</h3>
+      {analysisResult?.summary_data?.missing_values ? (
+        <p>{analysisResult.summary_data.missing_values}</p>
+      ) : (
+        <p>No missing values found</p>
+      )}
+    </div>
+  );
+
+  const renderCorrelationMatrix = () => (
+    <div className="space-y-4">
+      <h3 className="font-semibold">Correlation Matrix</h3>
+      {analysisResult?.summary_data?.correlation_matrix ? (
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Column</TableHead>
+              {Object.keys(analysisResult.summary_data.correlation_matrix).map((col) => (
+                <TableHead key={col}>{col}</TableHead>
+              ))}
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {Object.entries(analysisResult.summary_data.correlation_matrix).map(([col, correlations]) => (
+              <TableRow key={col}>
+                <TableCell className="font-medium">{col}</TableCell>
+                {((Object.values(correlations) as (number | null | undefined)[]).map((value, index) => (
+  <TableCell key={index}>
+    {typeof value === "number" ? value.toFixed(2) : "N/A"}
+  </TableCell>
+))
+)}
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      ) : (
+        <p>No numeric columns available for correlation analysis</p>
+      )}
+    </div>
+  );
+
+  const renderOutliers = () => (
+    <div className="space-y-4">
+      <h3 className="font-semibold">Outliers</h3>
+      {analysisResult?.summary_data?.outlier_count ? (
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Column</TableHead>
+              <TableHead>Outlier Count</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {Object.entries(analysisResult.summary_data.outlier_count).map(([col, count]) => (
+              <TableRow key={col}>
+                <TableCell className="font-medium">{col}</TableCell>
+                <TableCell>{count}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      ) : (
+        <p>No outliers found</p>
+      )}
     </div>
   );
 
@@ -266,22 +343,21 @@ export default function DataCleanerPage() {
               <div className="space-y-2">
                 <Label>API Key</Label>
                 <div className="relative">
-              <Input
-                type={isApiKeyVisible ? 'text' : 'password'}
-                placeholder="Enter your Google Gemini API key"
-                value={apiKey}
-                onChange={(e) => setApiKey(e.target.value)}
-                className="pr-10"
-              />
-              <button
-                type="button"
-                onClick={() => setIsApiKeyVisible(!isApiKeyVisible)}
-                className="absolute right-3 top-2.5 text-muted-foreground"
-              >
-                {isApiKeyVisible ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-              </button>
-            </div>
-                
+                  <Input
+                    type={isApiKeyVisible ? 'text' : 'password'}
+                    placeholder="Enter your Google Gemini API key"
+                    value={apiKey}
+                    onChange={(e) => setApiKey(e.target.value)}
+                    className="pr-10"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setIsApiKeyVisible(!isApiKeyVisible)}
+                    className="absolute right-3 top-2.5 text-muted-foreground"
+                  >
+                    {isApiKeyVisible ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  </button>
+                </div>
               </div>
 
               <div className="border-2 border-dashed rounded-lg p-8 text-center">
@@ -315,7 +391,6 @@ export default function DataCleanerPage() {
               <p className="text-muted-foreground">{analysisResult.text}</p>
             </CardHeader>
             <CardContent className="space-y-8">
-          
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button className="flex-1 gap-2" onClick={() => handleCleanData('normal')} disabled={isLoading}>
                   <ClipboardList className="h-4 w-4" />
@@ -332,13 +407,15 @@ export default function DataCleanerPage() {
                 <StatCard title="Duplicate Rows" value={analysisResult?.summary_data?.duplicate_rows} />
                 <StatCard
                   title="Missing Values"
-                  value={analysisResult?.summary_data?.missing_values}
+                  value={analysisResult?.summary_data?.missing_values || 'No missing values found'}
                 />
               </div>
 
               {renderDataTypes()}
               {renderNumericSummary()}
               {renderCategoricalSummary()}
+              {renderCorrelationMatrix()}
+              {renderOutliers()}
             </CardContent>
           </Card>
         )}
@@ -382,4 +459,3 @@ const StatCard = ({ title, value }: { title: string; value: string | number }) =
     <p className="text-2xl font-bold">{value}</p>
   </div>
 );
-

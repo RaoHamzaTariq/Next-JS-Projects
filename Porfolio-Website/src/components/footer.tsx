@@ -1,5 +1,5 @@
 import React from 'react';
-import { components } from './Navbar';
+import Image from 'next/image';
 import Link from 'next/link';
 import { FaXTwitter, FaLinkedin } from "react-icons/fa6";
 import { Input } from './ui/input';
@@ -13,7 +13,22 @@ const Footer = () => {
         <div className=' py-20 px-10 justify-between grid gap-10 sm:grid-cols-2'>
       <div className=''> 
 <div className='pb-5' >
-  <h2>LOGO</h2>
+  
+    <Image
+      src="/images/BI Structure/BI Structure.png"
+      alt="BI Structure Logo"
+      width={100}
+      height={100}
+      className="dark:hidden"
+    />
+    <Image
+      src="/images/BI Structure/BI Structure white.png"
+      alt="BI Structure Logo"
+      width={100}
+      height={100}
+      className="hidden dark:!block"
+    />
+  
 </div>
 <div className='flex flex-col gap-2 justify-center '>
   <p className='font-bold'>{`Get 15% off your first order!`}</p>
