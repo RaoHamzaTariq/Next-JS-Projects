@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
 
       if(query == "analyze"){
         try {
-          const fastApiResponseAnalyze = await fetch('http://127.0.0.1:8000/analyze_data/', {
+          const fastApiResponseAnalyze = await fetch('https://raohamzatariq-ai-agents.hf.space/analyze_data/', {
             method: 'POST',
             body: (() => {
               const formData = new FormData();
@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
 
       if(query && query=="file"){
         try {
-          const fastApiResponseFile = await fetch('http://127.0.0.1:8000/clean_data/', {
+          const fastApiResponseFile = await fetch('https://raohamzatariq-ai-agents.hf.space/clean_data/', {
             method: 'POST',
             body: (() => {
               const formData = new FormData();
@@ -76,7 +76,7 @@ export async function POST(req: NextRequest) {
       if(query && query=="explain"){
 
         try {
-          const fastApiResponseExplain = await fetch('http://127.0.0.1:8000/cleaning_steps/', {
+          const fastApiResponseExplain = await fetch('https://raohamzatariq-ai-agents.hf.space/cleaning_steps/', {
             method: 'POST',
             body: (() => {
               const formData = new FormData();
