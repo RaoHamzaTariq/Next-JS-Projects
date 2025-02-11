@@ -1,11 +1,13 @@
 'use client';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { Loader2, AlertCircle, Download, FileUp, Wand2, ClipboardList } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { EyeOff, Eye } from 'lucide-react';
+
 import { Label } from '@/components/ui/label';
 
 interface SummaryData {
@@ -62,8 +64,12 @@ export default function DataCleanerPage() {
   const [analysisResult, setAnalysisResult] = useState<AnalysisResult | null>(null);
   const [cleaningResult, setCleaningResult] = useState<DataCleaningResult | null>(null);
   const [cleanedFileUrl, setCleanedFileUrl] = useState<string | null>(null);
+  const [isApiKeyVisible, setIsApiKeyVisible] = useState(false);
+
 
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+
 
   const analyzeData = async () => {
     if (!file || !apiKey) return;
@@ -236,10 +242,10 @@ export default function DataCleanerPage() {
   );
 
   return (
-    <div className="min-h-screen pt-20 sm:pt-28 bg-background p-4 sm:p-8">
+    <div className="min-h-screen pt-20 sm:pt-28 bg-background p-4 sm:p-8 transition-all duration-500">
       <div className="max-w-6xl mx-auto space-y-8">
         <div className="text-center">
-          <h1 className="text-3xl font-bold">Data Summary & Cleaning Agent</h1>
+          <h1 className="text-3xl font-bold text-primary dark:text-primary-foreground">Data Summary & Cleaning Agent</h1>
           <p className="text-muted-foreground mt-2">Upload your dataset and get AI-powered cleaning suggestions</p>
         </div>
 
@@ -259,12 +265,23 @@ export default function DataCleanerPage() {
             <CardContent className="space-y-6">
               <div className="space-y-2">
                 <Label>API Key</Label>
-                <Input
-                  type="password"
-                  placeholder="Enter your API key"
-                  value={apiKey}
-                  onChange={(e) => setApiKey(e.target.value)}
-                />
+                <div className="relative">
+              <Input
+                type={isApiKeyVisible ? 'text' : 'password'}
+                placeholder="Enter your Google Gemini API key"
+                value={apiKey}
+                onChange={(e) => setApiKey(e.target.value)}
+                className="pr-10"
+              />
+              <button
+                type="button"
+                onClick={() => setIsApiKeyVisible(!isApiKeyVisible)}
+                className="absolute right-3 top-2.5 text-muted-foreground"
+              >
+                {isApiKeyVisible ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+              </button>
+            </div>
+                
               </div>
 
               <div className="border-2 border-dashed rounded-lg p-8 text-center">
@@ -295,9 +312,20 @@ export default function DataCleanerPage() {
           <Card>
             <CardHeader>
               <CardTitle>Analysis Results</CardTitle>
-              <p className="text-muted-foreground">{analysisResult?.text}</p>
+              <p className="text-muted-foreground">{analysisResult.text}</p>
             </CardHeader>
             <CardContent className="space-y-8">
+          
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button className="flex-1 gap-2" onClick={() => handleCleanData('normal')} disabled={isLoading}>
+                  <ClipboardList className="h-4 w-4" />
+                  Normal Cleaning
+                </Button>
+                <Button className="flex-1 gap-2" onClick={() => handleCleanData('machine learning')} variant="secondary" disabled={isLoading}>
+                  <Wand2 className="h-4 w-4" />
+                  ML Preparation
+                </Button>
+              </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
                 <StatCard title="Total Rows" value={analysisResult?.summary_data?.shape?.rows} />
                 <StatCard title="Total Columns" value={analysisResult?.summary_data?.shape?.columns} />
@@ -311,19 +339,7 @@ export default function DataCleanerPage() {
               {renderDataTypes()}
               {renderNumericSummary()}
               {renderCategoricalSummary()}
-
-              
             </CardContent>
-            <CardFooter className="flex flex-col sm:flex-row gap-4">
-              <Button className="flex-1 gap-2" onClick={() => handleCleanData('normal')} disabled={isLoading}>
-                <ClipboardList className="h-4 w-4" />
-                Normal Cleaning
-              </Button>
-              <Button className="flex-1 gap-2" onClick={() => handleCleanData('machine learning')} variant="secondary" disabled={isLoading}>
-                <Wand2 className="h-4 w-4" />
-                ML Preparation
-              </Button>
-            </CardFooter>
           </Card>
         )}
 
@@ -334,17 +350,7 @@ export default function DataCleanerPage() {
               <p className="text-muted-foreground">{cleaningResult.text}</p>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="space-y-2">
-                <h3 className="font-semibold">Applied Cleaning Steps:</h3>
-                <ul className="list-disc pl-6 space-y-2">
-                  {(cleaningResult.cleaning_steps.split("\n").map(i=>i.trim())).map((step, i) => (
-                    <li key={i}>{step}</li>
-                  ))}
-                </ul>
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Button className="w-full gap-2" onClick={handleDownload} disabled={isLoading}>
+              <Button className="w-full gap-2 mb-4" onClick={handleDownload} disabled={isLoading}>
                 {isLoading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
@@ -354,7 +360,15 @@ export default function DataCleanerPage() {
                   </>
                 )}
               </Button>
-            </CardFooter>
+              <div className="space-y-2">
+                <h3 className="font-semibold">Applied Cleaning Steps:</h3>
+                <ul className="list-disc pl-6 space-y-2">
+                  {cleaningResult.cleaning_steps.split("\n").map((step, i) => (
+                    <li key={i}>{step}</li>
+                  ))}
+                </ul>
+              </div>
+            </CardContent>
           </Card>
         )}
       </div>
@@ -368,3 +382,4 @@ const StatCard = ({ title, value }: { title: string; value: string | number }) =
     <p className="text-2xl font-bold">{value}</p>
   </div>
 );
+

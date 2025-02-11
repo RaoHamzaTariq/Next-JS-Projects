@@ -1,7 +1,5 @@
 'use client'
 import { useState } from 'react';
-import { set } from 'sanity';
-import { json } from 'stream/consumers';
 
 export default function Home() {
   const [file, setFile] = useState<File | null>(null);
@@ -103,7 +101,7 @@ export default function Home() {
         )}
       </form>
       <p style={{ color: message.includes('Error') ? 'red' : 'green' }}>{message}</p>
-      <p>{explain && explain.result && explain.result.text}</p>
+      {/* <p>{explain && explain.result && explain.result.text}</p> */}
     </div>
   );
 }
