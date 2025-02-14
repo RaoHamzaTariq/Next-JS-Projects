@@ -1,7 +1,7 @@
 // Querying with "sanityFetch" will keep content automatically updated
 // Before using it, import and render "<SanityLive />" in your layout, see
 // https://github.com/sanity-io/next-sanity#live-content-api for more information.
-import { defineLive } from "next-sanity";
+import { SanityClient } from 'sanity';
 import { client } from './client'
 
 export const { sanityFetch, SanityLive } = defineLive({ 
@@ -11,3 +11,7 @@ export const { sanityFetch, SanityLive } = defineLive({
     apiVersion: 'vX' 
   }) 
 });
+function defineLive(arg0: { client: SanityClient; }): { sanityFetch: any; SanityLive: any; } {
+  throw new Error('Function not implemented.');
+}
+

@@ -3,7 +3,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req:NextRequest) {
-    const { message, apiKey } = await req.json();
+    const { message, apiKey, temperature } = await req.json();
 
     try {
         const response = await fetch('https://raohamzatariq-chatbot-backend.hf.space/chat', { // Adjust URL if needed
@@ -11,7 +11,7 @@ export async function POST(req:NextRequest) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ message, apiKey }),
+            body: JSON.stringify({ message, apiKey, temperature }),
         });
 
         if (!response.ok) {

@@ -4,9 +4,14 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { Loader2, AlertCircle, Download, FileUp, Wand2, ClipboardList, EyeOff, Eye } from 'lucide-react';
+import { Loader2, AlertCircle, Download, FileUp, Wand2, ClipboardList, EyeOff, Eye, FileText, Copy, Check } from 'lucide-react';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Label } from '@/components/ui/label';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 interface SummaryData {
   columns: string[];
@@ -191,19 +196,19 @@ export default function DataCleanerPage() {
   const renderNumericSummary = () => (
     <div className="space-y-4">
       <h3 className="font-semibold">Numeric Columns Summary</h3>
-      {analysisResult?.summary_data?.numeric_summary && typeof  analysisResult?.summary_data?.numeric_summary === "object" ? (
+      {analysisResult?.summary_data?.numeric_summary && typeof analysisResult?.summary_data?.numeric_summary === "object" ? (
         Object.entries(analysisResult.summary_data.numeric_summary).map(([col, stats]) => (
           <Card key={col} className="mb-4">
             <CardHeader>
               <CardTitle>{col}</CardTitle>
             </CardHeader>
             <CardContent className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              <StatCard title="Mean" value={stats.mean.toFixed(2)} />
-              <StatCard title="Std Dev" value={stats.std.toFixed(2)} />
-              <StatCard title="Min/Max" value={`${stats.min.toFixed(2)} / ${stats.max.toFixed(2)}`} />
-              <StatCard title="25%" value={stats['25%'].toFixed(2)} />
-              <StatCard title="50%" value={stats['50%'].toFixed(2)} />
-              <StatCard title="75%" value={stats['75%'].toFixed(2)} />
+              <StatCard title="Mean" value={stats.mean.toFixed(2)} icon={<FileText className="h-4 w-4" />} />
+              <StatCard title="Std Dev" value={stats.std.toFixed(2)} icon={<FileText className="h-4 w-4" />} />
+              <StatCard title="Min/Max" value={`${stats.min.toFixed(2)} / ${stats.max.toFixed(2)}`} icon={<FileText className="h-4 w-4" />} />
+              <StatCard title="25%" value={stats['25%'].toFixed(2)} icon={<FileText className="h-4 w-4" />} />
+              <StatCard title="50%" value={stats['50%'].toFixed(2)} icon={<FileText className="h-4 w-4" />} />
+              <StatCard title="75%" value={stats['75%'].toFixed(2)} icon={<FileText className="h-4 w-4" />} />
             </CardContent>
           </Card>
         ))
@@ -319,15 +324,20 @@ export default function DataCleanerPage() {
   );
 
   return (
-    <div className="min-h-screen pt-20 sm:pt-28 bg-background p-4 sm:p-8 transition-all duration-500">
-      <div className="max-w-6xl mx-auto space-y-8">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-primary dark:text-primary-foreground">Data Summary & Cleaning Agent</h1>
-          <p className="text-muted-foreground mt-2">Upload your dataset and get AI-powered cleaning suggestions</p>
+    <div className="min-h-screen bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container max-w-7xl mx-auto p-6 pt-20 sm:pt-28 space-y-8">
+        <div className="text-center space-y-4">
+          <div className="inline-flex items-center justify-center p-3 rounded-2xl bg-primary/10">
+            <Wand2 className="h-10 w-10 text-primary" />
+          </div>
+          <h1 className="text-4xl font-bold tracking-tight text-primary">Data Summary & Cleaning Agent</h1>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Upload your dataset and get AI-powered insights and cleaning suggestions. Supports CSV and Excel files.
+          </p>
         </div>
 
         {error && (
-          <Alert variant="destructive">
+          <Alert variant="destructive" className="max-w-2xl mx-auto animate-in fade-in-50">
             <AlertCircle className="h-4 w-4" />
             <AlertTitle>Error</AlertTitle>
             <AlertDescription>{error}</AlertDescription>
@@ -335,32 +345,44 @@ export default function DataCleanerPage() {
         )}
 
         {step === 'upload' && (
-          <Card>
+          <Card className="max-w-2xl mx-auto">
             <CardHeader>
-              <CardTitle>Upload Your Dataset</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <FileUp className="h-5 w-5" />
+                Upload Dataset
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-2">
-                <Label>API Key</Label>
-                <div className="relative">
-                  <Input
-                    type={isApiKeyVisible ? 'text' : 'password'}
-                    placeholder="Enter your Google Gemini API key"
-                    value={apiKey}
-                    onChange={(e) => setApiKey(e.target.value)}
-                    className="pr-10"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setIsApiKeyVisible(!isApiKeyVisible)}
-                    className="absolute right-3 top-2.5 text-muted-foreground"
-                  >
-                    {isApiKeyVisible ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                  </button>
-                </div>
+                <Label className="text-base">API Key</Label>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <div className="relative">
+                        <Input
+                          type={isApiKeyVisible ? 'text' : 'password'}
+                          placeholder="Enter your Google Gemini API key"
+                          value={apiKey}
+                          onChange={(e) => setApiKey(e.target.value)}
+                          className="pr-10"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setIsApiKeyVisible(!isApiKeyVisible)}
+                          className="absolute right-3 top-2.5 text-muted-foreground hover:text-foreground transition-colors"
+                        >
+                          {isApiKeyVisible ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                        </button>
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Required for AI analysis</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               </div>
 
-              <div className="border-2 border-dashed rounded-lg p-8 text-center">
+              <div className="border-2 border-dashed rounded-xl p-8 text-center space-y-4 hover:border-primary/50 transition-colors">
                 <input
                   type="file"
                   ref={fileInputRef}
@@ -368,16 +390,32 @@ export default function DataCleanerPage() {
                   accept=".csv,.xlsx"
                   onChange={(e) => setFile(e.target.files?.[0] || null)}
                 />
-                <Button variant="outline" onClick={() => fileInputRef.current?.click()} className="gap-2">
-                  <FileUp className="h-4 w-4" />
-                  {file ? file.name : 'Select CSV/XLSX File'}
-                </Button>
-                {file && <p className="text-sm text-muted-foreground mt-2">{(file.size / 1024 / 1024).toFixed(2)} MB</p>}
+                <div className="mx-auto w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <FileUp className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <Button variant="ghost" onClick={() => fileInputRef.current?.click()} className="gap-2">
+                    {file ? file.name : 'Select CSV/XLSX File'}
+                  </Button>
+                  {file && (
+                    <p className="text-sm text-muted-foreground mt-2">
+                      Size: {(file.size / 1024 / 1024).toFixed(2)} MB
+                    </p>
+                  )}
+                </div>
               </div>
             </CardContent>
             <CardFooter>
-              <Button className="w-full gap-2" onClick={analyzeData} disabled={!file || !apiKey || isLoading}>
-                {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Wand2 className="h-4 w-4" />}
+              <Button 
+                className="w-full gap-2" 
+                onClick={analyzeData} 
+                disabled={!file || !apiKey || isLoading}
+              >
+                {isLoading ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <Wand2 className="h-4 w-4" />
+                )}
                 Analyze Dataset
               </Button>
             </CardFooter>
@@ -385,65 +423,150 @@ export default function DataCleanerPage() {
         )}
 
         {step === 'processing' && analysisResult && (
-          <Card>
-            <CardHeader>
-              <CardTitle>Analysis Results</CardTitle>
-              <p className="text-muted-foreground">{analysisResult.text}</p>
-            </CardHeader>
-            <CardContent className="space-y-8">
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="flex-1 gap-2" onClick={() => handleCleanData('normal')} disabled={isLoading}>
-                  <ClipboardList className="h-4 w-4" />
-                  Normal Cleaning
-                </Button>
-                <Button className="flex-1 gap-2" onClick={() => handleCleanData('machine learning')} variant="secondary" disabled={isLoading}>
-                  <Wand2 className="h-4 w-4" />
-                  ML Preparation
-                </Button>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                <StatCard title="Total Rows" value={analysisResult?.summary_data?.shape?.rows} />
-                <StatCard title="Total Columns" value={analysisResult?.summary_data?.shape?.columns} />
-                <StatCard title="Duplicate Rows" value={analysisResult?.summary_data?.duplicate_rows} />
-                <StatCard
-                  title="Missing Values"
-                  value={analysisResult?.summary_data?.missing_values || 'No missing values found'}
-                />
-              </div>
+          <div className="space-y-6">
+            <Card>
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <CardTitle>Analysis Results</CardTitle>
+                  <HoverCard>
+                    <HoverCardTrigger asChild>
+                      <Badge variant="secondary" className="cursor-help">
+                        Dataset Info
+                      </Badge>
+                    </HoverCardTrigger>
+                    <HoverCardContent className="w-80">
+                      <div className="space-y-2">
+                        <h4 className="text-sm font-semibold">Dataset Overview</h4>
+                        <div className="text-sm text-muted-foreground">
+                          <p>Rows: {analysisResult?.summary_data?.shape?.rows}</p>
+                          <p>Columns: {analysisResult?.summary_data?.shape?.columns}</p>
+                          <p>Duplicates: {analysisResult?.summary_data?.duplicate_rows}</p>
+                        </div>
+                      </div>
+                    </HoverCardContent>
+                  </HoverCard>
+                </div>
+                <p className="text-muted-foreground">{analysisResult.text}</p>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button 
+                    className="flex-1 gap-2" 
+                    onClick={() => handleCleanData('normal')} 
+                    disabled={isLoading}
+                  >
+                    <ClipboardList className="h-4 w-4" />
+                    Standard Cleaning
+                  </Button>
+                  <Button 
+                    className="flex-1 gap-2" 
+                    onClick={() => handleCleanData('machine learning')} 
+                    variant="secondary" 
+                    disabled={isLoading}
+                  >
+                    <Wand2 className="h-4 w-4" />
+                    ML Preparation
+                  </Button>
+                </div>
 
-              {renderDataTypes()}
-              {renderNumericSummary()}
-              {renderCategoricalSummary()}
-              {renderCorrelationMatrix()}
-              {renderOutliers()}
-            </CardContent>
-          </Card>
+                <Tabs defaultValue="overview" className="w-full">
+                  <TabsList className="grid w-full grid-cols-4">
+                    <TabsTrigger value="overview">Overview</TabsTrigger>
+                    <TabsTrigger value="numeric">Numeric</TabsTrigger>
+                    <TabsTrigger value="categorical">Categorical</TabsTrigger>
+                    <TabsTrigger value="correlation">Correlation</TabsTrigger>
+                  </TabsList>
+
+                  <TabsContent value="overview" className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                      <StatCard 
+                        title="Total Rows" 
+                        value={analysisResult?.summary_data?.shape?.rows}
+                        icon={<FileText className="h-4 w-4" />}
+                      />
+                      <StatCard 
+                        title="Total Columns" 
+                        value={analysisResult?.summary_data?.shape?.columns}
+                        icon={<ClipboardList className="h-4 w-4" />}
+                      />
+                      <StatCard 
+                        title="Duplicate Rows" 
+                        value={analysisResult?.summary_data?.duplicate_rows}
+                        icon={<Copy className="h-4 w-4" />}
+                      />
+                      <StatCard
+                        title="Missing Values"
+                        value={analysisResult?.summary_data?.missing_values || 'None'}
+                        icon={<AlertCircle className="h-4 w-4" />}
+                      />
+                    </div>
+                    {renderDataTypes()}
+                  </TabsContent>
+
+                  <TabsContent value="numeric" className="space-y-4">
+                    <ScrollArea className="h-[600px]">
+                      {renderNumericSummary()}
+                    </ScrollArea>
+                  </TabsContent>
+
+                  <TabsContent value="categorical" className="space-y-4">
+                    <ScrollArea className="h-[600px]">
+                      {renderCategoricalSummary()}
+                    </ScrollArea>
+                  </TabsContent>
+
+                  <TabsContent value="correlation" className="space-y-4">
+                    <ScrollArea className="h-[600px]">
+                      {renderCorrelationMatrix()}
+                      {renderOutliers()}
+                    </ScrollArea>
+                  </TabsContent>
+                </Tabs>
+              </CardContent>
+            </Card>
+          </div>
         )}
 
         {step === 'cleaned' && cleaningResult && (
-          <Card>
+          <Card className="max-w-4xl mx-auto">
             <CardHeader>
-              <CardTitle>Cleaning Process Complete</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <Check className="h-5 w-5 text-green-500" />
+                Cleaning Process Complete
+              </CardTitle>
               <p className="text-muted-foreground">{cleaningResult.text}</p>
             </CardHeader>
-            <CardContent className="space-y-4">
-              <Button className="w-full gap-2 mb-4" onClick={handleDownload} disabled={isLoading}>
+            <CardContent className="space-y-6">
+              <Button 
+                className="w-full gap-2" 
+                onClick={handleDownload} 
+                disabled={isLoading}
+              >
                 {isLoading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
                 ) : (
-                  <>
-                    <Download className="h-4 w-4" />
-                    Download Cleaned File
-                  </>
+                  <Download className="h-4 w-4" />
                 )}
+                Download Cleaned File
               </Button>
-              <div className="space-y-2">
-                <h3 className="font-semibold">Applied Cleaning Steps:</h3>
-                <ul className="list-disc pl-6 space-y-2">
-                  {cleaningResult.cleaning_steps.split("\n").map((step, i) => (
-                    <li key={i}>{step}</li>
-                  ))}
-                </ul>
+
+              <div className="space-y-4">
+                <h3 className="font-semibold flex items-center gap-2">
+                  <ClipboardList className="h-4 w-4" />
+                  Applied Cleaning Steps
+                </h3>
+                <ScrollArea className="h-[300px] rounded-md border p-4">
+                  <ul className="space-y-2">
+                    {cleaningResult.cleaning_steps.split("\n").map((step, i) => (
+                      <li key={i} className="flex items-start gap-2">
+                        <Badge variant="outline" className="mt-0.5">
+                          {i + 1}
+                        </Badge>
+                        <span>{step}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </ScrollArea>
               </div>
             </CardContent>
           </Card>
@@ -453,9 +576,18 @@ export default function DataCleanerPage() {
   );
 }
 
-const StatCard = ({ title, value }: { title: string; value: string | number }) => (
-  <div className="rounded-lg border p-4 text-center">
-    <h3 className="text-sm font-medium text-muted-foreground">{title}</h3>
-    <p className="text-2xl font-bold">{value}</p>
-  </div>
+const StatCard = ({ title, value, icon }: { title: string; value: string | number; icon: React.ReactNode }) => (
+  <Card>
+    <CardContent className="pt-6">
+      <div className="flex items-center gap-2">
+        <div className="p-2 rounded-full bg-primary/10">
+          {icon}
+        </div>
+        <div>
+          <p className="text-sm font-medium text-muted-foreground">{title}</p>
+          <p className="text-2xl font-bold">{value}</p>
+        </div>
+      </div>
+    </CardContent>
+  </Card>
 );

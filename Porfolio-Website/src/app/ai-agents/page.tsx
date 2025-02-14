@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from "@/components/ui/card";
 import Link from 'next/link';
+import Image from 'next/image';
 
 // Sample AI Agent Data (Replace with your actual data)
 const aiAgents = [
@@ -17,6 +18,13 @@ const aiAgents = [
     description: "AI Agent that cleans and preprocesses data autonomously by uploading dataset.",
     image: "/images/AI Agents/bi-cleaner.png",
     route: "/ai-agents/data-cleaner",
+  },
+  {
+    id: 3,
+    name: "BI MCQs Generator",
+    description: "AI Tool that generates MCQs from your document.",
+    image: "/images/AI Agents/bi-test.png",
+    route: "/ai-agents/mcqs_generator",
   },
  
   // Add more AI agents here...
@@ -35,9 +43,11 @@ const AIAgentsPage = () => {
             <Card className="hover:scale-105 transition-transform duration-200">
               <div className="flex flex-col h-full">
                 {agent.image && (
-                  <img
+                  <Image
                     src={agent.image}
                     alt={agent.name}
+                    width={500}
+                    height={300}
                     className="w-full h-48 object-cover rounded-t-lg mb-4"
                   />
                 )}
