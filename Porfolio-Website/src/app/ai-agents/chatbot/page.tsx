@@ -74,112 +74,51 @@ export default function ChatPage() {
     }
   }, [sessionId]);
 
-  // Add document handling functions
-  const handleUpload = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!file || !sessionId) return setError('Please wait, session is initializing');
-
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('session_id', sessionId);
-
-    setUploading(true);
-    try {
-      const response = await fetch('https://raohamzatariq-chatbot-backend.hf.space/upload', {
-        method: 'POST',
-        body: formData,
-      });
-      if (!response.ok) throw new Error('Upload failed');
-      setError(null);
-      setIsDocumentMode(true);
-      setMessages(prev => [...prev, {
-        role: 'system',
-        content: 'Document uploaded successfully. You can now ask questions about the document.'
-      }]);
-    } catch (error) {
-      setError('Failed to upload document: ' + error);
-    } finally {
-      setUploading(false);
-    }
-  };
-
-  const handleDelete = async () => {
-    if (!sessionId) return setError('Session not initialized');
-    setDeleting(true);
-    try {
-      const response = await fetch('https://raohamzatariq-chatbot-backend.hf.space/delete-document', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ session_id: sessionId }),
-      });
-      if (!response.ok) throw new Error('Failed to delete document');
-      setIsDocumentMode(false);
-      setMessages(prev => [...prev, {
-        role: 'system',
-        content: 'Document deleted successfully.'
-      }]);
-    } catch (error) {
-      setError('Failed to delete document: ' + error);
-    } finally {
-      setDeleting(false);
-    }
-  };
-
-  // Modify handleSubmit to handle both chat modes
+  // Modify handleSubmit to handle both modes more elegantly
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputMessage.trim()) return;
 
-    if (isDocumentMode) {
-      // Document chat mode
-      if (!sessionId) {
-        setError('Session not initialized');
-        return;
-      }
+    const newMessage = { role: 'user', content: inputMessage };
+    setMessages(prev => [...prev, newMessage]);
+    setInputMessage('');
+    setIsLoading(true);
+    setError(null);
 
-      const newMessage = { role: 'user', content: inputMessage };
-      setMessages(prev => [...prev, newMessage]);
-      setInputMessage('');
-      setIsLoading(true);
-      setError(null);
+    try {
+      if (isDocumentMode) {
+        // Document chat mode
+        if (!sessionId) {
+          throw new Error('Session not initialized');
+        }
 
-      try {
         const response = await fetch('https://raohamzatariq-chatbot-backend.hf.space/ask', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ session_id: sessionId, question: inputMessage, temperature }),
+          body: JSON.stringify({ 
+            session_id: sessionId, 
+            question: inputMessage,
+            temperature: temperature || 0.5 // Default temperature if not set
+          }),
         });
         
-        if (!response.ok) throw new Error('Failed to get answer');
+        if (!response.ok) throw new Error('Failed to get answer from document');
         const { answer } = await response.json();
         
         setMessages(prev => [...prev, { role: 'ai', content: answer }]);
-      } catch (error) {
-        setError('Failed to get answer: ' + error);
-      } finally {
-        setIsLoading(false);
-      }
-    } else {
-      // Regular chatbot mode
-      if (!apiKey.trim()) {
-        setError('API key is required');
-        return;
-      }
-
-      const newMessage = { role: 'user', content: inputMessage };
-      setMessages(prev => [...prev, newMessage]);
-      setInputMessage('');
-      setIsLoading(true);
-      setError(null);
-
-      try {
-        const API_URL = process.env.NEXT_PUBLIC_URL || ''; // API URL from environment
+      } else {
+        // Regular chatbot mode - API key optional for basic chat
+        const API_URL = process.env.NEXT_PUBLIC_URL || '';
         const response = await fetch(`${API_URL}/api/chatbot`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ message: inputMessage, apiKey, temperature }),
+          body: JSON.stringify({ 
+            message: inputMessage,
+            apiKey: apiKey || null, // Make API key optional
+            temperature: temperature || 0.5 // Default temperature if not set
+          }),
         });
 
         if (!response.ok) {
@@ -188,17 +127,84 @@ export default function ChatPage() {
         }
 
         const data = await response.json();
-        const aiResponse = {
-          role: 'ai',
-          content: data.response, // Assuming response is part of the returned data
-        };
-        
-        setMessages(prev => [...prev, aiResponse]);
-      } catch (err) {
-        setError('Failed to fetch response. Please check your connection.');
-      } finally {
-        setIsLoading(false);
+        setMessages(prev => [...prev, { role: 'ai', content: data.response }]);
       }
+    } catch (error) {
+      setError(`Error: ${error instanceof Error ? error.message : 'Unknown error occurred'}`);
+      console.error('Chat error:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  // Modify handleUpload to better handle document mode transition
+  const handleUpload = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!file) {
+      setError('Please select a file to upload');
+      return;
+    }
+    if (!sessionId) {
+      setError('Please wait, session is initializing');
+      return;
+    }
+
+    setUploading(true);
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('session_id', sessionId);
+
+      const response = await fetch('https://raohamzatariq-chatbot-backend.hf.space/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) throw new Error('Upload failed');
+
+      setError(null);
+      setIsDocumentMode(true);
+      setMessages(prev => [...prev, {
+        role: 'system',
+        content: 'Document uploaded successfully. You can now ask questions about the document. The API key is not required for document-based chat.'
+      }]);
+      
+      // Clear API key when switching to document mode
+      setApiKey('');
+    } catch (error) {
+      setError('Failed to upload document: ' + error);
+      setIsDocumentMode(false);
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  // Modify handleDelete to better handle mode switching
+  const handleDelete = async () => {
+    if (!sessionId) {
+      setError('Session not initialized');
+      return;
+    }
+
+    setDeleting(true);
+    try {
+      const response = await fetch('https://raohamzatariq-chatbot-backend.hf.space/delete-document', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ session_id: sessionId }),
+      });
+
+      if (!response.ok) throw new Error('Failed to delete document');
+
+      setIsDocumentMode(false);
+      setMessages(prev => [...prev, {
+        role: 'system',
+        content: 'Document deleted successfully. Switched to regular chat mode.'
+      }]);
+    } catch (error) {
+      setError('Failed to delete document: ' + error);
+    } finally {
+      setDeleting(false);
     }
   };
 
