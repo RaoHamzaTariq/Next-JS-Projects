@@ -96,7 +96,7 @@ export default function MentalHealthAssistant() {
         const data = await response.json();
 
         if (!response.ok) {
-            throw new Error(data.error || 'Failed to analyze mental health data');
+            throw new Error(data.error || 'Failed to analyze mental health data.');
         }
 
         setResult(data);
