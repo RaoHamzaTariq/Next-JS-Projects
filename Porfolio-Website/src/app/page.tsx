@@ -18,16 +18,40 @@ export default function Home() {
   return (
   <>
 <main>
-<section className="grid grid-cols-1 md:grid-cols-2 lg:gap-80 overflow-hidden items-center justify-between lg:pt-16 sm:pt-24 pt-40 pb-20  overflow-x-hidden">
-  <div className=" max-w-lg mx-5 sm:ml-20 flex flex-col gap-5">
-    <h3>{`I'm Rao Hamza Tariq`}</h3>
-    <h1 className="text-6xl">Data Analyst & Web Developer</h1>
-    <p className="w-fit">{`I am a skilled Data Analyst, Web Developer, and Power BI Developer, specializing in transforming data into insights and building user-friendly web solutions to help you achieve your goals.`}</p>
-    <div>
-      <Link href={"/Portfolio/All"}><Button>View my Projects</Button></Link>  
+<section className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-8 px-4 md:px-8 lg:px-16 py-20 bg-gradient-to-b from-background/95 to-background/50">
+  <div className="flex-1 max-w-2xl space-y-6 text-center md:text-left animate-in slide-in-from-left duration-500">
+    <div className="inline-flex items-center justify-center md:justify-start">
+      <span className="px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm">
+        {`I'm Rao Hamza Tariq`}
+      </span>
+    </div>
+    <h1 className="text-4xl md:text-6xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/60 text-transparent bg-clip-text">
+      Data Analyst & Web Developer
+    </h1>
+    <p className="text-lg text-muted-foreground max-w-xl">
+      {`I am a skilled Data Analyst, Web Developer, and Power BI Developer, specializing in transforming data into insights and building user-friendly web solutions to help you achieve your goals.`}
+    </p>
+    <div className="flex items-center justify-center md:justify-start gap-4">
+      <Link href="/Portfolio/All">
+        <Button size="lg" className="rounded-full font-medium hover:scale-105 transition-transform">
+          View my Projects
+        </Button>
+      </Link>
     </div>
   </div>
-  <Image className="object-contain sm:mr-20 pb-10 lg:w-[400px]" src={"/images/2.png"} height={300} width={300} alt={""}/>
+  <div className="flex-1 flex justify-center items-center animate-in slide-in-from-right duration-500">
+    <div className="relative">
+      <div className="absolute -inset-1 bg-gradient-to-r from-primary to-primary/60 rounded-full blur-2xl opacity-30"></div>
+      <Image 
+        className="relative object-contain w-[300px] md:w-[400px] lg:w-[500px] hover:scale-105 transition-transform duration-300"
+        src="/images/2.png"
+        height={500}
+        width={500}
+        alt="Profile Image"
+        priority
+      />
+    </div>
+  </div>
 </section>
 <section className="my-16">
   <FeatureProjectsCarousal/>
