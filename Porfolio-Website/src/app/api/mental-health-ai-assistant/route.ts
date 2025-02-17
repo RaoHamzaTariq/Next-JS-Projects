@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
-// Increase the default timeout
-export const maxDuration = 300; // 5 minutes
+// Set maxDuration to 60 seconds (maximum allowed in Hobby plan)
+export const maxDuration = 60;
 
 export async function POST(req: Request) {
   try {
@@ -42,9 +42,9 @@ export async function POST(req: Request) {
     formData.append('coping_mechanisms', data.coping_mechanisms);
     formData.append('api_key', data.api_key);
 
-    // Add timeout handling
+    // Add timeout handling - set to 55 seconds to ensure we stay within Vercel's 60s limit
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 60000); // 60 second timeout
+    const timeoutId = setTimeout(() => controller.abort(), 55000);
 
     try {
       const response = await fetch('https://raohamzatariq-ai-agents.hf.space/mental_health_assistant', {
