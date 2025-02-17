@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
 
+// Increase the default timeout
+export const maxDuration = 300; // 5 minutes
+
 export async function POST(req: Request) {
   try {
     const data = await req.json();
@@ -39,18 +42,37 @@ export async function POST(req: Request) {
     formData.append('coping_mechanisms', data.coping_mechanisms);
     formData.append('api_key', data.api_key);
 
-    const response = await fetch('https://raohamzatariq-ai-agents.hf.space/mental_health_assistant', {
-      method: 'POST',
-      body: formData,
-    });
+    // Add timeout handling
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 60000); // 60 second timeout
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.detail || 'Failed to analyze mental health data');
+    try {
+      const response = await fetch('https://raohamzatariq-ai-agents.hf.space/mental_health_assistant', {
+        method: 'POST',
+        body: formData,
+        signal: controller.signal,
+        // Add cache control to prevent caching
+        cache: 'no-store',
+        next: { revalidate: 0 }
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.detail || 'Failed to analyze mental health data');
+      }
+
+      const result = await response.json();
+      return NextResponse.json(result);
+    } catch (fetchError: unknown) {
+      if (fetchError instanceof Error && fetchError.name === 'AbortError') {
+        throw new Error('Request timed out. Please try again.');
+      }
+      throw fetchError;
+    } finally {
+      clearTimeout(timeoutId);
     }
-
-    const result = await response.json();
-    return NextResponse.json(result);
   } catch (error) {
     console.error('Mental health analysis error:', error);
     
@@ -61,7 +83,7 @@ export async function POST(req: Request) {
     
     return NextResponse.json(
       { error: errorMessage },
-      { status: 500 }
+      { status: error instanceof Error && error.message.includes('timed out') ? 504 : 500 }
     );
   }
 } 
