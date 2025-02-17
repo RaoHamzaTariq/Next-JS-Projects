@@ -1,223 +1,342 @@
+"use client"
+
 import Image from "next/image"
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+import { Card } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { 
+  BookOpen, 
+  Briefcase, 
+  GraduationCap, 
+  Award,
+  Code,
+  Database,
+  Brain,
+  LineChart,
+  Lightbulb, 
+  Target, 
+  Users, 
+  Coffee,
+  Globe,
+  Clock,
+  CheckCircle2,
+  Trophy
+} from "lucide-react"
+import { Progress } from "@/components/ui/progress"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default function About() {
   return (
-    <div className="flex flex-col w-screen">
-      
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:gap-80   items-center justify-between lg:pt-16 sm:pt-40 pt-40  overflow-x-hidden h-screen">
-  <div className=" max-w-lg ml-20 flex flex-col gap-5">
-    <h1 className="text-5xl">About Me</h1>
-    <p>{`I am passionate data analyst, data scientist and developers, dedicated to crafting exceptional digital
-                  experiences. Our mission is to help businesses and individuals achieve their goals through innovative
-                  and user-centric solutions.`}</p>
-  </div>
-  <Image className="object-contain mr-20 pb-10" src={"/images/2.png"} height={400} width={400} alt={""}/>
-</section>
+    <main className="min-h-screen pt-20">
+      {/* Hero Section */}
+      <section className="relative py-20 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/50 to-background dark:from-background dark:via-background/50 dark:to-background/90" />
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-pattern dark:bg-grid-white/[0.05]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-transparent to-background/90" />
 
-      <section className="w-screen py-12 md:py-24 lg:py-32 bg-muted">
-        <div className="container px-4 md:px-6">
-          <div className="space-y-6">
-            <div className="space-y-2 flex flex-col items-center pb-10">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">Our Values</h2>
-              <p className="max-w-[600px] text-muted-foreground md:text-xl text-center">
-                {`We uphold a set of core values that guide our work and shape our culture.`}
-              </p>
+        <div className="container relative mx-auto px-4">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            {/* Image Section */}
+            <div className="lg:w-1/2">
+        <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-primary/60 rounded-2xl blur-2xl opacity-25 group-hover:opacity-40 transition duration-500" />
+          <Image 
+                  src="/images/Rao Hamza Tariq.png"
+                  alt="Rao Hamza Tariq"
+                  width={500}
+                  height={500}
+                  className="relative rounded-2xl shadow-2xl transition duration-500 group-hover:scale-[1.01]"
+                  priority
+                />
+              </div>
             </div>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-              <div className="flex flex-col items-center space-y-4 rounded-lg bg-background p-6 shadow-sm">
-                <RocketIcon className="h-10 w-10 text-primary" />
-                <h3 className="text-lg font-semibold">Innovation</h3>
-                <p className="text-center text-muted-foreground">
-                  {"We embrace new ideas and technologies to push the boundaries of what's possible."}
+
+            {/* Content Section */}
+            <div className="lg:w-1/2 space-y-6">
+              <div className="space-y-2">
+                <h1 className="text-4xl font-bold tracking-tight lg:text-5xl bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+                  About Me
+                </h1>
+                <p className="text-xl text-muted-foreground">
+                  Transforming Data into Insights, Code into Solutions
                 </p>
               </div>
-              <div className="flex flex-col items-center space-y-4 rounded-lg bg-background p-6 shadow-sm">
-                <HeartIcon className="h-10 w-10 text-primary" />
-                <h3 className="text-lg font-semibold">Passion</h3>
-                <p className="text-center text-muted-foreground">
-                  {`We pour our hearts into every project, driven by a genuine love for our craft.`}
-                </p>
+              <p className="text-muted-foreground leading-relaxed">
+                I am a passionate Data Analyst and Full Stack Developer with expertise in transforming complex data into actionable insights 
+                and building modern web applications. With a strong foundation in both data science and web development, I bring a unique 
+                perspective to every project.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Badge variant="secondary" className="px-4 py-2">Data Analysis</Badge>
+                <Badge variant="secondary" className="px-4 py-2">Machine Learning</Badge>
+                <Badge variant="secondary" className="px-4 py-2">Web Development</Badge>
+                <Badge variant="secondary" className="px-4 py-2">Power BI</Badge>
               </div>
-              <div className="flex flex-col items-center space-y-4 rounded-lg bg-background p-6 shadow-sm">
-                <UsersIcon className="h-10 w-10 text-primary" />
-                <h3 className="text-lg font-semibold">Collaboration</h3>
-                <p className="text-center text-muted-foreground">
-                  {`We believe in the power of teamwork, fostering a culture of open communication and mutual support.`}
-                </p>
+              <div className="flex gap-4">
+                <Link href="/Portfolio/All">
+                  <Button size="lg">View Portfolio</Button>
+                </Link>
+                <Link href="/contact">
+                  <Button variant="outline" size="lg">Contact Me</Button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="w-full py-12 md:py-24 lg:py-32">
-        <div className="container px-4 md:px-6">
-          <div className="space-y-6">
-            <div className="space-y-2 flex flex-col items-center pb-10 text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl lg:text-6xl">Our Achievements</h2>
-              <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                {`We are proud of the milestones we have reached and the impact we have made on our clients and the
-                industry.`}
-              </p>
+
+      {/* Skills Section */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            Core Competencies
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: <Code className="h-8 w-8" />,
+                title: "Web Development",
+                description: "Building modern, responsive web applications using Next.js, React, and Tailwind CSS."
+              },
+              {
+                icon: <Database className="h-8 w-8" />,
+                title: "Data Analysis",
+                description: "Transforming raw data into meaningful insights using Python, SQL, and Power BI."
+              },
+              {
+                icon: <Brain className="h-8 w-8" />,
+                title: "Machine Learning",
+                description: "Developing predictive models and implementing AI solutions for business problems."
+              },
+              {
+                icon: <LineChart className="h-8 w-8" />,
+                title: "Data Visualization",
+                description: "Creating interactive dashboards and compelling data stories."
+              }
+            ].map((skill, index) => (
+              <Card key={index} className="p-6 hover:shadow-lg transition-shadow group backdrop-blur-sm bg-background/50">
+                <div className="flex flex-col gap-4">
+                  <div className="p-3 rounded-lg bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors">
+                    {skill.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold">{skill.title}</h3>
+                  <p className="text-muted-foreground">{skill.description}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline Section */}
+      <section className="py-20 relative">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            Journey So Far
+          </h2>
+          <div className="max-w-3xl mx-auto space-y-8">
+            {[
+              {
+                icon: <GraduationCap className="h-6 w-6" />,
+                year: "2024 - 2028",
+                title: "Bachelor's in Computer Science",
+                subtitle: "Sindh Madressatul Islam University, Karachi"
+              },
+              {
+                icon: <BookOpen className="h-6 w-6" />,
+                year: "2023",
+                title: "Certified Cloud Applied Generative AI Engineer",
+                subtitle: "Governor House, Sindh, Pakistan"
+              },
+              {
+                icon: <BookOpen className="h-6 w-6" />,
+                year: "2022",
+                title: "Data Analytics and Business Intelligence",
+                subtitle: "Digital Skills, Pakistan"
+              }
+            ].map((item, index) => (
+              <div key={index} className="relative pl-12 group">
+                <div className="absolute left-0 top-0 p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                  {item.icon}
+                </div>
+                <div className="space-y-2 border-l-2 border-primary/20 pl-8 pb-8">
+                  <span className="text-sm text-muted-foreground">{item.year}</span>
+                  <h3 className="text-xl font-semibold">{item.title}</h3>
+                  <p className="text-muted-foreground">{item.subtitle}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          </div>
+       
+      </section>
+
+      {/* Statistics Section */}
+      <section className="py-20 relative overflow-hidden bg-primary/5 dark:bg-primary/10">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { icon: <Globe className="h-6 w-6" />, value: "10+", label: "Countries Reached" },
+              { icon: <Users className="h-6 w-6" />, value: "50+", label: "Happy Clients" },
+              { icon: <CheckCircle2 className="h-6 w-6" />, value: "100+", label: "Projects Completed" },
+              { icon: <Coffee className="h-6 w-6" />, value: "1000+", label: "Cups of Coffee" },
+            ].map((stat, index) => (
+              <div key={index} className="text-center space-y-2 group">
+                <div className="mx-auto w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                  {stat.icon}
+                </div>
+                <div className="text-3xl font-bold">{stat.value}</div>
+                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Skills Section */}
+      <section className="py-20 relative">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            Technical Expertise
+          </h2>
+          <Tabs defaultValue="development" className="max-w-4xl mx-auto">
+            <TabsList className="grid w-full grid-cols-3 mb-8">
+              <TabsTrigger value="development">Development</TabsTrigger>
+              <TabsTrigger value="data">Data Science</TabsTrigger>
+              <TabsTrigger value="tools">Tools</TabsTrigger>
+            </TabsList>
+            <TabsContent value="development" className="space-y-4">
+              {[
+                { name: "Next.js / React", value: 90 },
+                { name: "TypeScript", value: 85 },
+                { name: "Tailwind CSS", value: 95 },
+                { name: "Node.js", value: 80 },
+              ].map((skill, index) => (
+                <div key={index} className="space-y-2">
+                  <div className="flex justify-between">
+                    <span className="font-medium">{skill.name}</span>
+                    <span className="text-muted-foreground">{skill.value}%</span>
+                  </div>
+                  <Progress value={skill.value} className="h-2" />
             </div>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-              <div className="flex flex-col items-center space-y-4 rounded-lg bg-background p-6 shadow-sm">
-                <AwardIcon className="h-10 w-10 text-primary" />
-                <h3 className="text-lg font-semibold">Industry Awards</h3>
-                <p className="text-center text-muted-foreground">
-                  {`Our work has been recognized with prestigious industry awards, showcasing our commitment to
-                  excellence.`}
-                </p>
-              </div>
-              <div className="flex flex-col items-center space-y-4 rounded-lg bg-background p-6 shadow-sm">
-                <BriefcaseIcon className="h-10 w-10 text-primary" />
-                <h3 className="text-lg font-semibold">Satisfied Clients</h3>
-                <p className="text-center text-muted-foreground">
-                  {`We have a proven track record of delivering exceptional results and building long-lasting
-                  relationships with our clients.`}
-                </p>
-              </div>
-              <div className="flex flex-col items-center space-y-4 rounded-lg bg-background p-6 shadow-sm">
-                <ScalingIcon className="h-10 w-10 text-primary" />
-                <h3 className="text-lg font-semibold">Continuous Growth</h3>
-                <p className="text-center text-muted-foreground">
-                  {`Our agency has experienced steady growth, allowing us to expand our services and reach new heights.`}
-                </p>
-              </div>
+              ))}
+            </TabsContent>
+            <TabsContent value="data" className="space-y-4">
+              {[
+                { name: "Python", value: 95 },
+                { name: "SQL", value: 90 },
+                { name: "Machine Learning", value: 85 },
+                { name: "Power BI", value: 95 },
+              ].map((skill, index) => (
+                <div key={index} className="space-y-2">
+                  <div className="flex justify-between">
+                    <span className="font-medium">{skill.name}</span>
+                    <span className="text-muted-foreground">{skill.value}%</span>
+                  </div>
+                  <Progress value={skill.value} className="h-2" />
+                    </div>
+              ))}
+            </TabsContent>
+            <TabsContent value="tools" className="space-y-4">
+              {[
+                { name: "Git & GitHub", value: 90 },
+                { name: "VS Code", value: 95 },
+                { name: "Jupyter Notebook", value: 90 },
+                { name: "Docker", value: 75 },
+              ].map((skill, index) => (
+                <div key={index} className="space-y-2">
+                  <div className="flex justify-between">
+                    <span className="font-medium">{skill.name}</span>
+                    <span className="text-muted-foreground">{skill.value}%</span>
+                  </div>
+                  <Progress value={skill.value} className="h-2" />
+                </div>
+              ))}
+            </TabsContent>
+          </Tabs>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="py-20 relative bg-primary/5 dark:bg-primary/10">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            Work Values
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <Target className="h-8 w-8" />,
+                title: "Goal-Oriented",
+                description: "Focused on achieving measurable results and exceeding client expectations."
+              },
+              {
+                icon: <Lightbulb className="h-8 w-8" />,
+                title: "Innovation",
+                description: "Constantly exploring new technologies and creative solutions."
+              },
+              {
+                icon: <Clock className="h-8 w-8" />,
+                title: "Timeliness",
+                description: "Committed to delivering projects on schedule without compromising quality."
+              },
+              {
+                icon: <Users className="h-8 w-8" />,
+                title: "Collaboration",
+                description: "Working closely with clients to ensure their vision is realized."
+              },
+              {
+                icon: <Trophy className="h-8 w-8" />,
+                title: "Excellence",
+                description: "Striving for the highest quality in every project and deliverable."
+              },
+              {
+                icon: <CheckCircle2 className="h-8 w-8" />,
+                title: "Reliability",
+                description: "Dependable partner for all your development and data needs."
+              }
+            ].map((value, index) => (
+              <Card key={index} className="group hover:shadow-lg transition-all duration-300 backdrop-blur-sm bg-background/50">
+                <div className="p-6 space-y-4">
+                  <div className="p-3 rounded-lg bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors">
+                    {value.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold">{value.title}</h3>
+                  <p className="text-muted-foreground">{value.description}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="py-20 relative">
+        <div className="container mx-auto px-4 text-center">
+          <div className="max-w-2xl mx-auto space-y-6">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+              Ready to Start Your Next Project?
+            </h2>
+            <p className="text-muted-foreground">
+              {"Let's collaborate to bring your ideas to life with cutting-edge technology and data-driven solutions."}
+            </p>
+            <div className="flex justify-center gap-4">
+              <Link href="/contact">
+                <Button size="lg" className="rounded-full">
+                  Get in Touch
+                </Button>
+              </Link>
+              <Link href="/Portfolio/All">
+                <Button variant="outline" size="lg" className="rounded-full">
+                  View Projects
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
-    </div>
-  )
-}
-
-function AwardIcon(props:any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526" />
-      <circle cx="12" cy="8" r="6" />
-    </svg>
-  )
-}
-
-
-function BriefcaseIcon(props:any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-      <rect width="20" height="14" x="2" y="6" rx="2" />
-    </svg>
-  )
-}
-
-
-function HeartIcon(props:any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-    </svg>
-  )
-}
-
-
-function RocketIcon(props:any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" />
-      <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
-      <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
-      <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
-    </svg>
-  )
-}
-
-
-function ScalingIcon(props:any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-      <path d="M14 15H9v-5" />
-      <path d="M16 3h5v5" />
-      <path d="M21 3 9 15" />
-    </svg>
-  )
-}
-
-
-function UsersIcon(props:any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-      <circle cx="9" cy="7" r="4" />
-      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-    </svg>
+    </main>
   )
 }

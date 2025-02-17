@@ -8,76 +8,120 @@ import { Button } from './ui/button';
 
 const Footer = () => {
   return (
-    <section className='w-screen border border-t-gray-200'>
-      <div>
-        <div className=' py-20 px-10 justify-between grid gap-10 sm:grid-cols-2'>
-      <div className=''> 
-<div className='pb-5' >
-  
-    <Image
-      src="/images/BI Structure/BI Structure.png"
-      alt="BI Structure Logo"
-      width={100}
-      height={100}
-      className="dark:hidden"
-    />
-    <Image
-      src="/images/BI Structure/BI Structure white.png"
-      alt="BI Structure Logo"
-      width={100}
-      height={100}
-      className="hidden dark:!block"
-    />
-  
-</div>
-<div className='flex flex-col gap-2 justify-center '>
-  <p className='font-bold'>{`Get 15% off your first order!`}</p>
-  <p className='text-sm max-w-lg'>{`Sign up to our mailing list below to get 15% off your first order. Don't worry, we hate spam too.`}</p>
-</div>
-<div className='flex lg:min-w-96 gap-10 items-center pt-4 px-2'>
-  <Input placeholder='Enter your email'/>
-  <Button variant={"default"}>Subscribe</Button>
-</div>
-      </div>
-      <div className='grid  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-evenly gap-10 px-10 pt-10'> 
-        <div>
-          <h4>Services</h4>
-          <ul className='flex flex-col gap-5 pt-8 text-sm'>
-            <Link href={'/services/'}><li>Data Analysis</li></Link>
-            <Link href={'/services/'}><li>Data Science</li></Link>
-            <Link href={'/services/'}><li>Web Development</li></Link>
-          </ul>
-        </div>
-        <div>
-          <h4>All-Access Pass</h4>
-          <ul className='flex flex-col gap-5 pt-8 text-sm'>
-            <li>Sign Up</li>
-            <li>Login In</li>
-            <li>Reset Password</li>
-          </ul>
-        </div>
-        <div>
-          <h4>Information</h4>
-          <ul className='flex flex-col gap-5 pt-8 text-sm'>
-            <li>FAQs</li>
-            <Link href={"/Contact/"}><li>Contact Us</li></Link>
-            <li>Privacy Policy</li>
-          </ul>
-        </div>
-      </div>
-      </div>
-      <div>
-        <div className='flex justify-between px-10 py-3 border border-t-gray-300'>
-          <p className='text-sm'>This is my portfolio website created by <span className='text-destructive dark:text-red-500'>Rao Hamza Tariq</span></p>
-          <div className='flex gap-2 text-xl'>
-            <FaLinkedin href={"https://www.linkedin.com/in/rao-hamza-tariq/?originalSubdomain=pk"}/>
-            <FaXTwitter href='https://twitter.com/rao_hamza_tariq'/>
+    <footer className="relative w-full border-t border-primary/10 bg-gradient-to-b from-background to-background/95 backdrop-blur-sm dark:from-gray-900 dark:to-gray-950">
+      <div className="container mx-auto">
+        <div className="grid gap-16 py-16 md:grid-cols-2">
+          {/* Left Column */}
+          <div className="space-y-8">
+            <div className="transition-transform hover:scale-105">
+              <Image
+                src="/images/BI Structure/BI Structure.png"
+                alt="BI Structure Logo"
+                width={120}
+                height={120}
+                className="dark:hidden"
+              />
+              <Image
+                src="/images/BI Structure/BI Structure white.png"
+                alt="BI Structure Logo"
+                width={120}
+                height={120}
+                className="hidden dark:block"
+              />
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent dark:from-primary/80 dark:to-primary/40">
+                Get 15% off your first order!
+              </h3>
+              <p className="text-muted-foreground max-w-md dark:text-gray-400">
+               {" Sign up to our mailing list below to get 15% off your first order. Don't worry, we hate spam too."}
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md">
+              <Input 
+                placeholder="Enter your email" 
+                className="flex-1 rounded-full border-primary/20 focus:border-primary dark:bg-gray-800 dark:border-gray-700 dark:focus:border-primary"
+              />
+              <Button className="rounded-full hover:scale-105 transition-transform dark:bg-primary/90 dark:hover:bg-primary">
+                Subscribe
+              </Button>
+            </div>
           </div>
-        </div>  
-      </div>
 
+          {/* Right Column - Links Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div className="space-y-4">
+              <h4 className="font-bold text-lg bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent dark:from-primary/80 dark:to-primary/40">Services</h4>
+              <ul className="space-y-3">
+                <li>
+                  <Link href="/services" className="text-muted-foreground hover:text-primary transition-colors dark:text-gray-400 dark:hover:text-primary">
+                    Data Analysis
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services" className="text-muted-foreground hover:text-primary transition-colors dark:text-gray-400 dark:hover:text-primary">
+                    Data Science
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/services" className="text-muted-foreground hover:text-primary transition-colors dark:text-gray-400 dark:hover:text-primary">
+                    Web Development
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div className="space-y-4">
+              <h4 className="font-bold text-lg bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent dark:from-primary/80 dark:to-primary/40">All-Access Pass</h4>
+              <ul className="space-y-3">
+                <li className="text-muted-foreground hover:text-primary transition-colors cursor-pointer dark:text-gray-400 dark:hover:text-primary">Sign Up</li>
+                <li className="text-muted-foreground hover:text-primary transition-colors cursor-pointer dark:text-gray-400 dark:hover:text-primary">Login In</li>
+                <li className="text-muted-foreground hover:text-primary transition-colors cursor-pointer dark:text-gray-400 dark:hover:text-primary">Reset Password</li>
+              </ul>
+            </div>
+
+            <div className="space-y-4">
+              <h4 className="font-bold text-lg bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent dark:from-primary/80 dark:to-primary/40">Information</h4>
+              <ul className="space-y-3">
+                <li className="text-muted-foreground hover:text-primary transition-colors cursor-pointer dark:text-gray-400 dark:hover:text-primary">FAQs</li>
+                <li>
+                  <Link href="/Contact" className="text-muted-foreground hover:text-primary transition-colors dark:text-gray-400 dark:hover:text-primary">
+                    Contact Us
+                  </Link>
+                </li>
+                <li className="text-muted-foreground hover:text-primary transition-colors cursor-pointer dark:text-gray-400 dark:hover:text-primary">Privacy Policy</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-primary/10 py-6 px-4 dark:border-gray-800">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-muted-foreground text-center sm:text-left dark:text-gray-400">
+              This is my portfolio website created by{" "}
+              <span className="text-primary font-medium dark:text-primary/80">Rao Hamza Tariq</span>
+            </p>
+            <div className="flex gap-4">
+              <Link 
+                href="https://www.linkedin.com/in/rao-hamza-tariq" 
+                target="_blank"
+                className="text-muted-foreground hover:text-primary transition-colors dark:text-gray-400 dark:hover:text-primary"
+              >
+                <FaLinkedin className="w-5 h-5" />
+              </Link>
+              <Link 
+                href="https://twitter.com/rao_hamza_tariq" 
+                target="_blank"
+                className="text-muted-foreground hover:text-primary transition-colors dark:text-gray-400 dark:hover:text-primary"
+              >
+                <FaXTwitter className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+    </footer>
   );
 }
 

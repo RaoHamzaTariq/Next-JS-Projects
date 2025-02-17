@@ -1,5 +1,8 @@
+const { fontFamily } = require("tailwindcss/defaultTheme")
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: ["class"],
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -7,6 +10,13 @@ module.exports = {
     './src/**/*.{ts,tsx}',
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
+    },
     extend: {
   		colors: {
   			border: 'hsl(var(--border))',
@@ -16,7 +26,16 @@ module.exports = {
   			foreground: 'hsl(var(--foreground))',
   			primary: {
   				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
+  				foreground: 'hsl(var(--primary-foreground))',
+  				'10': 'hsl(var(--primary) / 0.1)',
+  				'20': 'hsl(var(--primary) / 0.2)',
+  				'30': 'hsl(var(--primary) / 0.3)',
+  				'40': 'hsl(var(--primary) / 0.4)',
+  				'50': 'hsl(var(--primary) / 0.5)',
+  				'60': 'hsl(var(--primary) / 0.6)',
+  				'70': 'hsl(var(--primary) / 0.7)',
+  				'80': 'hsl(var(--primary) / 0.8)',
+  				'90': 'hsl(var(--primary) / 0.9)',
   			},
   			secondary: {
   				DEFAULT: 'hsl(var(--secondary))',
@@ -47,6 +66,9 @@ module.exports = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
+  		},
+  		fontFamily: {
+  			sans: ["var(--font-sans)", ...fontFamily.sans],
   		},
   		keyframes: {
   			'accordion-down': {
