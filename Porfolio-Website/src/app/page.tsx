@@ -17,7 +17,7 @@ import React from "react";
 export default function Home() {
   return (
   <>
-    <main className="bg-background dark:bg-background">
+    <main className="bg-background dark:bg-background min-h-screen w-full">
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-8 px-4 md:px-8 lg:px-16 py-20 
         bg-gradient-to-b from-background/95 to-background/50 
@@ -33,8 +33,8 @@ export default function Home() {
           blur-3xl" />
         
         {/* Content */}
-        <div className="flex-1 max-w-2xl space-y-6 text-center md:text-left animate-in slide-in-from-left duration-500 relative z-10">
-          <div className="inline-flex items-center justify-center md:justify-start space-x-2">
+        <div className="flex-1 max-w-2xl mx-auto space-y-6 text-center md:text-left animate-in slide-in-from-left duration-500 relative z-10">
+          <div className="inline-flex items-center justify-center md:justify-start space-x-2 flex-wrap gap-2">
             <span className="px-4 py-2 rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary/90 font-medium text-sm backdrop-blur-sm
               hover:scale-105 transition-transform cursor-default">
               {`I'm Rao Hamza Tariq`}
@@ -44,19 +44,19 @@ export default function Home() {
               Available for Work
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight 
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight 
             bg-gradient-to-r from-primary via-primary/80 to-primary/60 
             text-transparent bg-clip-text
             animate-gradient-x">
             Full Stack Developer, Data Analyst & AI Agent Developer
           </h1>
-          <p className="text-lg text-muted-foreground dark:text-muted-foreground/90 max-w-xl
+          <p className="text-base sm:text-lg text-muted-foreground dark:text-muted-foreground/90 max-w-xl mx-auto md:mx-0
             hover:text-primary transition-colors duration-300">
             {`I am a skilled Data Analyst, Web Developer, and Power BI Developer, specializing in transforming data into insights and building user-friendly web solutions to help you achieve your goals.`}
           </p>
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
-            <Link href="/Portfolio/All">
-              <Button size="lg" className="rounded-full font-medium 
+            <Link href="/Portfolio/All" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full sm:w-auto rounded-full font-medium 
                 hover:scale-105 transition-all duration-300 backdrop-blur-sm
                 dark:bg-primary dark:text-primary-foreground
                 dark:hover:bg-primary/90
@@ -66,8 +66,8 @@ export default function Home() {
                 View my Projects
               </Button>
             </Link>
-            <Link href="/contact">
-              <Button variant="outline" size="lg" className="rounded-full font-medium 
+            <Link href="/contact" className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full font-medium 
                 hover:scale-105 transition-all duration-300 backdrop-blur-sm
                 dark:border-primary/20 dark:hover:bg-primary/10
                 dark:text-primary/90
@@ -100,14 +100,14 @@ export default function Home() {
         </div>
 
         {/* Profile Image with Enhanced Effects */}
-        <div className="flex-1 flex justify-center items-center animate-in slide-in-from-right duration-500 relative z-10">
-          <div className="relative">
+        <div className="flex-1 flex justify-center items-center animate-in slide-in-from-right duration-500 relative z-10 mt-8 md:mt-0">
+          <div className="relative w-full max-w-[500px]">
             <div className="absolute -inset-1 bg-gradient-to-r from-primary via-primary/60 to-primary/40
               dark:from-primary/80 dark:via-primary/40 dark:to-primary/20 
               rounded-full blur-2xl opacity-30 animate-pulse"></div>
             <div className="relative group perspective">
               <Image 
-                className="relative object-contain w-[300px] md:w-[400px] lg:w-[500px] 
+                className="relative w-full h-auto object-contain 
                   transition-all duration-500 rounded-2xl
                   dark:brightness-90
                   group-hover:transform group-hover:rotate-y-12 group-hover:scale-105"
@@ -126,199 +126,299 @@ export default function Home() {
       </section>
 
       {/* Rest of the sections */}
-      <section className="my-16">
+      <section className="my-16 px-4">
         <FeatureProjectsCarousal/>
       </section>
-      <section className="w-full py-20 md:py-32 bg-[#1a1b1e] text-white">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-8 text-center">
-            <div className="space-y-4">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
-              Why Choose Me for Your Projects
-              </h2>
-              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              {`I offer a wide range of services, including data science, data analysis, web development, and Power BI dashboard creation. No matter what your project needs, I have the skills to help you succeed.`}
-              </p>
-            </div>
-            <div className="mx-auto grid max-w-5xl items-start gap-8 sm:grid-cols-2 md:gap-12 lg:grid-cols-3">
-              <div className="grid gap-4">
-                <div className="flex items-center gap-4">
-                  <MdInsights className="h-8 w-8 text-primary" />
-                  <h3 className="text-xl font-bold">Insightful Data Analysis</h3>
-                </div>
-                <p className="text-muted-foreground">
-                  {`With my data analysis expertise, I can uncover valuable insights from your data, helping you understand trends, customer behavior, and operational efficiency for informed decision-making.`}
-                </p>
-              </div>
-              <div className="grid gap-4">
-                <div className="flex items-center gap-4">
-                  <FaCode className="h-8 w-8 text-primary" />
-                  <h3 className="text-xl font-bold">Machine Learning Expertise</h3>
-                </div>
-                <p className="text-muted-foreground">
-                {`I specialize in developing machine learning models that predict outcomes and optimize processes, creating tailored solutions for forecasting sales or improving customer experiences.`}
-                </p>
-              </div>
-              <div className="grid gap-4">
-                <div className="flex items-center gap-4">
-                  <FaRobot className="h-8 w-8 text-primary" />
-                  <h3 className="text-xl font-bold">Engaging Data Visualization</h3>
-                </div>
-                <p className="text-muted-foreground">
-                  {`I create clear and interactive visualizations that make complex data easy to understand, using tools like Power BI to help you track key metrics and tell a compelling data story.`}
-                </p>
-              </div>
-              <div className="grid gap-4">
-                <div className="flex items-center gap-4">
-                  <FaCheckSquare className="h-8 w-8 text-primary" />
-                  <h3 className="text-xl font-bold">Custom Web Development</h3>
-                </div>
-                <p className="text-muted-foreground">
-                  {`I build websites that are visually appealing, functional, and user-friendly, whether you need a simple site or a complex web application tailored to your needs.`}
-                </p>
-              </div>
-              <div className="grid gap-4">
-                <div className="flex items-center gap-4">
-                  <FaComments className="h-8 w-8 text-primary" />
-                  <h3 className="text-xl font-bold">Strong Commnunication</h3>
-                </div>
-                <p className="text-muted-foreground">
-                  {`I prioritize open communication throughout our collaboration, ensuring you are always updated on project progress and available to answer any questions.`}
-                </p>
-              </div>
-              <div className="grid gap-4">
-                <div className="flex items-center gap-4">
-                  <RiDashboard2Line className="h-8 w-8 text-primary" />
-                  <h3 className="text-xl font-bold">Commitment to Quality</h3>
-                </div>
-                <p className="text-muted-foreground">
-                  {`I am dedicated to delivering high-quality results, putting in the effort needed to ensure your project meets the highest standards.`}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section>
-        <StackCarousal/>
-      </section>
-      <section className="relative py-20 sm:py-32 overflow-hidden">
+      <section className="relative w-full py-16 md:py-24 lg:py-32 overflow-hidden">
         {/* Animated background elements */}
-        <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-        <div className="absolute top-20 left-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[conic-gradient(from_0deg_at_50%_50%,var(--primary)_0%,transparent_60%)] opacity-20 animate-spin-slow" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,var(--primary)_0%,transparent_50%)] opacity-10 animate-pulse" />
+          <div className="absolute inset-0 bg-grid-pattern opacity-[0.08] mix-blend-overlay" />
+          <div className="absolute -top-40 -left-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-morph" />
+          <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-morph animation-delay-2000" />
+        </div>
 
-        <div className="relative container mx-auto px-4 space-y-20">
-          <div className="flex flex-col gap-5 justify-center text-center items-center animate-fade-in">
-            <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl lg:text-6xl bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-              Choose Your Services Plan
-            </h1>
-            <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              {`Select the perfect plan tailored to your needs, whether you're looking for expert data analysis, cutting-edge data science solutions, or innovative web development services.`}
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Modern Animated Header */}
+          <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8 lg:space-y-10 mb-12 sm:mb-16 lg:mb-24">
+            <div 
+              className="inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-primary/5 backdrop-blur-xl
+              hover:bg-primary/10 transition-all duration-700 animate-float border border-primary/10 hover:border-primary/20"
+            >
+              <span className="text-primary text-sm sm:text-base font-medium tracking-wide">Why Choose Me</span>
+            </div>
+            
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight 
+              bg-gradient-to-br from-primary via-primary/90 to-primary/70 
+              bg-clip-text text-transparent animate-gradient-xy"
+            >
+              Services I Provide
+            </h2>
+            
+            <p className="text-base sm:text-lg lg:text-xl text-muted-foreground/90 dark:text-muted-foreground/80 
+              max-w-2xl mx-auto animate-fade-in-up leading-relaxed px-4"
+            >
+              From data analysis to web development, I offer comprehensive solutions tailored to your needs
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 items-stretch container mx-auto">
-            <div className="group">
-              <Card className="p-6 h-full transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/10 backdrop-blur-sm bg-background/95 border-primary/20">
-                <CardHeader>
-                  <CardTitle className="text-4xl bg-gradient-to-r from-[#FF6B6B] to-[#FF8E53] bg-clip-text text-transparent">
-                    Data Analysis
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">Transforming your data into useful insights using Python, Power BI and SQL.</p>
-                  <div className="space-y-2 mt-6">
-                    <h4>Starts from</h4>
-                    <span className="text-5xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">$14.99</span>
+          {/* Service Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+            {[
+              {
+                icon: <MdInsights className="h-8 w-8" />,
+                title: "Insightful Data Analysis",
+                description: "Transform raw data into actionable insights that drive business growth and informed decision-making."
+              },
+              {
+                icon: <FaCode className="h-8 w-8" />,
+                title: "Machine Learning Expertise",
+                description: "Develop predictive models and optimize processes using cutting-edge machine learning techniques."
+              },
+              {
+                icon: <FaRobot className="h-8 w-8" />,
+                title: "Engaging Data Visualization",
+                description: "Create interactive and intuitive visualizations that make complex data easily understandable."
+              },
+              {
+                icon: <FaCheckSquare className="h-8 w-8" />,
+                title: "Custom Web Development",
+                description: "Build modern, responsive websites and web applications tailored to your specific requirements."
+              },
+              {
+                icon: <FaComments className="h-8 w-8" />,
+                title: "Strong Communication",
+                description: "Maintain transparent communication throughout project development for optimal collaboration."
+              },
+              {
+                icon: <RiDashboard2Line className="h-8 w-8" />,
+                title: "Commitment to Quality",
+                description: "Deliver excellence in every project with meticulous attention to detail and best practices."
+              }
+            ].map((service, index) => (
+              <div
+                key={index}
+                className="group relative p-6 sm:p-8 
+                  backdrop-blur-xl bg-background/30 dark:bg-background/10
+                  border border-primary/5 dark:border-primary/10 rounded-2xl
+                  hover:border-primary/20 dark:hover:border-primary/30
+                  transition-all duration-700 hover:scale-[1.02]
+                  hover:shadow-2xl hover:shadow-primary/10
+                  animate-float-slow"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                {/* Enhanced glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/5 to-primary/0 
+                  opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-700" />
+                
+                <div className="relative flex flex-col gap-4">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 rounded-xl bg-primary/10 dark:bg-primary/20 
+                      group-hover:bg-primary/20 dark:group-hover:bg-primary/30 
+                      transition-colors duration-500 text-primary">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-semibold 
+                      bg-gradient-to-br from-primary to-primary/80 
+                      bg-clip-text text-transparent">
+                      {service.title}
+                    </h3>
                   </div>
-                  <Button className="w-full mt-6 py-6 text-lg group-hover:bg-primary/90 transition-colors">Get Started</Button>
-                  <div className="mt-7">
-                    <h4 className="text-primary">Services includes</h4>
-                    <ul className="list-none mt-4 space-y-3">
-                      {["Data Cleaning", "Data Featuring", "Exploratory Data Analysis", "Data Modeling", "Data Visualization"].map((item, i) => (
-                        <li key={i} className="flex items-center gap-2 transition-transform hover:translate-x-2">
-                          <span className="text-primary">✔</span> {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="relative group">
-              <div className="absolute -inset-[2px] bg-gradient-to-r from-primary to-primary/60 rounded-xl animate-pulse" />
-              <div className="absolute -top-8 left-1/2 -translate-x-1/2 py-2 px-4 bg-primary text-white rounded-full whitespace-nowrap">
-                MOST POPULAR 🔥
+                  
+                  <p className="text-sm sm:text-base text-muted-foreground/90 dark:text-muted-foreground/80
+                    leading-relaxed group-hover:text-muted-foreground transition-colors duration-500">
+                    {service.description}
+                  </p>
+                </div>
               </div>
-              <Card className="p-6 h-full relative backdrop-blur-sm bg-background/95">
-                <CardHeader>
-                  <CardTitle className="text-4xl bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-                    Data Science
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">Make your own predictive model using Machine Learning.</p>
-                  <div className="space-y-2 mt-6">
-                    <h4>Starts from</h4>
-                    <span className="text-5xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">$19.99</span>
-                  </div>
-                  <Button className="w-full mt-6 py-6 text-lg group-hover:bg-primary/90 transition-colors">Get Started</Button>
-                  <div className="mt-7">
-                    <h4 className="text-primary">Services includes</h4>
-                    <ul className="list-none mt-4 space-y-3">
-                      {["Data Cleaning", "Data Modelling", "Machine Learning Model", "Database Integration", "Model Deployment"].map((item, i) => (
-                        <li key={i} className="flex items-center gap-2 transition-transform hover:translate-x-2">
-                          <span className="text-primary">✔</span> {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="group">
-              <Card className="p-6 h-full transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-primary/10 backdrop-blur-sm bg-background/95 border-primary/20">
-                <CardHeader>
-                  <CardTitle className="text-4xl bg-gradient-to-r from-[#4158D0] to-[#C850C0] bg-clip-text text-transparent">
-                    Web Development
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">Build your modern website using Next JS, Tailwind CSS and Shadcn UI.</p>
-                  <div className="space-y-2 mt-6">
-                    <h4>Starts from</h4>
-                    <span className="text-5xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">$24.99</span>
-                  </div>
-                  <Button className="w-full mt-6 py-6 text-lg group-hover:bg-primary/90 transition-colors">Get Started</Button>
-                  <div className="mt-7">
-                    <h4 className="text-primary">Services includes</h4>
-                    <ul className="list-none mt-4 space-y-3">
-                      {["Responsive Design", "Fully Functional", "SEO Optimization", "Database Integration", "Multiple Rendering Techniques"].map((item, i) => (
-                        <li key={i} className="flex items-center gap-2 transition-transform hover:translate-x-2">
-                          <span className="text-primary">✔</span> {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
+      <section className="py-16">
+        <StackCarousal/>
+      </section>
 
-      <section className="grid md:grid-cols-2 sm:grid-cols-1 my-10">
-        <FAQs/>
-        <div className="mt-24">
-          <Image src={FAQS} alt={""} width={500} height={500}/>
+      <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 xl:py-40 overflow-hidden">
+        {/* Enhanced animated background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[linear-gradient(40deg,var(--primary)_0%,transparent_50%)] opacity-[0.1]" />
+          <div className="absolute inset-0 bg-[linear-gradient(210deg,var(--primary)_0%,transparent_50%)] opacity-[0.1]" />
+          <div className="absolute h-full w-full bg-grid-pattern opacity-[0.15]" />
+          <div className="absolute top-0 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-0 right-0 w-72 sm:w-96 h-72 sm:h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+        </div>
+
+        <div className="container relative mx-auto px-4 sm:px-6">
+          {/* Enhanced Header */}
+          <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+            <div className="inline-flex items-center justify-center p-2 sm:p-3 rounded-2xl bg-primary/10 mb-6 sm:mb-8 animate-fade-in hover:bg-primary/20 transition-colors duration-300">
+              <span className="text-primary font-semibold text-base sm:text-lg">Premium Services</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight bg-gradient-to-r from-primary via-primary/90 to-primary/70 bg-clip-text text-transparent animate-gradient-x">
+              Choose Your Perfect Plan
+            </h2>
+            <p className="mt-4 sm:mt-6 md:mt-8 text-muted-foreground text-base sm:text-lg md:text-xl animate-in slide-in-from-bottom duration-700 delay-200 max-w-2xl mx-auto px-4">
+              Unlock the full potential of your data and web presence with our comprehensive solutions
+            </p>
+          </div>
+
+          {/* Enhanced Pricing Cards */}
+          <div className="grid gap-8 sm:gap-10 lg:gap-12 max-w-7xl mx-auto sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                name: "Data Analysis",
+                description: "Transform raw data into actionable insights that drive business growth",
+                price: "$14.99",
+                features: [
+                  "Advanced Data Cleaning & Processing",
+                  "Comprehensive Statistical Analysis",
+                  "Interactive Dynamic Dashboards",
+                  "Automated Custom Reporting",
+                  "Strategic Data Consulting"
+                ],
+                gradient: "from-blue-500 via-blue-400 to-cyan-400",
+                delay: 100
+              },
+              {
+                name: "Data Science",
+                description: "Harness the power of AI and machine learning for predictive insights",
+                price: "$19.99",
+                popular: true,
+                features: [
+                  "Custom ML Model Development",
+                  "Deep Learning & Neural Networks",
+                  "Real-time Prediction Systems",
+                  "Production Model Deployment",
+                  "AI Performance Optimization"
+                ],
+                gradient: "from-primary via-violet-500 to-violet-400",
+                delay: 200
+              },
+              {
+                name: "Web Development",
+                description: "Build modern, scalable, and high-performance web applications",
+                price: "$24.99", 
+                features: [
+                  "Full-Stack Custom Development",
+                  "Responsive & Interactive Design",
+                  "Advanced API Integration",
+                  "Performance & SEO Optimization",
+                  "Secure Cloud Deployment"
+                ],
+                gradient: "from-pink-500 via-rose-500 to-rose-400",
+                delay: 300
+              }
+            ].map((plan, index) => (
+              <div 
+                key={index}
+                className={`relative transform hover:scale-105 transition-all duration-500 ${plan.popular ? 'lg:-mt-8' : ''}`}
+                style={{
+                  animationDelay: `${plan.delay}ms`
+                }}
+              >
+                {plan.popular && (
+                  <div className="absolute -top-6 sm:-top-8 inset-x-0 flex justify-center">
+                    <span className="inline-flex items-center gap-2 py-1.5 sm:py-2 px-3 sm:px-4 rounded-full text-sm font-semibold bg-primary text-white shadow-xl animate-bounce">
+                      Most Popular <span className="text-base">✨</span>
+                    </span>
+                  </div>
+                )}
+
+                <div className={`h-full rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 backdrop-blur-sm border-2 transition-all duration-500
+                  ${plan.popular 
+                    ? 'bg-primary/[0.05] border-primary/40 hover:border-primary/60 hover:bg-primary/[0.08] shadow-xl shadow-primary/20' 
+                    : 'bg-background/70 border-border hover:border-primary/30 hover:bg-background/90 hover:shadow-lg'
+                  }
+                  group animate-in slide-in-from-bottom`}
+                >
+                  <div className="space-y-6 sm:space-y-8">
+                    <h3 className={`text-2xl sm:text-3xl font-bold bg-gradient-to-r ${plan.gradient} bg-clip-text text-transparent`}>
+                      {plan.name}
+                    </h3>
+                    <p className="text-base sm:text-lg text-muted-foreground">{plan.description}</p>
+                    
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">{plan.price}</span>
+                      <span className="text-base sm:text-lg text-muted-foreground">/month</span>
+                    </div>
+
+                    <Button className={`w-full rounded-xl py-5 sm:py-7 text-base sm:text-lg font-semibold transition-all duration-500
+                      ${plan.popular 
+                        ? 'bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl shadow-primary/30 hover:shadow-primary/50' 
+                        : 'bg-primary/10 text-primary hover:bg-primary/20 hover:shadow-lg'
+                      }
+                      hover:scale-[1.02]`}>
+                      Get Started Now
+                    </Button>
+
+                    <div className="space-y-4 sm:space-y-6 pt-6 sm:pt-8">
+                      <p className="text-base sm:text-lg font-medium">{"What's included:"}</p>
+                      <ul className="space-y-3 sm:space-y-4">
+                        {plan.features.map((feature, i) => (
+                          <li key={i} className="flex items-center gap-3 sm:gap-4 text-muted-foreground group-hover:text-foreground/90 transition-colors">
+                            <svg className="w-5 h-5 sm:w-6 sm:h-6 text-primary flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                            </svg>
+                            <span className="text-sm sm:text-base">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
+      <section className="relative overflow-hidden px-4 py-16 md:py-24 lg:py-32">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.05] mix-blend-overlay" />
+        <div className="absolute -top-40 -left-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-morph" />
+        <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-morph animation-delay-2000" />
+        
+        <div className="container mx-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            {/* FAQ Section */}
+            <div className="w-full lg:w-3/5 animate-in slide-in-from-left duration-700">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 blur-3xl" />
+                <div className="relative backdrop-blur-sm">
+                  <FAQs />
+                </div>
+              </div>
+            </div>
+
+            {/* Image Section */}
+            <div className="w-full lg:w-2/5 animate-in slide-in-from-right duration-700">
+              <div className="relative group">
+                {/* Decorative elements */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 to-primary/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition duration-500" />
+                <div className="relative">
+                  <div className="p-1 bg-gradient-to-r from-primary/20 to-primary/10 rounded-2xl backdrop-blur-xl">
+                    <Image 
+                      src={FAQS} 
+                      alt="FAQs illustration" 
+                      width={600}
+                      height={600}
+                      className="w-full h-auto rounded-xl transform transition-transform duration-500 group-hover:scale-[1.02] animate-float"
+                      priority
+                    />
+                  </div>
+                </div>
+                
+                {/* Floating elements */}
+                <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/30 rounded-full blur-sm animate-bounce" />
+                <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-primary/20 rounded-full blur-sm animate-bounce animation-delay-500" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   </>
   );

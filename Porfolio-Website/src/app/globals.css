@@ -6,70 +6,75 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 224 71.4% 4.1%;
+    --background: 280 25% 98%;
+    --foreground: 278 75% 15%;
     --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
+    --card-foreground: 278 75% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
-    --primary: 262.1 83.3% 57.8%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 220.9 39.3% 11%;
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
-    --accent: 220 14.3% 95.9%;
-    --accent-foreground: 220.9 39.3% 11%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 262.1 83.3% 57.8%;
+    --popover-foreground: 278 75% 15%;
+    --primary: 267 75% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 270 55% 91%;
+    --secondary-foreground: 278 75% 15%;
+    --muted: 270 55% 91%;
+    --muted-foreground: 270 35% 45%;
+    --accent: 273 75% 95%;
+    --accent-foreground: 267 75% 30%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 270 30% 90%;
+    --input: 270 30% 90%;
+    --ring: 267 75% 50%;
     --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --chart-1: 267 75% 50%;
+    --chart-2: 290 70% 60%;
+    --chart-3: 245 70% 55%;
+    --chart-4: 310 65% 55%;
+    --chart-5: 225 75% 60%;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 267 84% 52%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 72% 35.6%;
+    --background: 280 50% 8%;
+    --foreground: 270 25% 98%;
+    --card: 280 50% 8%;
+    --card-foreground: 270 25% 98%;
+    --popover: 280 50% 8%;
+    --popover-foreground: 270 25% 98%;
+    --primary: 267 85% 65%;
+    --primary-foreground: 270 25% 98%;
+    --secondary: 280 25% 20%;
+    --secondary-foreground: 270 25% 98%;
+    --muted: 280 25% 20%;
+    --muted-foreground: 270 35% 75%;
+    --accent: 273 75% 25%;
+    --accent-foreground: 267 85% 65%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 267 84% 52%;
-    --chart-1: 200 95% 55%;
-    --chart-2: 150 85% 45%;
-    --chart-3: 35 90% 55%;
-    --chart-4: 290 80% 60%;
-    --chart-5: 330 85% 55%;
+    --border: 280 25% 20%;
+    --input: 280 25% 20%;
+    --ring: 267 85% 65%;
+    --chart-1: 267 85% 65%;
+    --chart-2: 290 80% 70%;
+    --chart-3: 245 80% 65%;
+    --chart-4: 310 75% 65%;
+    --chart-5: 225 85% 70%;
   }
 }
 
 
 @layer base {
   * {
-    border-color: hsl(var(--border));
+    @apply border-border;
   }
   
   body {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
+    @apply bg-background text-foreground;
+    background-image: linear-gradient(
+      to bottom right,
+      hsl(var(--background)),
+      hsl(var(--accent))
+    );
+    background-attachment: fixed;
   }
   
 } 
@@ -98,6 +103,7 @@ body{
   @apply min-h-[546px] sm:min-h-[100vh] w-[100vw]  overflow-x-hidden
 }
 
+/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -106,12 +112,74 @@ body{
     opacity: 1;
   }
 }
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .animate-fade-in {
-  animation: fadeIn 0.5s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+.animate-rotate-slow {
+  animation: rotateSlow 20s linear infinite;
+}
+
+.animate-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animate-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animate-delay-500 {
+  animation-delay: 500ms;
+}
+
+.animate-delay-600 {
+  animation-delay: 600ms;
+}
+
+.animate-delay-700 {
+  animation-delay: 700ms;
+}
+
+.animate-delay-800 {
+  animation-delay: 800ms;
 }
 
 .bg-grid-pattern {
   background-size: 30px 30px;
-  background-image: linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-image: linear-gradient(to right, hsl(var(--primary) / 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--primary) / 0.07) 1px, transparent 1px);
+  backdrop-filter: blur(5px);
 } 

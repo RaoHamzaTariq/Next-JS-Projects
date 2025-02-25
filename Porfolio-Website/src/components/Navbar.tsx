@@ -61,12 +61,27 @@ export const components: { title: string; href: string; description: string }[] 
 
 const Navbar = () => {
   return (
-    <Card className='m-0 z-10 p-0 fixed w-screen border-none rounded-none bg-transparent backdrop-blur-lg'>
+    <Card className='m-0 z-50 p-0 fixed w-screen border-none rounded-none bg-transparent backdrop-blur-lg'>
     <div className="shadow-sm py-3">
     <div className='block sm:hidden  ml-5'>
 
 <div className="flex justify-between items-center">
-<h3 className="">BI Structure</h3>
+<div className="flex items-center">
+  <Image
+    src="/images/BI Structure/BI Structure.png"
+    alt="BI Structure Logo"
+    width={80}
+    height={80}
+    className="dark:hidden"
+  />
+  <Image
+    src="/images/BI Structure/BI Structure white.png"
+    alt="BI Structure Logo"
+    width={80}
+    height={80}
+    className="hidden dark:block"
+  />
+</div>
 <div className="mr-5 flex items-center gap-2">
   <div className="flex sm:hidden">
   <ModeToggle/>
@@ -77,7 +92,22 @@ const Navbar = () => {
   <Button variant="outline" className="p-2"><IoMenuSharp/></Button>
 </SheetTrigger>
 <SheetContent>
-  <h1 className="scroll-m-20 text-2xl font-semibold tracking-tight">BI Structure</h1>
+  <div className="flex items-center mb-6">
+    <Image
+      src="/images/BI Structure/BI Structure.png"
+      alt="BI Structure Logo"
+      width={80}
+      height={80}
+      className="dark:hidden"
+    />
+    <Image
+      src="/images/BI Structure/BI Structure white.png"
+      alt="BI Structure Logo"
+      width={80}
+      height={80}
+      className="hidden dark:block"
+    />
+  </div>
   <Command> 
 <CommandList>
 <CommandGroup className="mt-5">
@@ -156,7 +186,7 @@ const Navbar = () => {
                 Rao Hamza Tariq
               </div>
               <p className="text-sm leading-tight text-muted-foreground">
-                Data Analyst | Junior Data Scientist | Full Stack Web Developer
+                Data Analyst | Agentic AI Developer | Full Stack Web Developer
               </p>
             </a>
           </NavigationMenuLink>
@@ -164,8 +194,8 @@ const Navbar = () => {
           <ListItem href="/services/DataAnalyst" title="Data Analyst">
              Transforming your data into useful insights using Python, Power BI and SQL.
           </ListItem>
-          <ListItem href="/services/DataScientist" title="Data Scientist">
-              Make your own predictive model using Machine Learning.
+          <ListItem href="/services/AgenticAI" title="Agentic AI">
+              Make your own AI Agent using LangChain, Langgraph and LLM.
           </ListItem>
           <ListItem href="/services/WebDeveloper" title="Web Developer">
               Build your modern website using Next JS, Tailwind CSS and Shadcn UI.

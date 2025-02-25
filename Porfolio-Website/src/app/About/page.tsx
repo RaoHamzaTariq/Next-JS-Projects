@@ -30,19 +30,19 @@ export default function About() {
   return (
     <main className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-24 overflow-hidden bg-background">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/50 to-background dark:from-background dark:via-background/50 dark:to-background/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-accent/5" />
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-pattern dark:bg-grid-white/[0.05]" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-transparent to-background/90" />
 
         <div className="container relative mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
             {/* Image Section */}
-            <div className="lg:w-1/2">
-        <div className="relative group">
+            <div className="lg:w-1/2 flex justify-center">
+              <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary to-primary/60 rounded-2xl blur-2xl opacity-25 group-hover:opacity-40 transition duration-500" />
-          <Image 
+                <Image 
                   src="/images/Rao Hamza Tariq.png"
                   alt="Rao Hamza Tariq"
                   width={500}
@@ -88,9 +88,11 @@ export default function About() {
       </section>
 
       {/* Skills Section */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+      <section className="py-24 relative overflow-hidden bg-primary/[0.02] dark:bg-primary/[0.03] border-t border-b border-primary/10">
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-pattern dark:bg-grid-white/[0.05]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-transparent" />
+        <div className="container relative mx-auto px-4">
+          <h2 className="text-5xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
             Core Competencies
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -131,9 +133,10 @@ export default function About() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-20 relative">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+      <section className="py-24 relative bg-background">
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-accent/5" />
+        <div className="container relative mx-auto px-4">
+          <h2 className="text-5xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
             Journey So Far
           </h2>
           <div className="max-w-3xl mx-auto space-y-8">
@@ -169,13 +172,14 @@ export default function About() {
               </div>
             ))}
           </div>
-          </div>
-       
+        </div>
       </section>
 
       {/* Statistics Section */}
-      <section className="py-20 relative overflow-hidden bg-primary/5 dark:bg-primary/10">
-        <div className="container mx-auto px-4">
+      <section className="py-24 relative overflow-hidden bg-primary/[0.03] dark:bg-primary/[0.05] border-t border-b border-primary/10">
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-pattern dark:bg-grid-white/[0.05]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/20 to-transparent" />
+        <div className="container relative mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { icon: <Globe className="h-6 w-6" />, value: "10+", label: "Countries Reached" },
@@ -184,11 +188,13 @@ export default function About() {
               { icon: <Coffee className="h-6 w-6" />, value: "1000+", label: "Cups of Coffee" },
             ].map((stat, index) => (
               <div key={index} className="text-center space-y-2 group">
-                <div className="mx-auto w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                <div className="mx-auto w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-primary/5">
                   {stat.icon}
                 </div>
-                <div className="text-3xl font-bold">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -196,18 +202,19 @@ export default function About() {
       </section>
 
       {/* Technical Skills Section */}
-      <section className="py-20 relative">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+      <section className="py-24 relative bg-background">
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-accent/5" />
+        <div className="container relative mx-auto px-4">
+          <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
             Technical Expertise
           </h2>
           <Tabs defaultValue="development" className="max-w-4xl mx-auto">
-            <TabsList className="grid w-full grid-cols-3 mb-8">
-              <TabsTrigger value="development">Development</TabsTrigger>
-              <TabsTrigger value="data">Data Science</TabsTrigger>
-              <TabsTrigger value="tools">Tools</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-3 mb-12">
+              <TabsTrigger value="development" className="text-base">Development</TabsTrigger>
+              <TabsTrigger value="data" className="text-base">Data Science</TabsTrigger>
+              <TabsTrigger value="tools" className="text-base">Tools</TabsTrigger>
             </TabsList>
-            <TabsContent value="development" className="space-y-4">
+            <TabsContent value="development" className="space-y-6 bg-card/50 p-8 rounded-xl border border-primary/10">
               {[
                 { name: "Next.js / React", value: 90 },
                 { name: "TypeScript", value: 85 },
@@ -220,10 +227,10 @@ export default function About() {
                     <span className="text-muted-foreground">{skill.value}%</span>
                   </div>
                   <Progress value={skill.value} className="h-2" />
-            </div>
+                </div>
               ))}
             </TabsContent>
-            <TabsContent value="data" className="space-y-4">
+            <TabsContent value="data" className="space-y-6 bg-card/50 p-8 rounded-xl border border-primary/10">
               {[
                 { name: "Python", value: 95 },
                 { name: "SQL", value: 90 },
@@ -236,10 +243,10 @@ export default function About() {
                     <span className="text-muted-foreground">{skill.value}%</span>
                   </div>
                   <Progress value={skill.value} className="h-2" />
-                    </div>
+                </div>
               ))}
             </TabsContent>
-            <TabsContent value="tools" className="space-y-4">
+            <TabsContent value="tools" className="space-y-6 bg-card/50 p-8 rounded-xl border border-primary/10">
               {[
                 { name: "Git & GitHub", value: 90 },
                 { name: "VS Code", value: 95 },
@@ -260,9 +267,11 @@ export default function About() {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 relative bg-primary/5 dark:bg-primary/10">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+      <section className="py-24 relative overflow-hidden bg-primary/[0.03] dark:bg-primary/[0.05] border-t border-b border-primary/10">
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-pattern dark:bg-grid-white/[0.05]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/20 to-transparent" />
+        <div className="container relative mx-auto px-4">
+          <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
             Work Values
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -298,12 +307,14 @@ export default function About() {
                 description: "Dependable partner for all your development and data needs."
               }
             ].map((value, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-all duration-300 backdrop-blur-sm bg-background/50">
-                <div className="p-6 space-y-4">
-                  <div className="p-3 rounded-lg bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors">
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 backdrop-blur-sm bg-background/50 border-primary/10">
+                <div className="p-8 space-y-4">
+                  <div className="p-3 rounded-xl bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors duration-300 shadow-lg shadow-primary/5">
                     {value.icon}
                   </div>
-                  <h3 className="text-xl font-semibold">{value.title}</h3>
+                  <h3 className="text-xl font-semibold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                    {value.title}
+                  </h3>
                   <p className="text-muted-foreground">{value.description}</p>
                 </div>
               </Card>
@@ -313,23 +324,24 @@ export default function About() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="py-20 relative">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-2xl mx-auto space-y-6">
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+      <section className="py-24 relative bg-background">
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-accent/5" />
+        <div className="container relative mx-auto px-4 text-center">
+          <div className="max-w-2xl mx-auto space-y-8">
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
               Ready to Start Your Next Project?
             </h2>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-lg">
               {"Let's collaborate to bring your ideas to life with cutting-edge technology and data-driven solutions."}
             </p>
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-center gap-6">
               <Link href="/contact">
-                <Button size="lg" className="rounded-full">
+                <Button size="lg" className="rounded-full px-8 hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-primary/25">
                   Get in Touch
                 </Button>
               </Link>
               <Link href="/Portfolio/All">
-                <Button variant="outline" size="lg" className="rounded-full">
+                <Button variant="outline" size="lg" className="rounded-full px-8 hover:scale-105 transition-transform duration-300">
                   View Projects
                 </Button>
               </Link>
