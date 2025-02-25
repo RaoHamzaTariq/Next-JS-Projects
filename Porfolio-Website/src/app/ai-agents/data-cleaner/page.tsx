@@ -27,25 +27,25 @@ interface SummaryData {
       mean: number;
       std: number;
       min: number;
-      "25%": number;
-      "50%": number;
-      "75%": number;
+      '25%': number;
+      '50%': number;
+      '75%': number;
       max: number;
     };
-  } | string;
+  };
   categorical_summary: {
     [key: string]: {
       unique_count: number;
       most_frequent_value: string;
       top_categories: { [key: string]: number };
-    } | string;
+    };
   };
-  missing_values: string;
+  missing_values: { [key: string]: number };
   correlation_matrix: {
-    [key: string]: { [key: string]: number }
-  } | string;
-  outlier_count: { [key: string]: number } | string;
-  feature_cardinality: { [key: string]: number } | string;
+    [key: string]: { [key: string]: number | null };
+  };
+  outlier_count: { [key: string]: number };
+  feature_cardinality: { [key: string]: number };
 }
 
 interface AnalysisResult {
@@ -72,9 +72,14 @@ export default function DataCleanerPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const analyzeData = async () => {
-    if (!file || !apiKey) return;
-    if (!file) setError("Please select a file");
-    if (!apiKey) setError('Please provide an Google Gemini API key');
+    if (!file) {
+      setError("Please select a file");
+      return;
+    }
+    if (!apiKey) {
+      setError('Please provide a Google Gemini API key');
+      return;
+    }
 
     setIsLoading(true);
     setError(null);
@@ -84,42 +89,84 @@ export default function DataCleanerPage() {
     formData.append('api_key', apiKey);
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_URL || undefined;
-      const response = await fetch(`${API_URL}/api/data-cleaner?query=analyze`, {
+      const response = await fetch(`/api/data-cleaner?query=analyze`, {
         method: 'POST',
         body: formData,
       });
 
       if (!response.ok) {
-        throw new Error("Failed to analyze data");
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to analyze data");
       }
 
       const data = await response.json();
-      console.log('Response data:', data); // Debugging information
+      
+      if (!data.result || !data.result.summary_data || !data.result.text) {
+        throw new Error("Invalid response format from server");
+      }
 
-      // Clean up the summary_data string and parse it into an object
-      const cleanedSummaryData = data.result.summary_data
-        .replace(/'/g, '"') // Replace single quotes with double quotes
-        .replace(/np\.int64\((\d+)\)/g, '$1') // Replace np.int64(2) with 2
-        .replace(/nan/g, 'null'); // Replace nan with null
+      try {
+        // Parse the summary_data string into an object
+        let parsedSummaryData;
+        if (typeof data.result.summary_data === 'string') {
+          // Replace single quotes with double quotes, except for those within words
+          const cleanedString = data.result.summary_data
+            .replace(/(?<=\{|,|\[)\s*'/g, '"') // Replace leading single quotes
+            .replace(/'\s*(?=\}|\]|,)/g, '"')  // Replace trailing single quotes
+            .replace(/:\s*'/g, ':"')           // Replace single quotes after colons
+            .replace(/'\s*:/g, '":')           // Replace single quotes before colons
+            .replace(/nan/g, 'null')           // Replace nan with null
+            .replace(/:\s*None/g, ':null');    // Replace None with null
 
-      const parsedSummaryData = JSON.parse(cleanedSummaryData);
-      setAnalysisResult({ ...data.result, summary_data: parsedSummaryData });
-      console.log('Set analysisResult:', { ...data.result, summary_data: parsedSummaryData }); // Debugging information
-      setStep('processing');
+          parsedSummaryData = JSON.parse(cleanedString);
+        } else {
+          parsedSummaryData = data.result.summary_data;
+        }
+
+        // Ensure numeric values in numeric_summary are properly handled
+        if (parsedSummaryData.numeric_summary) {
+          Object.entries(parsedSummaryData.numeric_summary).forEach(([key, stats]: [string, any]) => {
+            if (typeof stats === 'object') {
+              Object.entries(stats).forEach(([statKey, value]) => {
+                if (typeof value === 'string' && !isNaN(Number(value))) {
+                  stats[statKey] = Number(value);
+                }
+              });
+            }
+          });
+        }
+
+        // Set the analysis result with the properly parsed data
+        setAnalysisResult({
+          summary_data: parsedSummaryData,
+          text: data.result.text
+        });
+        
+        setStep('processing');
+      } catch (parseError) {
+        console.error('Error parsing summary data:', parseError);
+        throw new Error("Failed to parse analysis results");
+      }
     } catch (error) {
-      setError('Failed to analyze data');
-      console.log('Error:', error); // Debugging information
+      console.error('Error:', error);
+      setError(error instanceof Error ? error.message : 'Failed to analyze data');
     } finally {
       setIsLoading(false);
     }
   };
 
   const handleCleanData = async (mode: 'normal' | 'machine learning') => {
-    if (!file || !apiKey) return;
-    if (!file) setError("Please select a file");
-    if (!apiKey) setError('Please provide an API key');
+    if (!file) {
+      setError("Please select a file");
+      return;
+    }
+    if (!apiKey) {
+      setError('Please provide an API key');
+      return;
+    }
+    
     setIsLoading(true);
+    setError(null);
 
     const formData = new FormData();
     formData.append('file', file);
@@ -132,12 +179,22 @@ export default function DataCleanerPage() {
         method: 'POST',
         body: formData,
       });
+      
+      if (!responseFile.ok) {
+        const errorData = await responseFile.json();
+        throw new Error(errorData.error || "Failed to clean data");
+      }
+
+      // Get cleaning explanation
       const responseExplain = await fetch(`${API_URL}/api/data-cleaner?query=explain`, {
         method: 'POST',
         body: formData,
       });
-      if (!responseExplain.ok) throw new Error(`HTTP error! status: ${responseExplain.status}`);
-      if (!responseFile.ok) throw new Error(`HTTP error! status: ${responseFile.status}`);
+
+      if (!responseExplain.ok) {
+        const errorData = await responseExplain.json();
+        throw new Error(errorData.error || "Failed to get cleaning explanation");
+      }
 
       // Get the URL of the cleaned file
       const blob = await responseFile.blob();
@@ -145,13 +202,16 @@ export default function DataCleanerPage() {
       setCleanedFileUrl(url);
 
       // Get the explanation of the cleaning process
-      const data: DataCleaningResult = await responseExplain.json();
+      const data = await responseExplain.json();
+      if (!data.cleaning_steps || !data.text) {
+        throw new Error("Invalid response format from server");
+      }
+      
       setCleaningResult(data);
-
       setStep('cleaned');
     } catch (error) {
-      console.log('Error:', error); // Debugging information
-      setError('Failed to clean data');
+      console.error('Error:', error);
+      setError(error instanceof Error ? error.message : 'Failed to clean data');
     } finally {
       setIsLoading(false);
     }
@@ -184,8 +244,8 @@ export default function DataCleanerPage() {
           {analysisResult?.summary_data?.data_types &&
             Object.entries(analysisResult.summary_data.data_types).map(([col, type]) => (
               <TableRow key={col}>
-                <TableCell className="font-medium">{col}</TableCell>
-                <TableCell>{type}</TableCell>
+                <TableCell className="font-medium">{String(col)}</TableCell>
+                <TableCell>{String(type)}</TableCell>
               </TableRow>
             ))}
         </TableBody>
@@ -200,15 +260,15 @@ export default function DataCleanerPage() {
         Object.entries(analysisResult.summary_data.numeric_summary).map(([col, stats]) => (
           <Card key={col} className="mb-4">
             <CardHeader>
-              <CardTitle>{col}</CardTitle>
+              <CardTitle>{String(col)}</CardTitle>
             </CardHeader>
             <CardContent className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              <StatCard title="Mean" value={stats.mean.toFixed(2)} icon={<FileText className="h-4 w-4" />} />
-              <StatCard title="Std Dev" value={stats.std.toFixed(2)} icon={<FileText className="h-4 w-4" />} />
-              <StatCard title="Min/Max" value={`${stats.min.toFixed(2)} / ${stats.max.toFixed(2)}`} icon={<FileText className="h-4 w-4" />} />
-              <StatCard title="25%" value={stats['25%'].toFixed(2)} icon={<FileText className="h-4 w-4" />} />
-              <StatCard title="50%" value={stats['50%'].toFixed(2)} icon={<FileText className="h-4 w-4" />} />
-              <StatCard title="75%" value={stats['75%'].toFixed(2)} icon={<FileText className="h-4 w-4" />} />
+              <StatCard title="Mean" value={typeof stats.mean === 'number' ? stats.mean.toFixed(2) : String(stats.mean)} icon={<FileText className="h-4 w-4" />} />
+              <StatCard title="Std Dev" value={typeof stats.std === 'number' ? stats.std.toFixed(2) : String(stats.std)} icon={<FileText className="h-4 w-4" />} />
+              <StatCard title="Min/Max" value={`${typeof stats.min === 'number' ? stats.min.toFixed(2) : stats.min} / ${typeof stats.max === 'number' ? stats.max.toFixed(2) : stats.max}`} icon={<FileText className="h-4 w-4" />} />
+              <StatCard title="25%" value={typeof stats['25%'] === 'number' ? stats['25%'].toFixed(2) : String(stats['25%'])} icon={<FileText className="h-4 w-4" />} />
+              <StatCard title="50%" value={typeof stats['50%'] === 'number' ? stats['50%'].toFixed(2) : String(stats['50%'])} icon={<FileText className="h-4 w-4" />} />
+              <StatCard title="75%" value={typeof stats['75%'] === 'number' ? stats['75%'].toFixed(2) : String(stats['75%'])} icon={<FileText className="h-4 w-4" />} />
             </CardContent>
           </Card>
         ))
@@ -225,20 +285,20 @@ export default function DataCleanerPage() {
         Object.entries(analysisResult.summary_data.categorical_summary).map(([col, stats]) => (
           <Card key={col} className="mb-4">
             <CardHeader>
-              <CardTitle>{col}</CardTitle>
+              <CardTitle>{String(col)}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
               {typeof stats === 'string' ? (
                 <p>{stats}</p>
               ) : (
                 <>
-                  <p>Unique Values: {stats.unique_count}</p>
-                  <p>Most Frequent: {stats.most_frequent_value}</p>
+                  <p>Unique Values: {String(stats.unique_count)}</p>
+                  <p>Most Frequent: {String(stats.most_frequent_value)}</p>
                   <p>Top Categories:</p>
                   <ul className="list-disc pl-6">
                     {Object.entries(stats.top_categories).map(([cat, count]) => (
                       <li key={cat}>
-                        {cat}: {count}
+                        {String(cat)}: {String(count)}
                       </li>
                     ))}
                   </ul>
@@ -256,51 +316,84 @@ export default function DataCleanerPage() {
   const renderMissingValues = () => (
     <div className="space-y-4">
       <h3 className="font-semibold">Missing Values</h3>
-      {analysisResult?.summary_data?.missing_values ? (
-        <p>{analysisResult.summary_data.missing_values}</p>
+      {analysisResult?.summary_data?.missing_values && Object.keys(analysisResult.summary_data.missing_values).length > 0 ? (
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead>Column</TableHead>
+              <TableHead>Missing Percentage</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {Object.entries(analysisResult.summary_data.missing_values)
+              .sort(([, a], [, b]) => b - a) // Sort by percentage in descending order
+              .map(([column, percentage]) => (
+                <TableRow key={column}>
+                  <TableCell className="font-medium">{column}</TableCell>
+                  <TableCell>{(percentage * 100).toFixed(2)}%</TableCell>
+                </TableRow>
+              ))}
+          </TableBody>
+        </Table>
       ) : (
         <p>No missing values found</p>
       )}
     </div>
   );
 
-  const renderCorrelationMatrix = () => (
-    <div className="space-y-4">
-      <h3 className="font-semibold">Correlation Matrix</h3>
-      {analysisResult?.summary_data?.correlation_matrix ? (
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Column</TableHead>
-              {Object.keys(analysisResult.summary_data.correlation_matrix).map((col) => (
-                <TableHead key={col}>{col}</TableHead>
-              ))}
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {Object.entries(analysisResult.summary_data.correlation_matrix).map(([col, correlations]) => (
-              <TableRow key={col}>
-                <TableCell className="font-medium">{col}</TableCell>
-                {((Object.values(correlations) as (number | null | undefined)[]).map((value, index) => (
-  <TableCell key={index}>
-    {typeof value === "number" ? value.toFixed(2) : "N/A"}
-  </TableCell>
-))
-)}
+  const renderCorrelationMatrix = () => {
+    const correlationData = analysisResult?.summary_data?.correlation_matrix;
+    
+    if (!correlationData || typeof correlationData !== 'object') {
+      return (
+        <div className="space-y-4">
+          <h3 className="font-semibold">Correlation Matrix</h3>
+          <p>No numeric columns available for correlation analysis</p>
+        </div>
+      );
+    }
+
+    // Get unique column names
+    const columnNames = Object.keys(correlationData);
+
+    return (
+      <div className="space-y-4">
+        <h3 className="font-semibold">Correlation Matrix</h3>
+        <div className="overflow-x-auto">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Column</TableHead>
+                {columnNames.map((col) => (
+                  <TableHead key={col}>{String(col)}</TableHead>
+                ))}
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      ) : (
-        <p>No numeric columns available for correlation analysis</p>
-      )}
-    </div>
-  );
+            </TableHeader>
+            <TableBody>
+              {columnNames.map((rowCol) => (
+                <TableRow key={rowCol}>
+                  <TableCell className="font-medium">{String(rowCol)}</TableCell>
+                  {columnNames.map((colCol) => {
+                    const value = correlationData[rowCol]?.[colCol];
+                    return (
+                      <TableCell key={`${rowCol}-${colCol}`}>
+                        {typeof value === 'number' ? value.toFixed(2) : String(value)}
+                      </TableCell>
+                    );
+                  })}
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
+    );
+  };
 
   const renderOutliers = () => (
     <div className="space-y-4">
       <h3 className="font-semibold">Outliers</h3>
-      {analysisResult?.summary_data?.outlier_count ? (
+      {analysisResult?.summary_data?.outlier_count && typeof analysisResult.summary_data.outlier_count === 'object' ? (
         <Table>
           <TableHeader>
             <TableRow>
@@ -311,8 +404,8 @@ export default function DataCleanerPage() {
           <TableBody>
             {Object.entries(analysisResult.summary_data.outlier_count).map(([col, count]) => (
               <TableRow key={col}>
-                <TableCell className="font-medium">{col}</TableCell>
-                <TableCell>{count}</TableCell>
+                <TableCell className="font-medium">{String(col)}</TableCell>
+                <TableCell>{String(count)}</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -496,7 +589,9 @@ export default function DataCleanerPage() {
                       />
                       <StatCard
                         title="Missing Values"
-                        value={analysisResult?.summary_data?.missing_values || 'None'}
+                        value={Object.keys(analysisResult?.summary_data?.missing_values || {}).length > 0 
+                          ? `${Object.keys(analysisResult.summary_data.missing_values).length} values`
+                          : 'None'}
                         icon={<AlertCircle className="h-4 w-4" />}
                       />
                     </div>
