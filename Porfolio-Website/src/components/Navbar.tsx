@@ -124,7 +124,7 @@ const Navbar = () => {
           <Link href={"/ai-agents"}>
             <CommandItem className="mt-3">AI Agents</CommandItem>
           </Link>
-          <Link href={"/Services"}>
+          <Link href={"/services"}>
             <CommandItem className="mt-3">Services</CommandItem>
           </Link>
           <CommandItem className="mt-3" onSelect={toggleCategories}>
