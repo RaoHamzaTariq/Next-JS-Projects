@@ -117,6 +117,7 @@ const Navbar = () => {
   <Command className="bg-transparent">
       <CommandList>
         <CommandGroup className="mt-5">
+          
           <Link href={"/"}>
             <CommandItem className="mt-3">Home</CommandItem>
           </Link>
@@ -131,18 +132,11 @@ const Navbar = () => {
           </CommandItem>
           {showCategories && (
             <CommandGroup className="mt-2">
-              <Link href={"/portfolios?category=Web Development"}>
-                <CommandItem>Web Development</CommandItem>
-              </Link>
-              <Link href={"/portfolio?category=AI Agents"}>
-                <CommandItem>AI Agents</CommandItem>
-              </Link>
-              <Link href={"/portfolios?category=Data Science"}>
-                <CommandItem>Data Science</CommandItem>
-              </Link>
-              <Link href={"/portfolios?category=Data Analytics"}>
-                <CommandItem>Data Analytics</CommandItem>
-              </Link>
+              {components.map((component) => (
+          <Link  href={component.href} key={component.href}>
+            <CommandItem> {component.title}</CommandItem>
+          </Link>
+        ))}
             </CommandGroup>
           )}
           <Link href={"/Contact"}>
