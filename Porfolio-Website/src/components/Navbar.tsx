@@ -1,3 +1,4 @@
+'use client'
 import { ModeToggle } from "./toogle";
 import { IoMenuSharp } from "react-icons/io5";
 import {
@@ -8,7 +9,7 @@ import {
 } from "@/components/ui/command"
 import Image from "next/image";
 import myImage from "../../public/images/Rao Hamza Tariq.png" 
-import React from 'react';
+import React, { useState } from 'react';
 
 import Link from "next/link"
  
@@ -33,33 +34,39 @@ import { Card } from "./ui/card";
  
 export const components: { title: string; href: string; description: string }[] = [
   {
-    title: "Data Analyst",
-    href: "/",
+    title: "Data Analytics",
+    href: "/portfolios?category=Data Analytics",
     description:
       "Data analysts gather, cleanse, analyze historical data, and uncover business insights.",
   },
   {
     title: "Data Science",
-    href: "/",
+    href: "/portfolios?category=Data Science",
     description:
       "Study of data to extract meaningful insights for business.",
   },
   {
     title: "Web Development",
-    href: "/",
+    href: "/portfolios?category=Web Development",
     description: "Process of creating websites or web applications, including the project's design, layout, coding, content creation, and functionality.",
   },
   {
-    title: "All",
-    href: "/",
+    title: "AI Agents",
+    href: "/portfolios?category=AI Agents",
     description:
-      "All the projects i have created ever in different field using various tools",
+      "AI Agents are the future of the world, they are the ones who will make the world a better place.",
   },
 ]
 
 
 
 const Navbar = () => {
+
+  const [showCategories, setShowCategories] = useState(false);
+
+  const toggleCategories = () => {
+    setShowCategories(!showCategories);
+  };
   return (
     <Card className='m-0 z-50 p-0 fixed w-screen border-none rounded-none bg-transparent backdrop-blur-lg'>
     <div className="shadow-sm py-3">
@@ -108,19 +115,46 @@ const Navbar = () => {
       className="hidden dark:block"
     />
   </div>
-  <Command> 
-<CommandList>
-<CommandGroup className="mt-5">
-<Link href={"/"}><CommandItem className="mt-3">Home</CommandItem></Link>
-<Link href={"/ai-agents"}><CommandItem className="mt-3">AI Agents</CommandItem></Link>
-<Link href={"/Services"}><CommandItem className="mt-3">Services</CommandItem></Link>
-<Link href={"/Portfolio/All"}><CommandItem className="mt-3">Portfolio</CommandItem></Link>
-<Link href={"/Contact"}><CommandItem className="mt-3">Contact</CommandItem></Link>
-<Link href={"/About"}><CommandItem className="mt-3">About</CommandItem></Link>
-
-</CommandGroup>
-</CommandList>
-</Command>
+  <Command className="bg-transparent">
+      <CommandList>
+        <CommandGroup className="mt-5">
+          <Link href={"/"}>
+            <CommandItem className="mt-3">Home</CommandItem>
+          </Link>
+          <Link href={"/ai-agents"}>
+            <CommandItem className="mt-3">AI Agents</CommandItem>
+          </Link>
+          <Link href={"/Services"}>
+            <CommandItem className="mt-3">Services</CommandItem>
+          </Link>
+          <CommandItem className="mt-3" onSelect={toggleCategories}>
+            Portfolio {showCategories ? '▲' : '▼'}
+          </CommandItem>
+          {showCategories && (
+            <CommandGroup className="mt-2">
+              <Link href={"/portfolios?category=Web Development"}>
+                <CommandItem>Web Development</CommandItem>
+              </Link>
+              <Link href={"/portfolio?category=AI Agents"}>
+                <CommandItem>AI Agents</CommandItem>
+              </Link>
+              <Link href={"/portfolios?category=Data Science"}>
+                <CommandItem>Data Science</CommandItem>
+              </Link>
+              <Link href={"/portfolios?category=Data Analytics"}>
+                <CommandItem>Data Analytics</CommandItem>
+              </Link>
+            </CommandGroup>
+          )}
+          <Link href={"/Contact"}>
+            <CommandItem className="mt-3">Contact</CommandItem>
+          </Link>
+          <Link href={"/About"}>
+            <CommandItem className="mt-3">About</CommandItem>
+          </Link>
+        </CommandGroup>
+      </CommandList>
+    </Command>
 
 </SheetContent>
 </Sheet>
@@ -208,7 +242,7 @@ const Navbar = () => {
     <NavigationMenuContent>
       <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
         {components.map((component) => (
-          <Link href={`/Portfolio/${component.title.replace(/\s+/g,"")}`} key={component.title}>
+          <Link href={component.href}>
           <ListItem
             title={component.title}
           >

@@ -2,7 +2,7 @@
 
 import { PortfolioData } from '@/data/data';
 import { useParams } from 'next/navigation';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
@@ -12,6 +12,9 @@ import { Badge } from "@/components/ui/badge"
 export default function ProjectDetail() {
 
   const params = useParams();
+  useEffect(() => {
+    console.log(params)
+  }, [params])
   const projectSlug: string = params.projectDetail as string;
   const projectsData =  Object.values(PortfolioData).flat() 
   const projectdetailData = projectsData.find(e => e.title.replace(/\s+/g,"") === projectSlug);

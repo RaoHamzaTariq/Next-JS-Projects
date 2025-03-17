@@ -1,10 +1,11 @@
 'use client';
 
-import { PortfolioData, PortfolioKeys } from '../../../data/data';
+import { PortfolioData, PortfolioKeys } from '../../data/data';
 import PortfolioComponent from '@/components/PortfolioComponent';
 import { useParams, useSearchParams } from 'next/navigation';
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { StaticImageData } from 'next/image';
 
 // Animation variants
 const fadeInUp = {
@@ -86,7 +87,7 @@ const Slug = () => {
         <motion.div 
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 xl:gap-12"
         >
-          {projects.map((project) => (
+          {projects.map((project: { id: React.Key | null | undefined; image: string | StaticImageData; title: string; desc: string; }) => (
             <motion.div
               key={project.id}
               variants={fadeInUp}
@@ -95,6 +96,7 @@ const Slug = () => {
               className="relative backdrop-blur-md rounded-xl hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300"
             >
               <PortfolioComponent
+                slug=''
                 image={project.image}
                 title={project.title}
                 desc={project.desc}
