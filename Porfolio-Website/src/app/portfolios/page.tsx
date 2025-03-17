@@ -1,12 +1,9 @@
 'use client';
 
-import { PortfolioData, PortfolioKeys } from '../../data/data';
 import PortfolioComponent from '@/components/PortfolioComponent';
-import { useParams, useSearchParams } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import React, { useEffect, useState, Suspense } from 'react';
 import { motion } from 'framer-motion';
-import { StaticImageData } from 'next/image';
-import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import Loader from '@/components/loader';
 import { SanityImageAsset } from '@/sanity/lib/client';
 
@@ -26,15 +23,23 @@ const staggerContainer = {
 };
 
 const Portfolios = () => {
+    return (
+        <Suspense fallback={<Loader />}> 
+            <PortfolioContent />
+        </Suspense>
+    );
+};
+
+const PortfolioContent = () => {
     const [projects, setProjects] = useState([]);
-    const [isLoading, setIsLoading] = useState(true); // Add loading state
+    const [isLoading, setIsLoading] = useState(true);
     const searchParams = useSearchParams();
 
     useEffect(() => {
         const fetchData = async () => {
-            setIsLoading(true); // Set loading to true before fetching
+            setIsLoading(true);
             try {
-                const API_URL= process.env.NEXT_PUBLIC_URL
+                const API_URL = process.env.NEXT_PUBLIC_URL;
                 const response = await fetch(`${API_URL}/api/project-api?category=${searchParams.get('category')}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch data');
@@ -44,7 +49,7 @@ const Portfolios = () => {
             } catch (error) {
                 console.error('Error fetching data:', error);
             } finally {
-                setIsLoading(false); // Set loading to false after fetching
+                setIsLoading(false);
             }
         };
         fetchData();
@@ -53,8 +58,7 @@ const Portfolios = () => {
     if (isLoading) {
         return (
             <div className="flex justify-center py-32 items-center min-h-screen">
-                {/* <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900"></div> */}
-                <Loader/>
+                <Loader />
             </div>
         );
     }
@@ -74,7 +78,6 @@ const Portfolios = () => {
             variants={staggerContainer}
             className="overflow-x-hidden flex flex-col gap-12 min-h-screen bg-gradient-to-b from-background to-background/95 backdrop-blur-md"
         >
-            {/* Page Title with Animation */}
             <motion.div
                 className="relative w-full flex flex-col items-center mt-32 px-4"
                 variants={fadeInUp}
@@ -98,7 +101,6 @@ const Portfolios = () => {
                 </div>
             </motion.div>
 
-            {/* Projects Grid */}
             <motion.div
                 className="container mx-auto px-4 sm:px-6 lg:px-8 py-16"
                 variants={staggerContainer}
