@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Slider } from '@/components/ui/slider';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
-import { Loader2, AlertCircle, Sun, Moon, Upload, Trash, Send, Key, BrainCircuit, EyeOff, Eye, X, Menu } from 'lucide-react';
+import { Loader2, AlertCircle, Sun, Moon, Upload, Trash, Send, Key, BrainCircuit, EyeOff, Eye, X, Menu, Mic } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import ReactMarkdown from 'react-markdown';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
@@ -15,10 +15,13 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
+import VoiceMode from '@/components/ai-agents-com/ChatbotVoiceMode';
+
+interface MessageInterface{ role: "user"|"ai"|"system"; content: string }
 
 export default function ChatPage() {
   const { theme, setTheme } = useTheme();
-  const [messages, setMessages] = useState<Array<{ role: string; content: string }>>([]);
+  const [messages, setMessages] = useState<Array<MessageInterface>>([]);
   const [inputMessage, setInputMessage] = useState('');
   const [temperature, setTemperature] = useState(0.5);
   const [apiKey, setApiKey] = useState('');
@@ -32,6 +35,8 @@ export default function ChatPage() {
   const [uploading, setUploading] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [isDocumentMode, setIsDocumentMode] = useState(false);
+  // New state for voice mode
+  const [isVoiceModeActive, setIsVoiceModeActive] = useState(false);
 
   // Move localStorage access to useEffect
   useEffect(() => {
@@ -79,7 +84,7 @@ export default function ChatPage() {
     e.preventDefault();
     if (!inputMessage.trim()) return;
 
-    const newMessage = { role: 'user', content: inputMessage };
+    const newMessage : MessageInterface= { role: 'user', content: inputMessage };
     setMessages(prev => [...prev, newMessage]);
     setInputMessage('');
     setIsLoading(true);
@@ -115,11 +120,12 @@ export default function ChatPage() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ 
-            message: inputMessage,
+            messages: [...messages, newMessage],
             apiKey: apiKey || null, // Make API key optional
             temperature: temperature || 0.5 // Default temperature if not set
           }),
         });
+        console.log(messages)
 
         if (!response.ok) {
           const errorData = await response.json();
@@ -209,6 +215,16 @@ export default function ChatPage() {
   };
 
   const clearChat = () => setMessages([]);
+  
+  // Handle voice messages from VoiceMode component
+  const handleVoiceMessage = (message:MessageInterface) => {
+    setMessages(prev => [...prev, message]);
+  };
+
+  // Toggle voice mode
+  const toggleVoiceMode = () => {
+    setIsVoiceModeActive(!isVoiceModeActive);
+  };
 
   if (!isClient) {
     return null; // or a loading spinner
@@ -292,7 +308,7 @@ export default function ChatPage() {
                     accept=".pdf,.docx,.txt"
                     className="border-2 border-dashed bg-muted/50 hover:bg-muted/80 cursor-pointer"
                   />
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 flex-col">
                     <Button
                       type="submit"
                       disabled={uploading}
@@ -320,6 +336,7 @@ export default function ChatPage() {
                         )}
                       </Button>
                     )}
+                    <p className='text-center text-red-600 my-4'>The document uploading features is currently not available</p>
                   </div>
                 </form>
               </CardContent>
@@ -351,7 +368,7 @@ export default function ChatPage() {
                 </div>
                 <h3 className="text-xl font-bold mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Welcome to BI Chat</h3>
                 <p className="text-sm max-w-md mx-auto leading-relaxed">
-                  {"Ready to start an intelligent conversation? Upload a document or ask me anything - I'm here to help!"}
+                  {"Ready to start an intelligent conversation? Upload a document or ask me anything via chat or voice - I'm here to help!"}
                 </p>
                 <div className="mt-6 flex items-center justify-center gap-2 text-xs text-muted-foreground/60">
                   <span className="flex items-center"><FileText className="h-3 w-3 mr-1" /> Upload documents</span>
@@ -412,6 +429,17 @@ export default function ChatPage() {
                 placeholder={isDocumentMode ? "Ask about your document..." : "Type your message..."}
                 className="flex-1"
               />
+              {/* Voice Button */}
+              <Button 
+                type="button" 
+                size="icon" 
+                variant="outline"
+                className="bg-background hover:bg-muted transition-colors"
+                onClick={toggleVoiceMode}
+                title="Voice Input"
+              >
+                <Mic className="h-4 w-4" />
+              </Button>
               <Button type="submit" size="icon" disabled={isLoading}>
                 {isLoading ? (
                   <Loader2 className="h-4 w-4 animate-spin" />
@@ -431,6 +459,17 @@ export default function ChatPage() {
       >
         {isSidebarOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
       </button>
+
+      {/* Voice Mode Component */}
+      {isVoiceModeActive && (
+        <VoiceMode 
+          onClose={() => setIsVoiceModeActive(false)}
+          onVoiceMessage={handleVoiceMessage}
+          lastMessages={messages.slice(-5)}
+          apiKey={apiKey}
+          temperature={temperature}
+        />
+      )}
     </div>
   );
 }
