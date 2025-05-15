@@ -87,19 +87,19 @@ const serviceConfigs: Record<string, ServiceConfig> = {
     pricing: [
       {
         title: "Basic",
-        price: "$499",
+        price: "$99",
         features: [
           "Basic Data Analysis",
           "2 Custom Reports",
           "Data Cleaning",
           "Basic Visualizations",
           "Email Support",
-          "1 Revision"
+          "4 Revision"
         ]
       },
       {
         title: "Professional",
-        price: "$999",
+        price: "$249",
         popular: true,
         features: [
           "Advanced Data Analysis",
@@ -107,7 +107,7 @@ const serviceConfigs: Record<string, ServiceConfig> = {
           "Data Cleaning & Processing",
           "Interactive Dashboards",
           "Priority Support",
-          "3 Revisions"
+          "7 Revisions"
         ]
       },
       {
@@ -174,19 +174,19 @@ const serviceConfigs: Record<string, ServiceConfig> = {
     pricing: [
       {
         title: "Basic",
-        price: "$1,499",
+        price: "$149",
         features: [
           "Simple Chatbot Development",
           "Basic Data Cleaning",
           "Single ML Model",
           "Basic RAG Implementation",
           "Email Support",
-          "2 Revisions"
+          "3 Revisions"
         ]
       },
       {
         title: "Professional",
-        price: "$2,999",
+        price: "$349",
         popular: true,
         features: [
           "Advanced AI Agent",
@@ -194,7 +194,7 @@ const serviceConfigs: Record<string, ServiceConfig> = {
           "Advanced RAG System",
           "Database Integration",
           "Priority Support",
-          "4 Revisions"
+          "7 Revisions"
         ]
       },
       {
@@ -240,19 +240,19 @@ const serviceConfigs: Record<string, ServiceConfig> = {
     pricing: [
       {
         title: "Basic",
-        price: "$999",
+        price: "$249",
         features: [
           "5 Pages Website",
           "Responsive Design",
           "Basic SEO",
           "Contact Form",
           "Email Support",
-          "2 Revisions"
+          "5 Revisions"
         ]
       },
       {
         title: "Business",
-        price: "$2499",
+        price: "$499",
         popular: true,
         features: [
           "10 Pages Website",

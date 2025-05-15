@@ -55,7 +55,7 @@ export default function Home() {
             {`I am a skilled Data Analyst, Web Developer, and Power BI Developer, specializing in transforming data into insights and building user-friendly web solutions to help you achieve your goals.`}
           </p>
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
-            <Link href="/Portfolio/All" className="w-full sm:w-auto">
+            <Link href="/services" className="w-full sm:w-auto">
               <Button size="lg" className="w-full sm:w-auto rounded-full font-medium 
                 hover:scale-105 transition-all duration-300 backdrop-blur-sm
                 dark:bg-primary dark:text-primary-foreground
@@ -63,7 +63,7 @@ export default function Home() {
                 hover:shadow-lg hover:shadow-primary/25
                 group">
                 <span className="mr-2 group-hover:rotate-45 transition-transform duration-300">→</span>
-                View my Projects
+                View my Services
               </Button>
             </Link>
             <Link href="/contact" className="w-full sm:w-auto">
