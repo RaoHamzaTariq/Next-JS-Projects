@@ -23,17 +23,18 @@ export const portfolioType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'isFeaturedProject',
+      title: 'Featured Project',
+      type: 'boolean',
+      initialValue: false,
+      description: 'Mark this project as featured to highlight it on the homepage or featured section.',
+    }),
+    defineField({
       name: 'shortDesc',
       title: 'Short Description',
       type: 'text',
       validation: (Rule) => Rule.required(),
     }),
-    // defineField({
-    //   title: 'Content', 
-    //   name: 'content',
-    //   type: 'array', 
-    //   of: [{type: 'block'}]
-    // }),
     defineField({
       name: 'tags',
       title: 'Tags',

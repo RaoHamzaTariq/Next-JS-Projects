@@ -25,3 +25,15 @@ export interface PortfolioData {
   moreImages?: SanityImageSource[];
   video_url?: string;
 }
+
+export interface FeaturedProjects{
+  _id: string;
+  title: string;
+  shortDesc: string;
+  slug: {
+    current: string;
+    _type: 'slug';
+  };
+  category:string
+  mainImage: SanityImageAsset;
+}

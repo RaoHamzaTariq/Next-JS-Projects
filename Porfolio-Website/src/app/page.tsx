@@ -271,7 +271,7 @@ export default function Home() {
               {
                 name: "Data Analysis",
                 description: "Transform raw data into actionable insights that drive business growth",
-                price: "$14.99",
+                price: "$99.99",
                 features: [
                   "Advanced Data Cleaning & Processing",
                   "Comprehensive Statistical Analysis",
@@ -280,27 +280,29 @@ export default function Home() {
                   "Strategic Data Consulting"
                 ],
                 gradient: "from-blue-500 via-blue-400 to-cyan-400",
-                delay: 100
+                delay: 100,
+                slug: "DataAnalyst"
               },
               {
-                name: "Data Science",
+                name: "AI Agents",
                 description: "Harness the power of AI and machine learning for predictive insights",
-                price: "$19.99",
+                price: "$149.99",
                 popular: true,
                 features: [
-                  "Custom ML Model Development",
-                  "Deep Learning & Neural Networks",
-                  "Real-time Prediction Systems",
+                  "AI Agent Development",
+                  "Multi Agents System",
+                  "Real-time Chatbots",
                   "Production Model Deployment",
                   "AI Performance Optimization"
                 ],
                 gradient: "from-primary via-violet-500 to-violet-400",
-                delay: 200
+                delay: 200,
+                slug: "AgenticAI"
               },
               {
                 name: "Web Development",
                 description: "Build modern, scalable, and high-performance web applications",
-                price: "$24.99", 
+                price: "$249.99", 
                 features: [
                   "Full-Stack Custom Development",
                   "Responsive & Interactive Design",
@@ -309,7 +311,8 @@ export default function Home() {
                   "Secure Cloud Deployment"
                 ],
                 gradient: "from-pink-500 via-rose-500 to-rose-400",
-                delay: 300
+                delay: 300,
+                slug: "WebDeveloper"
               }
             ].map((plan, index) => (
               <div 
@@ -342,9 +345,10 @@ export default function Home() {
                     
                     <div className="flex items-baseline gap-2">
                       <span className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">{plan.price}</span>
-                      <span className="text-base sm:text-lg text-muted-foreground">/month</span>
+                      <span className="text-base sm:text-lg text-muted-foreground">/project </span>
                     </div>
 
+                  <Link href={`/services/${plan.slug}`}>
                     <Button className={`w-full rounded-xl py-5 sm:py-7 text-base sm:text-lg font-semibold transition-all duration-500
                       ${plan.popular 
                         ? 'bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl shadow-primary/30 hover:shadow-primary/50' 
@@ -353,7 +357,8 @@ export default function Home() {
                       hover:scale-[1.02]`}>
                       Get Started Now
                     </Button>
-
+                    </Link>
+                    
                     <div className="space-y-4 sm:space-y-6 pt-6 sm:pt-8">
                       <p className="text-base sm:text-lg font-medium">{"What's included:"}</p>
                       <ul className="space-y-3 sm:space-y-4">
@@ -375,7 +380,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden px-4 py-16 md:py-24 lg:py-32">
+      <section id="faqs" className="relative overflow-hidden px-4 py-16 md:py-24 lg:py-32">
         {/* Animated background elements */}
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.05] mix-blend-overlay" />
         <div className="absolute -top-40 -left-40 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-morph" />

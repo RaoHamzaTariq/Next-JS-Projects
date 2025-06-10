@@ -163,7 +163,8 @@ const serviceConfigs: Record<string, ServiceConfig> = {
     ],
     tools: [
       "LLM Models",
-      "Crew AI",
+      "OpenAI Agents SDK",
+      "MCP Servers",
       "LangGraph",
       "LangChain",
       "Python",

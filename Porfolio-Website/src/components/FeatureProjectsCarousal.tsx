@@ -10,15 +10,48 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { PortfolioData } from "@/data/data";
 import Image from "next/image";
 import { AspectRatio } from "./ui/aspect-ratio";
+import { FeaturedProjects } from "@/data/interface";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import Loader from "./loader";
+import SanityImage from "./SanityImage";
 
-let featureProject = [PortfolioData.DataAnalyst[0], PortfolioData.DataAnalyst[1], PortfolioData.DataScience[1], PortfolioData.DataScience[2], PortfolioData.DataScience[3], PortfolioData.DataScience[4], PortfolioData.DataAnalyst[3]];
 
 export function FeatureProjectsCarousal() {
+    const [projects, setProjects] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            setIsLoading(true);
+            try {
+                const API_URL = process.env.NEXT_PUBLIC_URL;
+                const response = await fetch(`${API_URL}/api/project-api?query=featured_projects`);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data');
+                }
+                const data = await response.json();
+                setProjects(data.data);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            } finally {
+                setIsLoading(false);
+            }
+        };
+        fetchData();
+    },[]);
+
+    if (isLoading) {
+        return (
+            <div className="flex justify-center py-32 items-center min-h-screen">
+                <Loader />
+            </div>
+        );
+    }
+  
 
   return (
     <section className="px-4 md:px-8 lg:px-12 xl:px-16 bg-gradient-to-b from-background/95 to-background/50 relative overflow-hidden">
@@ -51,9 +84,9 @@ export function FeatureProjectsCarousal() {
             className="w-full"
           >
             <CarouselContent className="-ml-2 md:-ml-4">
-              {featureProject.map((project) => (
+              {projects.map((project:FeaturedProjects) => (
                 <CarouselItem
-                  key={project.title}
+                  key={project._id}
                   className="pl-2 md:pl-4 basis-full sm:basis-2/3 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                 >
                   <Card className="group h-full flex flex-col p-4 sm:p-5 
@@ -63,13 +96,21 @@ export function FeatureProjectsCarousal() {
                     hover:border-primary/20 dark:hover:border-primary/20
                     hover:bg-primary/5 dark:hover:bg-primary/10">
                     <AspectRatio ratio={16 / 9} className="bg-muted relative overflow-hidden rounded-lg">
-                      <Image 
+                      {/* <Image 
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" 
-                        src={project.image} 
+                        src={project.mainImage} 
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                         alt={project.title}
                         priority
+                      /> */}
+                      <SanityImage 
+                        imageAsset={project.mainImage} 
+                        alt={project.title}
+                        imgClassName="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        width={500}
+                        height={250}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </AspectRatio>
@@ -78,10 +119,10 @@ export function FeatureProjectsCarousal() {
                         {project.title}
                       </h4>
                       <p className="text-sm text-muted-foreground sm:text-base md:text-lg line-clamp-2 dark:text-muted-foreground/90">
-                        {project.desc}
+                        {project.shortDesc}
                       </p>
                     </div>
-                    <Link href={project.liveDemo || project.githubUrl || "#"} className="mt-auto pt-6">
+                    <Link href={project?.slug?.current || "#"} className="mt-auto pt-6">
                       <Button className="w-full rounded-full font-medium 
                         hover:scale-105 transition-all duration-300 
                         bg-primary/90 hover:bg-primary 
