@@ -122,7 +122,7 @@ export function FeatureProjectsCarousal() {
                         {project.shortDesc}
                       </p>
                     </div>
-                    <Link href={project?.slug?.current || "#"} className="mt-auto pt-6">
+                    <Link href={`portfolios/${project?.slug?.current}` || "#"} className="mt-auto pt-6">
                       <Button className="w-full rounded-full font-medium 
                         hover:scale-105 transition-all duration-300 
                         bg-primary/90 hover:bg-primary 
