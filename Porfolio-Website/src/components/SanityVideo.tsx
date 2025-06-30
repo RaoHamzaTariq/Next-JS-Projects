@@ -32,6 +32,7 @@ const SanityVideo: FC<SanityVideoProps> = ({
       className="rounded-lg shadow-md"
       controls={controls}
       autoPlay={autoPlay}
+      controlsList="nodownload"
       muted={muted}
       loop={loop}
       playsInline
