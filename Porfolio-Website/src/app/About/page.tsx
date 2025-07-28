@@ -43,7 +43,7 @@ export default function About() {
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary to-primary/60 rounded-2xl blur-2xl opacity-25 group-hover:opacity-40 transition duration-500" />
                 <Image 
-                  src="/images/Rao Hamza Tariq.png"
+                  src="/images/BI Structure/rao-hamza-tariq.jpg"
                   alt="Rao Hamza Tariq"
                   width={500}
                   height={500}

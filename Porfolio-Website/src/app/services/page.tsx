@@ -258,15 +258,7 @@ export default function Services() {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-full animate-pulse" />
             <div className="relative aspect-square rounded-full border border-primary/20 p-8 animate-spin-slow">
               <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/20 animate-spin-reverse" />
-              <div className="relative h-full w-full rounded-full bg-gradient-to-br from-primary/20 via-primary/5 to-transparent backdrop-blur-3xl overflow-hidden">
-                <Image
-                  src="/images/Rao Hamza Tariq.png"
-                  alt="Decorative service illustration"
-                  fill
-                  className="object-cover opacity-90 hover:scale-105 transition-transform duration-500"
-                />
               </div>
-            </div>
           </div>
 
         </div>

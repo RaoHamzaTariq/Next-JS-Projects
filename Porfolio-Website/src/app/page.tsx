@@ -111,9 +111,9 @@ export default function Home() {
                   transition-all duration-500 rounded-2xl
                   dark:brightness-90
                   group-hover:transform group-hover:rotate-y-12 group-hover:scale-105"
-                src="/images/2.png"
-                height={500}
-                width={500}
+                src="/images/BI Structure/rao-hamza-tariq.jpg"
+                height={400}
+                width={400}
                 alt="Profile Image"
                 priority
               />

@@ -331,7 +331,7 @@ export default function ServicesPage({ params }: { params: { "services-page": Se
               <div className="relative aspect-square max-w-[500px] mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/0 rounded-full animate-rotate-slow" />
                 <Image
-                  src={`/images/2.png`}
+                  src={`/images/BI Structure/rao-hamza-tariq.jpg`}
                   // src={`/images/${params["services-page"]}-illustration.png`}
                   alt={`${service.title} Illustration`}
                   width={500}
@@ -619,7 +619,7 @@ export default function ServicesPage({ params }: { params: { "services-page": Se
                     <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/20 animate-spin-reverse" />
                     <div className="relative h-full w-full rounded-full bg-gradient-to-br from-primary/20 via-primary/5 to-transparent backdrop-blur-3xl overflow-hidden">
                       <Image
-                        src="/images/Rao Hamza Tariq.png"
+                        src="/images/BI Structure/rao-hamza-tariq.jpg"
                         alt="Decorative service illustration"
                         fill
                         className="object-cover opacity-90 hover:scale-105 transition-transform duration-500"
