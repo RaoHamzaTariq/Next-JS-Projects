@@ -52,7 +52,7 @@ export default function Home() {
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground dark:text-muted-foreground/90 max-w-xl mx-auto md:mx-0
             hover:text-primary transition-colors duration-300">
-            {`I am a skilled Data Analyst, Web Developer, and Power BI Developer, specializing in transforming data into insights and building user-friendly web solutions to help you achieve your goals.`}
+            {`I'm an AI Agents Developer, Full-Stack Developer, and Data Analyst, specializing in building AI-powered chatbots, custom AI agents, and data-driven web applications that automate processes, enhance customer experiences, and drive business growth.`}
           </p>
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
             <Link href="/services" className="w-full sm:w-auto">
@@ -66,7 +66,7 @@ export default function Home() {
                 View my Services
               </Button>
             </Link>
-            <Link href="/contact" className="w-full sm:w-auto">
+            <Link href="mailto:bistructure9211@gmail.com" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full font-medium 
                 hover:scale-105 transition-all duration-300 backdrop-blur-sm
                 dark:border-primary/20 dark:hover:bg-primary/10
