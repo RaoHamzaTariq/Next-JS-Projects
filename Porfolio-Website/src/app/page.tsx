@@ -18,6 +18,8 @@ export default function Home() {
   return (
   <>
     <main className="bg-background dark:bg-background min-h-screen w-full">
+      
+      
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-8 px-4 md:px-8 lg:px-16 py-20 
         bg-gradient-to-b from-background/95 to-background/50 
