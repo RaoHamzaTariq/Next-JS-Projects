@@ -115,7 +115,7 @@ export default function OfferModal() {
                   {/* Main Headline */}
                   <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black leading-tight 
                                  text-gray-900 dark:text-white mb-4">
-                    Let's build your{" "}
+                    {"Let's build your "}
                     <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                       AI Agent
                     </span>{" "}
@@ -230,7 +230,7 @@ export default function OfferModal() {
                           className="mr-2 h-4 w-4 rounded border-gray-300 dark:border-gray-600 
                                      text-blue-600 focus:ring-blue-500 dark:focus:ring-blue-400"
                         />
-                        Don't show again
+                        {"Don't show again"}
                       </label>
 
                       <button
