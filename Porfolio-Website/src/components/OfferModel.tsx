@@ -214,7 +214,7 @@ export default function OfferModal() {
                   {/* Buttons */}
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-4">
                     <Link
-                      href="/contact"
+                      href="/Contact"
                       className="flex-1 sm:flex-none inline-flex items-center justify-center px-6 py-3 
                                  rounded-xl font-bold text-base bg-gradient-to-r from-blue-600 to-purple-600 
                                  text-white hover:from-blue-700 hover:to-purple-700 
