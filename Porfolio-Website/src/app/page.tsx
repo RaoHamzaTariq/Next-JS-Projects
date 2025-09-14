@@ -11,6 +11,7 @@ import { MdInsights } from "react-icons/md";
 import FAQs from "@/components/FAQs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import React from "react";
+import { Bot } from "lucide-react";
 
 
 
@@ -68,7 +69,7 @@ export default function Home() {
                 View my Services
               </Button>
             </Link>
-            <Link href="mailto:bistructure9211@gmail.com" className="w-full sm:w-auto">
+            <Link href="/Contact" className="w-full sm:w-auto">
               <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full font-medium 
                 hover:scale-105 transition-all duration-300 backdrop-blur-sm
                 dark:border-primary/20 dark:hover:bg-primary/10
@@ -76,7 +77,7 @@ export default function Home() {
                 hover:shadow-lg hover:shadow-primary/25
                 relative overflow-hidden
                 group">
-                <span className="relative z-10">Contact Me</span>
+                <span className="relative z-10">Contact Us</span>
                 <div className="absolute inset-0 bg-primary/10 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"/>
               </Button>
             </Link>
@@ -113,7 +114,7 @@ export default function Home() {
                   transition-all duration-500 rounded-2xl
                   dark:brightness-90
                   group-hover:transform group-hover:rotate-y-12 group-hover:scale-105"
-                src="/images/BI Structure/rao-hamza-tariq.jpg"
+                src="/images/BI Structure/rao-hamza-tariq.png"
                 height={400}
                 width={400}
                 alt="Profile Image"
@@ -148,20 +149,20 @@ export default function Home() {
               className="inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-primary/5 backdrop-blur-xl
               hover:bg-primary/10 transition-all duration-700 animate-float border border-primary/10 hover:border-primary/20"
             >
-              <span className="text-primary text-sm sm:text-base font-medium tracking-wide">Why Choose Me</span>
+              <span className="text-primary text-sm sm:text-base font-medium tracking-wide">Why Choose Us</span>
             </div>
             
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight 
               bg-gradient-to-br from-primary via-primary/90 to-primary/70 
               bg-clip-text text-transparent animate-gradient-xy"
             >
-              Services I Provide
+              Services We Provide
             </h2>
             
             <p className="text-base sm:text-lg lg:text-xl text-muted-foreground/90 dark:text-muted-foreground/80 
               max-w-2xl mx-auto animate-fade-in-up leading-relaxed px-4"
             >
-              From data analysis to web development, I offer comprehensive solutions tailored to your needs
+              From ai agents to web development, We offer comprehensive solutions tailored to your needs
             </p>
           </div>
 
@@ -169,9 +170,9 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
             {[
               {
-                icon: <MdInsights className="h-8 w-8" />,
-                title: "Insightful Data Analysis",
-                description: "Transform raw data into actionable insights that drive business growth and informed decision-making."
+                icon: <Bot className="h-8 w-8" />,
+                title: "AI Agents",
+                description: "Deploy intelligent AI-powered agents that automate tasks, engage with customers, and work alongside your team to boost efficiency."
               },
               {
                 icon: <FaCode className="h-8 w-8" />,
@@ -179,9 +180,9 @@ export default function Home() {
                 description: "Develop predictive models and optimize processes using cutting-edge machine learning techniques."
               },
               {
-                icon: <FaRobot className="h-8 w-8" />,
-                title: "Engaging Data Visualization",
-                description: "Create interactive and intuitive visualizations that make complex data easily understandable."
+                icon: <MdInsights className="h-8 w-8" />,
+                title: "Insightful Data Analysis",
+                description: "Transform raw data into actionable insights that drive business growth and informed decision-making."
               },
               {
                 icon: <FaCheckSquare className="h-8 w-8" />,

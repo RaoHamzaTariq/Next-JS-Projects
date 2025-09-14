@@ -1,8 +1,8 @@
 "use client"
 
-import { RiNextjsFill } from "react-icons/ri";
+import { RiNextjsFill, RiSupabaseFill } from "react-icons/ri";
 import { FaReact, FaPython } from "react-icons/fa";
-import { SiMysql, SiPowerbi, SiScikitlearn, SiTypescript, SiTailwindcss,SiLangchain  } from "react-icons/si";
+import { SiMysql, SiPowerbi, SiScikitlearn, SiTypescript, SiTailwindcss,SiLangchain, SiOpenai, SiN8N ,SiPostgresql } from "react-icons/si";
 import Autoplay from "embla-carousel-autoplay"
 import * as React from "react";
 import {
@@ -12,19 +12,32 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Bot } from "lucide-react";
 
 // Array of icon components with labels and colors
 const stackItems = [
+  // --- AI & Automation (Main Focus) ---
+  { Icon: Bot, label: 'AI Agents', color: 'hover:text-[#9333EA] dark:hover:text-[#9333EA]' },
+  { Icon: SiOpenai, label: 'OpenAI', color: 'hover:text-[#412991] dark:hover:text-[#412991]' },
+  { Icon: SiLangchain, label: 'LangChain', color: 'hover:text-[#00A67D] dark:hover:text-[#00A67D]' },
+  { Icon: SiN8N, label: 'n8n', color: 'hover:text-[#E4495D] dark:hover:text-[#E4495D]' },
+  { Icon: FaPython, label: 'Python', color: 'hover:text-[#3776AB] dark:hover:text-[#FFD43B]' },
+
+  // --- Full-Stack Web Development ---
+  { Icon: RiSupabaseFill, label: 'Supabase', color: 'hover:text-[#3ECF8E] dark:hover:text-[#3ECF8E]' },
+  { Icon: SiPostgresql, label: 'PostgreSQL', color: 'hover:text-[#336791] dark:hover:text-[#336791]' },
   { Icon: RiNextjsFill, label: 'Next.js', color: 'hover:text-[#000000] dark:hover:text-white' },
   { Icon: FaReact, label: 'React', color: 'hover:text-[#61DAFB] dark:hover:text-[#61DAFB]' },
-  { Icon: FaPython, label: 'Python', color: 'hover:text-[#3776AB] dark:hover:text-[#FFD43B]' },
-  { Icon: SiPowerbi, label: 'Power BI', color: 'hover:text-[#F2C811] dark:hover:text-[#F2C811]' },
-  { Icon: SiScikitlearn, label: 'Scikit-learn', color: 'hover:text-[#F7931E] dark:hover:text-[#F7931E]' },
-  { Icon: SiMysql, label: 'MySQL', color: 'hover:text-[#4479A1] dark:hover:text-[#4479A1]' },
-  { Icon: SiTailwindcss, label: 'Tailwind CSS', color: 'hover:text-[#38B2AC] dark:hover:text-[#38B2AC]' },
   { Icon: SiTypescript, label: 'TypeScript', color: 'hover:text-[#3178C6] dark:hover:text-[#3178C6]' },
-  { Icon: SiLangchain, label: 'LangChain', color: 'hover:text-[#00A67D] dark:hover:text-[#00A67D]' },
+  { Icon: SiTailwindcss, label: 'Tailwind CSS', color: 'hover:text-[#38B2AC] dark:hover:text-[#38B2AC]' },
+  
+  { Icon: SiMysql, label: 'MySQL', color: 'hover:text-[#4479A1] dark:hover:text-[#4479A1]' },
+
+  // --- Data Analysis ---
+  { Icon: SiScikitlearn, label: 'Scikit-learn', color: 'hover:text-[#F7931E] dark:hover:text-[#F7931E]' },
+  { Icon: SiPowerbi, label: 'Power BI', color: 'hover:text-[#F2C811] dark:hover:text-[#F2C811]' },
 ];
+
 
 export function StackCarousal() {
   return (
@@ -52,7 +65,7 @@ export function StackCarousal() {
             bg-gradient-to-br from-primary via-primary/90 to-primary/70 
             bg-clip-text text-transparent animate-gradient-xy"
           >
-            Technologies I Leverage
+            Technologies We Leverage
           </h2>
           
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground/90 dark:text-muted-foreground/80 

@@ -69,8 +69,7 @@ export function FeatureProjectsCarousal() {
             Featured Projects
           </h2>
           <p className="max-w-[900px] text-muted-foreground text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl/relaxed dark:text-muted-foreground/90">
-            Explore my recent projects that transform insights into impact through innovative data analysis, 
-            cutting-edge data science solutions, and dynamic web development.
+          {"Explore our recent projects that bring ideas to life through intelligent AI automation and agents, robust full-stack web development, and insightful data analysis."}
           </p>
         </div>
         

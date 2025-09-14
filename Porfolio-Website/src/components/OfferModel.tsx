@@ -11,7 +11,8 @@ export default function OfferModal() {
   const [dontShowAgain, setDontShowAgain] = useState(false);
 
   useEffect(() => {
-    const closed = typeof window !== "undefined" && localStorage.getItem(STORAGE_KEY);
+    const closed =
+      typeof window !== "undefined" && localStorage.getItem(STORAGE_KEY);
     if (!closed) {
       const t = setTimeout(() => setOpen(true), 350);
       return () => clearTimeout(t);
@@ -20,10 +21,18 @@ export default function OfferModal() {
 
   useEffect(() => {
     if (open) {
-      // Prevent body scroll when modal is open
-      document.body.style.overflow = 'hidden';
+      // Save current overflow styles to restore later
+      const originalOverflow = document.body.style.overflow;
+      const originalOverflowX = document.body.style.overflowX;
+
+      // Disable scrolling (vertical + horizontal)
+      document.body.style.overflow = "hidden";
+      document.body.style.overflowX = "hidden";
+
       return () => {
-        document.body.style.overflow = 'unset';
+        // Restore previous values
+        document.body.style.overflow = originalOverflow;
+        document.body.style.overflowX = originalOverflowX;
       };
     }
   }, [open]);
@@ -39,13 +48,13 @@ export default function OfferModal() {
 
   return (
     <>
-      {/* Portal-like overlay */}
+      {/* Overlay */}
       <div
-        className="fixed inset-0 z-[9999] flex items-center justify-center p-4 animate-fadeIn"
+        className="fixed inset-0 z-[9999] flex items-center justify-center p-4 animate-fadeIn overflow-x-hidden"
         aria-modal="true"
         role="dialog"
       >
-        {/* Backdrop with proper dim effect */}
+        {/* Backdrop */}
         <div
           onClick={() => close()}
           className="absolute inset-0 bg-black/40 dark:bg-black/60 backdrop-blur-sm transition-opacity duration-300"
@@ -54,7 +63,6 @@ export default function OfferModal() {
 
         {/* Modal Container */}
         <div className="relative z-10 w-full max-w-4xl mx-auto animate-modalSlideUp">
-          {/* Modal Content */}
           <div
             className="relative rounded-2xl overflow-hidden
                        bg-white dark:bg-gray-900
@@ -75,14 +83,16 @@ export default function OfferModal() {
               <X className="h-5 w-5 text-gray-700 dark:text-gray-200" />
             </button>
 
-            {/* Main Content */}
+            {/* Content */}
             <div className="p-6 sm:p-8 lg:p-10">
               <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start lg:items-center">
-                {/* Left Visual Section */}
-                <div className="flex-shrink-0 w-full lg:w-48 h-48 lg:h-40 flex items-center justify-center
+                {/* Left Visual */}
+                <div
+                  className="flex-shrink-0 w-full lg:w-48 h-48 lg:h-40 flex items-center justify-center
                                 rounded-2xl bg-gradient-to-br from-blue-600 to-purple-700 
                                 dark:from-blue-500 dark:to-purple-600 shadow-2xl
-                                transform hover:scale-105 transition-transform duration-300">
+                                transform hover:scale-105 transition-transform duration-300"
+                >
                   <div className="text-center">
                     <div className="flex items-center justify-center mb-3">
                       <Bot className="h-12 w-12 lg:h-10 lg:w-10 text-white mr-2" />
@@ -96,14 +106,16 @@ export default function OfferModal() {
                   </div>
                 </div>
 
-                {/* Right Content Section */}
+                {/* Right Content */}
                 <div className="flex-1 min-w-0">
-                  {/* Header Badge */}
+                  {/* Badge */}
                   <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
-                    <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold
+                    <span
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold
                                      bg-gradient-to-r from-yellow-100 to-orange-100 text-orange-800
                                      dark:from-yellow-900/40 dark:to-orange-900/40 dark:text-yellow-300
-                                     border border-yellow-200 dark:border-yellow-800/50">
+                                     border border-yellow-200 dark:border-yellow-800/50"
+                    >
                       <Bolt className="h-4 w-4 animate-pulse" />
                       Book your AI project now
                     </span>
@@ -112,9 +124,11 @@ export default function OfferModal() {
                     </div>
                   </div>
 
-                  {/* Main Headline */}
-                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black leading-tight 
-                                 text-gray-900 dark:text-white mb-4">
+                  {/* Headline */}
+                  <h3
+                    className="text-2xl sm:text-3xl lg:text-4xl font-black leading-tight 
+                                 text-gray-900 dark:text-white mb-4"
+                  >
                     {"Let's build your "}
                     <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                       AI Agent
@@ -122,7 +136,7 @@ export default function OfferModal() {
                     & Automation Workflows
                   </h3>
 
-                  {/* Feature Grid */}
+                  {/* Features */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                     <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-800/50 
                                     hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
@@ -172,9 +186,18 @@ export default function OfferModal() {
                     <div className="flex items-start gap-3 p-3 rounded-lg bg-gray-50 dark:bg-gray-800/50 
                                     hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                       <div className="flex-shrink-0 p-2 rounded-lg bg-orange-100 dark:bg-orange-900/30">
-                        <svg className="h-5 w-5 text-orange-600 dark:text-orange-400" viewBox="0 0 24 24" fill="none">
-                          <path d="M5 12h14M12 5v14" stroke="currentColor" strokeWidth="2" 
-                                strokeLinecap="round" strokeLinejoin="round" />
+                        <svg
+                          className="h-5 w-5 text-orange-600 dark:text-orange-400"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M5 12h14M12 5v14"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
                         </svg>
                       </div>
                       <div>
@@ -188,7 +211,7 @@ export default function OfferModal() {
                     </div>
                   </div>
 
-                  {/* Action Buttons */}
+                  {/* Buttons */}
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-4">
                     <Link
                       href="/contact"
@@ -198,7 +221,7 @@ export default function OfferModal() {
                                  shadow-lg hover:shadow-xl transform hover:scale-105 
                                  transition-all duration-200"
                     >
-                    Book Free Consultation
+                      Book Free Consultation
                     </Link>
 
                     <Link
@@ -214,15 +237,19 @@ export default function OfferModal() {
                   </div>
 
                   {/* Bottom Controls */}
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-4 
-                                  border-t border-gray-200 dark:border-gray-700">
+                  <div
+                    className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-4 
+                                  border-t border-gray-200 dark:border-gray-700"
+                  >
                     <div className="text-sm text-gray-500 dark:text-gray-400 italic">
-                      Transform your business with intelligent AI automation 
+                      Transform your business with intelligent AI automation
                     </div>
-                    
+
                     <div className="flex items-center gap-4">
-                      <label className="inline-flex items-center text-sm text-gray-600 dark:text-gray-400 
-                                        cursor-pointer select-none hover:text-gray-800 dark:hover:text-gray-200">
+                      <label
+                        className="inline-flex items-center text-sm text-gray-600 dark:text-gray-400 
+                                        cursor-pointer select-none hover:text-gray-800 dark:hover:text-gray-200"
+                      >
                         <input
                           type="checkbox"
                           checked={dontShowAgain}
@@ -252,25 +279,29 @@ export default function OfferModal() {
 
       <style jsx>{`
         @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
         }
-        
+
         @keyframes modalSlideUp {
-          from { 
-            opacity: 0; 
-            transform: translateY(20px) scale(0.95); 
+          from {
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
           }
-          to { 
-            opacity: 1; 
-            transform: translateY(0) scale(1); 
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
           }
         }
-        
+
         .animate-fadeIn {
           animation: fadeIn 0.3s ease-out;
         }
-        
+
         .animate-modalSlideUp {
           animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
