@@ -42,7 +42,7 @@ export default function Services() {
               Transform your business with cutting-edge data analysis, machine learning solutions, and modern web development.
             </p>
             <div className="flex justify-center gap-4 animate-slide-up animate-delay-400">
-              <Link href="/contact">
+              <Link href="/Contact">
                 <Button size="lg" className="rounded-full px-8">Get Started</Button>
               </Link>
               <Link href="#services">
@@ -240,12 +240,12 @@ export default function Services() {
               Let&apos;s work together to bring your ideas to life with cutting-edge technology and data-driven solutions.
             </p>
             <div className="flex justify-center gap-6 animate-slide-up animate-delay-400">
-              <Link href="/contact" className="w-full sm:w-auto">
+              <Link href="/Contact" className="w-full sm:w-auto">
                 <Button size="lg" className="w-full sm:w-auto rounded-full px-8 py-6 bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-500 shadow-xl hover:shadow-primary/25">
                   Get Started
                 </Button>
               </Link>
-              <Link href="/Portfolio/All">
+              <Link href="/portfolios?category=AI Agents">
                 <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full px-8 py-6 hover:bg-primary/10 hover:scale-105 transition-all duration-500">
                   View Portfolio
                 </Button>
@@ -253,13 +253,7 @@ export default function Services() {
             </div>
           </div>
 
-          {/* Right Decorative Element */}
-          <div className="hidden md:block relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-full animate-pulse" />
-            <div className="relative aspect-square rounded-full border border-primary/20 p-8 animate-spin-slow">
-              <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/20 animate-spin-reverse" />
-              </div>
-          </div>
+          
 
         </div>
       </section>
