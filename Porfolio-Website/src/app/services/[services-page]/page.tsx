@@ -313,7 +313,7 @@ export default function ServicesPage({ params }: { params: { "services-page": Se
                 {service.description}
               </p>
               <div className="flex flex-wrap gap-4 justify-center lg:justify-start animate-slide-up [animation-delay:600ms]">
-                <Link href="/contact">
+                <Link href="/Contact">
                   <Button size="lg" className="rounded-full px-8 hover:scale-105 transition-transform duration-300">
                     Get Started
                   </Button>
@@ -331,7 +331,7 @@ export default function ServicesPage({ params }: { params: { "services-page": Se
               <div className="relative aspect-square max-w-[500px] mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/0 rounded-full animate-rotate-slow" />
                 <Image
-                  src={`/images/BI Structure/rao-hamza-tariq.jpg`}
+                  src={`/images/BI Structure/rao-hamza-tariq.png`}
                   // src={`/images/${params["services-page"]}-illustration.png`}
                   alt={`${service.title} Illustration`}
                   width={500}
@@ -599,12 +599,12 @@ export default function ServicesPage({ params }: { params: { "services-page": Se
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-4 md:gap-6 animate-fade-in [animation-delay:600ms]">
-                    <Link href="/contact" className="w-full sm:w-auto">
+                    <Link href="/Contact" className="w-full sm:w-auto">
                       <Button size="lg" className="w-full sm:w-auto rounded-full px-8 py-6 bg-primary hover:bg-primary/90 hover:scale-105 transition-all duration-500 shadow-xl hover:shadow-primary/25">
                         Start Your Project
                       </Button>
                     </Link>
-                    <Link href={`/Portfolio/${params["services-page"]}`} className="w-full sm:w-auto">
+                    <Link href={`/portfolios?category=${params["services-page"]}`} className="w-full sm:w-auto">
                       <Button variant="outline" size="lg" className="w-full sm:w-auto rounded-full px-8 py-6 hover:bg-primary/10 hover:scale-105 transition-all duration-500">
                         Explore Our Work
                       </Button>
@@ -619,7 +619,7 @@ export default function ServicesPage({ params }: { params: { "services-page": Se
                     <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary/20 animate-spin-reverse" />
                     <div className="relative h-full w-full rounded-full bg-gradient-to-br from-primary/20 via-primary/5 to-transparent backdrop-blur-3xl overflow-hidden">
                       <Image
-                        src="/images/BI Structure/rao-hamza-tariq.jpg"
+                        src="/images/BI Structure/rao-hamza-tariq.png"
                         alt="Decorative service illustration"
                         fill
                         className="object-cover opacity-90 hover:scale-105 transition-transform duration-500"
