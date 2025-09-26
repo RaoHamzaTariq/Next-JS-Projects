@@ -51,7 +51,7 @@ export default function Home() {
             bg-gradient-to-r from-primary via-primary/80 to-primary/60 
             text-transparent bg-clip-text
             animate-gradient-x">
-            Full Stack Developer, Data Analyst & AI Agent Developer
+            AI Agents Developer, Full Stack Developer & Data Analyst
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground dark:text-muted-foreground/90 max-w-xl mx-auto md:mx-0
             hover:text-primary transition-colors duration-300">
