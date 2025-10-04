@@ -43,7 +43,7 @@ export default function About() {
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary to-primary/60 rounded-2xl blur-2xl opacity-25 group-hover:opacity-40 transition duration-500" />
                 <Image 
-                  src="/images/BI Structure/rao-hamza-tariq.jpg"
+                  src="/images/BI Structure/rao-hamza-tariq.png"
                   alt="Rao Hamza Tariq"
                   width={500}
                   height={500}
@@ -64,9 +64,7 @@ export default function About() {
                 </p>
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                I am a passionate Data Analyst and Full Stack Developer with expertise in transforming complex data into actionable insights 
-                and building modern web applications. With a strong foundation in both data science and web development, I bring a unique 
-                perspective to every project.
+                {`I'm an AI Agents Developer, Full-Stack Developer, and Data Analyst, specializing in building AI-powered chatbots, custom AI agents, and data-driven web applications that automate processes, enhance customer experiences, and drive business growth.`}
               </p>
               <div className="flex flex-wrap gap-3">
                 <Badge variant="secondary" className="px-4 py-2">Data Analysis</Badge>
@@ -109,13 +107,13 @@ export default function About() {
               },
               {
                 icon: <Brain className="h-8 w-8" />,
-                title: "Machine Learning",
-                description: "Developing predictive models and implementing AI solutions for business problems."
+                title: "AI Agents and Automation",
+                description: "Developing AI Agents and Automation systems and implementing AI solutions for business problems."
               },
               {
                 icon: <LineChart className="h-8 w-8" />,
-                title: "Data Visualization",
-                description: "Creating interactive dashboards and compelling data stories."
+                title: "Machine Learning",
+                description: "Creating predictive models and make their uses in real time problems."
               }
             ].map((skill, index) => (
               <Card key={index} className="p-6 hover:shadow-lg transition-shadow group backdrop-blur-sm bg-background/50">
@@ -175,32 +173,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* Statistics Section */}
-      <section className="py-24 relative overflow-hidden bg-primary/[0.03] dark:bg-primary/[0.05] border-t border-b border-primary/10">
-        <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-pattern dark:bg-grid-white/[0.05]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-background/20 to-transparent" />
-        <div className="container relative mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { icon: <Globe className="h-6 w-6" />, value: "10+", label: "Countries Reached" },
-              { icon: <Users className="h-6 w-6" />, value: "50+", label: "Happy Clients" },
-              { icon: <CheckCircle2 className="h-6 w-6" />, value: "100+", label: "Projects Completed" },
-              { icon: <Coffee className="h-6 w-6" />, value: "1000+", label: "Cups of Coffee" },
-            ].map((stat, index) => (
-              <div key={index} className="text-center space-y-2 group">
-                <div className="mx-auto w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-primary/5">
-                  {stat.icon}
-                </div>
-                <div className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Technical Skills Section */}
       <section className="py-24 relative bg-background">
         <div className="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-accent/5" />
@@ -210,9 +182,9 @@ export default function About() {
           </h2>
           <Tabs defaultValue="development" className="max-w-4xl mx-auto">
             <TabsList className="grid w-full grid-cols-3 mb-12">
-              <TabsTrigger value="development" className="text-base">Development</TabsTrigger>
-              <TabsTrigger value="data" className="text-base">Data Science</TabsTrigger>
-              <TabsTrigger value="tools" className="text-base">Tools</TabsTrigger>
+              <TabsTrigger value="development" className="text-base">Web Development</TabsTrigger>
+              <TabsTrigger value="ai" className="text-base">AI Agents</TabsTrigger>
+              <TabsTrigger value="data" className="text-base">Data Analysis </TabsTrigger>
             </TabsList>
             <TabsContent value="development" className="space-y-6 bg-card/50 p-8 rounded-xl border border-primary/10">
               {[
@@ -246,12 +218,12 @@ export default function About() {
                 </div>
               ))}
             </TabsContent>
-            <TabsContent value="tools" className="space-y-6 bg-card/50 p-8 rounded-xl border border-primary/10">
+            <TabsContent value="ai" className="space-y-6 bg-card/50 p-8 rounded-xl border border-primary/10">
               {[
-                { name: "Git & GitHub", value: 90 },
-                { name: "VS Code", value: 95 },
-                { name: "Jupyter Notebook", value: 90 },
-                { name: "Docker", value: 75 },
+                { name: "OpenAI Agents SDK / LangGraph", value: 90 },
+                { name: "N8N", value: 95 },
+                { name: "MCP Servers", value: 90 },
+                { name: "RAG", value: 80 },
               ].map((skill, index) => (
                 <div key={index} className="space-y-2">
                   <div className="flex justify-between">
