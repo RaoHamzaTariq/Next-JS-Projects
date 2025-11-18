@@ -513,53 +513,60 @@ export default function ServicesPage({ params }: { params: { "services-page": Se
           </div>
         </div>
       </section>
-      {/* Tools Section */}
-      <section className="py-24 relative overflow-hidden">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.02] to-primary/[0.05] dark:from-primary/[0.03] dark:to-primary/[0.08]" />
-        <div className="absolute inset-0 bg-grid-white/[0.02] bg-grid-pattern dark:bg-grid-white/[0.05] animate-fade-in" />
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse [animation-delay:1s]" />
+      {/* Tools & Technologies Section - Modernized UI */}
+      <section className="relative py-28 overflow-hidden">
+        {/* Modern, subtle animated background */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/5 via-background/95 to-background" />
+        <div className="pointer-events-none absolute inset-0 bg-grid-pattern opacity-10" />
+        <div className="pointer-events-none absolute -top-40 -right-40 w-96 h-96 rounded-full bg-primary/20 blur-3xl animate-pulse" />
+        <div className="pointer-events-none absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-primary/20 blur-3xl animate-pulse [animation-delay:1.2s]" />
 
-        <div className="container mx-auto px-4 relative">
-          {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-20 space-y-6 animate-fade-in">
-            <Badge variant="secondary" className="px-6 py-2 text-base font-medium rounded-full animate-bounce">
+        <div className="container mx-auto px-4 relative z-10">
+          {/* Sticky/fixed heading for clarity */}
+          <div className="mx-auto max-w-2xl text-center mb-20">
+            <Badge 
+              variant="secondary"
+              className="px-6 py-2 text-base font-medium rounded-full bg-gradient-to-r from-primary/20 to-primary/40 text-primary border-0 shadow-md mb-4 tracking-wide animate-bounce"
+            >
               Tools & Technologies
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent tracking-tight mb-3">
               Our Tech Stack
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              Leveraging cutting-edge tools and technologies to create powerful, scalable solutions.
+              Powering your vision with cutting-edge tools and future-ready technologies.
             </p>
           </div>
 
-          {/* Tools Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+          {/* Modern, interactive grid for tools */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {service.tools.map((tool, index) => (
-              <Card 
-                key={index} 
-                className="group relative overflow-hidden backdrop-blur-sm bg-background/50 border-primary/10 hover:border-primary/30 transition-all duration-500 animate-fade-in [animation-delay:var(--delay)]"
-                style={{ '--delay': `${index * 100}ms` } as React.CSSProperties}
+              <Card
+                key={tool}
+                className={`
+                  group relative rounded-3xl shadow-2xl bg-gradient-to-tl from-background/60 via-primary/10 to-background/70
+                  hover:scale-[1.04] active:scale-95 transition-all duration-400
+                  before:content-[''] before:absolute before:inset-0 before:rounded-3xl before:bg-primary/10 before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-500
+                  hover:shadow-primary/30 hover:shadow-2xl overflow-visible py-10 px-2 md:px-4
+                  flex flex-col items-center justify-center cursor-pointer
+                `}
+                style={{ '--delay': `${index * 80}ms` } as React.CSSProperties}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="relative p-8 flex flex-col items-center gap-4">
-                  {/* Tool Icon - You may want to add icons for each tool */}
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <span className="text-2xl text-primary">
-                      {tool.charAt(0)}
+                <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-primary/15 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-700 rounded-2xl pointer-events-none" />
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-gradient-to-tl from-primary/15 to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-700 rounded-2xl pointer-events-none" />
+
+                <div className="relative flex flex-col items-center gap-4 py-10 px-6">
+                  {/* Icon or placeholder: first letter or emoji/icon can be swapped for real brand icons */}
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-tr from-primary/10 via-primary/5 to-background flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300 shadow-md">
+                    <span className="text-3xl font-extrabold text-primary/90 select-none">
+                      {tool.match(/^[A-Za-z]/) ? tool.charAt(0) : "🛠️"}
                     </span>
                   </div>
-                  
-                  <h3 className="text-xl font-semibold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
+                  <h3 className="text-lg md:text-xl font-semibold bg-gradient-to-r from-primary/90 to-primary/60 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 text-center">
                     {tool}
                   </h3>
-
-                  {/* Decorative elements */}
-                  <div className="absolute top-0 left-0 w-16 h-16 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  {/* Subtle decorative underline on hover */}
+                  <div className="h-1 w-8 rounded-full bg-gradient-to-r from-primary/60 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1" />
                 </div>
               </Card>
             ))}
