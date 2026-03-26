@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BookOpen, CalendarBlank, ChartLine, CheckCircle, Newspaper, Sparkle } from "@phosphor-icons/react";
@@ -66,8 +68,8 @@ export default async function Home() {
     <div className="relative">
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(107,127,112,0.12),_transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(0,0,0,0.035),_transparent_28%)]" />
 
-      <main className="mx-auto flex max-w-7xl flex-col gap-16 px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
-        <section className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+      <main className="mx-auto flex max-w-7xl flex-col px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+        <section className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div className="space-y-8">
             <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.34em] text-muted-foreground">
               <span>BI Structure</span>
