@@ -1,85 +1,89 @@
-import React from "react";
 import { CiLocationOn, CiMail, CiPhone } from "react-icons/ci";
 
 const ContactUS = () => {
   return (
-    <div className="dark:bg-gray-900  font-[&#39;Inter&#39;]">
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 flex gap-8">
-        <div className="max-w-3xl mx-auto py-12">
-          <h1 className="text-4xl font-bold mb-8 text-center">Contact Us</h1>
-          <div className="dark:bg-gray-800 rounded-lg p-2 sm:p-8">
-            <form className="space-y-6">
-              <div>
-                <label className="">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  className=""
-                  placeholder="Your name"
-                />
-              </div>
-              <div>
-                <label className="">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  className=""
-                  placeholder="your@email.com"
-                />
-              </div>
-              <div>
-                <label className="">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  className=""
-                  placeholder="Message subject"
-                />
-              </div>
-              <div>
-                <label className="">
-                  Message
-                </label>
-                <textarea
-                  rows={6}
-                  className="w-full py-2 px-5 dark:bg-gray-700 border-gray-600  rounded-md focus:border-custom focus:ring-1 focus:ring-custom"
-                  placeholder="Your message"
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-custom text-white px-6 py-3 rounded-md hover:bg-custom/90"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="flex flex-col items-center">
-              <CiLocationOn className="text-5xl text-custom mb-4"/>
-              <h3 className="font-semibold mb-2">Address</h3>
-              <p className="">
-                123 Business Street
-                <br />
-                New York, NY 10001
-              </p>
-            </div>
-            <div className="flex flex-col items-center">
-              <CiPhone className="fas fa-phone text-5xl text-custom mb-4"/>
-              <h3 className="font-semibold mb-2">Phone</h3>
-              <p className="">+1 (555) 123-4567</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <CiMail className="text-5xl text-custom mb-4"/>
-              <h3 className="font-semibold mb-2">Email</h3>
-              <p className="">contact@example.com</p>
-            </div>
+    <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+      <section className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="space-y-6">
+          <p className="text-xs uppercase tracking-[0.34em] text-muted-foreground">
+            Contact
+          </p>
+          <h1 className="max-w-2xl text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+            Ask a question, suggest a topic, or send a note.
+          </h1>
+          <p className="max-w-2xl text-base leading-7 text-muted-foreground">
+            The contact page now matches the rest of the site with a quieter
+            surface, clearer labels, and a form that reads cleanly on mobile.
+          </p>
+
+          <div className="grid gap-4 sm:grid-cols-3">
+            {[
+              {
+                icon: CiLocationOn,
+                title: "Address",
+                text: "123 Business Street\nNew York, NY 10001",
+              },
+              {
+                icon: CiPhone,
+                title: "Phone",
+                text: "+1 (555) 123-4567",
+              },
+              {
+                icon: CiMail,
+                title: "Email",
+                text: "contact@example.com",
+              },
+            ].map((item) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={item.title}
+                  className="rounded-[2rem] border border-border bg-card p-5 shadow-sm"
+                >
+                  <Icon className="h-7 w-7 text-custom" />
+                  <h2 className="mt-4 text-sm font-semibold uppercase tracking-[0.28em] text-foreground">
+                    {item.title}
+                  </h2>
+                  <p className="mt-2 whitespace-pre-line text-sm leading-7 text-muted-foreground">
+                    {item.text}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
-      </div>
+
+        <div className="rounded-[2.5rem] border border-border bg-card p-6 shadow-sm sm:p-8">
+          <form className="space-y-5">
+            <div className="space-y-2">
+              <label htmlFor="name">Name</label>
+              <input id="name" type="text" placeholder="Your name" />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="email">Email</label>
+              <input id="email" type="email" placeholder="your@email.com" />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="subject">Subject</label>
+              <input id="subject" type="text" placeholder="Message subject" />
+            </div>
+            <div className="space-y-2">
+              <label htmlFor="message">Message</label>
+              <textarea
+                id="message"
+                rows={7}
+                placeholder="Your message"
+              />
+            </div>
+            <button
+              type="submit"
+              className="inline-flex w-full items-center justify-center rounded-full bg-custom px-6 py-3 text-sm font-medium text-custom-foreground shadow-sm transition hover:-translate-y-px hover:bg-custom/90"
+            >
+              Send message
+            </button>
+          </form>
+        </div>
+      </section>
     </div>
   );
 };
